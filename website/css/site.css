@@ -79,9 +79,9 @@ header.top{
   border-bottom:1px solid var(--rule);
 }
 header.top .bar{display:flex;align-items:center;justify-content:space-between;height:100%;gap:var(--s3)}
-.brand{display:flex;align-items:center;gap:.55rem;text-decoration:none;color:var(--ink);white-space:nowrap}
+.brand{display:flex;align-items:flex-end;gap:.55rem;text-decoration:none;color:var(--ink);white-space:nowrap}
 .brand .wd{font-family:var(--display);font-weight:600;font-size:1.18rem;letter-spacing:-.028em;line-height:1}
-.brand .u{margin-left:.4rem}
+.brand .u{margin-left:.4rem;position:relative;top:-1px}
 .brand .mark{display:block;height:17px;width:auto}
 .brand b{font-family:var(--display);font-weight:600;font-size:1.16rem;letter-spacing:-.028em}
 .brand .u{font-family:var(--ui);font-size:.56rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--sage)}
