@@ -20,6 +20,12 @@ until it reaches scale to sell. **Optimise for the operating business, not the e
 - **CLN:** parent, kept quiet in market. Footer and diligence only.
 - **US entity:** planned, not formed. Positioning is US-ready but allied/NATO-forward until it lands.
 - **Copy register:** pragmatic, protective, threat-framed. Hard-edged, never martial.
+- **Scope of destruction (2026-08-24):** Vault also destroys **seized narcotics and other
+  seized property** — confirmed today-capability per Tom. Ammunition stays the category
+  lead everywhere; narcotics appears as capability in LE copy only, never as a referenced
+  past-performance claim (all named references are ammunition work). Hero wording is now
+  "The property never leaves your custody" — "property" chosen to span ammunition,
+  narcotics, and seized assets in the buyer's own register.
 
 ## Four claims, always in this order
 
@@ -54,6 +60,13 @@ neg        #3D3D38   negative register     neg-2 #8C8A83
 - The **negative register** (conventional disposal, superseded claims) is carried by
   **weight and form — dark neutral with dashed strokes**, never by hue. No traffic-light palette.
 - Sage must own **whole surfaces**, not just labels. An accent bound only to hairlines is invisible.
+
+**Logo** — the mark is an italic geometric TWB wordmark, vectorised from the supplied
+original. `brand/twb-logo.svg` uses `currentColor`, so it inherits the colour of whatever
+it sits in; black and white variants exist for contexts that need a fixed fill.
+The lockup is **[mark] + "Designs"** — cap heights matched, baselines aligned, gap .32em.
+In HTML: `.wordmark` sets the type, the SVG runs at `height:.72em` with
+`vertical-align:baseline`. Never retype TWB as text — always the mark.
 
 **Type** — single face. `"Helvetica Neue", Helvetica, Arial, sans-serif`.
 Neue leads so macOS reaches intermediate weights (plain Helvetica/Arial ship only 400/700).
@@ -110,6 +123,12 @@ CLAUDE.md                     this file — read first
 
 strategy/
   TWB_Brand_Strategy_Platform.html    positioning, claims audit, voice, naming
+
+brand/
+  twb-logo.svg                        the mark. currentColor — inherits its context
+  twb-logo-black.svg / -white.svg     fixed-fill variants
+  twb-logo-black.png / -white.png     2400px rasters, for PowerPoint and anywhere
+                                      vector isn't accepted
 
 design-system/
   TWB_Design_System.html              palette, type, components, motion — source of truth
