@@ -94,6 +94,15 @@ Third-party testing commissioned; until it lands these are *our operating figure
    FEL, or DDTC registration. Claiming any is False Claims Act exposure. Canada IS a DFARS
    225.872 qualifying country — say that instead; it's checkable and underused.
 
+## Repo & deployment
+
+- GitHub: **https://github.com/tomyouzwyshyn/TWB-Designs** (private, branch `main`).
+  **Every change set gets committed and pushed** — this is a standing instruction (2026-08-24).
+- Vercel: project creation via the MCP connector 403s (same token problem as CLN — see
+  memory). The repo is import-ready: root directory `website`, framework Other, no build
+  command, `vercel.json` already in place. Once Tom imports it in the dashboard, every
+  push auto-deploys.
+
 ## Files
 
 ```
