@@ -1,0 +1,72 @@
+/* TWB Designs — design tokens
+   Source of truth: design-system/TWB_Design_System.html
+   Import this rather than hard-coding values. */
+
+:root{
+  /* ---- ground & ink ---- */
+  --ground:      #FFFFFF;
+  --surface:     #FAFAF8;   /* card / panel fill */
+  --surface-2:   #F2F1EC;   /* full-width neutral band */
+  --ink:         #000000;   /* headings */
+  --ink-2:       #33332F;   /* body */
+  --ink-3:       #6E6C66;   /* captions, secondary */
+  --rule:        #E2E1DA;   /* hairline, 1px, never heavier */
+  --rule-2:      #CFCDC4;
+  --hair:        rgba(0,0,0,.14);
+
+  /* ---- the only hue: sage. Action, material and proof alike. ---- */
+  --sage:        #66705F;   /* text-grade — 5.2:1 on white. ALL type under 18px */
+  --sage-mark:   #788274;   /* exact client sample — 4.0:1. Marks, borders, fills, large type only */
+  --sage-hot:    #8A9585;
+  --sage-wash:   #F1F3F0;   /* proof-surface ground */
+  --sage-hair:   #D3D9D0;   /* hairline inside a proof surface */
+
+  /* ---- negative register: carried by weight and form, NOT hue ---- */
+  --neg:         #3D3D38;   /* pair with dashed strokes */
+  --neg-2:       #8C8A83;   /* large text only — 3.4:1 */
+
+  /* ---- type ---- */
+  --display: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --body:    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --ui:      "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* weight climbs as size falls */
+  --w-display: 400;
+  --w-section: 500;
+  --w-sub:     600;
+  --w-body:    400;
+
+  /* tracking tightens as size grows; the UI layer goes the other way */
+  --track-display: -.028em;
+  --track-section: -.019em;
+  --track-sub:     -.009em;
+  --track-body:    -.008em;
+  --track-ui:       .09em;
+
+  /* ---- motion ---- */
+  --ease:            cubic-bezier(.4, 0, .2, 1);
+  --dur-interaction: 120ms;
+  --dur-reveal:      620ms;
+  --stagger:         70ms;
+
+  /* ---- space ---- */
+  --s1:.5rem; --s2:.875rem; --s3:1.375rem; --s4:2.25rem; --s5:3.5rem; --s6:6rem;
+  --measure: 62ch;
+  --radius: 0;              /* zero everywhere, no exceptions */
+}
+
+/* Corner bracket — the motif. Apply .brk to a positioned element
+   containing <i class="t"></i><i class="b"></i>. */
+.brk{ position:relative }
+.brk > i{ position:absolute; inset:0; pointer-events:none; transition:transform 120ms ease-in-out }
+.brk > i::before,
+.brk > i::after{ content:""; position:absolute; width:6px; height:6px;
+                 border-color:currentColor; border-style:solid; border-width:0 }
+.brk > i.t::before{ top:-3px; left:-3px;  border-top-width:1px; border-left-width:1px }
+.brk > i.t::after { top:-3px; right:-3px; border-top-width:1px; border-right-width:1px }
+.brk > i.b::before{ bottom:-3px; left:-3px;  border-bottom-width:1px; border-left-width:1px }
+.brk > i.b::after { bottom:-3px; right:-3px; border-bottom-width:1px; border-right-width:1px }
+
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{ transition:none !important; animation:none !important }
+}

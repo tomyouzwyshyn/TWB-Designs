@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Custody protocol — TWB Designs</title>
+<meta name="description" content="The Vault custody protocol: no transfers, your operators, no resale, a certificate of destruction against your own inventory identifiers.">
+<meta property="og:title" content="Custody protocol — TWB Designs">
+<meta property="og:description" content="The Vault custody protocol: no transfers, your operators, no resale, a certificate of destruction against your own inventory identifiers.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cg fill='none' stroke='%23788274' stroke-width='3'%3E%3Cpath d='M3 11V3h8'/%3E%3Cpath d='M21 3h8v8'/%3E%3Cpath d='M29 21v8h-8'/%3E%3Cpath d='M11 29H3v-8'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/tokens.css?v=9">
+<link rel="stylesheet" href="css/site.css?v=9">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="index.html"><img class="mark" src="assets/brand/twb-mark.png" alt="TWB"><b class="wd">Designs</b><span class="u">Ammunition destruction</span></a>
+    <nav class="links" aria-label="Primary">
+      <a href="index.html">Overview</a>
+      <a href="system.html">System</a>
+      <a href="custody.html" aria-current="page">Custody</a>
+      <a href="operators.html">Operators</a>
+      <a href="contracting.html">Contracting</a>
+    </nav>
+    <div class="hdr-cta"><a class="btn small solid" href="contact.html">Enquire<i class="t"></i><i class="b"></i></a></div>
+    <button class="menu-btn" aria-expanded="false" aria-controls="menu">Menu</button>
+  </div>
+</header>
+
+<div class="menu" id="menu">
+  <div class="m-bar">
+    <a class="brand" href="index.html"><img class="mark" src="assets/brand/twb-mark.png" alt="TWB"><b class="wd">Designs</b></a>
+    <button class="menu-btn m-close">Close</button>
+  </div>
+  <nav aria-label="Menu">
+    <a href="index.html"><span class="n">01</span>Overview</a>
+    <a href="system.html"><span class="n">02</span>System</a>
+    <a href="custody.html" aria-current="page"><span class="n">03</span>Custody</a>
+    <a href="operators.html"><span class="n">04</span>Operators</a>
+    <a href="contracting.html"><span class="n">05</span>Contracting</a>
+    <a href="contact.html"><span class="n">06</span>Contact</a>
+  </nav>
+  <div class="m-foot">TWB Designs Inc. &middot; Hamilton, Ontario &middot; In continuous service since 2001</div>
+</div>
+
+<main id="main">
+
+  <div class="page-head">
+    <div class="wrap">
+      <span class="eyebrow rv">Chain of custody</span>
+      <h1 class="rv">The file closes without a gap in it.</h1>
+      <p class="lede rv" data-d="1" style="margin-top:var(--s3)">Custody is not a feature of the machine. It is the reason to buy the machine.</p>
+    </div>
+  </div>
+
+  <section class="tight">
+    <div class="wrap">
+
+      <div class="loop rv">
+        <svg viewBox="0 0 760 268" role="img" aria-label="Two custody models compared. The conventional model moves material through a contractor and an external facility, creating three transfers outside the agency perimeter. The Vault model keeps every step inside the perimeter with no transfers.">
+          <defs><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,1 L6,4 L0,7 Z" fill="currentColor"/></marker></defs>
+          <g font-family="IBM Plex Mono, monospace" font-size="9" font-weight="600">
+
+            <g class="st st1">
+              <text x="0" y="12" fill="#3D3D38" letter-spacing="1.8">CONVENTIONAL &mdash; THREE DIVERSION WINDOWS</text>
+              <rect x="0" y="28" width="140" height="48" stroke-dasharray="4 3" stroke-width="1" stroke="#3D3D38" fill="none"/>
+              <text x="70" y="49" text-anchor="middle" font-weight="700" fill="#3D3D38" font-size="9.5" font-family="Helvetica, Helvetica Neue, Arial, sans-serif">Your evidence room</text>
+              <text x="70" y="63" text-anchor="middle" font-size="8.2" opacity=".8" fill="#3D3D38" font-weight="500" font-family="Helvetica, Helvetica Neue, Arial, sans-serif">inside perimeter</text>
+            </g>
+            <g class="st st2" color="#3D3D38">
+              <line x1="140" y1="52" x2="204" y2="52" stroke-width="1.1" stroke="#3D3D38" marker-end="url(#a)"/>
+              <rect x="208" y="28" width="128" height="48" stroke-width="1" stroke-dasharray="4 3" stroke="#3D3D38" fill="none"/>
+              <text x="272" y="49" text-anchor="middle" font-weight="700" fill="#3D3D38" font-size="9.5" font-family="Helvetica, Helvetica Neue, Arial, sans-serif">Contractor truck</text>
+              <text x="272" y="63" text-anchor="middle" font-size="8.2" opacity=".8" fill="#3D3D38" font-weight="500" font-family="Helvetica, Helvetica Neue, Arial, sans-serif">manifest &middot; transport risk</text>
+            </g>
+            <g class="st st3" color="#3D3D38">
+              <line x1="336" y1="52" x2="400" y2="52" stroke-width="1.1" stroke="#3D3D38" marker-end="url(#a)"/>
+              <rect x="404" y="28" width="128" height="48" stroke-width="1" stroke-dasharray="4 3" stroke="#3D3D38" fill="none"/>
+              <text x="468" y="49" text-anchor="middle" font-weight="700" fill="#3D3D38" font-size="9.5" font-family="Helvetica, Helvetica Neue, Arial, sans-serif">Their facility</text>
+              <text x="468" y="63" text-anchor="middle" font-size="8.2" opacity=".8" fill="#3D3D38" font-weight="500" font-family="Helvetica, Helvetica Neue, Arial, sans-serif">their people &middot; their site</text>
+            </g>
+            <g class="st st4" color="#3D3D38">
+              <line x1="532" y1="52" x2="596" y2="52" stroke-width="1.1" stroke="#3D3D38" marker-end="url(#a)"/>
+              <rect x="600" y="28" width="140" height="48" stroke-width="1" stroke-dasharray="4 3" stroke="#3D3D38" fill="none"/>
+              <text x="670" y="49" text-anchor="middle" font-weight="700" fill="#3D3D38" font-size="9.5" font-family="Helvetica, Helvetica Neue, Arial, sans-serif">Disposal receipt</text>
+              <text x="670" y="63" text-anchor="middle" font-size="8.2" opacity=".8" fill="#3D3D38" font-weight="500" font-family="Helvetica, Helvetica Neue, Arial, sans-serif">you take their word</text>
+            </g>
+            <g class="st st5">
+              <g stroke="#3D3D38" fill="none" stroke-width="1"><circle cx="172" cy="90" r="5"/><circle cx="368" cy="90" r="5"/><circle cx="564" cy="90" r="5"/>
+                <line x1="172" y1="83" x2="172" y2="97"/><line x1="165" y1="90" x2="179" y2="90"/>
+                <line x1="368" y1="83" x2="368" y2="97"/><line x1="361" y1="90" x2="375" y2="90"/>
+                <line x1="564" y1="83" x2="564" y2="97"/><line x1="557" y1="90" x2="571" y2="90"/></g>
+              <text x="0" y="112" fill="#3D3D38" font-size="8.6" font-weight="500" font-family="Helvetica, Helvetica Neue, Arial, sans-serif">Three transfers &middot; three signatures &middot; three intervals where the count can change</text>
+            </g>
+
+            <g class="st st6">
+              <text x="0" y="152" fill="#788274" letter-spacing="1.8">WITH VAULT &mdash; NONE</text>
+            </g>
+            <rect class="perim" pathLength="1" x="0" y="164" width="740" height="96" fill="none" stroke="#788274" stroke-width="1.4"/>
+            <g class="st st6" stroke="#788274" fill="none" stroke-width="1.4">
+              <path d="M0,174 L0,164 L10,164"/><path d="M730,164 L740,164 L740,174"/>
+              <path d="M0,250 L0,260 L10,260"/><path d="M730,260 L740,260 L740,250"/>
+            </g>
+            <g class="st st7">
+              <rect x="24" y="192" width="146" height="48" stroke-width="1.1" stroke="#788274" fill="none"/>
+              <text x="97" y="213" text-anchor="middle" font-weight="700" fill="#788274" font-size="9.5" font-family="Helvetica, Helvetica Neue, Arial, sans-serif">Your evidence room</text>
+              <text x="97" y="227" text-anchor="middle" font-size="8.2" opacity=".8" fill="#788274" font-weight="500" font-family="Helvetica, Helvetica Neue, Arial, sans-serif">signed out once</text>
+              <line x1="170" y1="216" x2="222" y2="216" stroke-width="1.1" stroke="#788274" color="#788274" marker-end="url(#a)"/>
+            </g>
+            <g class="st st8">
+              <rect x="226" y="192" width="146" height="48" stroke-width="1.1" stroke="#788274" fill="none"/>
+              <text x="299" y="213" text-anchor="middle" font-weight="700" fill="#788274" font-size="9.5" font-family="Helvetica, Helvetica Neue, Arial, sans-serif">Vault, on your pad</text>
+              <text x="299" y="227" text-anchor="middle" font-size="8.2" opacity=".8" fill="#788274" font-weight="500" font-family="Helvetica, Helvetica Neue, Arial, sans-serif">your two operators</text>
+              <line x1="372" y1="216" x2="424" y2="216" stroke-width="1.1" stroke="#788274" color="#788274" marker-end="url(#a)"/>
+              <rect x="428" y="192" width="146" height="48" stroke-width="1.1" stroke="#788274" fill="none"/>
+              <text x="501" y="213" text-anchor="middle" font-weight="700" fill="#788274" font-size="9.5" font-family="Helvetica, Helvetica Neue, Arial, sans-serif">Graded metal</text>
+              <text x="501" y="227" text-anchor="middle" font-size="8.2" opacity=".8" fill="#788274" font-weight="500" font-family="Helvetica, Helvetica Neue, Arial, sans-serif">weighed on site</text>
+            </g>
+            <g class="st st9">
+              <line x1="574" y1="216" x2="626" y2="216" stroke-width="1.1" stroke="#788274" color="#788274" marker-end="url(#a)"/>
+              <rect x="630" y="192" width="86" height="48" stroke-width="1.1" stroke="#788274" fill="#788274" fill-opacity=".1"/>
+              <text x="673" y="213" text-anchor="middle" font-weight="700" fill="#788274" font-size="9.5" font-family="Helvetica, Helvetica Neue, Arial, sans-serif">Certificate</text>
+              <text x="673" y="227" text-anchor="middle" font-size="8.2" opacity=".8" fill="#788274" font-weight="500" font-family="Helvetica, Helvetica Neue, Arial, sans-serif">file closed</text>
+              <text x="728" y="180" text-anchor="end" fill="#788274" font-size="8" font-weight="600" letter-spacing="1.4">YOUR PERIMETER</text>
+            </g>
+          </g>
+        </svg>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="bd-t">
+    <div class="wrap">
+      <div class="grid g2">
+        <div class="rv">
+          <h2>What we commit to.</h2>
+          <ul class="clean">
+            <li><strong>No transfer.</strong> The material does not leave your controlled area between the moment it is signed out and the moment it ceases to exist.</li>
+            <li><strong>Your operators.</strong> We train your people. TWB personnel are not required for routine operation and are never custodians of your material.</li>
+            <li><strong>No resale, no diversion.</strong> Recovered metal is graded and weighed on site under your observation. Nothing recovered from seized or surrendered property is resold as a component or a part.</li>
+            <li><strong>Certificate of destruction.</strong> Issued per cycle against your own inventory identifiers, in a form built to attach directly to your property record.</li>
+            <li><strong>Auditable.</strong> The protocol is written, versioned, and available for your internal audit or inspector general review before you buy anything.</li>
+          </ul>
+        </div>
+        <div class="rv" data-d="1">
+          <div class="card marked"><i class="t"></i><i class="b"></i>
+            <span class="tag" style="color:var(--sage)">Why this clause exists</span>
+            <h3>The resale problem</h3>
+            <p>In January 2024 the Michigan State Police suspended a firearms-destruction contract after it emerged that the contractor was reselling salvaged parts from destroyed weapons.</p>
+            <p>Destruction vendors who monetise recovered components have a structural conflict with the agencies they serve. We publish the no-resale commitment first, in writing, because it is the question a property custodian should ask and rarely gets answered.</p>
+            <p>The economics still work &mdash; because our recovered value comes from graded metal, never from parts. The incentive points the same way yours does.</p>
+          </div>
+          <div class="note rv" data-d="2" style="margin-top:var(--s3)">
+            <p><strong>Status.</strong> The formal chain-of-custody and certificate-of-destruction protocol is being documented for independent audit. <span class="chip pend">In preparation</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band proof">
+    <div class="wrap narrow">
+      <span class="eyebrow rv">Remote operation</span>
+      <h2 class="rv">Your people, at the panel. Nobody at the chamber.</h2>
+      <p class="rv" data-d="1">Vault runs on remote start and remote stop, with interlocked controls and over-pressure relief. During a cycle the operators are at standoff distance &mdash; the protocol has no step that puts a person next to live ordnance.</p>
+      <figure class="media rv" data-video="assets/video/control.mp4">
+        <div class="media-frame" style="aspect-ratio:16/9">
+          <div class="media-ph">
+            <span class="ph-cross" aria-hidden="true"></span>
+            <span class="ph-tag">Footage slot &mdash; assets/video/control.mp4</span>
+            <span class="ph-note">Suggested footage: operators at the remote panel, the standoff distance visible in one wide shot, a start/stop sequence. People and procedure &mdash; not product beauty shots.</span>
+          </div>
+        </div>
+        <figcaption class="media-cap"><span><b>FIELD 04</b> &nbsp;Remote operation</span><span>Remote start &middot; remote stop</span></figcaption>
+        <i class="t"></i><i class="b"></i>
+      </figure>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap">
+      <span class="eyebrow rv">Next step</span>
+      <h2 class="rv" data-d="1">If we are the wrong answer, we will say so on the first call.</h2>
+      <p class="rv" data-d="2">Bring us the requirement as it actually is &mdash; calibre mix, volumes, custody constraints. You will get a straight fit assessment, not a pitch.</p>
+      <div class="cta-actions rv" data-d="3">
+        <a class="btn solid" href="contact.html">Make an enquiry<i class="t"></i><i class="b"></i></a>
+        <a class="btn" href="contact.html?req=capstat">Request the capability statement<i class="t"></i><i class="b"></i></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="claimline" aria-label="The four claims">
+  <div class="wrap">
+    <span><b>01</b>Same day &middot; on site &middot; your own people</span>
+    <span><b>02</b>Zero transfers &middot; zero diversion windows</span>
+    <span><b>03</b>Recovered, not released</span>
+    <span><b>04</b>Nobody stands over it</span>
+  </div>
+</div>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>TWB Designs Inc.</h4>
+        <p>Mobile ammunition destruction equipment. Hamilton, Ontario, Canada. In continuous service since 2001, co-developed with the Royal Canadian Mounted Police.</p>
+      </div>
+      <div>
+        <h4>Site</h4>
+        <ul>
+          <li><a href="index.html">Overview</a></li>
+          <li><a href="system.html">System</a></li>
+          <li><a href="custody.html">Custody</a></li>
+          <li><a href="operators.html">Operators</a></li>
+          <li><a href="contracting.html">Contracting</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Enquiries</h4>
+        <ul>
+          <li><a href="contact.html">Agency &amp; law enforcement</a></li>
+          <li><a href="contact.html">Commercial &amp; industrial</a></li>
+          <li><a href="contact.html">Allied &amp; international</a></li>
+          <li><a href="contact.html?req=capstat">Capability statement</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:enquiries@twbdesigns.example">enquiries@twbdesigns.example</a></li>
+          <li>+1 (___) ___&ndash;____</li>
+          <li>[Street address]<br>Hamilton, Ontario, Canada</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot-mark">
+      <div class="lock" role="img" aria-label="TWB Designs — ammunition destruction — Hamilton, Ontario">
+        <b class="c c1"></b><b class="c c2"></b><b class="c c3"></b><b class="c c4"></b>
+        <div class="word-lock"><img class="word-img" src="assets/brand/twb-mark.png" alt="TWB"><span class="wd">Designs</span></div>
+        <div class="sub">Ammunition destruction &middot; Hamilton, Ontario</div>
+      </div>
+    </div>
+    <div class="legal">
+      <div class="rowline">
+        <span>&copy; 2026 TWB Designs Inc. &middot; Hamilton, Ontario, Canada</span>
+        <span>A CLN company</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/site.js"></script>
+</body>
+</html>

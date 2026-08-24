@@ -1,0 +1,355 @@
+<title>TWB Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+:root{
+  --ground:#FFFFFF; --surface:#FAFAF8; --surface-2:#F2F1EC;
+  --ink:#000000; --ink-2:#33332F; --ink-3:#6E6C66;
+  --rule:#E2E1DA; --rule-2:#CFCDC4; --hair:rgba(0,0,0,.14);
+  --sage:#66705F; --sage-mark:#788274; --sage-hot:#8A9585;
+  --neg:#3D3D38; --neg-2:#8C8A83;
+  --sage-wash:#F1F3F0; --sage-hair:#D3D9D0;
+  --ok:var(--sage);
+  --ease:cubic-bezier(.4,0,.2,1);
+  --measure:64ch;
+  --s2:.875rem; --s3:1.375rem; --s4:2.25rem; --s5:3.5rem;
+  --display:"Helvetica Neue", Helvetica, Arial, sans-serif;
+  --body:"Helvetica Neue", Helvetica, Arial, sans-serif;
+  --ui:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);font-size:1rem;line-height:1.58;letter-spacing:-.008em;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(1.25rem,4vw,3rem)}
+h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance}
+h1{font-size:clamp(2.2rem,5.6vw,3.9rem);font-weight:400;letter-spacing:-.028em;line-height:1.01}
+h2{font-size:clamp(1.55rem,3.1vw,2.15rem);font-weight:500;letter-spacing:-.019em;line-height:1.11;margin-bottom:var(--s3)}
+h3{font-size:1.05rem;font-weight:600;letter-spacing:-.009em;margin-bottom:.5rem}
+p{margin:0 0 1em;max-width:var(--measure);color:var(--ink-2)}
+code,.m{font-family:var(--ui);font-size:.8em;letter-spacing:.02em}
+.ui,.eyebrow,.tag,th,.chip{font-family:var(--ui);text-transform:uppercase;letter-spacing:.09em}
+.eyebrow{display:block;font-size:.66rem;font-weight:600;color:var(--sage);margin-bottom:var(--s2)}
+.tag{font-size:.6rem;font-weight:600;color:var(--ink-3);display:block;margin-bottom:.55rem}
+
+header.mast{padding:clamp(3rem,7vw,5rem) 0 clamp(2rem,4vw,3rem);border-bottom:1px solid var(--ink)}
+.mast .meta{font-family:var(--ui);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-bottom:clamp(2rem,5vw,3.5rem)}
+.mast .meta b{color:var(--sage);font-weight:600}
+.mast p.lede{font-size:1.2rem;max-width:56ch;margin-top:var(--s4);letter-spacing:-.012em;color:var(--ink-2)}
+
+section{padding:clamp(2.5rem,5.5vw,4rem) 0;border-bottom:1px solid var(--rule)}
+section:last-of-type{border-bottom:0}
+.head{display:grid;grid-template-columns:3.2rem 1fr;gap:var(--s3);margin-bottom:var(--s4);align-items:start}
+.num{font-family:var(--ui);font-size:.72rem;font-weight:600;color:var(--sage);border-top:2px solid var(--sage);padding-top:.5rem}
+
+.grid{display:grid;gap:var(--s3)}
+@media(min-width:760px){.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}}
+
+/* swatches */
+.sw-grid{display:grid;gap:0;border:1px solid var(--rule);grid-template-columns:1fr}
+@media(min-width:700px){.sw-grid{grid-template-columns:repeat(3,1fr)}}
+.sw{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.sw .chip-c{height:88px}
+.sw .body{padding:var(--s3)}
+.sw .nm{font-family:var(--display);font-weight:600;font-size:1rem;letter-spacing:-.013em;margin-bottom:.2rem}
+.sw .hex{font-family:var(--ui);font-size:.74rem;color:var(--ink-3);letter-spacing:.04em}
+.sw .use{font-size:.86rem;color:var(--ink-2);margin-top:.5rem;line-height:1.45}
+.sw .ratio{font-family:var(--ui);font-size:.62rem;letter-spacing:.07em;text-transform:uppercase;margin-top:.6rem;display:inline-block;padding:.22rem .42rem;border:1px solid currentColor}
+.pass{color:var(--sage)} .warn{color:var(--neg)}
+
+/* spec table */
+.scroller{overflow-x:auto;border:1px solid var(--rule);background:var(--surface);margin:var(--s3) 0}
+table{border-collapse:collapse;width:100%;font-size:.9rem;min-width:520px}
+th{text-align:left;font-size:.58rem;font-weight:600;color:var(--ink-3);padding:.8rem var(--s2);border-bottom:1px solid var(--rule-2);white-space:nowrap}
+td{padding:.72rem var(--s2);border-bottom:1px solid var(--rule);vertical-align:top;color:var(--ink-2);line-height:1.45}
+tr:last-child td{border-bottom:0}
+td.k{color:var(--ink);font-weight:500;white-space:nowrap;width:34%}
+td.v{font-family:var(--ui);font-size:.76rem;color:var(--ink);letter-spacing:.02em}
+
+/* live component demos */
+.demo{border:1px solid var(--rule);background:var(--surface);padding:clamp(1.5rem,4vw,2.5rem);display:flex;flex-wrap:wrap;gap:var(--s3);align-items:center}
+.btn{position:relative;display:inline-block;border-radius:0;cursor:pointer;font-family:var(--ui);text-transform:uppercase;letter-spacing:.09em;
+  font-size:.72rem;font-weight:600;padding:1.05rem 1.5rem;text-decoration:none;
+  border:1px solid var(--hair);background:rgba(0,0,0,.028);color:var(--ink);
+  transition:background-color .12s var(--ease),color .12s var(--ease),border-color .12s var(--ease)}
+.btn>i{position:absolute;inset:0;pointer-events:none;color:var(--ink);transition:transform .12s ease-in-out,color .12s var(--ease)}
+.btn>i::before,.btn>i::after{content:"";position:absolute;width:6px;height:6px;border-color:currentColor;border-style:solid;border-width:0}
+.btn>i.t::before{top:-3px;left:-3px;border-top-width:1px;border-left-width:1px}
+.btn>i.t::after{top:-3px;right:-3px;border-top-width:1px;border-right-width:1px}
+.btn>i.b::before{bottom:-3px;left:-3px;border-bottom-width:1px;border-left-width:1px}
+.btn>i.b::after{bottom:-3px;right:-3px;border-bottom-width:1px;border-right-width:1px}
+.btn:hover{background:var(--sage);border-color:var(--sage);color:#fff}
+.btn:hover>i{color:var(--sage);transform:scale(1.028)}
+.btn.solid{background:var(--ink);border-color:var(--ink);color:#fff}
+.btn.solid:hover{background:var(--sage);border-color:var(--sage)}
+
+.card{position:relative;background:var(--surface);border:1px solid var(--rule);padding:var(--s3)}
+.card p{margin:0;max-width:none;font-size:.94rem}
+.card.marked>i{position:absolute;inset:0;pointer-events:none;color:var(--sage-mark)}
+.card.marked>i::before,.card.marked>i::after{content:"";position:absolute;width:6px;height:6px;border-color:currentColor;border-style:solid;border-width:0}
+.card.marked>i.t::before{top:-1px;left:-1px;border-top-width:1px;border-left-width:1px}
+.card.marked>i.t::after{top:-1px;right:-1px;border-top-width:1px;border-right-width:1px}
+.card.marked>i.b::before{bottom:-1px;left:-1px;border-bottom-width:1px;border-left-width:1px}
+.card.marked>i.b::after{bottom:-1px;right:-1px;border-bottom-width:1px;border-right-width:1px}
+
+.chip{display:inline-flex;align-items:center;gap:.4rem;font-size:.58rem;font-weight:600;padding:.3rem .5rem;border:1px solid currentColor;border-radius:0}
+.chip::before{content:"";width:.34rem;height:.34rem;background:currentColor}
+.chip.held{color:var(--sage)} .chip.pend{color:var(--sage)} .chip.na{color:var(--ink-3)}
+
+.type-row{border-top:1px solid var(--rule);padding:var(--s3) 0;display:grid;gap:.6rem}
+.type-row:first-of-type{border-top:1px solid var(--ink)}
+.type-row .spec{font-family:var(--ui);font-size:.62rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3)}
+
+.do-dont{display:grid;gap:0;border:1px solid var(--rule)}
+@media(min-width:720px){.do-dont{grid-template-columns:1fr 1fr}}
+.dd{padding:var(--s3);border-bottom:1px solid var(--rule)}
+@media(min-width:720px){.dd.no{border-right:1px solid var(--rule)}}
+.dd p{margin:0;max-width:none;font-size:.94rem}
+.dd .lbl{font-family:var(--ui);font-size:.6rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;display:block;margin-bottom:.55rem}
+.dd.no .lbl{color:var(--neg)} .dd.yes .lbl{color:var(--sage)}
+
+ul.clean{list-style:none;padding:0;margin:0 0 1em;max-width:var(--measure)}
+ul.clean li{padding-left:1.3rem;position:relative;margin-bottom:.55em;color:var(--ink-2)}
+ul.clean li::before{content:"";position:absolute;left:0;top:.62em;width:.42rem;height:1px;background:var(--sage)}
+.card ul.clean{max-width:none;margin:0}
+
+footer{padding:clamp(2.5rem,5vw,3.5rem) 0;border-top:1px solid var(--ink);font-family:var(--ui);font-size:.72rem;letter-spacing:.02em;color:var(--ink-3);line-height:1.6}
+footer p{max-width:78ch;color:var(--ink-3)}
+</style>
+
+<div class="wrap">
+<header class="mast">
+  <div class="meta">
+    <span>TWB Designs Inc. &middot; <b>Design System</b></span>
+    <span>v1.0 &middot; August 2026</span>
+  </div>
+  <h1>The system,<br>in one page.</h1>
+  <p class="lede">Every asset TWB produces &mdash; site, deck, capability statement, one-pager, trailer livery &mdash; is built from what is on this page. If a value is not here, it is not in the system.</p>
+</header>
+
+<!-- 01 COLOUR -->
+<section>
+  <div class="head">
+    <div class="num">01</div>
+    <div>
+      <span class="eyebrow">Colour</span>
+      <h2>One accent. Everything else is black, grey, or white.</h2>
+      <div class="card" style="margin-bottom:var(--s3);border-color:var(--sage)">
+        <span class="tag" style="color:var(--sage)">The rule that keeps sage visible</span>
+        <p>An accent that is only bound to labels and hairlines is invisible in practice, whatever its hex. <strong>Sage must own whole surfaces, not just marks.</strong> Every section that carries material, recovery, specification or evidence sits on the sage wash with sage hairlines &mdash; hero proof strip, track record, recovery, spec tables, capability cards. If a page has proof on it, that proof is visibly green.</p>
+      </div>
+      <p>Sage is the only hue in the system. It carries <strong>action, material and proof</strong> alike &mdash; buttons on hover, section numbers, labels, recovered metal, track record, specifications. There is no second accent competing with it.</p>
+      <p>The negative register &mdash; conventional disposal, superseded claims, the thing being argued against &mdash; is carried by <strong>weight and form, not colour</strong>: a dark neutral with dashed strokes against solid sage. Inert against live. That reads more precisely than red-versus-green, and it avoids a traffic-light palette in front of buyers who see enough of those.</p>
+    </div>
+  </div>
+
+  <div class="sw-grid">
+    <div class="sw"><div class="chip-c" style="background:#FFFFFF;border-bottom:1px solid var(--rule)"></div><div class="body">
+      <div class="nm">Ground</div><div class="hex">#FFFFFF</div>
+      <p class="use">The page. Never tinted, never gradient-filled. All surfaces sit on white.</p></div></div>
+    <div class="sw"><div class="chip-c" style="background:#000000"></div><div class="body">
+      <div class="nm">Display black</div><div class="hex">#000000</div>
+      <p class="use">All headings, at weight 900. Also the primary button fill.</p>
+      <span class="ratio pass">21.0 : 1 &middot; AAA</span></div></div>
+    <div class="sw"><div class="chip-c" style="background:#33332F"></div><div class="body">
+      <div class="nm">Body ink</div><div class="hex">#33332F</div>
+      <p class="use">Running text. Slightly warm, never pure black at paragraph size.</p>
+      <span class="ratio pass">12.4 : 1 &middot; AAA</span></div></div>
+
+    <div class="sw"><div class="chip-c" style="background:#3D3D38"></div><div class="body">
+      <div class="nm">Negative</div><div class="hex">#3D3D38</div>
+      <p class="use">The inert register &mdash; conventional disposal chains, superseded claims, anything being argued against. Always paired with a dashed stroke or reduced weight, never with hue.</p>
+      <span class="ratio pass">10.4 : 1 &middot; AAA</span></div></div>
+    <div class="sw"><div class="chip-c" style="background:#8C8A83"></div><div class="body">
+      <div class="nm">Negative muted</div><div class="hex">#8C8A83</div>
+      <p class="use">Captions and secondary text inside a negative block. Large text and non-essential detail only.</p>
+      <span class="ratio warn">3.4 : 1 &middot; large only</span></div></div>
+    <div class="sw"><div class="chip-c" style="background:#788274"></div><div class="body">
+      <div class="nm">Sage mark</div><div class="hex">#788274</div>
+      <p class="use">The sampled value. Corner brackets, perimeter rules, borders, fills, large type.</p>
+      <span class="ratio warn">4.0 : 1 &middot; not small text</span></div></div>
+
+    <div class="sw"><div class="chip-c" style="background:#66705F"></div><div class="body">
+      <div class="nm">Sage</div><div class="hex">#66705F</div>
+      <p class="use">Text-grade sage. Every sage label, heading and caption under 18px uses this, not the mark value.</p>
+      <span class="ratio pass">5.2 : 1 &middot; AA</span></div></div>
+    <div class="sw"><div class="chip-c" style="background:#E2E1DA"></div><div class="body">
+      <div class="nm">Rule</div><div class="hex">#E2E1DA</div>
+      <p class="use">Hairlines, card borders, table dividers. 1px, never heavier.</p></div></div>
+    <div class="sw"><div class="chip-c" style="background:#FAFAF8;border-bottom:1px solid var(--rule)"></div><div class="body">
+      <div class="nm">Surface</div><div class="hex">#FAFAF8</div>
+      <p class="use">Card and panel fill. <span class="m">#F2F1EC</span> for full-width bands.</p></div></div>
+    <div class="sw"><div class="chip-c" style="background:#F1F3F0;border-bottom:1px solid var(--rule)"></div><div class="body">
+      <div class="nm">Sage wash</div><div class="hex">#F1F3F0</div>
+      <p class="use">Proof-surface ground. Any section carrying material, recovery or evidence sits on this rather than neutral surface.</p></div></div>
+    <div class="sw"><div class="chip-c" style="background:#D3D9D0"></div><div class="body">
+      <div class="nm">Sage hair</div><div class="hex">#D3D9D0</div>
+      <p class="use">Hairline on proof surfaces. Replaces the neutral rule inside any sage-grounded section.</p></div></div>
+  </div>
+
+  <div class="note" style="margin-top:var(--s3)">
+    <p class="m" style="font-size:.78rem;text-transform:none;letter-spacing:0;color:var(--ink-3);max-width:78ch">Contrast ratios are against white. Anything marked <em>not small text</em> fails WCAG AA at body size &mdash; use the text-grade value instead. This is why sage exists as two values rather than one.</p>
+  </div>
+</section>
+
+<!-- 02 TYPE -->
+<section>
+  <div class="head">
+    <div class="num">02</div>
+    <div>
+      <span class="eyebrow">Typography</span>
+      <h2>One text face, worked light. Scale does more than weight.</h2>
+      <p>Headings run <strong>400 at display size</strong>, <strong>500 at section level</strong>, <strong>600 at sub-head</strong> &mdash; the weight climbing as the size falls, because large type carries on its own and small type does not. Body sits at 400 with a slight negative track (&minus;.008em) &mdash; Helvetica Neue sets a touch loose at text size and tightens well. The scale does the hierarchy; weight only assists. Headings track tight (&minus;.028em at display, easing to &minus;.009em) because a grotesque tightens as it grows.</p><p><strong>Helvetica Neue leads the font stack.</strong> Plain Helvetica and Arial ship only Regular and Bold, so a request for 500 or 600 would snap to one or the other. Neue carries the intermediate weights on macOS; elsewhere the design degrades to 400/700 and still holds, just with less finesse in the middle.</p>
+      <p><strong>IBM Plex Mono</strong> uppercase for the entire UI layer &mdash; navigation, labels, buttons, specifications, status. This is the only place a second face appears, and it is doing a different job: the mono register is what makes a page read as an instrument rather than a brochure.</p>
+      <p>Helvetica ships on macOS and resolves to Arial elsewhere &mdash; metrically identical, so layouts hold exactly. Nothing in this system requires a commercial font licence.</p>
+    </div>
+  </div>
+
+  <div class="type-row">
+    <div class="spec">Display / H1 &mdash; Helvetica 400 &middot; &minus;.028em &middot; clamp(2.4rem, 6.5vw, 4.7rem)</div>
+    <div style="font-family:var(--display);font-weight:400;letter-spacing:-.028em;font-size:clamp(2.1rem,5.2vw,3.6rem);line-height:1.01">It never leaves your custody.</div>
+  </div>
+  <div class="type-row">
+    <div class="spec">Section / H2 &mdash; Helvetica 500 &middot; &minus;.019em &middot; clamp(1.65rem, 3.4vw, 2.5rem)</div>
+    <div style="font-family:var(--display);font-weight:500;letter-spacing:-.019em;font-size:clamp(1.6rem,3.2vw,2.25rem);line-height:1.1">Every transfer is a window.</div>
+  </div>
+  <div class="type-row">
+    <div class="spec">Sub / H3 &mdash; Helvetica 600 &middot; &minus;.009em &middot; 1.13rem</div>
+    <div style="font-family:var(--display);font-weight:600;letter-spacing:-.009em;font-size:1.13rem">Zero transfers. Zero diversion windows.</div>
+  </div>
+  <div class="type-row">
+    <div class="spec">Body &mdash; Helvetica 400 &middot; 1.01rem &middot; 1.6 &middot; &minus;.008em &middot; max 62ch</div>
+    <div style="color:var(--ink-2);max-width:62ch">Ammunition that leaves your perimeter is ammunition you no longer control. TWB destroys it where it sits.</div>
+  </div>
+  <div class="type-row">
+    <div class="spec">UI label &mdash; mono &middot; 600 &middot; uppercase &middot; .09em &middot; .68rem</div>
+    <div class="ui" style="font-size:.68rem;font-weight:600;color:var(--sage)">Chain of custody</div>
+  </div>
+  <div class="type-row">
+    <div class="spec">Data &middot; specs &middot; identifiers &mdash; mono &middot; tabular</div>
+    <div class="m" style="font-size:.85rem;font-variant-numeric:tabular-nums">60 lb/hr &middot; .50 cal &middot; 11,500 lb &middot; 750 ft</div>
+  </div>
+</section>
+
+<!-- 03 COMPONENTS -->
+<section>
+  <div class="head">
+    <div class="num">03</div>
+    <div>
+      <span class="eyebrow">Components</span>
+      <h2>The corner bracket is the motif. It carries most of the character.</h2>
+      <p>A targeting mark in the defence-tech vocabulary and a <strong>perimeter</strong> mark in TWB&rsquo;s. Same form &mdash; and for TWB it encodes the entire strategy. Every radius in the system is zero.</p>
+    </div>
+  </div>
+
+  <div class="demo">
+    <a class="btn solid" href="#" onclick="return false">Primary action<i class="t"></i><i class="b"></i></a>
+    <a class="btn" href="#" onclick="return false">Secondary action<i class="t"></i><i class="b"></i></a>
+    <span class="chip held">Held</span>
+    <span class="chip pend">In progress</span>
+    <span class="chip na">Not applicable</span>
+  </div>
+
+  <div class="scroller">
+    <table>
+      <thead><tr><th>Property</th><th>Value</th></tr></thead>
+      <tbody>
+        <tr><td class="k">Border radius</td><td class="v">0 &mdash; everywhere, no exceptions</td></tr>
+        <tr><td class="k">Button border</td><td class="v">1px solid rgba(0,0,0,.14)</td></tr>
+        <tr><td class="k">Button fill</td><td class="v">rgba(0,0,0,.028)</td></tr>
+        <tr><td class="k">Button type</td><td class="v">mono &middot; .72rem &middot; 600 &middot; .09em &middot; uppercase</td></tr>
+        <tr><td class="k">Button padding</td><td class="v">1.05rem 1.5rem</td></tr>
+        <tr><td class="k">Bracket size</td><td class="v">6 &times; 6 px</td></tr>
+        <tr><td class="k">Bracket offset</td><td class="v">&minus;3px outside the box</td></tr>
+        <tr><td class="k">Bracket stroke</td><td class="v">1px on two adjacent sides each</td></tr>
+        <tr><td class="k">Hover &mdash; fill</td><td class="v">→ #3D3D38, type → #FFFFFF</td></tr>
+        <tr><td class="k">Hover &mdash; brackets</td><td class="v">scale(1.028), colour → #3D3D38</td></tr>
+        <tr><td class="k">Card bracket offset</td><td class="v">&minus;1px, colour #788274</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="grid g3" style="margin-top:var(--s3)">
+    <div class="card marked"><i class="t"></i><i class="b"></i><span class="tag">Marked card</span><p>Sage brackets sit flush at &minus;1px. Used where the card carries proof &mdash; references, recovered materials, capability.</p></div>
+    <div class="card"><span class="tag">Plain card</span><p>No brackets. Used for supporting or gated content, so the marked cards stay meaningful.</p></div>
+    <div class="card"><span class="tag">Rule</span><p>If every card is marked, the mark means nothing. Roughly half, at most.</p></div>
+  </div>
+</section>
+
+<!-- 04 MOTION -->
+<section>
+  <div class="head">
+    <div class="num">04</div>
+    <div>
+      <span class="eyebrow">Motion</span>
+      <h2>Mechanical, not expressive.</h2>
+      <p>Nothing bounces, nothing floats, nothing eases out slowly. Movement in this system reads as a mechanism actuating &mdash; short, linear-ish, and over before you notice it.</p>
+    </div>
+  </div>
+  <div class="scroller">
+    <table>
+      <thead><tr><th>Behaviour</th><th>Spec</th></tr></thead>
+      <tbody>
+        <tr><td class="k">Easing curve</td><td class="v">cubic-bezier(.4, 0, .2, 1)</td></tr>
+        <tr><td class="k">Interaction</td><td class="v">120ms &mdash; buttons, chips, links</td></tr>
+        <tr><td class="k">Bracket travel</td><td class="v">120ms ease-in-out &middot; scale(1.028)</td></tr>
+        <tr><td class="k">Scroll reveal</td><td class="v">620ms &middot; opacity 0→1 &middot; translateY 14px→0</td></tr>
+        <tr><td class="k">Stagger</td><td class="v">70ms per step &middot; 4 steps maximum</td></tr>
+        <tr><td class="k">Reduced motion</td><td class="v">all reveal + transition disabled</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="m" style="font-size:.78rem;text-transform:none;letter-spacing:0;color:var(--ink-3);max-width:78ch">Every animation must be wrapped in <span class="m">@media (prefers-reduced-motion: reduce)</span>. This is not optional in a system aimed at government buyers &mdash; public-sector accessibility procurement checks for it.</p>
+</section>
+
+<!-- 05 APPLYING -->
+<section>
+  <div class="head">
+    <div class="num">05</div>
+    <div>
+      <span class="eyebrow">Applying it</span>
+      <h2>Where each value goes, on any new asset.</h2>
+    </div>
+  </div>
+
+  <div class="grid g2">
+    <div class="card">
+      <h3>Digital &mdash; site, deck, documents</h3>
+      <ul class="clean">
+        <li>White ground. Black headings at 900. Mono for every label, spec and status.</li>
+        <li>Sage for the one thing you want acted on per screen. More than one and it stops meaning anything.</li>
+        <li>Sage for material and proof. Brackets on cards that carry evidence.</li>
+        <li>Hairlines at 1px <span class="m">#E2E1DA</span>. No shadows, no rounded corners, no gradients other than the hero wash.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Physical &mdash; trailer, equipment, print</h3>
+      <ul class="clean">
+        <li>The mark must read single-colour at 40mm on painted steel. No gradient, no fine detail.</li>
+        <li>On equipment the ground inverts: white or sage mark on the machine&rsquo;s own dark finish. The system tolerates this; the digital surfaces do not.</li>
+        <li>Corner brackets scale as a physical registration mark on panels, plates and case labels.</li>
+        <li>Statutory hazard marking is the one place an outside colour is allowed &mdash; regulatory red and yellow are prescribed by safety convention and are not part of this system. Never restyle them to match the brand.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 style="margin-top:var(--s5)">Copy register</h3>
+  <div class="do-dont">
+    <div class="dd no"><span class="lbl">Not this</span><p>&ldquo;TWB delivers innovative, environmentally responsible demilitarization solutions for the modern warfighter.&rdquo;</p></div>
+    <div class="dd yes"><span class="lbl">This</span><p>&ldquo;Zero transfers. Zero diversion windows. Signed out once, destroyed, weighed, certified.&rdquo;</p></div>
+    <div class="dd no"><span class="lbl">Not this</span><p>&ldquo;Committed to the highest standards of safety and environmental stewardship.&rdquo;</p></div>
+    <div class="dd yes"><span class="lbl">This</span><p>&ldquo;Remote start. Remote stop. Nobody stands over it while it runs.&rdquo;</p></div>
+    <div class="dd no"><span class="lbl">Not this</span><p>&ldquo;Terrorists are buying out of your evidence room.&rdquo; &mdash; unevidenced threat language.</p></div>
+    <div class="dd yes"><span class="lbl">This</span><p>&ldquo;Poorly secured and surplus stockpiles are a documented source of diverted small arms ammunition.&rdquo;</p></div>
+  </div>
+  <p style="margin-top:var(--s3)">Threat framing is an asset only while every instance of it is checkable. Name the mechanism, cite the source, stop. One unsupported line costs more than the whole register gains.</p>
+</section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p><strong style="color:var(--ink)">Font availability.</strong> Helvetica is a system face on macOS and requires no licence for web or print. On Windows and most Linux it resolves to Arial or Liberation Sans, which are metrically identical &mdash; layouts hold exactly, with only minor letterform differences (notably R, G and the terminals on C and S). Only IBM Plex Mono is web-served, from Google Fonts.</p>
+    <p style="margin-top:1rem"><strong style="color:var(--ink)">A note on naming.</strong> There is no sans-serif Times &mdash; Times is defined by its serifs and Linotype never issued a sans companion. A knockoff family named &ldquo;Times Sans Serif&rdquo; circulates in some font packs; it is a Helvetica derivative and should not be used. Specify Helvetica.</p>
+    <p style="margin-top:1rem"><strong style="color:var(--ink)">Source of the palette.</strong> Sage <span class="m">#788274</span> sampled from client-supplied reference; the text-grade value derived from it to clear WCAG AA. Contrast ratios calculated against <span class="m">#FFFFFF</span> per WCAG 2.1.</p>
+  </div>
+</footer>

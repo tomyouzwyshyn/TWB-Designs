@@ -1,0 +1,21 @@
+{
+  "pages": [
+    { "id": "page-1", "name": "Documents" },
+    { "id": "page-2", "name": "Presentation & identity" }
+  ],
+  "artboards": [
+    { "file": "Main.dc.html", "x": 0, "y": 0, "w": 816, "h": 1056, "title": "Capability statement", "page": "page-1", "print": "fixed" },
+    { "file": "Certificate.dc.html", "x": 940, "y": 0, "w": 816, "h": 1056, "title": "Certificate of destruction", "page": "page-1", "print": "fixed" },
+    { "file": "Letterhead.dc.html", "x": 1880, "y": 0, "w": 816, "h": 1056, "title": "Letterhead", "page": "page-1", "print": "fixed" },
+
+    { "file": "SlideTitle.dc.html", "x": 0, "y": 0, "w": 1280, "h": 720, "title": "Slide — title", "page": "page-2" },
+    { "file": "SlideContent.dc.html", "x": 1400, "y": 0, "w": 1280, "h": 720, "title": "Slide — content", "page": "page-2" },
+    { "file": "EquipmentMark.dc.html", "x": 0, "y": 860, "w": 720, "h": 400, "title": "Equipment mark", "page": "page-2" },
+    { "file": "BusinessCard.dc.html", "x": 840, "y": 860, "w": 336, "h": 192, "title": "Business card", "page": "page-2" }
+  ],
+  "annotations": [
+    { "id": "docs-note", "x": 0, "y": -150, "w": 420, "text": "Print artboards at 96 px/inch — US Letter is 816 × 1056.\nBody copy stays at or above 12pt (16px); mono labels and legal lines may drop to 12px.\nBracketed values are placeholders to fill, not copy.", "page": "page-1" },
+    { "id": "identity-note", "x": 0, "y": -150, "w": 420, "text": "Slides are 1280 × 720.\nThe corner bracket is the motif — 6px on documents and screen, 14px at 2px stroke on equipment where it has to survive distance and paint.", "page": "page-2" }
+  ],
+  "launch": { "view": "canvas", "page": "page-1" }
+}

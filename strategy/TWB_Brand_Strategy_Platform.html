@@ -1,0 +1,1048 @@
+<title>The Custody Doctrine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+:root{
+  --steel-900:#0F1315;
+  --steel-800:#14181A;
+  --steel-700:#1D2325;
+  --steel-600:#2A3234;
+  --steel-400:#5E6866;
+  --steel-300:#8A8F8C;
+  --steel-200:#B9BEBB;
+  --paper:#F2F1ED;
+  --paper-2:#E7E6E0;
+  --sage-mark:#788274;
+  --sage:#66705F;
+  --sage-hot:#8A9585;
+  --copper:#5C7A6E;
+  --neg:#3D3D38;
+
+  --bg:#FFFFFF;
+  --bg-2:#F4F3EF;
+  --surface:#FAFAF8;
+  --ink:#000000;
+  --ink-2:#3A3A38;
+  --ink-3:#75736D;
+  --rule:#E4E3DD;
+  --rule-2:#D2D0C8;
+  --accent:var(--sage);
+  --accent-bright:var(--sage-mark);
+  --alt:#3F5A50;
+  --warn:var(--neg);
+
+  --ui:"IBM Plex Mono",ui-monospace,monospace;
+  --display:"Helvetica Neue", Helvetica, Arial, sans-serif;
+  --body:"Helvetica Neue", Helvetica, Arial, sans-serif;
+  --measure:66ch;
+  --s1:.5rem; --s2:.875rem; --s3:1.375rem; --s4:2.25rem; --s5:3.5rem; --s6:5.5rem;
+}
+
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:1.0125rem;
+  line-height:1.62;
+  letter-spacing:-.008em;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(1.25rem,4vw,3rem)}
+
+/* ---------- type ---------- */
+/* Single-face system: Helvetica throughout. Hierarchy from weight and
+   scale. Resolves to Arial off macOS — metrically identical. */
+h1,h2,h3,.stat .v,.rung .st,.namecard .nm,.row .mk{font-family:var(--display)}
+h4,.lbl,.chip,.num,nav,th,.sw .h,.vcell .tag{font-family:var(--ui,"IBM Plex Mono",monospace)}
+h1{
+  font-size:clamp(2.5rem,7vw,5rem);
+  line-height:1;
+  font-weight:400;
+  letter-spacing:-.028em;
+  text-wrap:balance;
+  margin:0;
+}
+h2{
+  font-size:clamp(1.6rem,3.3vw,2.4rem);
+  line-height:1.1;
+  font-weight:500;
+  letter-spacing:-.019em;
+  text-wrap:balance;
+  margin:0 0 var(--s3);
+}
+h3{
+  font-size:1.18rem;
+  line-height:1.3;
+  font-weight:600;
+  letter-spacing:-.009em;
+  margin:0 0 var(--s2);
+  text-wrap:balance;
+}
+h4{
+  font-size:.78rem;
+  font-weight:600;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+  color:var(--ink-3);
+  margin:0 0 var(--s2);
+}
+p{margin:0 0 1.05em;max-width:var(--measure)}
+.lede{font-size:1.28rem;line-height:1.5;letter-spacing:-.012em;color:var(--ink-2);font-weight:400}
+strong{font-weight:600;color:var(--ink)}
+em{font-style:italic}
+a{color:var(--accent);text-underline-offset:.18em;text-decoration-thickness:1px}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--accent-bright);outline-offset:3px;border-radius:2px}
+.mono{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:.8em;letter-spacing:-.01em}
+.lbl{
+  font-size:.7rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--accent);display:block;margin-bottom:var(--s2);
+}
+
+/* ---------- masthead ---------- */
+.mast{
+  background:#FFFFFF;
+  color:var(--ink);
+  padding:clamp(3rem,9vw,7rem) 0 clamp(2.5rem,6vw,4.5rem);
+  border-bottom:1px solid var(--rule);
+  position:relative;
+  overflow:hidden;
+}
+.mast::after{
+  content:"";position:absolute;inset:auto 0 0 0;height:2px;
+  background:linear-gradient(90deg,var(--sage),var(--sage-mark) 45%,transparent);
+}
+.mast .wrap{position:relative;z-index:1}
+.mast-top{
+  display:flex;flex-wrap:wrap;gap:var(--s3);justify-content:space-between;
+  align-items:baseline;margin-bottom:clamp(2.5rem,7vw,5rem);
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--ink-3);
+}
+.mast-top b{color:var(--accent);font-weight:600}
+.mast h1{color:#000}
+.mast h1 .q{color:var(--accent);display:block}
+.mast .sub{
+  max-width:52ch;margin-top:var(--s4);font-size:1.3rem;line-height:1.5;
+  color:var(--ink-2);font-weight:300;
+}
+.mast .sub b{color:#000;font-weight:500}
+
+/* ---------- section scaffolding ---------- */
+section{padding:clamp(3.5rem,8vw,6rem) 0;border-bottom:1px solid var(--rule)}
+section:last-of-type{border-bottom:0}
+.sec-head{
+  display:grid;grid-template-columns:4.5rem 1fr;gap:var(--s3);
+  align-items:start;margin-bottom:var(--s4);
+}
+.num{
+  font-family:'IBM Plex Mono',monospace;font-size:.82rem;font-weight:500;
+  color:var(--accent);padding-top:.55rem;border-top:2px solid var(--accent);
+  letter-spacing:.04em;
+}
+.sec-head .t{min-width:0}
+.sec-head p{color:var(--ink-2)}
+.body{margin-left:0}
+@media(min-width:820px){ .body{margin-left:calc(4.5rem + var(--s3))} }
+
+/* ---------- components ---------- */
+.grid{display:grid;gap:var(--s3)}
+@media(min-width:760px){
+  .g2{grid-template-columns:repeat(2,1fr)}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g4{grid-template-columns:repeat(4,1fr)}
+}
+.card{
+  background:var(--surface);border:1px solid var(--rule);
+  padding:var(--s3);border-radius:3px;
+}
+.card p{margin-bottom:0}
+.card p + p{margin-top:.7em}
+.card h3{color:var(--ink)}
+
+.stat{border-top:2px solid var(--rule-2);padding-top:var(--s2)}
+.stat .v{
+  font-family:var(--display);font-weight:500;font-size:clamp(1.85rem,4vw,2.75rem);
+  line-height:1;letter-spacing:-.028em;color:var(--ink);
+  font-variant-numeric:tabular-nums;display:block;
+}
+.stat .v.acc{color:var(--accent)}
+.stat .k{
+  display:block;margin-top:.55rem;font-family:var(--display);font-size:.74rem;
+  font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);
+}
+.stat .n{display:block;margin-top:.5rem;font-size:.9rem;color:var(--ink-2);line-height:1.42}
+
+.chip{
+  display:inline-block;font-size:.65rem;font-weight:600;letter-spacing:.11em;
+  text-transform:uppercase;padding:.28rem .5rem;border-radius:2px;
+  border:1px solid currentColor;white-space:nowrap;
+}
+.chip.kill{color:var(--warn)}
+.chip.keep{color:var(--alt)}
+.chip.build{color:var(--accent)}
+.chip.open{color:var(--alt)}
+.chip.taken{color:var(--warn)}
+
+.pull{
+  border-left:3px solid var(--accent);padding:var(--s2) 0 var(--s2) var(--s3);
+  margin:var(--s4) 0;max-width:var(--measure);
+}
+.pull p{
+  font-size:1.32rem;line-height:1.4;font-weight:400;color:var(--ink);margin:0;
+  text-wrap:balance;
+}
+.pull .attr{
+  display:block;margin-top:var(--s2);font-family:var(--display);font-size:.72rem;
+  font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);
+}
+
+.scroller{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:var(--s3) 0;border:1px solid var(--rule);border-radius:3px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.93rem;min-width:640px}
+th{
+  text-align:left;font-size:.68rem;font-weight:600;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--ink-3);padding:.8rem var(--s2);
+  border-bottom:1px solid var(--rule-2);vertical-align:bottom;white-space:nowrap;
+}
+td{padding:.8rem var(--s2);border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.45}
+tr:last-child td{border-bottom:0}
+td.num-c{font-variant-numeric:tabular-nums;font-family:'IBM Plex Mono',monospace;font-size:.85em;white-space:nowrap}
+td b{font-weight:600}
+
+.stack{display:flex;flex-direction:column;gap:var(--s3)}
+.row{
+  display:grid;grid-template-columns:auto 1fr;gap:var(--s3);align-items:start;
+  padding:var(--s3) 0;border-bottom:1px solid var(--rule);
+}
+.row:last-child{border-bottom:0}
+.row .mk{
+  font-family:var(--display);font-weight:700;font-size:1.4rem;color:var(--accent);
+  line-height:1;font-variant-numeric:tabular-nums;min-width:2ch;
+}
+.row p:last-child{margin-bottom:0}
+
+.dark-block{
+  background:var(--bg-2);color:var(--ink);border-radius:3px;
+  padding:clamp(1.5rem,4vw,2.5rem);border:1px solid var(--rule-2);
+}
+.dark-block h3,.dark-block .stat .v{color:var(--ink)}
+.dark-block p{color:var(--ink-2)}
+.dark-block .stat{border-top-color:var(--rule-2)}
+.dark-block .stat .k{color:var(--ink-3)}
+.dark-block .stat .n{color:var(--ink-2)}
+.dark-block .lbl{color:var(--accent)}
+
+ul.clean{list-style:none;padding:0;margin:0 0 1em;max-width:var(--measure)}
+ul.clean li{
+  padding-left:1.35rem;position:relative;margin-bottom:.6em;
+}
+ul.clean li::before{
+  content:"";position:absolute;left:0;top:.62em;width:.45rem;height:1px;background:var(--accent);
+}
+ol.clean{padding-left:1.3rem;margin:0 0 1em;max-width:var(--measure)}
+ol.clean li{margin-bottom:.6em;padding-left:.3rem}
+ol.clean li::marker{font-family:var(--display);font-weight:600;font-size:.85em;color:var(--accent)}
+
+details{
+  border:1px solid var(--rule);border-radius:3px;background:var(--surface);
+  padding:0;margin-bottom:var(--s2);
+}
+summary{
+  cursor:pointer;padding:var(--s2) var(--s3);font-family:var(--display);
+  font-weight:600;font-size:.95rem;list-style:none;display:flex;
+  justify-content:space-between;gap:var(--s2);align-items:center;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--accent);font-weight:400;font-size:1.2rem;line-height:1}
+details[open] summary::after{content:"–"}
+details .in{padding:0 var(--s3) var(--s3)}
+details .in p:last-child,details .in ul:last-child{margin-bottom:0}
+
+.ladder{display:grid;gap:0;border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+.rung{
+  display:grid;grid-template-columns:minmax(0,1fr);gap:var(--s2);
+  padding:var(--s3);border-bottom:1px solid var(--rule);background:var(--surface);
+}
+@media(min-width:700px){ .rung{grid-template-columns:9rem minmax(0,1fr) 8rem;align-items:start;gap:var(--s3)} }
+.rung:last-child{border-bottom:0}
+.rung .st{font-family:var(--display);font-weight:700;font-size:1.05rem;letter-spacing:-.01em}
+.rung .st small{display:block;font-weight:500;font-size:.68rem;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);margin-top:.3rem}
+.rung p{margin:0;font-size:.95rem}
+.rung .when{justify-self:start}
+@media(min-width:700px){ .rung .when{justify-self:end} }
+
+.namecard{
+  border:1px solid var(--rule);border-radius:3px;background:var(--surface);
+  padding:var(--s3);display:flex;flex-direction:column;gap:var(--s2);
+}
+.namecard .nm{font-family:var(--display);font-weight:500;font-size:1.45rem;letter-spacing:-.024em;line-height:1;color:var(--ink)}
+.namecard .rat{font-size:.94rem;color:var(--ink-2);margin:0}
+.namecard .meta{font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:var(--ink-3);letter-spacing:.02em;margin-top:auto;padding-top:var(--s2);border-top:1px solid var(--rule)}
+.namecard.hero{border-color:var(--accent);border-width:2px}
+.namecard.hero .nm{color:var(--accent)}
+
+.swatches{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--rule);border-radius:3px;overflow:hidden;margin:var(--s3) 0}
+.sw{flex:1 1 120px;min-width:120px;padding:var(--s3) var(--s2) var(--s2);color:#fff;min-height:7.5rem;display:flex;flex-direction:column;justify-content:flex-end}
+.sw .h{font-family:var(--display);font-weight:600;font-size:.82rem;letter-spacing:-.01em}
+.sw .c{font-family:'IBM Plex Mono',monospace;font-size:.68rem;opacity:.75;margin-top:.2rem}
+.sw.lt{color:#14181A}
+
+.voice{display:grid;gap:0;border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+.vrow{display:grid;grid-template-columns:1fr;border-bottom:1px solid var(--rule)}
+@media(min-width:720px){ .vrow{grid-template-columns:1fr 1fr} }
+.vrow:last-child{border-bottom:0}
+.vcell{padding:var(--s3)}
+.vcell.no{background:var(--surface);border-bottom:1px solid var(--rule)}
+@media(min-width:720px){ .vcell.no{border-bottom:0;border-right:1px solid var(--rule)} }
+.vcell p{margin:0;max-width:none}
+.vcell .tag{font-family:var(--display);font-size:.66rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;display:block;margin-bottom:.6rem}
+.vcell.no .tag{color:var(--warn)}
+.vcell.yes .tag{color:var(--alt)}
+
+.foot{background:var(--bg);color:var(--ink-3);padding:clamp(2.5rem,6vw,4rem) 0;font-size:.9rem;border-top:1px solid var(--rule)}
+.foot .wrap{display:grid;gap:var(--s3)}
+.foot p{max-width:70ch;margin:0}
+.foot b{color:var(--ink);font-weight:600}
+.foot .rule{height:1px;background:var(--rule)}
+
+@media (prefers-reduced-motion:no-preference){
+  details .in{animation:fade .18s ease-out}
+  @keyframes fade{from{opacity:0}to{opacity:1}}
+}
+</style>
+
+<header class="mast">
+  <div class="wrap">
+    <div class="mast-top">
+      <span>TWB Designs Inc. &middot; <b>Brand Strategy Platform</b></span>
+      <span>v1.0 &middot; August 2026</span>
+    </div>
+    <h1>Nobody should<br>have to do this<span class="q">by hand.</span></h1>
+    <p class="sub">A positioning platform for TWB built on the one thing no competitor can claim: <b>the ammunition never leaves your custody.</b></p>
+  </div>
+</header>
+
+<div class="wrap">
+
+<!-- 01 -->
+<section>
+  <div class="sec-head">
+    <div class="num">01</div>
+    <div class="t">
+      <span class="lbl">The read</span>
+      <h2>The technology is real. The story was aimed at the wrong market.</h2>
+      <p class="lede">The working brief got the instinct right — TWB is infrastructure, not a trailer — but it pointed that instinct at a market TWB cannot win, and built the case on numbers that will not survive a federal evaluator.</p>
+    </div>
+  </div>
+
+  <div class="body">
+    <p>Three findings reset the strategy. Each is sourced, each is checkable, and each one closes a door while opening a better one.</p>
+
+    <div class="grid g3" style="margin:var(--s4) 0">
+      <div class="card">
+        <h3>The scale story is unwinnable</h3>
+        <p>At 60 lb/hr, TWB loses a throughput comparison to the smallest mobile Dynasafe unit by roughly 3&times;, and to a depot operator by 130&times;. Any positioning that can be scored on tons per year is a positioning TWB loses by default.</p>
+      </div>
+      <div class="card">
+        <h3>The obvious message is taken</h3>
+        <p>&ldquo;Clean alternative to open burning&rdquo; is claimed three deep — MuniRem leads with it in all caps, EnviroSafe uses it as a tagline, Dynasafe puts it on the spec sheet. &ldquo;Mobile&rdquo; is claimed by six parties. Both are table stakes.</p>
+      </div>
+      <div class="card">
+        <h3>The real opening is elsewhere</h3>
+        <p>Every closed-disposal technology in the government literature is scored <em>&ldquo;small arms: not applicable.&rdquo;</em> The entire alternative-technology canon is built for artillery and rocket motors. Small arms ammunition is an orphan stream with no owner.</p>
+      </div>
+    </div>
+
+    <div class="pull">
+      <p>TWB does not have a scale problem. It has a category problem. It has been competing in demilitarization, which is a services market it cannot win, instead of owning small arms ammunition destruction, which is a category nobody has claimed.</p>
+    </div>
+
+    <h3>What the brief got right, and should keep</h3>
+    <ul class="clean">
+      <li>The competitive-register analysis of Anduril, Hadrian, Saronic and Epirus. That is the correct benchmark, and the mechanics are transferable.</li>
+      <li>The instinct that the brand must be bigger than the current hardware, expressed as a capability ladder rather than a claim.</li>
+      <li>&ldquo;Sovereign, not martial&rdquo; as a voice guardrail. It is the right register and it is genuine white space.</li>
+      <li>The judgment that <span class="mono">eMACS</span> undersells the machine.</li>
+    </ul>
+
+    <h3>What has to change</h3>
+    <ul class="clean">
+      <li>The market numbers. Six of the brief's headline figures are stale, misattributed, or arithmetically wrong. Detailed in <a href="#claims">&sect;09</a>.</li>
+      <li>The wedge. &ldquo;You cannot rebuild the arsenal of democracy without the means to safely retire it&rdquo; is a fine sentence for a US prime and a dead sentence for a sheriff&rsquo;s evidence custodian — who is the buyer TWB can actually reach this year.</li>
+      <li>The audience. The brief writes to a DoD evaluator and an acquirer. Both are years out. The operator is reachable now and nobody is speaking to them.</li>
+      <li>The architecture. TWB and CADS are two brands, two websites, two business models and two names for one machine. That is the single largest brand liability, and it is entirely self-inflicted.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 02 -->
+<section>
+  <div class="sec-head">
+    <div class="num">02</div>
+    <div class="t">
+      <span class="lbl">Category</span>
+      <h2>Stop selling demilitarization. Start owning the small arms problem.</h2>
+      <p class="lede">Category choice is the highest-leverage decision in this document, because it determines which axis TWB is scored on — and therefore which competitors TWB is compared against.</p>
+    </div>
+  </div>
+
+  <div class="body">
+    <p><strong>Demilitarization</strong> is a heavy-industrial services market. Its unit of account is tons per year. Its buyers are program offices. Its incumbents operate depots. On that field TWB is a rounding error, and no amount of copy changes that.</p>
+
+    <p><strong>Small arms ammunition destruction</strong> is a different market with different physics. Its unit of account is the individual custody event — a locker cleared, a buy-back processed, a range cleaned out, a seizure destroyed. Its buyers are the people who hold the liability. Its incumbents do not exist, because the alternative-technology literature has spent thirty years declaring small arms out of scope.</p>
+
+    <div class="scroller">
+      <table>
+        <caption class="visually-hidden"></caption>
+        <thead>
+          <tr><th>Dimension</th><th>Demilitarization (avoid)</th><th>Small arms destruction (own)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><b>Unit of account</b></td><td>Tons per year</td><td>Custody events cleared</td></tr>
+          <tr><td><b>Buyer</b></td><td>Program office, contracting officer</td><td>Evidence custodian, armourer, range officer, EOD lead</td></tr>
+          <tr><td><b>Incumbents</b></td><td>Dynasafe, EnviroSafe, EXPAL, GDOTS, Amentum</td><td>None with a brand</td></tr>
+          <tr><td><b>TWB rank on the axis</b></td><td class="num-c">Bottom quartile</td><td class="num-c">Uncontested</td></tr>
+          <tr><td><b>Sales cycle</b></td><td>Multi-year, vehicle-gated</td><td>Quarters, often a blanket PO</td></tr>
+          <tr><td><b>What wins</b></td><td>Throughput and past performance</td><td>Speed, custody, and safety of the operator</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>This is not a retreat to a niche. It is the choice to be first in a category rather than last in a bigger one — and the small arms category has a genuine expansion path through the capability ladder in <a href="#ladder">&sect;07</a>.</p>
+
+    <div class="dark-block" style="margin-top:var(--s4)">
+      <span class="lbl">The category sentence</span>
+      <p style="font-size:1.25rem;line-height:1.45;color:var(--ink);max-width:56ch">TWB builds the equipment that lets an organisation destroy its own ammunition, inside its own perimeter, on the same day, without a permit and without a transfer.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 03 -->
+<section>
+  <div class="sec-head">
+    <div class="num">03</div>
+    <div class="t">
+      <span class="lbl">The wedge</span>
+      <h2>Custody is the idea. Everything else is a feature.</h2>
+      <p class="lede">Ammunition awaiting destruction is not waste. It is a liability with a named person&rsquo;s signature on it — and every existing solution requires that liability to travel.</p>
+    </div>
+  </div>
+
+  <div class="body">
+    <p>Think about what actually happens today. A property room accumulates seized and surrendered ammunition. It cannot be sold. It cannot be thrown away. It degrades. It is signed for. And the only lawful routes out of the building all involve handing it to someone else: a contractor picks it up, a depot receives it, a range officer takes it to a pit and sets it on fire.</p>
+
+    <p>Every one of those routes creates a manifest, a transport risk, a diversion opportunity, and a gap in the chain of custody where a person&rsquo;s name is on a document but the material is in someone else&rsquo;s truck. PIKA ships it to a facility. EnviroSafe ships it to Texas. CADS, TWB&rsquo;s own sister company, picks it up and takes it away.</p>
+
+    <div class="pull">
+      <p>TWB is the only answer where the ammunition is destroyed inside the perimeter of the organisation that owns it, by that organisation&rsquo;s own people, and never enters anyone else&rsquo;s custody at all.</p>
+      <span class="attr">The positioning, in one sentence</span>
+    </div>
+
+    <p>This reframes every specification into a custody argument, and it reframes the competitive set into a single question the customer already worries about.</p>
+
+    <div class="grid g2" style="margin-top:var(--s4)">
+      <div class="card">
+        <h4>What the spec says</h4>
+        <ul class="clean">
+          <li>Class V hitch, 11,500 lb, 26-foot trailer</li>
+          <li>Remote start/stop, interlocked</li>
+          <li>Two operators</li>
+          <li>750 ft standoff</li>
+          <li>97% recoverable material</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>What it means</h4>
+        <ul class="clean">
+          <li>One truck brings it. No mobilisation project.</li>
+          <li>Nobody stands over live ordnance.</li>
+          <li>Your people, not a cleared contractor.</li>
+          <li>It fits inside a compound you already control.</li>
+          <li>What comes out is metal, not a disposal receipt.</li>
+        </ul>
+      </div>
+    </div>
+
+    <p style="margin-top:var(--s4)">The competitive proof for this is unusually clean. Dynasafe&rsquo;s mobile Static Detonation Chamber — the closest true competitor, and the category&rsquo;s brand leader — states on its own datasheet that it <em>deploys in three weeks</em>. That is the fight to pick, and it is the only fight on this list TWB wins outright.</p>
+  </div>
+</section>
+
+<!-- 04 -->
+<section>
+  <div class="sec-head">
+    <div class="num">04</div>
+    <div class="t">
+      <span class="lbl">Messaging</span>
+      <h2>Four claims, in this order, every time.</h2>
+      <p class="lede">Order matters more than wording. Each claim is ranked by how contested it is — lead with what nobody else can say.</p>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="stack" style="border:1px solid var(--rule);border-radius:3px;padding:0 var(--s3);background:var(--surface)">
+      <div class="row">
+        <div class="mk">1</div>
+        <div>
+          <h3>Same day. On site. Your own people. <span class="chip open">Uncontested</span></h3>
+          <p>The only genuinely unclaimed position in the category, and it is true. Everyone else&rsquo;s &ldquo;mobile&rdquo; means a mobilisation project measured in weeks. <strong>Own speed-to-first-burn.</strong> Nobody is defending it.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="mk">2</div>
+        <div>
+          <h3>It never leaves your custody. <span class="chip open">Uncontested in ammunition</span></h3>
+          <p>Every competitor moves the material. GunBusters built a national law-enforcement business on exactly this promise — for firearms — and left ammunition untouched. CADS already has the audit-trail language buried in a footer; promote it to a promise and put a certificate of destruction behind it.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="mk">3</div>
+        <div>
+          <h3>It comes back as lead and brass. <span class="chip open">Register unclaimed</span></h3>
+          <p>Not an environmental benefit — <strong>a domestic supply of critical metals recovered at the point of disposal.</strong> This is the Redwood Materials move, and nobody in demil has made it. The category says &ldquo;environmentally friendly,&rdquo; which is soft, defensive and ignorable. &ldquo;A domestic source&rdquo; is high-status and true.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="mk">4</div>
+        <div>
+          <h3>Because nobody should have to do this by hand. <span class="chip open">Nobody is using it</span></h3>
+          <p>On 18 July 2025 three Los Angeles County Sheriff&rsquo;s Department detectives were killed handling ordnance believed to be inert — the deadliest day for that department since 1857. Every competitor treats safety as a compliance argument. It is a moral argument, and it belongs to whoever says it first.</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:var(--s5)">The indicting comparison</h3>
+    <p>Anduril&rsquo;s single most effective rhetorical device is the sentence that makes the status quo look absurd by setting it beside something ordinary — <em>&ldquo;there is more AI in a Tesla than in any U.S. military vehicle.&rdquo;</em> TWB&rsquo;s version is available and nobody has taken it:</p>
+
+    <div class="pull">
+      <p>In 2026, the standard method for destroying ammunition is to put it in a hole in the ground and set it on fire.</p>
+      <span class="attr">Verifiable — Tooele Army Depot was still open-detonating as of June 2025</span>
+    </div>
+
+    <h3>The defensive rule</h3>
+    <p>Never let a conversation be scored on pounds per day, tons per year, or net explosive quantity. Reframe, every single time, to the metric TWB wins and every competitor in the category loses:</p>
+    <p class="mono" style="font-size:1rem;padding:var(--s3);background:var(--bg-2);border-left:3px solid var(--accent);max-width:var(--measure)">rounds destroyed without leaving the compound, without a permit, without a specialist, and without a transfer</p>
+  </div>
+</section>
+
+<!-- 05 -->
+<section>
+  <div class="sec-head">
+    <div class="num">05</div>
+    <div class="t">
+      <span class="lbl">Audiences</span>
+      <h2>One spine, four proofs.</h2>
+      <p class="lede">The custody argument holds for every buyer. What changes is which proof you lead with — and how fast the door opens.</p>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="grid g2">
+      <div class="card">
+        <h4>Priority 1 &middot; Reachable now</h4>
+        <h3>State, provincial &amp; municipal law enforcement</h3>
+        <p><strong>Who:</strong> evidence and property custodians, armourers, range officers, EOD teams. <strong>Lead with:</strong> custody and operator safety. <strong>Proof:</strong> six RCMP units, S&ucirc;ret&eacute; du Qu&eacute;bec, Calgary, Winnipeg, Franklin County OH — an excellent reference list currently going completely unused.</p>
+        <p>Buying looks like a blanket purchase order, not a competition. Small per transaction, very high in count. <strong>Do not put a market size on this segment</strong> — no public data exists, and inventing one is how a credible brief gets discredited.</p>
+      </div>
+      <div class="card">
+        <h4>Priority 2 &middot; Reachable now</h4>
+        <h3>Commercial &amp; industrial</h3>
+        <p><strong>Who:</strong> ammunition manufacturers with off-spec product, distributors, ranges, the 9,309 federal explosives licensees ATF counts. <strong>Lead with:</strong> cost recovery and no-transfer liability. <strong>Proof:</strong> Federal Cartridge Company.</p>
+        <p>The US consumed roughly 3.2 billion pounds of explosives in 2022 by ATF&rsquo;s own count. Even a fractional off-spec rate against that base exceeds the entire DoD demil stockpile. It is the best-sourced commercial anchor available.</p>
+      </div>
+      <div class="card">
+        <h4>Priority 3 &middot; Build toward</h4>
+        <h3>US federal &amp; DoD</h3>
+        <p><strong>Who:</strong> installation and depot level first, not the demil program office. <strong>Lead with:</strong> safety of handling — <em>not</em> environmental compliance. This matters: Joint Munitions Command publicly defends open burning, and its stated first objection to closed disposal is that preprocessing <em>&ldquo;exposes personnel to more explosive safety hazards.&rdquo;</em></p>
+        <p>A mobile chamber that processes at the point of storage answers that objection directly. Arguing environment puts TWB in a fight the Army has already rehearsed and won. Arguing safety fights on ground the Army chose.</p>
+      </div>
+      <div class="card">
+        <h4>Priority 4 &middot; Qualify carefully</h4>
+        <h3>Allied, NATO &amp; humanitarian</h3>
+        <p><strong>Who:</strong> NSPA, allied MoDs, UNMAS, the US State Department&rsquo;s weapons-removal programme, HALO and NPA. <strong>Existing footprint:</strong> Australia, New Zealand, Saudi Arabia, Dubai Police, Nordics and Baltics via Military Equipment Denmark.</p>
+        <p><strong>Read this before pursuing UNMAS.</strong> Their 2025 mobile-destruction tenders specified 40 kg/hr minimum, 20-foot ISO container, and <em>mechanical rather than incineration</em> processes. TWB fails all three. That is either a disqualifier or the sharpest product-roadmap brief available — but it is not a market to claim in a deck.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 -->
+<section>
+  <div class="sec-head">
+    <div class="num">06</div>
+    <div class="t">
+      <span class="lbl">Architecture</span>
+      <h2>Two companies, two websites, two names for one machine.</h2>
+      <p class="lede">This is the largest brand liability in the business and the cheapest one to fix. It costs nothing but a decision.</p>
+    </div>
+  </div>
+
+  <div class="body">
+    <p>Today a buyer researching this capability finds <span class="mono">twbdesigns.com</span> selling equipment and <span class="mono">cadsammunitiondisposal.com</span> selling a service, with no visible relationship beyond one sentence describing CADS as a sister company. The same machine is called <span class="mono">MACS</span> in one place and <span class="mono">eMACS</span> in another — sometimes inside the same trade listing. Neither site has a customer page, a leadership page, or a nav structure worth the name.</p>
+
+    <p>Against Dynasafe&rsquo;s trademarked DynaSEALR / DynaLOCKR / DynaKEEPR family, or Epirus carrying <em>Leonidas</em> across every variant, <span class="mono">eMACS</span> reads as a part number. Because it is one.</p>
+
+    <h3 style="margin-top:var(--s4)">The fix: one house, two motions, one named machine</h3>
+
+    <div class="ladder" style="margin-top:var(--s3)">
+      <div class="rung">
+        <div class="st">TWB<small>Master brand</small></div>
+        <p>The company, the contracting entity, the 25-year record. Everything is endorsed by it. Retained for continuity with RCMP, allied and commercial references — this is the right call while contract history is the primary asset.</p>
+        <div class="when"><span class="chip keep">Keep</span></div>
+      </div>
+      <div class="rung">
+        <div class="st">The machine<small>Product brand</small></div>
+        <p>One name, one machine, carried across every variant and every future size. Replaces the MACS / eMACS split entirely. Candidates in <a href="#naming">&sect;08</a>. This is the highest-leverage, lowest-cost move available.</p>
+        <div class="when"><span class="chip build">Rename</span></div>
+      </div>
+      <div class="rung">
+        <div class="st">CADS<small>Service line</small></div>
+        <p>Becomes a named service <em>under</em> TWB, not a parallel company brand — the managed-service option for customers who want the outcome without the asset. Retire the standalone site; redirect it. Keep the legal entity if there is a tax or licensing reason; kill the second brand identity regardless.</p>
+        <div class="when"><span class="chip build">Absorb</span></div>
+      </div>
+      <div class="rung">
+        <div class="st">CLN<small>Parent</small></div>
+        <p>Per your direction, held quiet in market. Appears in the footer, in diligence, and in capital conversations — not in the defense narrative. Revisit when the circular-economy story becomes an asset rather than a distraction.</p>
+        <div class="when"><span class="chip keep">Quiet</span></div>
+      </div>
+    </div>
+
+    <p style="margin-top:var(--s4)">One consequence worth stating plainly: <strong>TWB should sell the machine, not the tonnage.</strong> Every operator in the competitive set is a services company speaking contract language to contracting officers. None of them sells a machine, and none of them speaks to an end user. That is the lane.</p>
+  </div>
+</section>
+
+<!-- 07 -->
+<section id="ladder">
+  <div class="sec-head">
+    <div class="num">07</div>
+    <div class="t">
+      <span class="lbl">Capability ladder</span>
+      <h2>How to reach for heavy ordnance without lying about today.</h2>
+      <p class="lede">The brief&rsquo;s ladder idea was right and should be kept. Here it is with honest gating — what is true now, what is contingent, and on what.</p>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="ladder">
+      <div class="rung">
+        <div class="st">Retire<small>Today</small></div>
+        <p>On-site destruction of expired, seized, surrendered and surplus small arms ammunition up to .50 calibre, to environmental standard, without transfer. This is what the hardware does and it is fully defensible.</p>
+        <div class="when"><span class="chip keep">Shipping</span></div>
+      </div>
+      <div class="rung">
+        <div class="st">Recover<small>Today</small></div>
+        <p>Lead-antimony, brass and copper recovered as graded scrap at the point of destruction. True today; needs third-party verification of the 97% figure before it goes in front of a procurement evaluator.</p>
+        <div class="when"><span class="chip build">Verify</span></div>
+      </div>
+      <div class="rung">
+        <div class="st">Clear<small>Roadmap</small></div>
+        <p>Field destruction of UXO and de-mining remnants. Contingent on the controlled-detonation acquisition. State as intent with the gate named — never imply current capability.</p>
+        <div class="when"><span class="chip build">Gated</span></div>
+      </div>
+      <div class="rung">
+        <div class="st">Scale<small>Roadmap</small></div>
+        <p>Larger calibres, container-format variants, and multi-unit deployment. The UNMAS spec — 40 kg/hr, ISO container — is a free product brief for what the largest institutional buyer will pay for.</p>
+        <div class="when"><span class="chip build">Design</span></div>
+      </div>
+    </div>
+
+    <p style="margin-top:var(--s3)">Rule for every piece of collateral: <strong>a roadmap rung may be described as intent, never as capability, and always with its gate named.</strong> This is what protects you in technical diligence, and it costs nothing — buyers respect a company that knows the difference.</p>
+  </div>
+</section>
+
+<!-- 08 -->
+<section id="naming">
+  <div class="sec-head">
+    <div class="num">08</div>
+    <div class="t">
+      <span class="lbl">Naming</span>
+      <h2>Keep TWB. Rename the machine.</h2>
+      <p class="lede">You asked to hold the company name and take recommendations. That is the right sequencing — the company name carries the contract history, and the machine name carries none of it.</p>
+    </div>
+  </div>
+
+  <div class="body">
+    <p>The product name is where the leverage is. <span class="mono">eMACS</span> is an acronym for a description; it tells a buyer nothing and it cannot be trademarked into a family. A real product name gives TWB something Dynasafe and Epirus both understand: a single heroic object that carries across every variant and every future size.</p>
+
+    <h3 style="margin-top:var(--s4)">Recommended: name the machine for what it protects</h3>
+    <p>The naming should encode custody and containment, not fire or force. Fire is what everyone else does in a pit; containment is the whole point.</p>
+
+    <div class="grid g3" style="margin-top:var(--s3)">
+      <div class="namecard hero">
+        <div class="nm">VAULT</div>
+        <p class="rat">The custody idea made physical. A vault is where things go that must not leave, must not be taken, and must be accounted for. Ties directly to claim 2, works across every future size (Vault 60, Vault 200), and is plain-spoken enough for an evidence custodian.</p>
+        <div class="meta">Screen: crowded mark, needs a compound or coined form &mdash; VAULTLINE, VAULT-C</div>
+      </div>
+      <div class="namecard">
+        <div class="nm">KEEP</div>
+        <p class="rat">A keep is the innermost defensible structure — the part of a fortress nothing gets out of. Short, ownable, unexpected in this category, and it carries the perimeter idea exactly. Reads well as a verb too.</p>
+        <div class="meta">Screen: common word, needs class-9/class-13 clearance</div>
+      </div>
+      <div class="namecard">
+        <div class="nm">FIELDSAFE</div>
+        <p class="rat">Most literal and lowest-risk. &ldquo;Render safe&rdquo; is the EOD term of art; FIELDSAFE inherits that credibility while stating the deployment model. Weakest on distinctiveness, strongest on instant legibility to a uniformed buyer.</p>
+        <div class="meta">Screen: descriptive, likely weak trademark</div>
+      </div>
+    </div>
+
+    <h4 style="margin-top:var(--s4)">If you later reconsider the company name</h4>
+    <p>You chose to hold TWB, which I agree with for now. When the US entity forms and the contract history is portable, the strongest territory is the one the brief called Direction B — sovereign safety and restitution. It is genuine white space: every neoprime sounds like offense, and nobody owns the credible, serious voice of making things safe. <strong>Renders</strong> was the best candidate on that list, because &ldquo;render safe&rdquo; is insider vocabulary that signals fluency to exactly the buyer TWB needs. <strong>Terminus</strong> and <strong>Aftermath Industrial</strong> should both be dropped — the first is a graveyard metaphor, the second names the wrong half of the story.</p>
+
+    <p><strong>Screen before anyone falls in love:</strong> USPTO and CIPO in classes 9, 13 and 40; .com availability; and ITAR/cross-border optics on any name that implies US-sovereign identity while the entity is Canadian.</p>
+  </div>
+</section>
+
+<!-- 09 -->
+<section id="claims">
+  <div class="sec-head">
+    <div class="num">09</div>
+    <div class="t">
+      <span class="lbl">Claims audit</span>
+      <h2>Kill these numbers before an evaluator finds them.</h2>
+      <p class="lede">In a federal evaluation, one caught number discredits everything around it. Six of the brief&rsquo;s figures are individually falsifiable in under five minutes by anyone who knows this field.</p>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="scroller">
+      <table>
+        <thead>
+          <tr><th>Claim in the brief</th><th>Verdict</th><th>What to say instead</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>~400,000 tons</b> demil stockpile</td>
+            <td><span class="chip kill">Stale</span></td>
+            <td>Traces to a 2018 SERDP notice. Current Army figure is <b>303,772 short tons</b> (FY25). Use the growth curve instead — it is stronger and current.</td>
+          </tr>
+          <tr>
+            <td><b>7,600+</b> unique item types</td>
+            <td><span class="chip kill">Stale</span></td>
+            <td>Same 2018 source. Current: <b>&ldquo;over 7,000 DODICs&rdquo;</b> as of July 2025.</td>
+          </tr>
+          <tr>
+            <td><b>70,000–100,000 tons/yr</b> growth</td>
+            <td><span class="chip kill">Wrong</span></td>
+            <td>A conflation — it adds a <em>count of rockets</em> to a <em>tonnage of munitions</em>. Real net growth is roughly <b>+10,500 short tons/yr</b>.</td>
+          </tr>
+          <tr>
+            <td>JMC goal to reach <b>100,000 tons</b></td>
+            <td><span class="chip kill">Historical</span></td>
+            <td>Real in 2020–21, absent from the Army&rsquo;s October 2025 strategic plan, which forecasts <b>growth to 361,220 tons by FY30</b>.</td>
+          </tr>
+          <tr>
+            <td><b>$1,800/ton</b> demil cost</td>
+            <td><span class="chip kill">No source</span></td>
+            <td>Use GAO&rsquo;s <b>~$2,000/ton</b> (FY15) or the National Academies&rsquo; <b>$2,890/ton</b> average. And know the number you must beat: <b>OB/OD costs ~$750/ton</b>.</td>
+          </tr>
+          <tr>
+            <td><b>$34.6B</b> to demine Ukraine</td>
+            <td><span class="chip kill">Superseded</span></td>
+            <td>Revised to <b>$30B</b> in RDNA4, February 2025.</td>
+          </tr>
+          <tr>
+            <td><b>30–50%</b> UXO dud rate</td>
+            <td><span class="chip kill">Overstated</span></td>
+            <td>Above the technical authority&rsquo;s ceiling. GICHD states <b>1–2% to 30–40%</b>. Cite GICHD.</td>
+          </tr>
+          <tr>
+            <td><b>$808.8M</b> demil IDIQ</td>
+            <td><span class="chip build">Reframe</span></td>
+            <td>That is a multi-year <em>ceiling</em>; actual competed spend runs <b>~$30M/yr</b>. Reframed honestly it is a <em>better</em> argument: the vehicle capacity exists, the throughput doesn&rsquo;t.</td>
+          </tr>
+          <tr>
+            <td><b>$2.3B</b> Hawthorne award</td>
+            <td><span class="chip build">Reframe</span></td>
+            <td>A 20-year base-operations contract in which demil is one of ~15 work statements. Describing it as a demil award will be caught instantly.</td>
+          </tr>
+          <tr>
+            <td><b>1,000 lbs/day</b></td>
+            <td><span class="chip build">Reframe</span></td>
+            <td>60 lb/hr only reaches 1,000 lb across a ~17-hour day. Quote the hourly rate. Better still, don&rsquo;t compete on rate at all.</td>
+          </tr>
+          <tr>
+            <td>&ldquo;Exceeds California EPA, NATO and EU standards&rdquo;</td>
+            <td><span class="chip build">Substantiate</span></td>
+            <td>Currently unsupported — no stack test, no monitoring data, no permit number published. This is the softest claim in the whole offer. Get third-party testing or rewrite it.</td>
+          </tr>
+          <tr>
+            <td>&ldquo;97% recyclable material&rdquo;</td>
+            <td><span class="chip build">Substantiate</span></td>
+            <td>Excellent number, no verification attached. Have it independently measured, then use it everywhere.</td>
+          </tr>
+          <tr>
+            <td>&ldquo;Patented technology&rdquo;</td>
+            <td><span class="chip build">Name it</span></td>
+            <td>The patent is never identified on either site. Name the number or drop the claim — and note that patents are the strongest sole-source justification lever available.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin-top:var(--s4)">Two claims to build the narrative on instead</h3>
+    <div class="grid g2">
+      <div class="card">
+        <h3>The throughput collapse</h3>
+        <p>Joint Munitions Command averaged <strong>48,000 short tons a year</strong> from 2015 to 2020 and set a target of getting the stockpile below 100,000 tons. The FY26–31 plan programs <strong>22,000–24,000 tons a year</strong>, and the goal has disappeared from the published strategy while the forecast shows growth every year through FY2030.</p>
+        <p>Throughput has halved, the target is gone, and the pile is growing. Every number in that sentence comes from a government source.</p>
+      </div>
+      <div class="card">
+        <h3>The definitional gift</h3>
+        <p>Federal regulation at 40 CFR 260.10 defines open burning as combustion <em>without</em> control of combustion air, containment in an enclosed device, or control of gaseous emissions. A closed chamber with controlled air and emissions control is therefore, <strong>as a matter of regulatory definition, categorically not open burning.</strong></p>
+        <p>That is a citable fact, not a marketing claim — and it is far more durable than any competitor&rsquo;s &ldquo;clean alternative&rdquo; tagline.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 -->
+<section>
+  <div class="sec-head">
+    <div class="num">10</div>
+    <div class="t">
+      <span class="lbl">Risk</span>
+      <h2>Three things that could break this.</h2>
+      <p class="lede">Named plainly, because each one is manageable now and expensive later.</p>
+    </div>
+  </div>
+
+  <div class="body">
+    <details open>
+      <summary>The regulatory classification trap <span class="chip kill" style="margin-left:auto">Highest consequence</span></summary>
+      <div class="in">
+        <p>&ldquo;Two-stage combustion&rdquo; is the phrase TWB currently leads with. Under 40 CFR 260.10, an <em>incinerator</em> is any enclosed device using controlled flame combustion that is not a boiler or industrial furnace. A miscellaneous unit under Subpart X is expressly one that does <em>not</em> fit the incinerator category.</p>
+        <p>On the face of those definitions, a two-stage combustion chamber is an incinerator — which pulls in a substantially heavier permitting regime than the Subpart X route a detonation chamber can argue for. <strong>Resolve this with environmental counsel before the language is locked into a website</strong>, because the words TWB uses to describe the process may determine which regime applies. It is also a reason not to lead with the mechanism at all: lead with custody, describe the mechanism precisely and only where required.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>The US standing gap</summary>
+      <div class="in">
+        <p>The Hamilton entity can hold a SAM.gov registration, a UEI and an NCAGE. It <strong>cannot</strong> hold a US CAGE code, any small-business or set-aside status, an ATF explosives licence, or a DDTC registration. Publishing any of those before the US entity exists is a size-and-status misrepresentation with False Claims Act exposure — there is no upside that justifies it.</p>
+        <p>The genuinely good news, and it is underused: <strong>Canada is a DFARS qualifying country.</strong> Canadian end products are exempt from the Buy American statute in DoD acquisitions, and the Canadian Commercial Corporation provides a government-backed prime contracting route. Say that in those exact words. It is checkable, it is a real advantage, and almost no foreign supplier claims it properly.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>EnviroSafe Demil</summary>
+      <div class="in">
+        <p>A US company, formed 2018, sitting on a former Army ammunition plant in Texas, holding a share of the Army&rsquo;s demil contract vehicle and self-certified as a small disadvantaged business. Their tagline is <em>&ldquo;America&rsquo;s clean alternative to open burning.&rdquo;</em> They claim .50 calibre, mobile deployment, and materials recovery.</p>
+        <p>They occupy, almost verbatim, four of the five things TWB would want to say — plus the one thing TWB does not have, which is a US contract vehicle. <strong>This is precisely why the positioning must move to custody and speed.</strong> What EnviroSafe does not have: throughput figures, named customers, named leadership, published permits, or a machine. They sell &ldquo;send it to us.&rdquo; TWB sells &ldquo;it never leaves.&rdquo; That distinction is the whole business.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- 11 -->
+<section>
+  <div class="sec-head">
+    <div class="num">11</div>
+    <div class="t">
+      <span class="lbl">Verbal identity</span>
+      <h2>Pragmatic and protective. Hard-edged, never martial.</h2>
+      <p class="lede">Benchmarked against Shield AI, whose register is the current standard in this market. Take their sentence mechanics; keep TWB&rsquo;s subject.</p>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="voice">
+      <div class="vrow">
+        <div class="vcell no"><span class="tag">Not this</span><p>&ldquo;TWB delivers innovative, environmentally responsible demilitarization solutions for the modern warfighter.&rdquo;</p></div>
+        <div class="vcell yes"><span class="tag">This</span><p>&ldquo;Zero transfers. Zero diversion windows. Signed out once, destroyed, weighed, certified.&rdquo;</p></div>
+      </div>
+      <div class="vrow">
+        <div class="vcell no"><span class="tag">Not this</span><p>&ldquo;eMACS produces clean separation and retrieval of recyclable lead and brass, providing significant cost recovery.&rdquo;</p></div>
+        <div class="vcell yes"><span class="tag">This</span><p>&ldquo;Recovered, not released. Every round comes back as graded metal. None of it comes back as a part.&rdquo;</p></div>
+      </div>
+      <div class="vrow">
+        <div class="vcell no"><span class="tag">Not this</span><p>&ldquo;Committed to the highest standards of safety and environmental stewardship.&rdquo;</p></div>
+        <div class="vcell yes"><span class="tag">This</span><p>&ldquo;Remote start. Remote stop. Nobody stands over it while it runs.&rdquo;</p></div>
+      </div>
+    </div>
+
+    <div class="dark-block" style="margin-top:var(--s4)">
+      <span class="lbl">What we took from Shield AI, and what we left</span>
+      <div class="grid g2" style="margin-top:var(--s3)">
+        <div>
+          <h3>Taken &mdash; the mechanics</h3>
+          <ul class="clean">
+            <li>Short declaratives. One idea per sentence, no subordinate clause softening the claim.</li>
+            <li>Verb-first construction and absolute quantities &mdash; <em>zero transfers</em>, not <em>minimal handling</em>.</li>
+            <li>Hard claims backed immediately by a checkable number or a named source.</li>
+            <li>No hedging vocabulary. Nothing is &ldquo;designed to help&rdquo; or &ldquo;can assist with&rdquo;.</li>
+            <li>Mission stated as protection, not capability. Shield&rsquo;s own line is <em>&ldquo;protect service members and civilians&rdquo;</em> &mdash; much closer to TWB&rsquo;s register than their visual language suggests.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Left &mdash; the targeting vocabulary</h3>
+          <ul class="clean">
+            <li>No hunting, dominance, lethality or battlefield framing. TWB destroys ammunition for sheriffs and armourers; that language misfires with the buyer reachable this year.</li>
+            <li>No product-as-weapon naming. Vault holds a perimeter &mdash; it does not prosecute a target.</li>
+            <li>Adopting the offense voice would drop TWB into the crowded lane the strategy deliberately avoids. The <em>look</em> can be hard; the <em>claim</em> stays protective.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:var(--s5)">Threat framing &mdash; the sharpened line</h3>
+    <p>The custody argument gets materially stronger when the consequence is named rather than implied. Custody is not paperwork hygiene; it is diversion control. Every handoff in a disposal chain is an interval where the count can change, and poorly secured or surplus stockpiles are a documented source of diverted small arms ammunition worldwide.</p>
+    <div class="pull">
+      <p>Every transfer is a window. Most disposal chains are made of them. TWB removes the transfers &mdash; not one of them, all of them.</p>
+      <span class="attr">The threat-framed version of the wedge</span>
+    </div>
+    <p><strong>The discipline that keeps this credible:</strong> threat framing must stay evidenced. &ldquo;Diverted stockpiles are a documented source&rdquo; is defensible and sourced. &ldquo;Terrorists are buying out of your evidence room&rdquo; is not, and one unsupported line of it would cost more than the whole register gains. Name the mechanism, cite the source, stop.</p>
+
+    <div class="grid g2" style="margin-top:var(--s4)">
+      <div class="card">
+        <h3>Rules</h3>
+        <ul class="clean">
+          <li><strong>Earn every claim with a number or drop the sentence.</strong> This category punishes hand-waving harder than most.</li>
+          <li><strong>Concrete nouns beat abstract ones.</strong> Brass, lead, trailer, hitch, locker, perimeter — not solutions, capabilities, offerings.</li>
+          <li><strong>Write to the person holding the liability</strong>, not the person approving the budget. The budget-holder reads over their shoulder.</li>
+          <li><strong>Name the gate on every roadmap claim.</strong> Precision reads as competence.</li>
+          <li><strong>Dual-audience test:</strong> if a line sounds like hype to a uniformed evaluator <em>or</em> to a diligence lead, cut it.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Banned</h3>
+        <ul class="clean">
+          <li><em>Solutions, offerings, capabilities</em> — used by every operator in the category, meaning nothing.</li>
+          <li><em>Environmentally friendly, green, sustainable</em> — soft, defensive, and claimed by literally everyone including TWB today.</li>
+          <li><em>R3, resource recovery and reclamation</em> — insider jargon, and already taken by Nammo and Gradient.</li>
+          <li><em>World leader, world experts</em> — El Dorado owns this verbatim and it is unprovable anyway.</li>
+          <li><em>Warfighter, lethality, arsenal</em> — wrong register. TWB&rsquo;s mission is making things safe, and that is the differentiated voice.</li>
+          <li><em>Clean alternative to open burning</em> — three competitors deep. Use the regulatory definition instead.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 -->
+<section>
+  <div class="sec-head">
+    <div class="num">12</div>
+    <div class="t">
+      <span class="lbl">Visual identity</span>
+      <h2>White ground, black display, targeting detail.</h2>
+      <p class="lede">The system takes Shield AI&rsquo;s construction &mdash; corner brackets, mono UI, zero radius, precise micro-motion &mdash; and runs it on a white field rather than their near-black one.</p>
+    </div>
+  </div>
+
+  <div class="body">
+    <p>Two accents, two jobs. <strong>Sage</strong> is the single accent &mdash; action, material and proof alike. The negative register carries no hue at all &mdash; the metal streams, the track record, the recovery argument. Keeping them separate stops the page reading as one undifferentiated wash, and keeps the recovery story visually distinct from the risk story.</p><p>The corner bracket is the motif and it earns its place: a targeting mark in Shield AI&rsquo;s vocabulary, a <em>perimeter</em> mark in TWB&rsquo;s. Same form &mdash; and for TWB it encodes the entire strategy.</p>
+
+    <div class="swatches">
+      <div class="sw" style="background:#000000"><span class="h">Display black</span><span class="c">#000000</span></div>
+      <div class="sw" style="background:#3D3D38"><span class="h">Negative &mdash; inert</span><span class="c">#3D3D38</span></div>
+      <div class="sw" style="background:#8C8A83"><span class="h">Negative muted</span><span class="c">#8C8A83</span></div>
+      <div class="sw" style="background:#788274"><span class="h">Sage &mdash; recovered</span><span class="c">#788274</span></div>
+      <div class="sw lt" style="background:#E2E1DA"><span class="h">Hairline</span><span class="c">#E2E1DA</span></div>
+      <div class="sw lt" style="background:#FFFFFF;box-shadow:inset 0 0 0 1px #E4E3DD"><span class="h">Ground</span><span class="c">#FFFFFF</span></div>
+    </div>
+
+    <div class="grid g3" style="margin-top:var(--s4)">
+      <div class="card">
+        <h3>Typography</h3>
+        <p>A single-face system, worked light. Headings run <strong>400 at display size, 500 at section level, 600 at sub-head</strong> &mdash; weight climbing as size falls, so the scale carries the hierarchy and weight only assists. Body at 400. Headings track tight and loosen as they get smaller. <strong>Monospace, uppercase, letter-spaced</strong> for the whole UI layer: navigation, labels, buttons, specifications, status.</p><p>The restraint is the point. One text face plus one mono reads as a document produced by an organisation with a standard, not a brand reaching for personality &mdash; which is the correct register for procurement officers and evidence custodians. It also carries no commercial font licence: Helvetica ships on macOS and resolves to Arial elsewhere with identical metrics.</p>
+      </div>
+      <div class="card">
+        <h3>Photography</h3>
+        <p>The trailer in real compounds, in daylight, with people in ordinary work clothing. No dramatic fire imagery — fire is what the competition does in a pit. Show the output: graded metal in bins. That single image carries claim 3 without a caption.</p>
+      </div>
+      <div class="card">
+        <h3>Motion</h3>
+        <p>Restrained and mechanical. Scroll reveal at 14px translate over 0.62s, staggered in 70ms steps. Buttons transition in 0.12s on <span class="mono">cubic-bezier(.4,0,.2,1)</span>, brackets scaling outward 2.8% on hover. Nothing bounces, nothing floats, and all of it disables under <span class="mono">prefers-reduced-motion</span>.</p>
+      </div>
+    </div>
+
+    <p style="margin-top:var(--s4)"><strong>The CTA, specified:</strong> zero border radius, 1px hairline border at 14% black, 2.8% black fill, mono uppercase at 0.72rem on 0.09em tracking, and four 6&times;6px corner brackets set 3px outside the box on two adjacent sides each. On hover the fill flips to sage, the type goes white, and the brackets push outward. That one component carries most of the borrowed character.</p><p>The logo should read as a mark on equipment before it reads as a mark on a website — this brand gets seen on a trailer in a compound more often than on a screen. Stencil-legible at low contrast, single colour, no gradient, works at 40mm on painted steel.</p>
+  </div>
+</section>
+
+<!-- 13 -->
+<section>
+  <div class="sec-head">
+    <div class="num">13</div>
+    <div class="t">
+      <span class="lbl">Proof</span>
+      <h2>What has to exist before the brand can carry weight.</h2>
+      <p class="lede">Positioning is a promise. In this category the promise is checked. These are the assets that turn the strategy into something an evaluator can verify.</p>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="grid g2">
+      <div class="card">
+        <h3>Build first — no US entity required</h3>
+        <ul class="clean">
+          <li><strong>Third-party emissions testing</strong> at an accredited lab, with a publishable report. This retires the softest claim in the offer.</li>
+          <li><strong>Independent verification of the 97% recovery figure.</strong></li>
+          <li><strong>A written chain-of-custody and certificate-of-destruction protocol</strong> — independently auditable. This <em>is</em> the product as much as the trailer is.</li>
+          <li><strong>Named patent numbers</strong>, and filings where gaps exist. The strongest sole-source lever available.</li>
+          <li><strong>An explicit no-resale, no-diversion policy</strong> for seized property. A Michigan firearms-destruction contract was cancelled over exactly this; saying it first is free trust.</li>
+          <li><strong>Explosives-hours-without-incident</strong>, counted and published.</li>
+          <li><strong>ISO 9001, then 45001 and 14001.</strong> In this niche the safety and environmental certifications are real differentiators, not box-ticking.</li>
+          <li><strong>Customer references who will take a call</strong> — six RCMP units and four police services are sitting unused.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Start the clock — needs the US entity</h3>
+        <ul class="clean">
+          <li>Incorporation, EIN, and a <strong>physical US premises</strong> — a mailbox will not satisfy the ATF licence requirement.</li>
+          <li>US CAGE code and a separate SAM.gov registration.</li>
+          <li><strong>ATF Federal Explosives Licence</strong>, with responsible persons and employee possessors planned around the citizenship restrictions.</li>
+          <li>PHMSA hazmat registration, transport authority, security plan.</li>
+          <li>DDTC registration once manufacturing or exporting in the US; an export compliance programme with a technology control plan covering Canadian-national access.</li>
+          <li>A deliberate first subcontract under a US prime, purely to start a past-performance record.</li>
+        </ul>
+        <p style="margin-top:var(--s3);font-size:.95rem"><strong>Do first, before any of this:</strong> an export-control jurisdiction and classification determination on the equipment and its technical data. Publishing detailed spec sheets can itself constitute an unauthorised export.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 14 -->
+<section>
+  <div class="sec-head">
+    <div class="num">14</div>
+    <div class="t">
+      <span class="lbl">Sequence</span>
+      <h2>What to do, in what order.</h2>
+    </div>
+  </div>
+
+  <div class="body">
+    <ol class="clean">
+      <li><strong>Decide the category.</strong> Small arms ammunition destruction, not demilitarization. Everything downstream depends on this one call.</li>
+      <li><strong>Kill the bad numbers</strong> across every existing document, including the CIM. This is an afternoon of work and it removes the fastest way to lose credibility.</li>
+      <li><strong>Name the machine</strong> and retire the MACS/eMACS split.</li>
+      <li><strong>Collapse CADS into TWB</strong> as a service line; redirect the second site.</li>
+      <li><strong>Commission the emissions test and the recovery verification.</strong> Long lead time, gates the strongest claims — start now.</li>
+      <li><strong>Get environmental counsel on the incinerator-versus-miscellaneous-unit question</strong> before any copy is locked.</li>
+      <li><strong>Build the website</strong> on the custody spine, with a real procurement-readiness page that states honestly what the Canadian entity holds and does not hold.</li>
+      <li><strong>Turn the reference list on.</strong> Ten named agencies, currently invisible, are the cheapest credibility available.</li>
+      <li><strong>Start the US entity clock</strong> in parallel — nothing about the brand is blocked by it, but the ATF licence and CAGE code have long lead times.</li>
+    </ol>
+
+    <div class="dark-block" style="margin-top:var(--s5)">
+      <span class="lbl">The whole strategy in one paragraph</span>
+      <p style="font-size:1.2rem;line-height:1.5;color:var(--ink);max-width:60ch">TWB stops competing on tonnage in a market it cannot win, and claims the category nobody has named: small arms ammunition destruction at the point of custody. The argument is that the material never leaves your perimeter, never enters anyone else&rsquo;s hands, is destroyed the same day by your own people, and comes back as metal. The proof is 25 years, ten named agencies, and a machine that arrives behind a pickup truck. The moral case is that in 2026, people are still doing this by hand, and some of them are dying.</p>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="rule"></div>
+    <p><b>Sourcing.</b> Market, regulatory, competitive and procurement findings in this document are drawn from primary sources including the US Army Joint Munitions Command, the Army&rsquo;s FY2025 Demil Enterprise Strategic Plan, GAO, the National Academies of Sciences, the Federal Register, EPA, ATF, the World Bank RDNA4 assessment, GICHD, Landmine Monitor, and competitors&rsquo; own published materials. Figures marked for reframing or removal in &sect;09 were checked against those sources individually.</p>
+    <p><b>Standing caveats.</b> The EPA open burning / open detonation rule remains <em>proposed</em>, not final — cite it as such. CMMC is mid-reform and its phase 2 requirements are suspended; do not hard-code CMMC claims. FAR and DFARS clause numbers are being renumbered through 2026. Re-verify every regulatory citation at publication, and have export counsel review the technology pages and government-contracts counsel review the procurement page before the site goes live.</p>
+    <div class="rule"></div>
+    <p style="font-size:.8rem"><b>TWB Designs Inc.</b> &middot; Brand Strategy Platform v1.0 &middot; August 2026 &middot; Internal working document</p>
+  </div>
+</footer>

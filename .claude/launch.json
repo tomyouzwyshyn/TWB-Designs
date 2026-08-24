@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "twb-site",
+      "runtimeExecutable": "/private/tmp/claude-501/-Users-tomyouzwyshyn--claude/a4fe0caa-cd62-42c8-b07f-16aaeaa3369d/scratchpad/serve-twb.sh",
+      "runtimeArgs": [],
+      "port": 4630
+    }
+  ]
+}
