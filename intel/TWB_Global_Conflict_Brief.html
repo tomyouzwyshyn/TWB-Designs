@@ -10,43 +10,59 @@
        letter-spacing:-.008em;-webkit-font-smoothing:antialiased}
   .wrap{max-width:820px;margin:0 auto;padding:28px 34px 40px;background:#FFFFFF}
   .ui{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-      font-size:8.5px;letter-spacing:.09em;text-transform:uppercase;color:#6E6C66}
+      font-size:7.5px;letter-spacing:.09em;text-transform:uppercase;color:#6E6C66}
   .ui-sage{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-      font-size:8.5px;letter-spacing:.09em;text-transform:uppercase;color:#66705F}
-  h1{font-size:23px;font-weight:600;letter-spacing:-.028em;color:#000;margin:0}
-  h2{font-size:12px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:#000;
+      font-size:7.5px;letter-spacing:.09em;text-transform:uppercase;color:#66705F}
+  h1{font-size:22px;font-weight:600;letter-spacing:-.028em;color:#000;margin:0}
+  h2{font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:#000;
      margin:0 0 12px;padding-bottom:6px;border-bottom:1px solid #000;
      font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace}
-  h3{font-size:14px;font-weight:600;letter-spacing:-.009em;color:#000;margin:0 0 3px}
-  p{margin:0 0 8px;font-size:12px;line-height:1.55}
-  .lede{font-size:12.5px;line-height:1.6;color:#33332F}
-  .status{font-size:11.5px;line-height:1.5;color:#33332F;margin:0 0 5px}
-  .src{color:#6E6C66;font-size:10.5px}
-  ul{margin:5px 0 0;padding-left:15px}
-  li{font-size:11px;line-height:1.5;color:#33332F;margin-bottom:2.5px}
+  h3{font-size:13px;font-weight:600;letter-spacing:-.009em;color:#000;margin:0 0 3px}
+  p{margin:0 0 8px;font-size:11px;line-height:1.55}
+  .lede{font-size:11.5px;line-height:1.6;color:#33332F}
+  .status{font-size:10.5px;line-height:1.5;color:#33332F;margin:0 0 5px}
+  .src{color:#6E6C66;font-size:9.5px}
+  ul{margin:6px 0 0;padding:0;list-style:none}
+  li{font-size:10px;line-height:1.55;color:#33332F;margin-bottom:6px;list-style:none;list-style-type:none;padding:0}
   .item{margin:0 0 15px;padding-bottom:13px;border-bottom:1px solid #E2E1DA}
   .item:last-child{border-bottom:0}
   .ord{background:#F1F3F0;border-left:2px solid #788274;padding:6px 9px;margin-top:7px;
-       font-size:10.5px;line-height:1.5;color:#33332F}
+       font-size:9.5px;line-height:1.5;color:#33332F}
   .ord b{color:#66705F;font-weight:600}
   table{border-collapse:collapse;width:100%;margin:0 0 12px}
-  td,th{font-size:11px;line-height:1.45;text-align:left;vertical-align:top;
+  td,th{font-size:10px;line-height:1.45;text-align:left;vertical-align:top;
         padding:5px 8px 5px 0;border-bottom:1px solid #E2E1DA}
-  th{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:8.5px;
+  th{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:7.5px;
      letter-spacing:.09em;text-transform:uppercase;color:#66705F;font-weight:500;
      border-bottom:1px solid #CFCDC4}
   .num{color:#000;font-weight:600;white-space:nowrap}
   .page{padding-top:20px;margin-top:22px;border-top:1px solid #000}
+  .why{border-left:1px solid #CFCDC4;padding:5px 0 4px 9px;margin-top:7px;
+       font-size:9.5px;line-height:1.55;color:#6E6C66}
+  .why b{color:#33332F;font-weight:600}
+  .wl{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:7.5px;
+      letter-spacing:.09em;text-transform:uppercase;color:#66705F;display:block;margin-bottom:3px}
   .flag{border:1px dashed #8C8A83;padding:7px 9px;margin-top:8px;
-        font-size:10.5px;line-height:1.5;color:#3D3D38}
+        font-size:9.5px;line-height:1.5;color:#3D3D38}
   .op{background:#F1F3F0;padding:14px 16px;margin:0 0 12px}
   .op h3{margin-bottom:5px}
   .foot{margin-top:24px;padding-top:12px;border-top:1px solid #E2E1DA}
   a{color:#66705F}
+
+  @page{ size:Letter; margin:11mm 9mm 9mm; }
   @media print{
+    html,body{background:#fff}
     .wrap{max-width:none;padding:0}
-    .page{page-break-before:always;border-top:0;padding-top:0;margin-top:0}
-    body{font-size:10.5px}
+    body{font-size:9.5px}
+    .page{page-break-before:always;break-before:page;border-top:0;padding-top:0;margin-top:0}
+    .cols{column-count:2;column-gap:6mm;column-fill:auto}
+    .item{break-inside:avoid;page-break-inside:avoid;margin:0 0 8px;padding-bottom:7px}
+    h2{margin:0 0 8px;padding-bottom:4px}
+    table{margin-bottom:7px}
+    td,th{padding:2px 6px 2px 0}
+    p{margin:0 0 5px}
+    .ord,.why,.flag{break-inside:avoid}
+    .foot{margin-top:10px}
   }
   @media (max-width:600px){ .wrap{padding:18px 16px} }
 </style>
@@ -56,7 +72,7 @@
 
 <!-- ══════════════════ MASTHEAD ══════════════════ -->
 <div style="display:block;padding-bottom:10px;border-bottom:1px solid #000000">
-  <h1 style="font-size:23px;font-weight:600;letter-spacing:-.028em;color:#000;margin:0">TWB Designs</h1>
+  <h1 style="font-size:22px;font-weight:600;letter-spacing:-.028em;color:#000;margin:0">TWB Designs</h1>
   <div class="ui-sage" style="margin-top:5px">Global Conflict Brief &nbsp;·&nbsp; Edition 001 &nbsp;·&nbsp; 25 August 2026 &nbsp;·&nbsp; Internal</div>
 </div>
 
@@ -66,7 +82,7 @@ that bears on this business. The final page reads the whole picture against TWB'
 written to be useful to someone deciding where to put money and people, not to persuade anyone of
 anything.</p>
 
-<div class="flag" style="border:1px dashed #8C8A83;padding:7px 9px;margin-top:8px;font-size:10.5px;line-height:1.5;color:#3D3D38">
+<div class="flag" style="border:1px dashed #8C8A83;padding:7px 9px;margin-top:8px;font-size:9.5px;line-height:1.5;color:#3D3D38">
 <b>Standing rules.</b> Every figure carries its source and the date that source published it.
 Statements by a party to a conflict are labelled <i>claim</i> and are never presented as fact. Figures that
 circulate widely but cannot be traced to a primary document are excluded, and the significant exclusions
@@ -75,8 +91,9 @@ vintage is stated. Nothing here is advocacy for any party.
 </div>
 
 <!-- ══════════════════ GLOBAL PICTURE ══════════════════ -->
-<div style="margin-top:22px">
+<div style="margin-top:22px" class="cols-host">
 <h2>1 &nbsp;— &nbsp;The global picture</h2>
+<div class="cols">
 
 <table>
 <tr><th style="width:34%">Indicator</th><th style="width:26%">Latest</th><th>Source &amp; publication date</th></tr>
@@ -94,7 +111,7 @@ vintage is stated. Nothing here is advocacy for any party.
 <tr><td>International mine-action funding, 2024</td><td class="num">$761m, −5%</td><td class="src">Landmine Monitor 2025, 1 Dec 2025</td></tr>
 </table>
 
-<p style="font-size:11.5px;line-height:1.55"><b>What the aggregate says.</b> More conflicts than at any
+<p style="font-size:10.5px;line-height:1.55"><b>What the aggregate says.</b> More conflicts than at any
 point in the post-1945 record, more of them between states, and more money going into weapons — while the
 displacement figure falls for the first time in ten years because 14.7 million people returned home in
 2025 (UNHCR, 11 Jun 2026). Return is the operative word: people are moving back into ground that was
@@ -103,23 +120,24 @@ that ground fell 5% in 2024 and the largest donor cut deeply in 2025. The gap be
 and materiel accounted for is the widest it has been in the modern record, and no published policy or
 funding line addresses the disposal side of it.</p>
 </div>
-
+</div>
 <!-- ══════════════════ EUROPE ══════════════════ -->
 <div class="page" style="padding-top:20px;margin-top:22px;border-top:1px solid #000">
 <h2>2 &nbsp;— &nbsp;Europe &amp; Eurasia</h2>
+<div class="cols">
 
 <div class="item">
 <h3>Russia–Ukraine</h3>
 <p class="status"><b>Active, high intensity. No ceasefire. Negotiations stalled.</b> The only truce of 2026
 was a 32-hour Orthodox Easter pause, 11–13 April, not renewed. <span class="src">(ISW/Critical Threats,
 Russian Offensive Campaign Assessment, 23 Aug 2026)</span></p>
-<ul>
-<li><b>19–20 Aug</b> — large combined missile and drone strike; a children's hospital in Kyiv damaged, at least 12 killed. <span class="src">(ISW, 20 Aug 2026)</span></li>
-<li><b>22 Aug</b> — Putin publicly dismissed peace proposals as "exotic" and "unacceptable," insisting any talks reflect "ground realities." <span class="src">(ISW, 22 Aug 2026)</span></li>
-<li><b>~22–23 Aug</b> — Zelensky announced a joint Ukraine–US–Europe proposal: ceasefire, mutual withdrawal, EU/NATO guarantees. Rejected by Moscow. <span class="src">(ISW, 23 Aug 2026)</span></li>
-<li><b>12 Aug</b> — UN OHCHR reported <span class="num">437 civilians killed and 2,610 injured in July 2026</span> — the highest monthly toll since May 2022, up 30% on June and 70% on July 2025. First half of 2026: 1,396 killed, 7,978 injured. <span class="src">(OHCHR HRMMU, 12 Aug 2026)</span></li>
-<li><b>30 Jul</b> — Russia extended its fuel export ban to January 2027, a direct consequence of Ukrainian refinery strikes. <span class="src">(ICG CrisisWatch, Jul 2026)</span></li>
-<li>Main Russian effort has shifted to the Slovyansk axis, with pressure at Hulyaipole and in northern Sumy. Short-range drones near the front line now account for 27% of all civilian casualties — the highest share of the war. <span class="src">(ISW, 14–23 Aug 2026; OHCHR, 12 Aug 2026)</span></li>
+<ul style="list-style:none;margin:6px 0 0;padding:0">
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>19–20 Aug</b> — large combined missile and drone strike; a children's hospital in Kyiv damaged, at least 12 killed. <span class="src">(ISW, 20 Aug 2026)</span></li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>22 Aug</b> — Putin publicly dismissed peace proposals as "exotic" and "unacceptable," insisting any talks reflect "ground realities." <span class="src">(ISW, 22 Aug 2026)</span></li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>~22–23 Aug</b> — Zelensky announced a joint Ukraine–US–Europe proposal: ceasefire, mutual withdrawal, EU/NATO guarantees. Rejected by Moscow. <span class="src">(ISW, 23 Aug 2026)</span></li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>12 Aug</b> — UN OHCHR reported <span class="num">437 civilians killed and 2,610 injured in July 2026</span> — the highest monthly toll since May 2022, up 30% on June and 70% on July 2025. First half of 2026: 1,396 killed, 7,978 injured. <span class="src">(OHCHR HRMMU, 12 Aug 2026)</span></li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>30 Jul</b> — Russia extended its fuel export ban to January 2027, a direct consequence of Ukrainian refinery strikes. <span class="src">(ICG CrisisWatch, Jul 2026)</span></li>
+<li style="list-style:none;padding:0;margin-bottom:6px">Main Russian effort has shifted to the Slovyansk axis, with pressure at Hulyaipole and in northern Sumy. Short-range drones near the front line now account for 27% of all civilian casualties — the highest share of the war. <span class="src">(ISW, 14–23 Aug 2026; OHCHR, 12 Aug 2026)</span></li>
 </ul>
 <div class="ord"><b>Ordnance signal.</b> Russian output reached ~7 million artillery shells, mortar rounds
 and rockets in 2025 — more than seventeenfold the ~400,000 baseline of 2021 <span class="src">(Estonian
@@ -129,6 +147,7 @@ country profile)</span>; the Ukrainian government's working figure of ~139,000 k
 <i>potentially hazardous area</i> survey estimate, not confirmed contamination, and the two must not be
 conflated. Ukrainian mine/ERW casualties: 275 in 2025, 293 in 2024 <span class="src">(ICBL-CMC preliminary
 data, Jun 2026)</span>.</div>
+<div class="why" style="border-left:1px solid #CFCDC4;padding:5px 0 4px 9px;margin-top:7px;font-size:9.5px;line-height:1.55;color:#6E6C66"><span class="wl" style="font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:7.5px;letter-spacing:.09em;text-transform:uppercase;color:#66705F;display:block;margin-bottom:3px">Why it started</span>Russia annexed Crimea and backed an armed separatist movement in the Donbas in <b>2014</b>, after Ukraine's Maidan protests removed a president who had rejected an EU association agreement. Eight years of low-intensity war in the east followed under the unimplemented Minsk agreements. Russia invaded on <b>24 February 2022</b>, stating aims of "demilitarisation" and preventing NATO enlargement; Ukraine and its partners characterise it as a war of territorial conquest. Neither framing is adjudicated here. What is not disputed: no ceasefire has held, Moscow's stated territorial demands have expanded since 2022 to include buffer zones beyond Donbas, and the war is now the deadliest interstate conflict since 1945.</div>
 </div>
 
 <div class="item">
@@ -137,11 +156,11 @@ data, Jun 2026)</span>.</div>
 and stray Ukrainian munitions arriving on allied territory, with two NATO air-to-air engagements over
 allied soil and live warheads recovered on the ground. <span class="src">(National defence ministries;
 Reuters; ISW)</span></p>
-<ul>
-<li><b>30 Jul</b> — a Russian Kh-101 cruise missile detonated at Tarnawa-Kolonia, eastern Poland, leaving a ~10 m crater; Polish authorities confirmed a "significant amount" of explosive material. No injuries. NATO SG Rutte called it "a dangerous consequence" of the war. <span class="src">(Al Jazeera, 30 Jul 2026; Notes from Poland, 31 Jul 2026)</span></li>
-<li><b>24–26 Jul</b> — Romania intercepted three suspected Russian drones. <span class="src">(ICG CrisisWatch, Jul 2026)</span></li>
-<li><b>20 Aug</b> — Russian drones penetrated Moldovan and Romanian airspace; a Russian naval drone was destroyed near Romania's Neptune Deep gas platform. <span class="src">(ISW, 20 Aug 2026)</span></li>
-<li>Earlier establishing sequence: a Romanian F-16 downed a drone over Estonia (19 May), a French Rafale destroyed one over Latvia (8 Jun), a drone exploded at the Rēzekne oil facility (7 May), and two drones fell near Kouvola, Finland — <b>one with an unexploded warhead</b> (30 Mar). Latvia's defence minister resigned. <span class="src">(National authorities, Mar–Jun 2026)</span></li>
+<ul style="list-style:none;margin:6px 0 0;padding:0">
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>30 Jul</b> — a Russian Kh-101 cruise missile detonated at Tarnawa-Kolonia, eastern Poland, leaving a ~10 m crater; Polish authorities confirmed a "significant amount" of explosive material. No injuries. NATO SG Rutte called it "a dangerous consequence" of the war. <span class="src">(Al Jazeera, 30 Jul 2026; Notes from Poland, 31 Jul 2026)</span></li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>24–26 Jul</b> — Romania intercepted three suspected Russian drones. <span class="src">(ICG CrisisWatch, Jul 2026)</span></li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>20 Aug</b> — Russian drones penetrated Moldovan and Romanian airspace; a Russian naval drone was destroyed near Romania's Neptune Deep gas platform. <span class="src">(ISW, 20 Aug 2026)</span></li>
+<li style="list-style:none;padding:0;margin-bottom:6px">Earlier establishing sequence: a Romanian F-16 downed a drone over Estonia (19 May), a French Rafale destroyed one over Latvia (8 Jun), a drone exploded at the Rēzekne oil facility (7 May), and two drones fell near Kouvola, Finland — <b>one with an unexploded warhead</b> (30 Mar). Latvia's defence minister resigned. <span class="src">(National authorities, Mar–Jun 2026)</span></li>
 </ul>
 <div class="ord"><b>Ordnance signal.</b> Five states have now completed withdrawal from the Anti-Personnel
 Mine Ban Convention — Estonia, Latvia and Lithuania on 27 Dec 2025, Finland on 10 Jan 2026, Poland on
@@ -150,6 +169,7 @@ Finland, Lithuania and Poland have signalled intent to restart anti-personnel mi
 <span class="src">(Arms Control Association, Jan 2026)</span>. Mines emplaced on the eastern flank are a
 clearance liability that will outlive whatever they are meant to deter. Live warhead recovery in Finland
 is already an EOD workload for national authorities.</div>
+<div class="why" style="border-left:1px solid #CFCDC4;padding:5px 0 4px 9px;margin-top:7px;font-size:9.5px;line-height:1.55;color:#6E6C66"><span class="wl" style="font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:7.5px;letter-spacing:.09em;text-transform:uppercase;color:#66705F;display:block;margin-bottom:3px">Why it is starting</span>This is not a war and has no declared origin — it is spillover becoming a pattern. From <b>March 2026</b>, as Ukraine's deep-strike campaign reached Russian Baltic-coast oil terminals and Russia's drone campaign intensified, munitions from both sides began arriving on NATO soil: Ukrainian strike drones losing navigation to Russian jamming, and Russian drones and one cruise missile crossing directly. Each government contests the cause — Ukraine cites interference, Russia accuses the Baltic states of providing transit airspace, the Baltic states reject both. The mechanism that would turn this into a conflict is arithmetic rather than intent: no incident has yet produced a casualty, and an Article 4 or 5 consultation almost certainly follows the one that does.</div>
 </div>
 
 <div class="item">
@@ -158,9 +178,9 @@ is already an EOD workload for national authorities.</div>
 resigned 3 July 2026 and remains caretaker; Russia signed a decree in mid-May simplifying citizenship for
 Transnistria residents, which President Sandu characterised publicly as a recruitment instrument.
 <span class="src">(Al Jazeera, 3 Jul 2026; Bloomberg, 16 May 2026)</span></p>
-<ul>
-<li><b>20 Aug</b> — Russian drones crossed Moldovan airspace; Sandu stated Russia "deliberately launches some of its drones" across borders — a hardening of Chisinau's public position. <span class="src">(ISW, 20 Aug 2026)</span></li>
-<li><b>Mar 2026</b> — Moldova circulated a 14-page reintegration plan: no special status for Transnistria, an internationally appointed transitional administration, and Russian withdrawal under international supervision. <span class="src">(Carnegie, 31 Mar 2026)</span></li>
+<ul style="list-style:none;margin:6px 0 0;padding:0">
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>20 Aug</b> — Russian drones crossed Moldovan airspace; Sandu stated Russia "deliberately launches some of its drones" across borders — a hardening of Chisinau's public position. <span class="src">(ISW, 20 Aug 2026)</span></li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>Mar 2026</b> — Moldova circulated a 14-page reintegration plan: no special status for Transnistria, an internationally appointed transitional administration, and Russian withdrawal under international supervision. <span class="src">(Carnegie, 31 Mar 2026)</span></li>
 </ul>
 <div class="ord"><b>Ordnance signal — the largest unmanaged stockpile in Europe outside the war.</b> The
 Cobasna depot holds up to <b>20,000 tonnes</b> of Soviet-era ammunition inherited from the 14th Guards
@@ -169,43 +189,47 @@ assess its condition. No disposal, demilitarisation or DDR programme exists for 
 plan does not address it. <i>Note: the widely circulated "Hiroshima-equivalent" characterisation of a
 Cobasna detonation cannot be traced to a published technical study and is physically implausible for
 20,000 t of conventional ordnance. It is excluded here.</i></div>
+<div class="why" style="border-left:1px solid #CFCDC4;padding:5px 0 4px 9px;margin-top:7px;font-size:9.5px;line-height:1.55;color:#6E6C66"><span class="wl" style="font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:7.5px;letter-spacing:.09em;text-transform:uppercase;color:#66705F;display:block;margin-bottom:3px">Why it started</span>Transnistria, a Russian-speaking industrial strip on the Dniester, fought a brief war against Moldova in <b>1992</b> as the USSR dissolved, backed by the Soviet 14th Guards Army stationed there. The war ended in a ceasefire that froze the line and left Russian troops in place as "peacekeepers" — along with the army's ammunition, which became the Cobasna stockpile. Nothing has been settled in thirty-four years. The file reactivated because Moldova turned decisively toward the EU, and Moscow responded with citizenship, energy and trade instruments rather than force.</div>
 </div>
 
 <div class="item">
 <h3>Türkiye–PKK — the live DDR case</h3>
 <p class="status"><b>Peace and reintegration process advancing.</b> Parliament passed a 12-article
 reintegration law on <b>10 August 2026 by 468 votes to 88</b>. <span class="src">(Reuters, 10 Aug 2026)</span></p>
-<ul>
-<li>The law suspends sentences for some convicted members and defers investigations for 5–10 years, dismissing them if no terror offence follows. It excludes those convicted of intentional killings and pre-2005 life sentences — including Abdullah Öcalan.</li>
-<li><b>Critical condition:</b> the law takes effect only once Türkiye's National Security Council confirms the PKK has disbanded and <b>surrendered all weapons</b>. It is currently inert. Eligible individuals then have six months to apply.</li>
-<li><b>Early Jul</b> — PKK vacated the Siyani camp and Bahar Tepe area in Duhok, Iraqi Kurdistan; Turkish forces moved in. First verified physical demobilisation step of 2026. <span class="src">(ICG CrisisWatch, Jul 2026)</span></li>
-<li>PKK's public response calls the law seriously deficient and demands Öcalan's release and political reforms. Weapons surrender has not begun.</li>
+<ul style="list-style:none;margin:6px 0 0;padding:0">
+<li style="list-style:none;padding:0;margin-bottom:6px">The law suspends sentences for some convicted members and defers investigations for 5–10 years, dismissing them if no terror offence follows. It excludes those convicted of intentional killings and pre-2005 life sentences — including Abdullah Öcalan.</li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>Critical condition:</b> the law takes effect only once Türkiye's National Security Council confirms the PKK has disbanded and <b>surrendered all weapons</b>. It is currently inert. Eligible individuals then have six months to apply.</li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>Early Jul</b> — PKK vacated the Siyani camp and Bahar Tepe area in Duhok, Iraqi Kurdistan; Turkish forces moved in. First verified physical demobilisation step of 2026. <span class="src">(ICG CrisisWatch, Jul 2026)</span></li>
+<li style="list-style:none;padding:0;margin-bottom:6px">PKK's public response calls the law seriously deficient and demands Öcalan's release and political reforms. Weapons surrender has not begun.</li>
 </ul>
 <div class="ord"><b>Ordnance signal.</b> A completed surrender produces a substantial cache of small arms,
 light weapons, ammunition and IED components spanning Turkish and Iraqi Kurdish jurisdictions.
 <b>No verification mechanism, third-party monitor or destruction programme has been publicly named.</b>
 That absence is the single clearest gap in the process — and the most direct read-across to a verified,
 in-place destruction capability anywhere in this brief.</div>
+<div class="why" style="border-left:1px solid #CFCDC4;padding:5px 0 4px 9px;margin-top:7px;font-size:9.5px;line-height:1.55;color:#6E6C66"><span class="wl" style="font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:7.5px;letter-spacing:.09em;text-transform:uppercase;color:#66705F;display:block;margin-bottom:3px">Why it started, and why it may end</span>The PKK took up arms in <b>1984</b> for Kurdish self-rule in south-eastern Türkiye; the conflict has killed tens of thousands over four decades and repeatedly failed to settle — most recently when talks collapsed in 2015. What changed was strategic rather than moral: the PKK's regional position weakened as Syria's war reordered Kurdish politics, and Ankara found domestic political use for a settlement. Öcalan called for dissolution from prison in 2025; the group declared it and began withdrawing. This is the one file in the brief moving toward resolution rather than away from it — and it is the one that most obviously needs a destruction mechanism it does not have.</div>
 </div>
 
 <div class="item">
 <h3>South Caucasus and the Western Balkans — in brief</h3>
-<ul>
-<li><b>Armenia–Azerbaijan:</b> the peace agreement remains <i>initialled</i>, not signed, one year after the White House summit; Baku still requires an Armenian constitutional change first. <span class="src">(Joint US–Armenia–Azerbaijan statement, 10 Aug 2026)</span> On 1 July the EU launched a €200m connectivity package plus a €20m "Peace Dividends" programme covering demining among four uses. <span class="src">(European Commission, 1 Jul 2026)</span> ANAMA reports 287,385 hectares cleared cumulatively in the returned territories, finding roughly 130–790 mines and 330–2,100 UXO per month <span class="src">(ANAMA via APA, 2026 — government-agency figures)</span>.</li>
-<li><b>Kosovo:</b> the Constitutional Court's 7 August deadline to constitute the Assembly passed with no legal remedy — an unprecedented constitutional vacuum in a jurisdiction with an unresolved security problem in its north. <span class="src">(European Western Balkans, 10 Aug 2026)</span></li>
-<li><b>Bosnia:</b> general elections 4 October; EUFOR Althea's authorisation expires 31 October and must clear the Security Council before then. <span class="src">(Security Council Report, May 2026)</span></li>
-<li><b>Serbia:</b> ammunition exports have been halted since 26 June 2025, with National Security Council approval now required per export. <span class="src">(RFE/RL)</span></li>
+<ul style="list-style:none;margin:6px 0 0;padding:0">
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>Armenia–Azerbaijan:</b> the peace agreement remains <i>initialled</i>, not signed, one year after the White House summit; Baku still requires an Armenian constitutional change first. <span class="src">(Joint US–Armenia–Azerbaijan statement, 10 Aug 2026)</span> On 1 July the EU launched a €200m connectivity package plus a €20m "Peace Dividends" programme covering demining among four uses. <span class="src">(European Commission, 1 Jul 2026)</span> ANAMA reports 287,385 hectares cleared cumulatively in the returned territories, finding roughly 130–790 mines and 330–2,100 UXO per month <span class="src">(ANAMA via APA, 2026 — government-agency figures)</span>.</li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>Kosovo:</b> the Constitutional Court's 7 August deadline to constitute the Assembly passed with no legal remedy — an unprecedented constitutional vacuum in a jurisdiction with an unresolved security problem in its north. <span class="src">(European Western Balkans, 10 Aug 2026)</span></li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>Bosnia:</b> general elections 4 October; EUFOR Althea's authorisation expires 31 October and must clear the Security Council before then. <span class="src">(Security Council Report, May 2026)</span></li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>Serbia:</b> ammunition exports have been halted since 26 June 2025, with National Security Council approval now required per export. <span class="src">(RFE/RL)</span></li>
 </ul>
 <div class="ord"><b>Ordnance signal.</b> The Western Balkans SALW Control Roadmap (SEESAC / UNDP / UNODC)
 remains the standing regional framework for weapons collection, surplus ammunition destruction and
 stockpile-security upgrades. Current tonnages and 2026 targets are not published — a gap flagged for the
 next edition.</div>
+<div class="why" style="border-left:1px solid #CFCDC4;padding:5px 0 4px 9px;margin-top:7px;font-size:9.5px;line-height:1.55;color:#6E6C66"><span class="wl" style="font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:7.5px;letter-spacing:.09em;text-transform:uppercase;color:#66705F;display:block;margin-bottom:3px">Why they started</span><b>Armenia–Azerbaijan:</b> both claimed Nagorno-Karabakh as the USSR collapsed; war in 1988–94 left Armenian forces holding the enclave and surrounding districts, Azerbaijan retook them in 2020 and 2023, and virtually the entire ethnic Armenian population left. The mines were laid across three decades of that. <b>The Balkans:</b> Yugoslavia's dissolution in the 1990s produced settlements — Dayton in Bosnia (1995), an unrecognised Kosovar independence (2008) — that ended the fighting without resolving the underlying question of who the state belongs to. Both remain political crises with armed histories, not armed conflicts.</div>
 </div>
 </div>
-
+</div>
 <!-- ══════════════════ MENA ══════════════════ -->
 <div class="page" style="padding-top:20px;margin-top:22px;border-top:1px solid #000">
 <h2>3 &nbsp;— &nbsp;Middle East &amp; North Africa</h2>
+<div class="cols">
 
 <div class="item">
 <h3>Israel–Gaza</h3>
@@ -213,12 +237,12 @@ next edition.</div>
 weapons-decommissioning agreement was announced 30–31 July 2026; Israel and Hamas are deadlocked over
 whether disarmament or withdrawal comes first. <span class="src">(OCHA oPt, 14 Aug 2026; Chatham House, 3
 Aug 2026)</span></p>
-<ul>
-<li><b>30–31 Jul</b> — Board of Peace agreement published. Weapons to be inventoried, decommissioned and <b>stored</b> — under a Palestinian National Committee, which becomes "the sole entity to hold, store or control weapons in Gaza." No weapons transfer to Israel or non-Palestinian parties. First tranche: heavy weapons, production sites, depots, tunnels. Verification by an International Verification Committee. <span class="src">(Al Jazeera, 31 Jul 2026; full text via Times of Israel)</span></li>
-<li><b>4 Aug</b> — Board of Peace director Mladenov set sequencing: no Israeli withdrawal beyond the Yellow Line until decommissioning is complete. Hamas rejected sequential ordering. <span class="src">(Al Jazeera, 4 Aug 2026)</span></li>
-<li><b>7 Aug</b> — OCHA recorded July 2026 as the deadliest month of the year inside the ceasefire, over 150 fatalities. Cumulative since the ceasefire: 1,259 killed, 4,148 injured <span class="src">(Gaza Ministry of Health via OCHA, 14 Aug 2026)</span>; 804 bodies retrieved from rubble as of 5 Aug.</li>
-<li><b>26–28 Jul</b> — Israeli cabinet approved entry of an International Stabilisation Force; <b>7 Aug</b> — Uganda's parliament approved a troop deployment to it.</li>
-<li>2.1 million people remain in less than half the Strip; water insecurity at 90%, up from 84% in June; the 2026 oPt Flash Appeal is 37.5% funded, with $2.5bn unmet. <span class="src">(OCHA, 7 &amp; 14 Aug 2026)</span></li>
+<ul style="list-style:none;margin:6px 0 0;padding:0">
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>30–31 Jul</b> — Board of Peace agreement published. Weapons to be inventoried, decommissioned and <b>stored</b> — under a Palestinian National Committee, which becomes "the sole entity to hold, store or control weapons in Gaza." No weapons transfer to Israel or non-Palestinian parties. First tranche: heavy weapons, production sites, depots, tunnels. Verification by an International Verification Committee. <span class="src">(Al Jazeera, 31 Jul 2026; full text via Times of Israel)</span></li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>4 Aug</b> — Board of Peace director Mladenov set sequencing: no Israeli withdrawal beyond the Yellow Line until decommissioning is complete. Hamas rejected sequential ordering. <span class="src">(Al Jazeera, 4 Aug 2026)</span></li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>7 Aug</b> — OCHA recorded July 2026 as the deadliest month of the year inside the ceasefire, over 150 fatalities. Cumulative since the ceasefire: 1,259 killed, 4,148 injured <span class="src">(Gaza Ministry of Health via OCHA, 14 Aug 2026)</span>; 804 bodies retrieved from rubble as of 5 Aug.</li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>26–28 Jul</b> — Israeli cabinet approved entry of an International Stabilisation Force; <b>7 Aug</b> — Uganda's parliament approved a troop deployment to it.</li>
+<li style="list-style:none;padding:0;margin-bottom:6px">2.1 million people remain in less than half the Strip; water insecurity at 90%, up from 84% in June; the 2026 oPt Flash Appeal is 37.5% funded, with $2.5bn unmet. <span class="src">(OCHA, 7 &amp; 14 Aug 2026)</span></li>
 </ul>
 <div class="ord"><b>Ordnance signal — the largest ERW caseload in the region.</b> <b>589 explosive-ordnance
 incidents since October 2023 have killed 274 people and injured 1,142</b> <span class="src">(OCHA, 14 Aug
@@ -231,17 +255,18 @@ tonnes of UXO, and assesses first-pass clearance of priority areas at five years
 in decades. <b>The decommissioning agreement provides for storage, not destruction.</b> If that modality
 shifts — and stored caches under contested custody historically do not stay stored — the requirement
 becomes a procurement question rather than a political one.</div>
+<div class="why" style="border-left:1px solid #CFCDC4;padding:5px 0 4px 9px;margin-top:7px;font-size:9.5px;line-height:1.55;color:#6E6C66"><span class="wl" style="font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:7.5px;letter-spacing:.09em;text-transform:uppercase;color:#66705F;display:block;margin-bottom:3px">Why it started</span>The immediate war began with the Hamas-led attack on southern Israel on <b>7 October 2023</b> and Israel's military response in Gaza. The longer origin is the unresolved status of the territory: Israel occupied Gaza in 1967, withdrew settlers and forces in 2005 while retaining control of its borders, airspace and sea access, and Hamas took control of the Strip in 2007, after which Israel and Egypt imposed a blockade. Every element of that sequence is contested in its framing by the parties. What is not contested is the physical result — roughly two years of high-intensity urban warfare in a dense, enclosed strip, which is why the ERW and rubble caseload above is the largest in the region.</div>
 </div>
 
 <div class="item">
 <h3>Israel–Lebanon / Hezbollah</h3>
 <p class="status"><b>Ceasefire since 1 June 2026 after a war that ran from 2 March; violated continuously.</b>
 <span class="src">(Al Jazeera, 16 Aug 2026; ACLED, 20 Aug 2026)</span></p>
-<ul>
-<li><b>15–16 Aug</b> — Israeli strikes across Nabatieh district killed at least 11, per Lebanese reporting. <span class="src">(Al Jazeera, 16 Aug 2026 — attributed, not independently verified)</span></li>
-<li><b>20 Aug</b> — ACLED published an explicit escalation-risk assessment on attrition around the Ali al-Taher ridge.</li>
-<li><b>Early Aug</b> — seventh round of Israel–Lebanon talks held; an eighth expected in September.</li>
-<li><b>UNIFIL's mandate terminates 31 December 2026</b> — a final extension under S/RES/2790 (28 Aug 2025). The Secretary-General's letter S/2026/453 (1 Jun 2026) sets out options for implementing Resolution 1701 after withdrawal.</li>
+<ul style="list-style:none;margin:6px 0 0;padding:0">
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>15–16 Aug</b> — Israeli strikes across Nabatieh district killed at least 11, per Lebanese reporting. <span class="src">(Al Jazeera, 16 Aug 2026 — attributed, not independently verified)</span></li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>20 Aug</b> — ACLED published an explicit escalation-risk assessment on attrition around the Ali al-Taher ridge.</li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>Early Aug</b> — seventh round of Israel–Lebanon talks held; an eighth expected in September.</li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>UNIFIL's mandate terminates 31 December 2026</b> — a final extension under S/RES/2790 (28 Aug 2025). The Secretary-General's letter S/2026/453 (1 Jun 2026) sets out options for implementing Resolution 1701 after withdrawal.</li>
 </ul>
 <div class="ord"><b>Ordnance signal — the region's clearest precedent.</b> On 9 August 2025 six Lebanese
 Armed Forces soldiers, four from the 5th Infantry Brigade and two from the Engineering Regiment, were
@@ -250,6 +275,7 @@ Tyre — work mandated by the ceasefire and Resolution 1701 <span class="src">(A
 Presidential Palace statement)</span>. A state army destroying seized ammunition in the field, taking
 fatalities doing it. UNIFIL's departure removes the principal international EOD and monitoring presence in
 south Lebanon at the end of this year, and nothing has been named to replace that function.</div>
+<div class="why" style="border-left:1px solid #CFCDC4;padding:5px 0 4px 9px;margin-top:7px;font-size:9.5px;line-height:1.55;color:#6E6C66"><span class="wl" style="font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:7.5px;letter-spacing:.09em;text-transform:uppercase;color:#66705F;display:block;margin-bottom:3px">Why it started</span>Hezbollah formed during Israel's 1982 invasion of Lebanon and has fought Israel intermittently since, most heavily in 2006. The current round began when Hezbollah opened fire in support of Hamas on <b>8 October 2023</b>, escalating through 2024 into an Israeli air and ground campaign, then a November 2024 ceasefire that neither side fully implemented. Fighting resumed in full on <b>2 March 2026</b> and ran until the 1 June ceasefire. The unresolved question underneath is Resolution 1701's core demand — that no armed group other than the Lebanese state operate south of the Litani — which has never been enforced, and which UNIFIL's departure at the end of this year leaves no one assigned to enforce.</div>
 </div>
 
 <div class="item">
@@ -258,11 +284,11 @@ south Lebanon at the end of this year, and nothing has been named to replace tha
 14-point Memorandum of Understanding's 60-day window expired 17 August with no agreement; the Strait of
 Hormuz remains effectively closed. <span class="src">(House of Commons Library CBP-10637, 28 Jul 2026;
 CBS News, 17 Aug 2026)</span></p>
-<ul>
-<li><b>17 Aug</b> — deadline lapsed. Iran disputes that a 60-day deadline existed. Hormuz throughput: 3–5 vessels over a mid-August weekend against ~130/day pre-war; the UN/IMO gave ~7 ships on a recent Sunday against a ~140 average. <span class="src">(CBS, 17 Aug 2026; UN News, 12 Aug 2026 — two independent sources agreeing on order of magnitude)</span></li>
-<li><b>27 Feb</b> — the last IAEA-verified enriched uranium figure is <b>440.9 kg at up to 60%</b>. The Agency states it cannot verify whether enrichment has been suspended and has lost continuity of knowledge; monitoring is by commercial satellite imagery only. <span class="src">(IAEA GOV/2026/8, 27 Feb 2026)</span></li>
-<li><b>Jun</b> — first sustained Kurdish insurgent escalation inside Iran since the war began: PJAK clashes from 7 June in Marivan, spreading to Baneh, West Azerbaijan and Kermanshah. <span class="src">(ACLED, 3 Jul 2026)</span></li>
-<li><b>Gulf states, 28 Feb – 17 May:</b> Iran fired more than <b>6,700 drones and missiles</b> at the GCC; the UAE absorbed nearly half. A March strike on Qatar's Ras Laffan removed an estimated 17% of Qatari LNG export capacity. Roughly 28 non-US nationals killed across the six states. <span class="src">(CRS R48971, 3 Jun 2026)</span></li>
+<ul style="list-style:none;margin:6px 0 0;padding:0">
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>17 Aug</b> — deadline lapsed. Iran disputes that a 60-day deadline existed. Hormuz throughput: 3–5 vessels over a mid-August weekend against ~130/day pre-war; the UN/IMO gave ~7 ships on a recent Sunday against a ~140 average. <span class="src">(CBS, 17 Aug 2026; UN News, 12 Aug 2026 — two independent sources agreeing on order of magnitude)</span></li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>27 Feb</b> — the last IAEA-verified enriched uranium figure is <b>440.9 kg at up to 60%</b>. The Agency states it cannot verify whether enrichment has been suspended and has lost continuity of knowledge; monitoring is by commercial satellite imagery only. <span class="src">(IAEA GOV/2026/8, 27 Feb 2026)</span></li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>Jun</b> — first sustained Kurdish insurgent escalation inside Iran since the war began: PJAK clashes from 7 June in Marivan, spreading to Baneh, West Azerbaijan and Kermanshah. <span class="src">(ACLED, 3 Jul 2026)</span></li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>Gulf states, 28 Feb – 17 May:</b> Iran fired more than <b>6,700 drones and missiles</b> at the GCC; the UAE absorbed nearly half. A March strike on Qatar's Ras Laffan removed an estimated 17% of Qatari LNG export capacity. Roughly 28 non-US nationals killed across the six states. <span class="src">(CRS R48971, 3 Jun 2026)</span></li>
 </ul>
 <div class="ord"><b>Ordnance signal.</b> CENTCOM reports intercepting over 6,000 one-way attack drones and
 more than 1,500 ballistic missiles <span class="src">(US military figures — a belligerent's own
@@ -272,6 +298,7 @@ states. <b>No published GCC clearance or EOD accounting exists.</b> That absence
 expenditure of 6,700+ rounds, is itself the finding. On the supply side, the Pentagon signed a $22.9bn
 Tomahawk contract in mid-August amid stated munitions-shortage concerns — the industrial posture that
 historically pulls stockpile turnover and demilitarisation budgets along behind it.</div>
+<div class="why" style="border-left:1px solid #CFCDC4;padding:5px 0 4px 9px;margin-top:7px;font-size:9.5px;line-height:1.55;color:#6E6C66"><span class="wl" style="font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:7.5px;letter-spacing:.09em;text-transform:uppercase;color:#66705F;display:block;margin-bottom:3px">Why it started</span>Iran and Israel have fought through proxies since 1979 and directly since April 2024. The current war began with a <b>US–Israeli strike campaign on 28 February 2026</b>, in which Ali Khamenei was killed; the stated rationale was Iran's nuclear programme, which the IAEA had reported at 440.9 kg of uranium enriched to 60% and which it has been unable to verify since. Iran responded by firing on the Gulf states hosting US forces and by closing the Strait of Hormuz. The Gulf states are in this war because of geography and basing, not because they chose a side — which is why their intercept debris is an unowned clearance problem no one has budgeted for.</div>
 </div>
 
 <div class="item">
@@ -279,11 +306,11 @@ historically pulls stockpile turnover and demilitarisation budgets along behind 
 <p class="status"><b>Transition consolidating politically; Suwayda outside effective state control.</b> A
 People's Assembly seated 12 July; SDF military, security and administrative integration declared complete
 21 August. <span class="src">(Security Council Report, Aug 2026; The National, 21 Aug 2026)</span></p>
-<ul>
-<li><b>21 Aug</b> — Mazloum Abdi declared integration complete; tens of thousands of SDF personnel now on Syrian government payrolls. Constitutional entrenchment of Kurdish rights remains unresolved.</li>
-<li><b>19 Aug</b> — Israel struck Abu Duhur air base in Idlib, eight strikes damaging the runway, citing an imminent Turkish troop deployment. Turkey and Syria both condemned it. <b>24 Aug</b> — US-mediated Syria–Israel talks resumed in Jordan. <span class="src">(NPR, 19 Aug 2026; Al Jazeera, 24 Aug 2026)</span></li>
-<li><b>Jul</b> — OPCW Executive Council reinstated Syria's rights and privileges, suspended since April 2021. Latest Director-General progress report EC-113/DG.6, 24 Aug 2026.</li>
-<li>~1.7 million refugees and ~1.9 million IDPs have returned since December 2024; only one-third of the 2026 humanitarian appeal is funded. <span class="src">(Security Council Report, Aug 2026)</span></li>
+<ul style="list-style:none;margin:6px 0 0;padding:0">
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>21 Aug</b> — Mazloum Abdi declared integration complete; tens of thousands of SDF personnel now on Syrian government payrolls. Constitutional entrenchment of Kurdish rights remains unresolved.</li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>19 Aug</b> — Israel struck Abu Duhur air base in Idlib, eight strikes damaging the runway, citing an imminent Turkish troop deployment. Turkey and Syria both condemned it. <b>24 Aug</b> — US-mediated Syria–Israel talks resumed in Jordan. <span class="src">(NPR, 19 Aug 2026; Al Jazeera, 24 Aug 2026)</span></li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>Jul</b> — OPCW Executive Council reinstated Syria's rights and privileges, suspended since April 2021. Latest Director-General progress report EC-113/DG.6, 24 Aug 2026.</li>
+<li style="list-style:none;padding:0;margin-bottom:6px">~1.7 million refugees and ~1.9 million IDPs have returned since December 2024; only one-third of the 2026 humanitarian appeal is funded. <span class="src">(Security Council Report, Aug 2026)</span></li>
 </ul>
 <div class="ord"><b>Ordnance signal — the richest file in the region.</b> The OPCW has maintained a
 continuous presence in Syria since November 2025 specifically to facilitate "inventory, destruction and
@@ -293,35 +320,39 @@ integration transfers a large SDF inventory — including heavy weapons and US-s
 state custody, with <b>no public accounting of that inventory in existence</b>. On 24 July 2025 an
 ammunition warehouse detonated at Maarat Misrin, Idlib: 7 killed and 157 wounded per the Health Ministry,
 with other reporting higher.</div>
+<div class="why" style="border-left:1px solid #CFCDC4;padding:5px 0 4px 9px;margin-top:7px;font-size:9.5px;line-height:1.55;color:#6E6C66"><span class="wl" style="font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:7.5px;letter-spacing:.09em;text-transform:uppercase;color:#66705F;display:block;margin-bottom:3px">Why it started</span>Syria's war began with protests in <b>March 2011</b> and the Assad government's armed suppression of them, fragmenting into a multi-sided conflict drawing in Russia, Iran, Türkiye, the US and Islamic State. Assad's government fell in <b>December 2024</b> to a rebel offensive, and the country has been in transition since. The fighting now is not the old war: it is the ordinary violence of a state being rebuilt — factions integrating or refusing to, communal reprisals on the coast and in Suwayda, ISIS remnants, and a neighbour striking to shape the outcome. The chemical-weapons and heavy-weapons inventories are the physical residue of the previous regime, now changing custody.</div>
 </div>
 
 <div class="item">
 <h3>Iraq, Yemen, Libya, West Bank — in brief</h3>
-<ul>
-<li><b>Iraq.</b> Following the US-Israeli strike campaign against Iran-aligned militias (Mar–Apr 2026, ceasefire 7 April), Baghdad ran a militia disarmament process. Asaib Ahl al-Haq and Kataib Imam Ali announced disarmament plans on 2 June and Saraya al-Salam transferred weapons; Kataib Hezbollah and others refused. <b>Correction carried into this edition:</b> on 21–24 August both the PM's security adviser and the government spokesman publicly disavowed the reported September weapons-surrender deadline — "September 30 is the date for the international coalition to depart, not the deadline to hand over weapons." No replacement date has been set. <span class="src">(Arab News, Aug 2026)</span> The PMF numbers roughly 230,000–238,000 personnel on a ~$3.5bn annual budget <span class="src">(FPRI, Mar 2026)</span>. Disposal modality for anything surrendered has never been specified.</li>
-<li><b>Yemen.</b> The UN Special Envoy told the Security Council on 13 August that Yemen "faces a more serious risk of return to large-scale conflict than at any point since the 2022 truce." The cargo ship <i>Tihamah</i> was attacked 11–12 August, killing three Pakistani and one Indonesian crew. 65 confirmed maritime incidents and 17 deaths since early March; ~6,000 crew and ~500 vessels trapped near Hormuz, 2,900 seafarers evacuated. The 2026 appeal is 20% funded. <span class="src">(UNSC, 13 Aug 2026; UN News/IMO, 12 Aug 2026)</span></li>
-<li><b>Libya.</b> No general war; entrenched impasse with episodic incidents including drone strikes that set a major oil refinery alight, briefed to the Council 18 August. US mediation is floating a power-sharing arrangement. UNSMIL's mandate runs to October 2026. <span class="src">(UN News, 18 Aug 2026; Security Council Report, Aug 2026)</span> <i>Libya holds one of the largest uncontrolled conventional-munitions legacies in North Africa and is the weakest-documented file in this brief — flagged for the next edition.</i></li>
-<li><b>West Bank.</b> OHCHR describes settler violence at an "unprecedented" level: 1,835 settler attacks in 2025 and roughly 190/month in Jan–Apr 2026. 45 Palestinians killed and 1,089 injured in 2026 to 5 May; 1,021 structures demolished. UNMAS recorded over 2,380 explosive items in the West Bank in 2025 — a small but growing ERW caseload distinct from Gaza's, with 9 EO casualties in Jan–Jul 2026. <span class="src">(UN News, 29 Jul 2026; OCHA; UNMAS oPt)</span></li>
+<ul style="list-style:none;margin:6px 0 0;padding:0">
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>Iraq.</b> Following the US-Israeli strike campaign against Iran-aligned militias (Mar–Apr 2026, ceasefire 7 April), Baghdad ran a militia disarmament process. Asaib Ahl al-Haq and Kataib Imam Ali announced disarmament plans on 2 June and Saraya al-Salam transferred weapons; Kataib Hezbollah and others refused. <b>Correction carried into this edition:</b> on 21–24 August both the PM's security adviser and the government spokesman publicly disavowed the reported September weapons-surrender deadline — "September 30 is the date for the international coalition to depart, not the deadline to hand over weapons." No replacement date has been set. <span class="src">(Arab News, Aug 2026)</span> The PMF numbers roughly 230,000–238,000 personnel on a ~$3.5bn annual budget <span class="src">(FPRI, Mar 2026)</span>. Disposal modality for anything surrendered has never been specified.</li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>Yemen.</b> The UN Special Envoy told the Security Council on 13 August that Yemen "faces a more serious risk of return to large-scale conflict than at any point since the 2022 truce." The cargo ship <i>Tihamah</i> was attacked 11–12 August, killing three Pakistani and one Indonesian crew. 65 confirmed maritime incidents and 17 deaths since early March; ~6,000 crew and ~500 vessels trapped near Hormuz, 2,900 seafarers evacuated. The 2026 appeal is 20% funded. <span class="src">(UNSC, 13 Aug 2026; UN News/IMO, 12 Aug 2026)</span></li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>Libya.</b> No general war; entrenched impasse with episodic incidents including drone strikes that set a major oil refinery alight, briefed to the Council 18 August. US mediation is floating a power-sharing arrangement. UNSMIL's mandate runs to October 2026. <span class="src">(UN News, 18 Aug 2026; Security Council Report, Aug 2026)</span> <i>Libya holds one of the largest uncontrolled conventional-munitions legacies in North Africa and is the weakest-documented file in this brief — flagged for the next edition.</i></li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>West Bank.</b> OHCHR describes settler violence at an "unprecedented" level: 1,835 settler attacks in 2025 and roughly 190/month in Jan–Apr 2026. 45 Palestinians killed and 1,089 injured in 2026 to 5 May; 1,021 structures demolished. UNMAS recorded over 2,380 explosive items in the West Bank in 2025 — a small but growing ERW caseload distinct from Gaza's, with 9 EO casualties in Jan–Jul 2026. <span class="src">(UN News, 29 Jul 2026; OCHA; UNMAS oPt)</span></li>
 </ul>
-</div>
-</div>
 
+<div class="why" style="border-left:1px solid #CFCDC4;padding:5px 0 4px 9px;margin-top:7px;font-size:9.5px;line-height:1.55;color:#6E6C66"><span class="wl" style="font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:7.5px;letter-spacing:.09em;text-transform:uppercase;color:#66705F;display:block;margin-bottom:3px">Why it started</span>The Americas file is not about ideology. <b>Haiti's</b> gangs filled the vacuum left by a state that stopped functioning after the 2021 assassination of its president and has held no election since. <b>Mexico's</b> cartel conflict escalated when the government militarised counter-narcotics in 2006 and has fragmented with each leader removed since. <b>Colombia's</b> war is sixty years old; the 2016 FARC accord ended one part of it and left the ELN and dissident factions in the space it vacated, and the "Total Peace" negotiations that were meant to finish the job ended with the change of government on 7 August 2026. What connects them is that the state is fighting criminal organisations, not armies — which is why the materiel question here is seized property rather than battlefield ordnance.</div>
+</div>
+</div>
+</div>
 <!-- ══════════════════ AFRICA ══════════════════ -->
 <div class="page" style="padding-top:20px;margin-top:22px;border-top:1px solid #000">
 <h2>4 &nbsp;— &nbsp;Africa</h2>
+<div class="cols">
 
 <div class="item">
 <h3>Sudan — the deadliest conflict in the world</h3>
 <p class="status"><b>Fourth year. RSF holds all five Darfur states and besieges El Obeid; SAF holds the
 centre and east.</b> A drone-attrition war with no front-line resolution. <span class="src">(Al Jazeera,
 10 &amp; 20 Aug 2026; ACLED Africa Overview, Jul 2026)</span></p>
-<ul>
-<li><b>20 Aug</b> — IOM reported over <b>200,000 newly displaced in Kordofan</b>. El Obeid's population has gone from 750,000 pre-war to an estimated 3.4 million. Nationally: 8.6m currently displaced, ~14m cumulatively, 4.5m returned to areas without basic services. <span class="src">(IOM via Al Jazeera, 20 Aug 2026)</span></li>
-<li><b>12 Aug</b> — RSF drone strikes disabled El Obeid's power, halting water pumping, hospitals and communications.</li>
-<li><b>11–13 Aug</b> — RSF with SPLM-N captured Geisan (Blue Nile) and retook Kurmuk after SAF withdrew under drone strikes.</li>
-<li><b>27 Jul</b> — SAF seized the Omdurman–El Obeid highway, opening a resupply axis into North Kordofan.</li>
-<li><b>15 May</b> — 19.5 million people in IPC Phase 3+, including <b>135,000 in Phase 5 Catastrophe across 14 hotspots</b>; 825,000 children under five expected with severe acute malnutrition in 2026. The Sudan humanitarian plan was 20% funded as of April. <span class="src">(WFP/FAO/UNICEF, 15 May 2026)</span></li>
-<li><b>~24–25 Aug</b> — the US tabled a proposal to extend the UN arms embargo from Darfur to all of Sudan, explicitly including drones. <span class="src">(Reuters wire, syndicated — confidence medium, primary text not read directly)</span></li>
+<ul style="list-style:none;margin:6px 0 0;padding:0">
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>20 Aug</b> — IOM reported over <b>200,000 newly displaced in Kordofan</b>. El Obeid's population has gone from 750,000 pre-war to an estimated 3.4 million. Nationally: 8.6m currently displaced, ~14m cumulatively, 4.5m returned to areas without basic services. <span class="src">(IOM via Al Jazeera, 20 Aug 2026)</span></li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>12 Aug</b> — RSF drone strikes disabled El Obeid's power, halting water pumping, hospitals and communications.</li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>11–13 Aug</b> — RSF with SPLM-N captured Geisan (Blue Nile) and retook Kurmuk after SAF withdrew under drone strikes.</li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>27 Jul</b> — SAF seized the Omdurman–El Obeid highway, opening a resupply axis into North Kordofan.</li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>15 May</b> — 19.5 million people in IPC Phase 3+, including <b>135,000 in Phase 5 Catastrophe across 14 hotspots</b>; 825,000 children under five expected with severe acute malnutrition in 2026. The Sudan humanitarian plan was 20% funded as of April. <span class="src">(WFP/FAO/UNICEF, 15 May 2026)</span></li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>~24–25 Aug</b> — the US tabled a proposal to extend the UN arms embargo from Darfur to all of Sudan, explicitly including drones. <span class="src">(Reuters wire, syndicated — confidence medium, primary text not read directly)</span></li>
 </ul>
 <div class="ord"><b>Ordnance signal.</b> UNMAS Sudan has released <b>2,818,890 m²</b> of land and removed
 <b>18,768 explosive ordnance items</b> since April 2023; in Q1 2026 alone there were 77 EO victims — 25
@@ -330,6 +361,7 @@ minefields have been detected in central Khartoum</b>, including at a Nile bridg
 contamination being laid <i>into</i> return areas. Capacity is five UNMAS teams against 1.5 million
 returnees. The EU committed €3m over 18 months on 27 April 2026. <span class="src">(UNMAS Sudan Factsheet
 Q1 2026; EEAS, 27 Apr 2026; UN News, 3 Dec 2025)</span></div>
+<div class="why" style="border-left:1px solid #CFCDC4;padding:5px 0 4px 9px;margin-top:7px;font-size:9.5px;line-height:1.55;color:#6E6C66"><span class="wl" style="font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:7.5px;letter-spacing:.09em;text-transform:uppercase;color:#66705F;display:block;margin-bottom:3px">Why they started</span><b>Iraq:</b> the militias date from the 2014 mobilisation against Islamic State and were made a legal part of the security apparatus; disarming them is a fight over whether Iraq has one army or several. <b>Yemen:</b> the Houthis took Sana'a in 2014 and a Saudi-led coalition intervened in 2015; the 2022 truce paused it without settling it, and the Red Sea campaign since 2023 internationalised it. <b>Libya:</b> the 2011 uprising and NATO intervention removed Gaddafi and left no state — which is also why Libyan stockpiles have been arming the Sahel for fifteen years. <b>West Bank:</b> occupied since 1967; the current violence is settlement expansion and settler action against Palestinian communities, not a war between armies.</div>
 <div class="flag"><b>Excluded figure.</b> The widely repeated "at least 59,000 killed" is an extrapolation
 from a Khartoum-state mortality study, not a body count. It is not used here. Event-based counts are lower;
 true excess mortality is very likely higher. Neither number is a verified national death toll.</div>
@@ -341,10 +373,10 @@ true excess mortality is very likely higher. Neither number is a verified nation
 2025 is now open war in Jonglei and Upper Nile; Machar is detained; elections are nominally scheduled for
 December 2026. <span class="src">(ICG, 21 Jan 2026; UN Commission on Human Rights in South Sudan, 21 Aug
 2026)</span></p>
-<ul>
-<li><b>21 Aug</b> — the UN Commission reported rising violence and atrocity crimes disrupting the pre-election period.</li>
-<li><b>Jul</b> — President Kiir removed the pre-election requirements from the peace agreement, stripping out the sequencing meant to precede a vote.</li>
-<li><b>Mar</b> — over 100,000 people fled across the border into Ethiopia from Jonglei.</li>
+<ul style="list-style:none;margin:6px 0 0;padding:0">
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>21 Aug</b> — the UN Commission reported rising violence and atrocity crimes disrupting the pre-election period.</li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>Jul</b> — President Kiir removed the pre-election requirements from the peace agreement, stripping out the sequencing meant to precede a vote.</li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>Mar</b> — over 100,000 people fled across the border into Ethiopia from Jonglei.</li>
 </ul>
 <div class="ord"><b>Ordnance signal — the benchmark figure in this brief.</b> UNMAS South Sudan, cumulative
 to May 2026: <b>7,298,000 small-arms ammunition items destroyed</b>, alongside 41,328 landmines, 87,610
@@ -353,6 +385,7 @@ teams and funded through UN peacekeeping assessed contributions, JICA grants and
 Humanitarian Fund <span class="src">(UNMAS South Sudan, May 2026)</span>. This is the clearest available
 picture of both the volume and the funding mechanism for institutional small-arms ammunition destruction
 anywhere — a national programme, assessed-contribution funded, destroying rounds at scale.</div>
+<div class="why" style="border-left:1px solid #CFCDC4;padding:5px 0 4px 9px;margin-top:7px;font-size:9.5px;line-height:1.55;color:#6E6C66"><span class="wl" style="font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:7.5px;letter-spacing:.09em;text-transform:uppercase;color:#66705F;display:block;margin-bottom:3px">Why it started</span>The Rapid Support Forces grew out of the Janjaweed militias of the Darfur war of the 2000s and were institutionalised as a paramilitary force alongside the regular army. Both jointly removed Omar al-Bashir in 2019 and jointly staged a coup against the civilian transition in 2021. They then fell out over the terms of integrating the RSF into the army — a question of who would command the merged force and on what timetable — and began fighting each other in Khartoum on <b>15 April 2023</b>. It is a war between two branches of the same security establishment over which one is the state. Neither is a rebellion, which is why there is no political process to join and no DDR framework to receive defectors.</div>
 </div>
 
 <div class="item">
@@ -360,18 +393,19 @@ anywhere — a national programme, assessed-contribution funded, destroying roun
 <p class="status"><b>AFC/M23 retains Goma, Bukavu and most of the Kivu axis.</b> Two parallel tracks —
 Doha for DRC–AFC/M23, Washington for DRC–Rwanda — are both alive and both slow. <span class="src">(US
 State Department joint statements, 12–13 and 17–21 Aug 2026)</span></p>
-<ul>
-<li><b>24 Aug</b> — first ceasefire verification mission of the Expanded Joint Verification Mechanism Plus, at Minembwe. The first real test of the Doha ceasefire architecture.</li>
-<li><b>17–21 Aug</b> — DRC and AFC/M23 agreed a roadmap sequencing negotiation of the Doha Framework protocols.</li>
-<li><b>12–13 Aug</b> — Sixth Joint Security Coordination Mechanism, Geneva. <b>DRC presented its DDR plan for the FDLR</b>, with MONUSCO operational input. Next JSCM 16–17 September; trilateral planning conference October 2026.</li>
-<li><b>Jun</b> — ADF conducted its deadliest anti-civilian month in Ituri since May 2022: 149 civilian fatalities. <span class="src">(ACLED, Jun 2026)</span></li>
-<li>Drone strikes in eastern DRC: <b>65 in Jan–May 2026 alone against 56 in all of 2025</b>. <span class="src">(ACLED via IPIS, 25 Jun 2026)</span></li>
+<ul style="list-style:none;margin:6px 0 0;padding:0">
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>24 Aug</b> — first ceasefire verification mission of the Expanded Joint Verification Mechanism Plus, at Minembwe. The first real test of the Doha ceasefire architecture.</li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>17–21 Aug</b> — DRC and AFC/M23 agreed a roadmap sequencing negotiation of the Doha Framework protocols.</li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>12–13 Aug</b> — Sixth Joint Security Coordination Mechanism, Geneva. <b>DRC presented its DDR plan for the FDLR</b>, with MONUSCO operational input. Next JSCM 16–17 September; trilateral planning conference October 2026.</li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>Jun</b> — ADF conducted its deadliest anti-civilian month in Ituri since May 2022: 149 civilian fatalities. <span class="src">(ACLED, Jun 2026)</span></li>
+<li style="list-style:none;padding:0;margin-bottom:6px">Drone strikes in eastern DRC: <b>65 in Jan–May 2026 alone against 56 in all of 2025</b>. <span class="src">(ACLED via IPIS, 25 Jun 2026)</span></li>
 </ul>
 <div class="ord"><b>Ordnance signal.</b> FDLR disarmament is now a formal deliverable of the Washington
 track — the disarmament hinge of the entire Rwanda file. Whether it converts to actual cantonment and
 weapons collection, or stalls as previous P-DDRCS iterations did, is the thing to watch. Meanwhile the DRC
 mine action programme was cut from roughly 100 staff to a four-person team by the 2025 US funding freeze
 <span class="src">(ICBL-CMC, Jul 2025)</span>.</div>
+<div class="why" style="border-left:1px solid #CFCDC4;padding:5px 0 4px 9px;margin-top:7px;font-size:9.5px;line-height:1.55;color:#6E6C66"><span class="wl" style="font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:7.5px;letter-spacing:.09em;text-transform:uppercase;color:#66705F;display:block;margin-bottom:3px">Why it started</span>South Sudan became independent in 2011 and was at war with itself by 2013, along a split between President Kiir and Vice-President Machar that has been described in ethnic terms but is fundamentally about control of the state and its oil revenue. The 2018 agreement paused it by making Machar vice-president again while deferring every hard question — army integration, elections, the constitution. Machar's detention in March 2025 and the removal of the pre-election requirements in July 2026 removed what remained of the bargain. The current fighting is the 2013 war resuming with the pretence dropped.</div>
 </div>
 
 <div class="item">
@@ -379,11 +413,11 @@ mine action programme was cut from roughly 100 staff to a four-person team by th
 <p class="status"><b>JNIM has shifted from rural insurgency to economic strangulation</b> — fuel and
 transport blockades on Malian cities — while ISSP presses Tillabéri and has broken into north-west
 Nigeria. <span class="src">(ACLED, Dec 2025 &amp; Jul 2026; OCHA, 29 Apr 2026)</span></p>
-<ul>
-<li><b>Central Sahel humanitarian position:</b> 2.8m internally displaced (2.1m Burkina Faso, 415,000 Mali, 283,000 Niger) plus 444,400 refugees; <b>2,640 conflict deaths in Q1 2026</b> across 1,179 security incidents; 3,794 schools and 974 health facilities non-functional. The 2026 requirement of US$215m is <b>28% funded</b>. <span class="src">(OCHA, 29 Apr 2026)</span></li>
-<li><b>Jun</b> — JNIM ran forced <b>village-level disarmament</b> of Dozo self-defence militias in Mopti — non-state disarmament running against state DDR. Islamic State Sahel Province claimed its first Nigerian operations since 2019, in Kebbi and Sokoto.</li>
-<li><b>Nigeria:</b> Sokoto State recorded over 900 fatalities in the twelve months to mid-2026, more than double the preceding year; June 2026 was the deadliest month in Sokoto since ACLED began recording in 1997. US Africa Command has struck ISIS targets in Nigeria since 25 December 2025 at the request of Nigerian authorities; May 2026 strikes killed senior ISWAP figure Abu Bilal al-Mainuki. <span class="src">(ACLED, Jul 2026; AFRICOM; Al Jazeera, 18 May 2026)</span></li>
-<li><b>2 Apr</b> — ACLED data showed Burkinabè and Malian state forces killed more civilians than jihadist groups did. <span class="src">(Reuters, 2 Apr 2026)</span></li>
+<ul style="list-style:none;margin:6px 0 0;padding:0">
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>Central Sahel humanitarian position:</b> 2.8m internally displaced (2.1m Burkina Faso, 415,000 Mali, 283,000 Niger) plus 444,400 refugees; <b>2,640 conflict deaths in Q1 2026</b> across 1,179 security incidents; 3,794 schools and 974 health facilities non-functional. The 2026 requirement of US$215m is <b>28% funded</b>. <span class="src">(OCHA, 29 Apr 2026)</span></li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>Jun</b> — JNIM ran forced <b>village-level disarmament</b> of Dozo self-defence militias in Mopti — non-state disarmament running against state DDR. Islamic State Sahel Province claimed its first Nigerian operations since 2019, in Kebbi and Sokoto.</li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>Nigeria:</b> Sokoto State recorded over 900 fatalities in the twelve months to mid-2026, more than double the preceding year; June 2026 was the deadliest month in Sokoto since ACLED began recording in 1997. US Africa Command has struck ISIS targets in Nigeria since 25 December 2025 at the request of Nigerian authorities; May 2026 strikes killed senior ISWAP figure Abu Bilal al-Mainuki. <span class="src">(ACLED, Jul 2026; AFRICOM; Al Jazeera, 18 May 2026)</span></li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>2 Apr</b> — ACLED data showed Burkinabè and Malian state forces killed more civilians than jihadist groups did. <span class="src">(Reuters, 2 Apr 2026)</span></li>
 </ul>
 <div class="ord"><b>Ordnance signal.</b> On 1 June 2026 the UN High Representative for Disarmament Affairs
 stated that weapons looted from Libyan stockpiles in 2011 continue to circulate in Niger, Burkina Faso and
@@ -394,14 +428,15 @@ returnees face explosive remnants in <b>11 of 15 return areas, where 80% of civi
 occurred</b> <span class="src">(UN News, 3 Dec 2025)</span>. <b>Mali's mine action was zeroed out entirely
 by the 2025 US cuts and operations ended.</b> The African Union's PSSM project database for the Sahel dates
 from April 2019 and no comparably funded successor is identifiable.</div>
+<div class="why" style="border-left:1px solid #CFCDC4;padding:5px 0 4px 9px;margin-top:7px;font-size:9.5px;line-height:1.55;color:#6E6C66"><span class="wl" style="font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:7.5px;letter-spacing:.09em;text-transform:uppercase;color:#66705F;display:block;margin-bottom:3px">Why it started</span>Eastern Congo has not been at peace since the 1994 Rwandan genocide pushed the génocidaire forces — now the FDLR — across the border, drawing Rwanda and Uganda into two Congolese wars. M23 first rebelled in 2012, was defeated, and re-emerged in 2021 with Rwandan support that Kigali denies and UN experts have documented. The stated grievance is the protection of Congolese Tutsi and the unfinished business of the FDLR; the material stake is the mineral belt around Rubaya. This is why FDLR disarmament sits at the centre of the Washington track: it is the condition Rwanda names for withdrawing its own justification.</div>
 </div>
 
 <div class="item">
 <h3>Somalia and the Horn</h3>
-<ul>
-<li><b>Somalia.</b> Military stalemate, with al-Shabaab having recovered most 2022–23 government gains. <b>31 Jul</b> — AU member states agreed to accelerate the AUSSOM end date by 12–18 months; the US announced it will not renew the UN Support Office for 2027. <b>8 Aug</b> — the Somali National Army assumed control of Buurhakaba base from Ethiopian forces, held since 2014. <b>5–8 Aug</b> — Puntland forces captured the PSF headquarters in Galkayo, arresting 161 fighters. Presidential elections are postponed with no date; the incumbent's term ended in May. <span class="src">(ICG Briefing 212; Africa Center; Critical Threats, 13 Aug 2026)</span></li>
-<li><b>Ethiopia.</b> Live Fano insurgency in Amhara, OLA insurgency in Oromia, a TPLF that reinstated its 2020 regional government in May, and an Ethiopia–Eritrea relationship credible analysts describe as pre-war. Fighting erupted in <b>western Tigray in early August</b>; each side disputes who initiated. On 1 June, election day, Fano triggered over 90 clashes — more fighting than any single day since 2023. <span class="src">(ICG, 18 Feb 2026; ACLED, 2 Jun 2026; Al Jazeera, 7 Aug 2026)</span></li>
-<li><b>Mozambique.</b> Islamic State Mozambique was pushed out of its Catupa forest base and has dispersed south and west, spreading the threat into previously quieter districts and onto transport corridors. <span class="src">(ACLED Mozambique Conflict Monitor, Aug 2026)</span></li>
+<ul style="list-style:none;margin:6px 0 0;padding:0">
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>Somalia.</b> Military stalemate, with al-Shabaab having recovered most 2022–23 government gains. <b>31 Jul</b> — AU member states agreed to accelerate the AUSSOM end date by 12–18 months; the US announced it will not renew the UN Support Office for 2027. <b>8 Aug</b> — the Somali National Army assumed control of Buurhakaba base from Ethiopian forces, held since 2014. <b>5–8 Aug</b> — Puntland forces captured the PSF headquarters in Galkayo, arresting 161 fighters. Presidential elections are postponed with no date; the incumbent's term ended in May. <span class="src">(ICG Briefing 212; Africa Center; Critical Threats, 13 Aug 2026)</span></li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>Ethiopia.</b> Live Fano insurgency in Amhara, OLA insurgency in Oromia, a TPLF that reinstated its 2020 regional government in May, and an Ethiopia–Eritrea relationship credible analysts describe as pre-war. Fighting erupted in <b>western Tigray in early August</b>; each side disputes who initiated. On 1 June, election day, Fano triggered over 90 clashes — more fighting than any single day since 2023. <span class="src">(ICG, 18 Feb 2026; ACLED, 2 Jun 2026; Al Jazeera, 7 Aug 2026)</span></li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>Mozambique.</b> Islamic State Mozambique was pushed out of its Catupa forest base and has dispersed south and west, spreading the threat into previously quieter districts and onto transport corridors. <span class="src">(ACLED Mozambique Conflict Monitor, Aug 2026)</span></li>
 </ul>
 <div class="ord"><b>Ordnance signal — the drawdown is itself the event.</b> AUSSOM's accelerated withdrawal
 compresses base and materiel handovers to the Somali National Army, historically the highest-risk period
@@ -409,41 +444,44 @@ for stockpile diversion and for creating unsecured depots. No corresponding phys
 stockpile-management funding has been identified. Ethiopia's mine action programme was named among those
 facing suspension by March 2026 absent new donor commitments <span class="src">(UN News, 3 Dec
 2025)</span>, with Tigray, Afar and Amhara carrying unsurveyed 2020–22 contamination.</div>
+<div class="why" style="border-left:1px solid #CFCDC4;padding:5px 0 4px 9px;margin-top:7px;font-size:9.5px;line-height:1.55;color:#6E6C66"><span class="wl" style="font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:7.5px;letter-spacing:.09em;text-transform:uppercase;color:#66705F;display:block;margin-bottom:3px">Why it started</span>The Sahel insurgencies began with the collapse of Libya in 2011, which sent weapons and Tuareg fighters south into northern Mali and triggered a rebellion in 2012 that jihadist groups captured. French and UN interventions contained it without ending it; coups in Mali (2020, 2021), Burkina Faso (2022) and Niger (2023) brought in governments that expelled Western forces and turned to Russian partners. Violence has risen since. Nigeria's north-east insurgency is separate in origin — Boko Haram's 2009 uprising — but the same Libyan weapons pool feeds both, and the two theatres have now physically joined in Sokoto and Kebbi.</div>
 </div>
 
 <div class="item">
 <h3>Depot failures — the recurring event class</h3>
 <p class="status">Not a conflict, but the failure mode that recurs across every theatre in this brief and
 the one most directly relevant to disposal capability.</p>
-<ul>
-<li><b>1 Apr 2026 — Musaga depot, Bujumbura, Burundi.</b> Explosions at the national defence force's main arsenal, sited in a dense residential area beside an officer training institute. <b>At least 13 killed, 57 wounded.</b> The army attributed it to an electrical short circuit; authorities publicly warned residents not to touch unexploded munitions scattered across neighbourhoods. <span class="src">(Reuters, 1 Apr 2026)</span></li>
-<li><b>25 Feb 2026 — Border Patrol Police depot, Surin, Thailand.</b> Multi-hour blasts near the Cambodian border; area evacuation ordered and EOD deployed. Officials named <b>heat acting on old ammunition stock</b> as the likely cause. <span class="src">(Al Jazeera, 25 Feb 2026; Nation Thailand)</span></li>
-<li><b>31 May 2026 — TNLA depot, Kaung Tat, Shan State, Myanmar.</b> <b>39 killed, 75 injured</b>; over half the village destroyed. <span class="src">(Al Jazeera, 31 May 2026)</span></li>
-<li><b>16 Jul 2026 — Central Ammunition Depot II, Madiun, East Java, Indonesia.</b> One soldier killed, six injured, during a personnel inspection. <span class="src">(Xinhua, 16 Jul 2026 — corroboration pending)</span></li>
+<ul style="list-style:none;margin:6px 0 0;padding:0">
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>1 Apr 2026 — Musaga depot, Bujumbura, Burundi.</b> Explosions at the national defence force's main arsenal, sited in a dense residential area beside an officer training institute. <b>At least 13 killed, 57 wounded.</b> The army attributed it to an electrical short circuit; authorities publicly warned residents not to touch unexploded munitions scattered across neighbourhoods. <span class="src">(Reuters, 1 Apr 2026)</span></li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>25 Feb 2026 — Border Patrol Police depot, Surin, Thailand.</b> Multi-hour blasts near the Cambodian border; area evacuation ordered and EOD deployed. Officials named <b>heat acting on old ammunition stock</b> as the likely cause. <span class="src">(Al Jazeera, 25 Feb 2026; Nation Thailand)</span></li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>31 May 2026 — TNLA depot, Kaung Tat, Shan State, Myanmar.</b> <b>39 killed, 75 injured</b>; over half the village destroyed. <span class="src">(Al Jazeera, 31 May 2026)</span></li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>16 Jul 2026 — Central Ammunition Depot II, Madiun, East Java, Indonesia.</b> One soldier killed, six injured, during a personnel inspection. <span class="src">(Xinhua, 16 Jul 2026 — corroboration pending)</span></li>
 </ul>
 <div class="ord"><b>Ordnance signal.</b> The Small Arms Survey's Unplanned Explosions at Munitions Sites
 database records <b>674 incidents between 1979 and December 2024</b> and was last updated in January 2025
 — meaning <b>every incident above is outside the public dataset</b>. The pattern across all four is
 identical: ageing stock, hot climates, inadequate separation, personnel present at the point of failure,
 and no local capability to process material the site could not safely hold.</div>
+<div class="why" style="border-left:1px solid #CFCDC4;padding:5px 0 4px 9px;margin-top:7px;font-size:9.5px;line-height:1.55;color:#6E6C66"><span class="wl" style="font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:7.5px;letter-spacing:.09em;text-transform:uppercase;color:#66705F;display:block;margin-bottom:3px">Why they started</span><b>Somalia:</b> the state collapsed in 1991 and has not been reassembled; al-Shabaab emerged from the Islamic Courts Union after Ethiopia's 2006 intervention and has outlasted every external force sent against it — which is the relevant fact as AUSSOM winds down early for lack of funding. <b>Ethiopia:</b> the Tigray war of 2020–22 ended in an agreement that excluded Eritrea, which had fought in it, and excluded the Amhara Fano militias, which had also fought in it. Both are now sources of the current violence. Nothing about the 2022 settlement addressed western Tigray, which is where the August fighting is.</div>
 </div>
 </div>
-
+</div>
 <!-- ══════════════════ ASIA + AMERICAS ══════════════════ -->
 <div class="page" style="padding-top:20px;margin-top:22px;border-top:1px solid #000">
 <h2>5 &nbsp;— &nbsp;Asia-Pacific &amp; the Americas</h2>
+<div class="cols">
 
 <div class="item">
 <h3>Myanmar</h3>
 <p class="status"><b>Civil war at high intensity</b> after a scripted election converted the junta into a
 nominally civilian government under Min Aung Hlaing as president. The military has regained battlefield
 momentum; the Arakan Army holds most of Rakhine. <span class="src">(ICG Briefing B188, 3 Jun 2026)</span></p>
-<ul>
-<li><b>13 Aug</b> — Kyaukphyu clashes resumed after a months-long pause, around the Chinese deep-sea port, SEZ and the origin of the Sino-Myanmar pipelines. The most likely trigger for direct Chinese intervention. <span class="src">(Burma News International, 13 Aug 2026)</span></li>
-<li><b>20 Jul</b> — the Arakan Army formally rejected the military's peace overtures; repeated airstrikes in Rakhine through July.</li>
-<li><b>12 Jul</b> — ASEAN held its first in-person meeting with a Myanmar foreign minister since the 2021 coup — a material softening of the non-engagement line.</li>
-<li><b>Mar</b> — the Brotherhood Alliance fractured: MNDAA assaulted TNLA positions at Kutkai and took the town, with Beijing silent throughout. Intra-resistance conflict is now a distinct axis. <span class="src">(ACLED, 23 Mar 2026)</span></li>
-<li>16.2 million people in need; ~3.8 million internally displaced; the humanitarian plan is 43% funded. <span class="src">(OCHA Myanmar Update No. 52, to 13 Jul 2026)</span></li>
+<ul style="list-style:none;margin:6px 0 0;padding:0">
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>13 Aug</b> — Kyaukphyu clashes resumed after a months-long pause, around the Chinese deep-sea port, SEZ and the origin of the Sino-Myanmar pipelines. The most likely trigger for direct Chinese intervention. <span class="src">(Burma News International, 13 Aug 2026)</span></li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>20 Jul</b> — the Arakan Army formally rejected the military's peace overtures; repeated airstrikes in Rakhine through July.</li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>12 Jul</b> — ASEAN held its first in-person meeting with a Myanmar foreign minister since the 2021 coup — a material softening of the non-engagement line.</li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>Mar</b> — the Brotherhood Alliance fractured: MNDAA assaulted TNLA positions at Kutkai and took the town, with Beijing silent throughout. Intra-resistance conflict is now a distinct axis. <span class="src">(ACLED, 23 Mar 2026)</span></li>
+<li style="list-style:none;padding:0;margin-bottom:6px">16.2 million people in need; ~3.8 million internally displaced; the humanitarian plan is 43% funded. <span class="src">(OCHA Myanmar Update No. 52, to 13 Jul 2026)</span></li>
 </ul>
 <div class="ord"><b>Ordnance signal — the highest-value theatre in the region.</b> Myanmar is the world's
 <b>second-worst country for mine/ERW casualties: 745 in 2025</b>, behind Syria (1,602) and ahead of
@@ -453,6 +491,7 @@ recorded <b>169 incidents and 253 civilian casualties in Q1 2026 alone, 74 of th
 differ by roughly 30% — they are not interchangeable and are never combined here.</i> No DDR or
 weapons-handover programme exists; territorial transfers between armed groups move stockpiles between
 holders rather than reducing them.</div>
+<div class="why" style="border-left:1px solid #CFCDC4;padding:5px 0 4px 9px;margin-top:7px;font-size:9.5px;line-height:1.55;color:#6E6C66"><span class="wl" style="font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:7.5px;letter-spacing:.09em;text-transform:uppercase;color:#66705F;display:block;margin-bottom:3px">Why this keeps happening</span>Depot failures are not accidents of chance. Ammunition degrades — propellants become unstable with age and heat — and the states holding the largest legacy stocks are generally the ones least able to fund disposal. The result is that surplus accumulates in whatever building was available, often in a city, often for decades, until an electrical fault or a hot afternoon finishes the decision that was never made. Every case above involves stock a facility could not process and had no route to dispose of. This is the failure mode that a deployable destruction capability exists to prevent, and it is the one that reliably converts into procurement.</div>
 </div>
 
 <div class="item">
@@ -460,11 +499,11 @@ holders rather than reducing them.</div>
 <p class="status"><b>Second ceasefire, signed 27 December 2025, holding in the sense that large-scale
 fighting has not resumed</b> — but eroding through landmine casualties and a diplomatic breakdown over
 maritime claims. <span class="src">(PBS/AP, 27 Dec 2025; ICG CrisisWatch, Jul 2026)</span></p>
-<ul>
-<li><b>29 Jul</b> and <b>17 Jul</b> — Thai soldiers injured by mines in Sa Kaeo and Si Sa Ket provinces. Each incident has produced diplomatic escalation within 72 hours.</li>
-<li><b>20 Jul</b> — Thailand declared "the door is shut" on land-border talks after Cambodia initiated UN Convention procedures on the maritime claim; <b>23 Jul</b> — partially walked back.</li>
-<li><b>16–20 Jul</b> — Xi Jinping offered to mediate, which would displace Malaysian/ASEAN mediation.</li>
-<li>The December round displaced approximately one million people across both sides at peak; the July 2025 round killed at least 38 and displaced ~300,000.</li>
+<ul style="list-style:none;margin:6px 0 0;padding:0">
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>29 Jul</b> and <b>17 Jul</b> — Thai soldiers injured by mines in Sa Kaeo and Si Sa Ket provinces. Each incident has produced diplomatic escalation within 72 hours.</li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>20 Jul</b> — Thailand declared "the door is shut" on land-border talks after Cambodia initiated UN Convention procedures on the maritime claim; <b>23 Jul</b> — partially walked back.</li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>16–20 Jul</b> — Xi Jinping offered to mediate, which would displace Malaysian/ASEAN mediation.</li>
+<li style="list-style:none;padding:0;margin-bottom:6px">The December round displaced approximately one million people across both sides at peak; the July 2025 round killed at least 38 and displaced ~300,000.</li>
 </ul>
 <div class="ord"><b>Ordnance signal.</b> The 27 December ceasefire <b>contains an explicit joint
 humanitarian demining provision covering the ~800 km border</b> — a treaty-anchored clearance requirement
@@ -473,26 +512,28 @@ requirement grows with every month of stalemate. Thailand attributes casualties 
 Cambodia denies new emplacement and cites legacy contamination. Both are claims; neither is independently
 verified. Cambodia has cleared 3,541 km² over 33 years and maintains a 2030 mine-free target set before
 the border districts were re-contaminated.</div>
+<div class="why" style="border-left:1px solid #CFCDC4;padding:5px 0 4px 9px;margin-top:7px;font-size:9.5px;line-height:1.55;color:#6E6C66"><span class="wl" style="font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:7.5px;letter-spacing:.09em;text-transform:uppercase;color:#66705F;display:block;margin-bottom:3px">Why it started</span>Myanmar's military has ruled for most of the period since 1962 and has fought ethnic armed organisations along its borders continuously since independence in 1948. The current war began with the coup of <b>1 February 2021</b>, which annulled an election the military's party had lost; peaceful protest was met with lethal force, and an armed resistance formed and allied with the older ethnic armies. The 2026 election and the "civilian" government it produced changed the label on the administration, not its composition. The landmine casualty figures are the highest in the world after Syria because all sides lay mines and no one clears them.</div>
 </div>
 
 <div class="item">
 <h3>Afghanistan, Pakistan and the India–Pakistan file</h3>
-<ul>
-<li><b>Afghanistan.</b> <b>17 Jul</b> — the newly formed Sepah-e Maihan Front briefly captured the Yaftali-Payan district centre in Badakhshan: <b>the first Taliban loss of an administrative centre since September 2021</b> and the genuinely new development of 2026. 499 civilians were killed in Afghanistan–Pakistan fighting between October 2025 and June 2026 (UN). 2.56 million Afghans have returned since the November 2023 expulsion scheme (UNHCR). Mine/ERW casualties: 497 in 2025, third-worst globally. <span class="src">(ICG CrisisWatch, Jun–Jul 2026; ICBL-CMC, Jun 2026)</span></li>
-<li><b>Pakistan.</b> ICG issued a Conflict Risk Alert for June 2026: simultaneous TTP insurgency in Khyber Pakhtunkhwa, Baloch separatist violence, urban attacks in Karachi, and armed exchanges with Afghanistan. Pakistan is one of only two Asian countries on ACLED's 2026 watchlist. Arms imports up 66%, <b>80% from China</b>. <span class="src">(ICG, Jun 2026; ACLED, 11 Dec 2025; SIPRI, 9 Mar 2026)</span></li>
-<li><b>India–Pakistan.</b> No renewed cross-border exchange since the 2025 crisis, but the escalation vector has migrated from Kashmir to water. On <b>14 August</b> PM Sharif declared water a "red line" over India's continued holding of the Indus Waters Treaty in abeyance; India replied the same day that there would be "no change." <span class="src">(Indian and Pakistani press, 14 Aug 2026 — regional sourcing, wire confirmation not obtained)</span> Water is a harder problem than the Line of Control: continuous rather than episodic, with no ceasefire mechanism.</li>
+<ul style="list-style:none;margin:6px 0 0;padding:0">
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>Afghanistan.</b> <b>17 Jul</b> — the newly formed Sepah-e Maihan Front briefly captured the Yaftali-Payan district centre in Badakhshan: <b>the first Taliban loss of an administrative centre since September 2021</b> and the genuinely new development of 2026. 499 civilians were killed in Afghanistan–Pakistan fighting between October 2025 and June 2026 (UN). 2.56 million Afghans have returned since the November 2023 expulsion scheme (UNHCR). Mine/ERW casualties: 497 in 2025, third-worst globally. <span class="src">(ICG CrisisWatch, Jun–Jul 2026; ICBL-CMC, Jun 2026)</span></li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>Pakistan.</b> ICG issued a Conflict Risk Alert for June 2026: simultaneous TTP insurgency in Khyber Pakhtunkhwa, Baloch separatist violence, urban attacks in Karachi, and armed exchanges with Afghanistan. Pakistan is one of only two Asian countries on ACLED's 2026 watchlist. Arms imports up 66%, <b>80% from China</b>. <span class="src">(ICG, Jun 2026; ACLED, 11 Dec 2025; SIPRI, 9 Mar 2026)</span></li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>India–Pakistan.</b> No renewed cross-border exchange since the 2025 crisis, but the escalation vector has migrated from Kashmir to water. On <b>14 August</b> PM Sharif declared water a "red line" over India's continued holding of the Indus Waters Treaty in abeyance; India replied the same day that there would be "no change." <span class="src">(Indian and Pakistani press, 14 Aug 2026 — regional sourcing, wire confirmation not obtained)</span> Water is a harder problem than the Line of Control: continuous rather than episodic, with no ceasefire mechanism.</li>
 </ul>
 <div class="ord"><b>Ordnance signal.</b> The 2021 US/ANDSF materiel inheritance in Afghanistan remains
 uninventoried in open sources, with multiple armed factions now operating from that stock and no DDR
 mechanism of any kind. Any figure circulating on its scale should be treated as unverifiable.</div>
+<div class="why" style="border-left:1px solid #CFCDC4;padding:5px 0 4px 9px;margin-top:7px;font-size:9.5px;line-height:1.55;color:#6E6C66"><span class="wl" style="font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:7.5px;letter-spacing:.09em;text-transform:uppercase;color:#66705F;display:block;margin-bottom:3px">Why it started</span>The Thai–Cambodian border was drawn by French colonial mapping in 1907 and has been disputed ever since, most sharply around the Preah Vihear temple, which the International Court of Justice awarded to Cambodia in 1962 and again in 2013 without settling the surrounding land. Fighting flared in 2008–11 and again in <b>July 2025</b>, then more heavily in December 2025. Two ceasefires later, the shooting has stopped and the mines have not — and Cambodia's move to arbitrate the maritime boundary in June 2026 froze the land-border committee that was supposed to deal with them.</div>
 </div>
 
 <div class="item">
 <h3>Korea, Taiwan and the South China Sea</h3>
-<ul>
-<li><b>Korea.</b> <b>20 Aug</b> — the DPRK fired more than ten short-range ballistic missiles, assessed as 600mm KN-25 multiple rocket launchers, ~300 km east, as Ulchi Freedom Shield wound down. That exercise ran in shortened form on President Trump's order. It was the DPRK's twelfth missile event of 2026. Seoul assesses DPRK warheads at 80–120. On <b>3 July</b> Kim ordered the new 5,000-tonne destroyer <i>Kang Kon</i> operational within two months — i.e. early September. <span class="src">(Al Jazeera, 20 Aug 2026; ICG CrisisWatch, Jul 2026)</span></li>
-<li><b>Taiwan.</b> PLA fighter sorties near Taiwan hit a three-year low — 1,334 in H1 2026 against more than 5,400 air sorties across 2025 — while coast guard and research vessel sightings rose 120% year-on-year in June. Japan's FY2025 scrambles against Chinese aircraft fell to 366, the lowest since 2012. <b>Read this as a change of method, not de-escalation:</b> two independent official sources show air activity falling and maritime law-enforcement pressure rising. Taiwan's defence spending rose 14% in 2025 and arms imports 54%. <span class="src">(Taiwan MND; Japan MoD, 17 Apr 2026; SIPRI)</span></li>
-<li><b>South China Sea.</b> Active grey-zone confrontation continues, non-kinetic: <b>23–24 Jul</b> — China Coast Guard used water cannon against Philippine vessels near Scarborough Shoal on two consecutive days; <b>20 Jul</b> — Manila alleged a CCG baton strike on a navy member near BRP Sierra Madre, Beijing alleged Philippine ramming. Mutually inconsistent claims, neither verified. <span class="src">(Al Jazeera and CNN, 24 Jul 2026; ICG, Jul 2026)</span></li>
+<ul style="list-style:none;margin:6px 0 0;padding:0">
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>Korea.</b> <b>20 Aug</b> — the DPRK fired more than ten short-range ballistic missiles, assessed as 600mm KN-25 multiple rocket launchers, ~300 km east, as Ulchi Freedom Shield wound down. That exercise ran in shortened form on President Trump's order. It was the DPRK's twelfth missile event of 2026. Seoul assesses DPRK warheads at 80–120. On <b>3 July</b> Kim ordered the new 5,000-tonne destroyer <i>Kang Kon</i> operational within two months — i.e. early September. <span class="src">(Al Jazeera, 20 Aug 2026; ICG CrisisWatch, Jul 2026)</span></li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>Taiwan.</b> PLA fighter sorties near Taiwan hit a three-year low — 1,334 in H1 2026 against more than 5,400 air sorties across 2025 — while coast guard and research vessel sightings rose 120% year-on-year in June. Japan's FY2025 scrambles against Chinese aircraft fell to 366, the lowest since 2012. <b>Read this as a change of method, not de-escalation:</b> two independent official sources show air activity falling and maritime law-enforcement pressure rising. Taiwan's defence spending rose 14% in 2025 and arms imports 54%. <span class="src">(Taiwan MND; Japan MoD, 17 Apr 2026; SIPRI)</span></li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>South China Sea.</b> Active grey-zone confrontation continues, non-kinetic: <b>23–24 Jul</b> — China Coast Guard used water cannon against Philippine vessels near Scarborough Shoal on two consecutive days; <b>20 Jul</b> — Manila alleged a CCG baton strike on a navy member near BRP Sierra Madre, Beijing alleged Philippine ramming. Mutually inconsistent claims, neither verified. <span class="src">(Al Jazeera and CNN, 24 Jul 2026; ICG, Jul 2026)</span></li>
 </ul>
 <div class="ord"><b>Ordnance signal — the region's live DDR opening.</b> <b>MILF decommissioning in the
 Philippines is the largest active weapons-handover programme in Asia and it is currently frozen</b> — the
@@ -502,30 +543,33 @@ forcing event.</b> A restarted Phase III handover produces decommissioned firear
 requiring verified destruction. Separately: estimates of DPRK artillery ammunition supplied to Russia
 range from six to twelve million rounds, all attributed to intelligence assessments and mutually
 inconsistent — they are named, never asserted, and never given as a single number.</div>
+<div class="why" style="border-left:1px solid #CFCDC4;padding:5px 0 4px 9px;margin-top:7px;font-size:9.5px;line-height:1.55;color:#6E6C66"><span class="wl" style="font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:7.5px;letter-spacing:.09em;text-transform:uppercase;color:#66705F;display:block;margin-bottom:3px">Why they started</span><b>Afghanistan:</b> the Taliban returned to power in August 2021 as US and allied forces withdrew, inheriting the previous government's arsenal; the armed opposition now forming against them is new, and is the first since 2021. <b>Pakistan:</b> the TTP is a domestic Pakistani movement that regained sanctuary in Afghanistan after 2021, which is what Pakistan's cross-border strikes are aimed at; Balochistan's separatist insurgency is older and unrelated. <b>India–Pakistan:</b> both claim Kashmir since partition in 1947 and have fought four wars over it. The 2025 crisis ended without settling anything, and India's suspension of the 1960 Indus Waters Treaty moved the dispute to water — which, unlike the Line of Control, has no ceasefire mechanism.</div>
 </div>
 
 <div class="item">
 <h3>The Americas</h3>
-<ul>
-<li><b>Haiti.</b> Gang control persists over roughly 70% of Port-au-Prince. The UN-authorised Gang Suppression Force, ceiling 5,550 personnel under UNSC Resolution 2793, had roughly 1,000 personnel on the ground as of the July Council briefing, with full operational capacity not expected before October 2026. Jan–Mar 2026: 1,642 killed, 745 injured, with 69% of casualties attributed to security-force operations. 1.47–1.5 million displaced. Elections have slipped to January 2027. <b>24 Aug</b> — a Viv Ansanm attack on Kenscoff killed at least 30. <span class="src">(Security Council Report, Jul 2026; Al Jazeera, 24 Aug 2026)</span></li>
-<li><b>Colombia.</b> "Total Peace" is over. President de la Espriella, inaugurated 7 August, has ended negotiations in favour of a military-first approach. Armed group membership nearly doubled between 2022 and 2025 — from 15,132 total members to ~27,000, and from 7,620 armed combatants to 13,794. Combat operations rose from 447 in 2024 to 563 in 2025. Eight dialogue tracks were active when the previous president left office. <span class="src">(ICG Briefing 56, 7 Aug 2026)</span></li>
-<li><b>Regional.</b> <b>17 Aug</b> — the US Defense Secretary announced agreements permitting joint US military operations on land in Colombia, Guatemala and Honduras, extending a campaign that AP reports has killed 200+ people in 60+ boat strikes since 2 September 2025. Guatemala had publicly denied agreeing to such strikes on 28 May — the two statements are in direct tension and are presented here as contested. Mexico has resisted a US military role on its own soil. <span class="src">(AP, 17 Aug 2026; Al Jazeera, 28 May 2026)</span></li>
+<ul style="list-style:none;margin:6px 0 0;padding:0">
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>Haiti.</b> Gang control persists over roughly 70% of Port-au-Prince. The UN-authorised Gang Suppression Force, ceiling 5,550 personnel under UNSC Resolution 2793, had roughly 1,000 personnel on the ground as of the July Council briefing, with full operational capacity not expected before October 2026. Jan–Mar 2026: 1,642 killed, 745 injured, with 69% of casualties attributed to security-force operations. 1.47–1.5 million displaced. Elections have slipped to January 2027. <b>24 Aug</b> — a Viv Ansanm attack on Kenscoff killed at least 30. <span class="src">(Security Council Report, Jul 2026; Al Jazeera, 24 Aug 2026)</span></li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>Colombia.</b> "Total Peace" is over. President de la Espriella, inaugurated 7 August, has ended negotiations in favour of a military-first approach. Armed group membership nearly doubled between 2022 and 2025 — from 15,132 total members to ~27,000, and from 7,620 armed combatants to 13,794. Combat operations rose from 447 in 2024 to 563 in 2025. Eight dialogue tracks were active when the previous president left office. <span class="src">(ICG Briefing 56, 7 Aug 2026)</span></li>
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>Regional.</b> <b>17 Aug</b> — the US Defense Secretary announced agreements permitting joint US military operations on land in Colombia, Guatemala and Honduras, extending a campaign that AP reports has killed 200+ people in 60+ boat strikes since 2 September 2025. Guatemala had publicly denied agreeing to such strikes on 28 May — the two statements are in direct tension and are presented here as contested. Mexico has resisted a US military role on its own soil. <span class="src">(AP, 17 Aug 2026; Al Jazeera, 28 May 2026)</span></li>
 </ul>
 <div class="ord"><b>Ordnance signal.</b> The Americas file is a <b>seized-property</b> problem rather than a
 battlefield-ordnance one: firearms, ammunition and narcotics moving into state custody through
 interdiction, with destruction obligations attached and thin published capacity. The US State Department's
 conventional weapons destruction programme reports more than $197m regionally since 1993 — but the public
 figures are FY2019–FY2020 vintage on an unrevised page and should not be read as current.</div>
+<div class="why" style="border-left:1px solid #CFCDC4;padding:5px 0 4px 9px;margin-top:7px;font-size:9.5px;line-height:1.55;color:#6E6C66"><span class="wl" style="font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:7.5px;letter-spacing:.09em;text-transform:uppercase;color:#66705F;display:block;margin-bottom:3px">Why they persist</span>None of these is a war, and that is the point. <b>Korea's</b> 1950–53 war ended in an armistice, not a peace treaty — the state of war is legally unresolved, which is why every exercise cycle produces a missile response. <b>Taiwan</b> is the unfinished business of the Chinese civil war of 1949; Beijing claims it, Taipei governs it, and the question has been deferred rather than answered for seventy-seven years. <b>The South China Sea</b> disputes are overlapping maritime claims that a 2016 arbitral award decided in the Philippines' favour and China rejects. All three are conflicts in which the parties have chosen, so far, to compete below the threshold of force — with water cannon, coast guards and sorties rather than munitions.</div>
 </div>
 </div>
-
+</div>
 <!-- ══════════════════ TWB READ ══════════════════ -->
 <div class="page" style="padding-top:20px;margin-top:22px;border-top:1px solid #000">
 <h2>6 &nbsp;— &nbsp;What this means for TWB</h2>
+<div class="cols">
 
 <div class="op" style="background:#F1F3F0;padding:14px 16px;margin:0 0 12px">
 <h3 style="margin:0 0 5px">The asymmetry is the opportunity.</h3>
-<p style="font-size:12px;line-height:1.6;margin:0">2026 has produced a fully documented, well-funded
+<p style="font-size:11px;line-height:1.6;margin:0">2026 has produced a fully documented, well-funded
 global effort to <i>create</i> munitions — NATO identifying up to $145bn in shared munitions and
 air-defence requirements <span class="src">(NATO Annual Report 2025, presented 26 Mar 2026)</span>, the EU
 committing over €700m of a €1.5bn programme to counter-drone systems, missiles and ammunition
@@ -539,12 +583,12 @@ contracting — is the structural market. It is stated here as an observation ab
 not as a forecast of tonnage.</p>
 </div>
 
-<p style="font-size:11.5px;line-height:1.6"><b>Where it converts into demand TWB can actually serve.</b>
+<p style="font-size:10.5px;line-height:1.6"><b>Where it converts into demand TWB can actually serve.</b>
 Vault's wedge is custody: destruction inside the owner's perimeter, same day, by the owner's own people.
 That is worth something specific in four situations this brief documents, and worth nothing in the rest.</p>
 
-<ul style="font-size:11.5px">
-<li><b>1. Disarmament agreements with no destruction mechanism.</b> Türkiye's PKK law is inert until the
+<ul style="list-style:none;margin:6px 0 0;padding:0;font-size:10.5px">
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>1. Disarmament agreements with no destruction mechanism.</b> Türkiye's PKK law is inert until the
 National Security Council certifies full weapons surrender, and <b>no verification or destruction mechanism
 has been named</b>. Gaza's decommissioning agreement provides for weapons to be stored under Palestinian
 custody, not destroyed — and the political objection to destruction there is about <i>who</i> takes the
@@ -554,26 +598,26 @@ lost its deadline this month with no disposal modality ever specified. The DRC t
 where the weapons exist, the political agreement exists, and the physical means of finishing the job is
 unnamed.</li>
 
-<li><b>2. Depot failure as a procurement trigger.</b> Burundi (13 killed, April), Myanmar (39 killed, May),
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>2. Depot failure as a procurement trigger.</b> Burundi (13 killed, April), Myanmar (39 killed, May),
 Indonesia (July), Thailand (February) — four fatal or evacuation-grade events in seven months, none of
 them yet in the Small Arms Survey dataset, which stops at December 2024. The pattern is uniform: ageing
 stock, no local processing capability, personnel present when it fails. Lebanon is the sharpest version —
 six LAF soldiers killed in August 2025 destroying seized Hezbollah ammunition in the field. Historically
 these events, not policy papers, are what move a defence ministry to buy destruction capacity.</li>
 
-<li><b>3. Institutional buyers already destroying at scale.</b> UNMAS South Sudan has destroyed 7.3 million
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>3. Institutional buyers already destroying at scale.</b> UNMAS South Sudan has destroyed 7.3 million
 small-arms ammunition items, funded through <b>UN peacekeeping assessed contributions</b> — not
 discretionary donor money. That is the clearest evidence in this brief that a funded, recurring
 institutional buyer for exactly TWB's category exists. It also sets the realistic scale expectation: nine
 teams, two decades.</li>
 
-<li><b>4. Seized property, not battlefield ordnance.</b> The Americas file is interdiction-driven —
+<li style="list-style:none;padding:0;margin-bottom:6px"><b>4. Seized property, not battlefield ordnance.</b> The Americas file is interdiction-driven —
 firearms, ammunition and narcotics entering state custody with destruction obligations attached and thin
 published capacity. This is the nearest analogue to TWB's existing law-enforcement work and the least
 dependent on any conflict resolving.</li>
 </ul>
 
-<p style="font-size:11.5px;line-height:1.6"><b>What this brief does not support, and should not be used to
+<p style="font-size:10.5px;line-height:1.6"><b>What this brief does not support, and should not be used to
 claim.</b> None of the above is a tonnage forecast. Conventional demil is scored on tons per year, where a
 trailer-scale system does not compete, and nothing here changes that — the argument remains rounds
 destroyed without leaving the compound. Post-conflict clearance funding is <i>falling</i>, not rising, so
@@ -583,7 +627,7 @@ programme-scale operators. And in every live disarmament case above, the decisio
 technical second: the buyer is a government that needs to be seen not to hand its opponents' weapons to
 anyone. That, not throughput, is the door.</p>
 
-<p style="font-size:11.5px;line-height:1.6"><b>Watch items for the next 30 days, in order of consequence to
+<p style="font-size:10.5px;line-height:1.6"><b>Watch items for the next 30 days, in order of consequence to
 TWB.</b> (1) Whether Türkiye's National Security Council certifies PKK disbandment and whether any
 destruction mechanism is named with it. (2) The BARMM elections on 14 September and whether MILF Phase III
 restarts. (3) Whether Gaza's decommissioning modality moves from storage toward destruction. (4) UNIFIL's
@@ -594,20 +638,20 @@ Sudan-wide arms embargo proposal advances at the Security Council.</p>
 <!-- METHOD -->
 <div style="margin-top:20px;padding-top:12px;border-top:1px solid #CFCDC4">
 <div class="ui-sage" style="margin-bottom:8px">Method, sourcing standard and exclusions</div>
-<p style="font-size:10.5px;line-height:1.55"><b>Sources used.</b> UCDP/Uppsala · ACLED · PRIO · SIPRI ·
+<p style="font-size:9.5px;line-height:1.55"><b>Sources used.</b> UCDP/Uppsala · ACLED · PRIO · SIPRI ·
 IISS · UN OCHA, UNHCR, UNMAS, UNODA, UNICEF, IOM, OHCHR · IPC · ICRC · IAEA · OPCW · International Crisis
 Group · Security Council Report · ICBL-CMC / Landmine &amp; Cluster Munition Monitor · GICHD · MAG · HALO
 Trust · Small Arms Survey · Congressional Research Service · US Department of War Inspector General ·
 NATO · European Commission · Estonian Foreign Intelligence Service · national defence and foreign
 ministries · Reuters, AP, AFP, BBC, Al Jazeera, NPR, FT.</p>
-<p style="font-size:10.5px;line-height:1.55"><b>Figures deliberately excluded from this edition</b> because
+<p style="font-size:9.5px;line-height:1.55"><b>Figures deliberately excluded from this edition</b> because
 they could not be traced to a primary source, or are belligerent claims: Sudan's "59,000 killed"; a
 cumulative Gaza death toll since October 2023; "4,300 killed in Lebanon since 2 March" and "1 million
 displaced in Lebanon"; the $70bn Gaza reconstruction estimate; the Cobasna "Hiroshima-equivalent"
 characterisation; "EU 155mm capacity of 2 million rounds/year"; all Ukrainian and Russian personnel
 casualty claims; Congolese government figures from the Uvira occupation; Burkinabè "400 militants killed";
 Mexican homicide-decline percentages; and any single figure for DPRK artillery transfers to Russia.</p>
-<p style="font-size:10.5px;line-height:1.55"><b>Known gaps carried into the next edition.</b> Libya
+<p style="font-size:9.5px;line-height:1.55"><b>Known gaps carried into the next edition.</b> Libya
 mine-action and stockpile data; Western Balkans SALW destruction tonnages; the Somalia and Sudan UN Panel
 of Experts current reports; DRC 2026 national displacement; Laos/Vietnam UXO funding position; UNMAS
 Afghanistan and Myanmar clearance output; Cameroon's Anglophone regions, where no current data was found
@@ -615,15 +659,16 @@ at all. Two corrections were applied at verification and are noted in-line: Pola
 withdrawal took effect 20 February 2026 (not 26 February), and Türkiye's parliamentary vote was 10 August
 2026 (not 11 August). Iraq's September weapons-surrender deadline was removed after both the PM's security
 adviser and the government spokesman disavowed it on 21–24 August.</p>
-<p style="font-size:10.5px;line-height:1.55"><b>Cadence.</b> Updated every morning at 06:00 Eastern.
+<p style="font-size:9.5px;line-height:1.55"><b>Cadence.</b> Updated every morning at 06:00 Eastern.
 Changes to each conflict appear as dated bullets beneath that conflict's status line. Where a status line
 itself changes, the previous status and the date it was superseded are retained.</p>
 </div>
 
 <div class="foot" style="margin-top:24px;padding-top:12px;border-top:1px solid #E2E1DA">
-<div class="ui" style="font-size:8.5px">TWB Designs Inc. &nbsp;·&nbsp; Hamilton, Ontario, Canada &nbsp;·&nbsp; Global Conflict Brief, Edition 001 &nbsp;·&nbsp; 25 August 2026 &nbsp;·&nbsp; Prepared for internal use — not for external distribution without review</div>
+<div class="ui" style="font-size:7.5px">TWB Designs Inc. &nbsp;·&nbsp; Hamilton, Ontario, Canada &nbsp;·&nbsp; Global Conflict Brief, Edition 001 &nbsp;·&nbsp; 25 August 2026 &nbsp;·&nbsp; Prepared for internal use — not for external distribution without review</div>
 </div>
 
+</div>
 </div>
 </div>
 </body>

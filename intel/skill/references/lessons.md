@@ -43,3 +43,37 @@ recording, record that.
 destruction tonnages (SEESAC/UNDP); Somalia and Sudan UN Panel of Experts current reports;
 DRC 2026 national displacement; Laos/Vietnam UXO funding position; UNMAS Afghanistan and Myanmar
 clearance output; Cameroon's Anglophone regions, where no current data was found at all.
+
+---
+
+## 2026-08-25 — Edition 001, production notes
+
+**Format settled after three revisions in the same session.** Tom's sequence was: full brief as
+PDF → no, send as email → remove bullet markers and drop the type one step → add origin blurbs →
+email carries changes by section, PDF carries the full brief. The last of these is the stable
+shape: **digest in the email, document as the PDF**. Build for that from the start.
+
+**CSS multicolumn does not work in print in this Chromium build.** `column-count` is ignored
+entirely in the print path — verified with a minimal test case (a 2-column and a 1-column page
+produced identical page counts), and `--headless=new` behaves the same. Do not spend time tuning
+print CSS. Use `typeset.js`, which packs measured blocks into fixed artboards.
+
+**Block granularity matters.** A whole `.item` (one conflict entry) is taller than a column at any
+readable type size, so the packer must open items up into their children. Weld each `h3` to the
+block that follows it, or conflict names strand at the foot of columns.
+
+**Content budget, measured.** 9,878 words → five Letter pages, two columns, at type scale 0.657
+of screen size with the original geometry. Tightening page margins to 26/24px, the gutter to 16px,
+and line-heights by 13% raised that to 0.785 — about 6pt body. That is the practical floor.
+Beyond ~10,000 words, five pages stops being honest and prose has to be cut.
+
+**Delivery constraint.** The Gmail connector accepts attachments only as inline base64. A 240KB
+PDF is ~320,000 base64 characters — not reproducible verbatim by a model, so binary attachment is
+not achievable through this path. Google Drive's `create_file` has the same constraint. The PDF is
+therefore written to the repo and delivered separately, and the email states where it is. If a
+mail connector that attaches by file path appears, switch to it and remove that sentence.
+
+**Scheduled task caveat.** The 06:00 task was created without device binding
+("no_signed_approval — this task will run in the cloud only"), which means it cannot read the
+master or write the PDF to disk until Tom approves binding. The prompt has a cloud-only fallback:
+research and email anyway, and say plainly that the master could not be updated.

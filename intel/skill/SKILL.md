@@ -89,28 +89,61 @@ ask what it does to physical materiel:
 
 ## Writing the brief
 
-Five pages. Page 1: global indicators and the aggregate read, then Europe/Eurasia. Page 2: MENA.
-Page 3: Africa. Page 4: Asia-Pacific and the Americas. Page 5: the TWB read (top half) plus
-method, exclusions and gaps (bottom half).
+Six sections flowing across **five pages**: the global picture, Europe & Eurasia, MENA, Africa,
+Asia-Pacific & the Americas, and the TWB read with the method and exclusions note.
 
-Each conflict gets a bolded status line with its establishing source, a dated bullet change log,
-and a sage-tinted **ordnance signal** block. Branding follows `design-system/tokens.css` in the
-TWB Designs repo: sage is the only hue, zero border radius, Helvetica Neue with IBM Plex Mono for
-the UI layer. Delivery is as an HTML email body, not an attachment — inline the CSS, avoid flex,
-and do not rely on SVG (Gmail strips it; use the text wordmark as the Letterhead template does).
+Each conflict entry has four parts, in this order:
+
+1. **Status line**, bolded, with the source and date that establishes it.
+2. **Change log** — dated entries, newest first. No bullet markers; the date leads in bold.
+3. **Ordnance signal** — sage-tinted block. What this conflict does to physical materiel.
+4. **Why it started** — a short origin block on a hairline rule. Neutral, dated, and explicit
+   about which framings are contested. This is what makes the brief readable by someone who has
+   not been following the file, and it is where the reader learns whether a conflict is likely to
+   produce a disarmament process or just more of itself.
+
+Branding follows `design-system/tokens.css`: sage is the only hue, zero border radius, Helvetica
+Neue with IBM Plex Mono for the uppercase UI layer, hairline rules, no rounded anything.
+
+### Producing the PDF
+
+**CSS multicolumn is not honoured by the available Chromium build when printing** — `column-count`
+is silently ignored in the print path, so a two-column brief cannot be produced with CSS alone.
+`typeset.js` solves this: it loads the master HTML, flattens it into atomic blocks (opening up
+each `.item`, since a whole conflict entry is taller than a column, while welding each heading to
+the block after it so no conflict name is orphaned), packs those blocks into ten measured
+columns across five fixed 816×1056 artboards, and binary-searches the global type scale for the
+largest size at which nothing is dropped. Run it with `node typeset.js` and check the reported
+page count and per-column fill before shipping.
+
+Content budget: roughly **9,900 words is the ceiling** for five pages, and it sets at about 6pt.
+If the brief grows past that, tighten prose — do not drop substance, and do not silently shrink
+the type further.
+
+### Delivery
+
+The **email body is a changes-by-section digest**, not the full brief: a one-line read, one short
+paragraph per region bolding only what actually moved, a watch list ordered by consequence to
+TWB, and the sourcing note. The **full brief goes as the PDF**. Inline all CSS in the email,
+avoid flex, and do not rely on SVG — Gmail strips it, so use the text wordmark as the Letterhead
+template does. Note that the Gmail connector takes attachments only as inline base64, which is
+not viable for a binary of this size; until a connector that attaches by path is available, the
+PDF is written to the repo and delivered separately, and the email says where it is.
 
 ## Daily update procedure
 
 1. Read the existing brief at `intel/TWB_Global_Conflict_Brief.html`.
 2. Research only what has changed since the last edition's date. Do not re-litigate settled
    status lines; do re-check any figure whose source has published a newer edition.
-3. **Append** new dated bullets at the top of each conflict's change log. Do not delete history.
+3. **Append** new dated entries at the top of each conflict's change log. Do not delete history.
 4. If a status line changes, write the new one and retain the old with the date it was superseded.
+   Origin blocks change only if the origin account itself was wrong.
 5. Run the verification pass on any new figure before it goes in.
 6. Increment the edition number, update the date, refresh the TWB read only where the underlying
    picture actually moved.
-7. Send as an HTML email; save the master back to the repo.
-8. **Update this skill** with anything learned — a new primary source that proved reliable, a
+7. Rebuild the PDF with `typeset.js` and confirm it is five pages with nothing dropped.
+8. Send the changes-by-section digest email; save the master and PDF back to the repo; commit.
+9. **Update this skill** with anything learned — a new primary source that proved reliable, a
    figure that turned out to be false, a search route that worked. Append to
    `references/lessons.md` with the date.
 
