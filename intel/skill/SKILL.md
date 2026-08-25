@@ -89,18 +89,27 @@ ask what it does to physical materiel:
 
 ## Writing the brief
 
-Six sections flowing across **five pages**: the global picture, Europe & Eurasia, MENA, Africa,
-Asia-Pacific & the Americas, and the TWB read with the method and exclusions note.
+Six sections: the global picture, Europe & Eurasia, MENA, Africa, Asia-Pacific & the Americas,
+and the TWB read with the method and exclusions note. **Page count is not a constraint** — an
+edition runs as long as the update warrants and no longer. Do not pad to reach a length, and do
+not compress to hit one. A quiet week is a short brief.
 
 Each conflict entry has four parts, in this order:
 
-1. **Status line**, bolded, with the source and date that establishes it.
+1. **Status line**, bolded, with the source and date that establishes it — preceded by a
+   **trend arrow** beside the conflict name: green &#8599; improving, red &#8601; deteriorating.
+   This is the *net direction over the last 30-60 days*, not absolute severity, and the legend on
+   page 1 says so. Red is a deliberate departure from the single-hue rule, justified because the
+   arrow is a data signal rather than decoration.
 2. **Change log** — dated entries, newest first. No bullet markers; the date leads in bold.
 3. **Ordnance signal** — sage-tinted block. What this conflict does to physical materiel.
 4. **Why it started** — a short origin block on a hairline rule. Neutral, dated, and explicit
    about which framings are contested. This is what makes the brief readable by someone who has
    not been following the file, and it is where the reader learns whether a conflict is likely to
    produce a disarmament process or just more of itself.
+
+On the closing TWB page, the **watch items come before** the "what this brief does not support"
+caveat — the actionable list should not sit underneath the disclaimer.
 
 Branding follows `design-system/tokens.css`: sage is the only hue, zero border radius, Helvetica
 Neue with IBM Plex Mono for the uppercase UI layer, hairline rules, no rounded anything.
@@ -110,15 +119,14 @@ Neue with IBM Plex Mono for the uppercase UI layer, hairline rules, no rounded a
 **CSS multicolumn is not honoured by the available Chromium build when printing** — `column-count`
 is silently ignored in the print path, so a two-column brief cannot be produced with CSS alone.
 `typeset.js` solves this: it loads the master HTML, flattens it into atomic blocks (opening up
-each `.item`, since a whole conflict entry is taller than a column, while welding each heading to
-the block after it so no conflict name is orphaned), packs those blocks into ten measured
-columns across five fixed 816×1056 artboards, and binary-searches the global type scale for the
-largest size at which nothing is dropped. Run it with `node typeset.js` and check the reported
-page count and per-column fill before shipping.
+each `.item`, since a whole conflict entry is taller than a page, while welding each heading to
+the block after it so no conflict name is orphaned), and packs those blocks into measured
+**full-width, single-column** 816×1056 artboards, adding pages as the content needs them.
 
-Content budget: roughly **9,900 words is the ceiling** for five pages, and it sets at about 6pt.
-If the brief grows past that, tighten prose — do not drop substance, and do not silently shrink
-the type further.
+The layout is **one column at full width**, not two, and type is set at `SCALE` (default 1.22 of
+the master's sizes — roughly 9pt body) for comfortable reading. Override with the `SCALE`
+environment variable. Run `node typeset.js` and check that `oversize-blocks` is 0 and that the
+last page ends with the footer before shipping.
 
 ### Delivery
 
@@ -163,7 +171,8 @@ autosave the stale copy back over your correction.
 5. Run the verification pass on any new figure before it goes in.
 6. Increment the edition number, update the date, refresh the TWB read only where the underlying
    picture actually moved.
-7. Rebuild the PDF with `typeset.js` and confirm it is five pages with nothing dropped.
+7. Rebuild the PDF with `typeset.js` and confirm `oversize-blocks` is 0 and the last page
+   ends with the footer. Whatever page count that comes to is the right one.
 8. Send the changes-by-section digest email; save the master and PDF back to the repo; commit.
 9. **Update this skill** with anything learned — a new primary source that proved reliable, a
    figure that turned out to be false, a search route that worked. Append to

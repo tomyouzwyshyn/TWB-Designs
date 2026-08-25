@@ -110,3 +110,30 @@ tab id. Individual `computer` calls worked fine. Don't burn time on the batch to
 present enough to have approved a browser. A 6am unattended run may not have it. The task prompt
 therefore tries the browser route and falls back to sending the digest without the attachment,
 saying so in the email, rather than failing.
+
+---
+
+## 2026-08-25 — layout settled: full width, no columns, no page target
+
+Tom's final calls on presentation, all of which override earlier notes in this file:
+
+- **Page count is not a constraint.** "Each brief does not need to be five or six pages, simply
+  just a strong update." The earlier ~9,900-word/five-page budget is dead — do not compress to
+  hit a length or pad to reach one. Edition 001 runs 18 pages at readable size.
+- **One column, full width.** The two-column artboard packing is gone. `typeset.js` now packs a
+  single full-width column and adds pages as needed, at `SCALE` 1.22 (~9pt body). This also
+  retires the whole content-budget problem: legibility first, length follows.
+- **Trend arrows beside every conflict name.** Green &#8599; improving, red &#8601; deteriorating
+  — net direction over the last 30-60 days, with a legend on page 1 saying exactly that so the
+  mark is not mistaken for absolute severity. Red is a deliberate departure from the single-hue
+  rule; flagged to Tom rather than done quietly. Edition 001 ran 3 up, 18 down, which is the
+  honest picture and matches the brief's own thesis.
+- **No city in the footer.** "Hamilton, Ontario, Canada" removed from both the PDF and the email.
+- **Watch items go above the caveat** on the closing TWB page. The actionable list should not sit
+  underneath "what this brief does not support."
+
+Assigning a direction is a judgement call and should be made against the same evidence as the
+status line — ICG CrisisWatch's improved/deteriorated markers are a good sanity check where they
+exist. Where a file is genuinely mixed (the South Caucasus and Balkans section, which combines an
+advancing peace track with a deteriorating Kosovo), pick the dominant direction and let the status
+line carry the nuance. Do not invent a third neutral state; two directions was the instruction.
