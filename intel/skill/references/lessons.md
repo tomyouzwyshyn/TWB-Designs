@@ -77,3 +77,36 @@ mail connector that attaches by file path appears, switch to it and remove that 
 ("no_signed_approval — this task will run in the cloud only"), which means it cannot read the
 master or write the PDF to disk until Tom approves binding. The prompt has a cloud-only fallback:
 research and email anyway, and say plainly that the master could not be updated.
+
+---
+
+## 2026-08-25 — attaching the PDF: solved
+
+The earlier conclusion that the PDF "cannot be attached" was wrong — it was true only of the
+Gmail connector taken alone. **Connector plus browser together can do it**, and that is now the
+standard route (written up in SKILL.md → Delivery). Verified end to end: Edition 001 sent 13:02
+with `TWB_Global_Conflict_Brief.pdf` (234K) attached, confirmed in Sent.
+
+The four things that cost time, so they don't cost it again:
+
+- **Account/profile mismatch.** The Gmail connector is tom@tmcapitalgroup.co; the browser's
+  default profile (u/0) is tyouzwyshyn@gmail.com. A connector-created draft is invisible from u/0.
+  Go straight to `mail.google.com/mail/u/1/#drafts`.
+- **`file_upload` path gating.** It rejects paths inside the user's connected folder — only files
+  this session may read are accepted. Copy the PDF to `/mnt/user-data/outputs/` and upload from
+  there. Do not click the paperclip; it opens an invisible native picker.
+- **Stale draft list.** A newly created draft does not appear until you click refresh. Clicking
+  the top row before refreshing opened an unrelated third-party draft — no harm done, but that is
+  one misclick away from sending someone else's mail. Always `find` the row by subject and
+  confirm with a screenshot before clicking.
+- **Stale compose window.** `update_draft` through the API does not propagate to an already-open
+  compose window, and Gmail autosaves the old body back over the change. Discard the draft and
+  create a fresh one instead of updating.
+
+Also: `browser_batch` returned "No tab available" on every attempt in this session despite a valid
+tab id. Individual `computer` calls worked fine. Don't burn time on the batch tool.
+
+**Caveat for the scheduled run.** This route needs the Chrome extension connected and the user
+present enough to have approved a browser. A 6am unattended run may not have it. The task prompt
+therefore tries the browser route and falls back to sending the digest without the attachment,
+saying so in the email, rather than failing.

@@ -124,11 +124,33 @@ the type further.
 
 The **email body is a changes-by-section digest**, not the full brief: a one-line read, one short
 paragraph per region bolding only what actually moved, a watch list ordered by consequence to
-TWB, and the sourcing note. The **full brief goes as the PDF**. Inline all CSS in the email,
-avoid flex, and do not rely on SVG — Gmail strips it, so use the text wordmark as the Letterhead
-template does. Note that the Gmail connector takes attachments only as inline base64, which is
-not viable for a binary of this size; until a connector that attaches by path is available, the
-PDF is written to the repo and delivered separately, and the email says where it is.
+TWB, and the sourcing note. The **full brief goes as the attached PDF**. Inline all CSS in the
+email, avoid flex, and do not rely on SVG — Gmail strips it, so use the text wordmark as the
+Letterhead template does.
+
+**Sending with the PDF attached — the working method.** The Gmail connector takes attachments
+only as inline base64, which no model can reproduce byte-exact for a 240KB binary. The route that
+works is a hand-off between the connector and the browser:
+
+1. **Create the draft through the Gmail connector** (`create_draft`) with the full HTML body. This
+   is the only way to get the branded HTML in intact — typing or pasting into Gmail's compose
+   loses it.
+2. **Open Gmail in the connected Chrome at `mail.google.com/mail/u/1/#drafts`.** The connector is
+   authenticated as tom@tmcapitalgroup.co, which is profile **u/1** in that browser; **u/0 is
+   tyouzwyshyn@gmail.com and will not show the draft**. If the draft seems missing, you are on
+   the wrong profile.
+3. **Hit the refresh button in the draft list before clicking anything.** A newly created draft
+   does not appear until the list refreshes, and clicking the top row blind opens an unrelated
+   draft belonging to someone else.
+4. **Attach with `file_upload`.** Find the hidden `type=file` input in the compose toolbar and
+   upload to its ref — never click the paperclip, which opens a native picker you cannot see.
+   The path must be one this session may read: copy the PDF to **`/mnt/user-data/outputs/`** and
+   upload from there. A path inside the user's connected folder is **rejected**.
+5. **Send**, then confirm in Sent that the attachment chip is present.
+
+If the draft body needs correcting after a compose window has been opened on it, **discard and
+recreate the draft** — `update_draft` does not refresh an open compose window, and Gmail will
+autosave the stale copy back over your correction.
 
 ## Daily update procedure
 
