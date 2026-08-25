@@ -1,0 +1,28 @@
+{
+  "name": "@twb/design-system",
+  "version": "1.0.0",
+  "private": true,
+  "description": "TWB Designs component library — React components over the TWB CSS system.",
+  "type": "module",
+  "module": "./dist/index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json"
+  },
+  "peerDependencies": {
+    "react": "^18.3.1"
+  },
+  "dependencies": {
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
+    "react-dom": "^18.3.1",
+    "typescript": "^7.0.2"
+  }
+}

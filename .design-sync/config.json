@@ -1,0 +1,56 @@
+{
+  "projectId": "31ab7acb-afb6-4d09-9172-3fc7d9a5851c",
+  "shape": "package",
+  "pkg": "@twb/design-system",
+  "globalName": "TWB",
+  "buildCmd": "node scripts/sync-logo.mjs && node scripts/sync-css.mjs && npx tsc -p tsconfig.json",
+  "srcDir": "src",
+  "tsconfig": "tsconfig.json",
+  "cssEntry": "./styles/twb.css",
+  "tokensGlob": "./styles/tokens.css",
+  "overrides": {
+    "Card": {
+      "cardMode": "column"
+    },
+    "CustodyStrip": {
+      "cardMode": "column"
+    },
+    "Grid": {
+      "cardMode": "column"
+    },
+    "Wordmark": {
+      "cardMode": "column"
+    },
+    "SpecTable": {
+      "cardMode": "column"
+    },
+    "CtaBand": {
+      "cardMode": "column"
+    },
+    "Claim": {
+      "cardMode": "column"
+    },
+    "StatStrip": {
+      "cardMode": "column"
+    },
+    "Section": {
+      "cardMode": "column"
+    },
+    "Audience": {
+      "cardMode": "column"
+    },
+    "ClaimLine": {
+      "cardMode": "column"
+    },
+    "PageHead": {
+      "cardMode": "column"
+    },
+    "Steps": {
+      "cardMode": "column"
+    },
+    "CleanList": {
+      "cardMode": "column"
+    }
+  },
+  "readmeHeader": ".design-sync/conventions.md"
+}

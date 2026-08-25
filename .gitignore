@@ -1,2 +1,11 @@
 .DS_Store
 Thumbs.db
+.ds-sync/
+ds-bundle/
+.design-sync/.cache/
+.design-sync/learnings/
+.design-sync/node_modules
+design-system/react/node_modules/
+design-system/react/dist/
+design-system/react/styles/tokens.css
+design-system/react/styles/twb.css
