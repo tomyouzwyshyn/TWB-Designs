@@ -27,6 +27,9 @@ This list is cumulative. Add to it whenever verification kills something.
 
 ## Corrections applied at verification (Edition 001, 25 Aug 2026)
 
+*Note: these were applied in a second pass, after Edition 001 had already been issued and emailed.
+The first issue went out without any verification pass having been run. See lessons.md.*
+
 - Poland's Anti-Personnel Mine Ban Convention withdrawal took effect **20 February 2026**, not
   26 February. Estonia/Latvia/Lithuania: 27 Dec 2025. Finland: 10 Jan 2026. Current depositary
   tally: **162 states parties** — not the 164 that appears on unrevised factsheets.
@@ -42,7 +45,7 @@ This list is cumulative. Add to it whenever verification kills something.
 - The Gaza Board of Peace agreement provides for **storage rather than destruction**; it contains
   no explicit prohibition on destruction. Do not write "explicitly not destroyed."
 - The 155mm production figures come from **Department of War** Inspector General report
-  DODIG-2026-095, released 13 July 2026 — not "DoD Inspector General."
+  **DOWIG-2026-095** (the prefix is DOWIG, not DODIG), released 13 July 2026.
 - Landmine Monitor's "civilians 90% of casualties" is qualified in the original as *where
   military or civilian status was known*. Unqualified, civilians are 86% of all 6,279.
 
@@ -63,3 +66,29 @@ This list is cumulative. Add to it whenever verification kills something.
 - European Commission ASAP page: not updated past 2024.
 - Landmine Monitor's most recent casualty and funding data is **2024 data**; the 2026 edition
   publishes in Nov/Dec. Anyone presenting "current" landmine figures is presenting 2024 numbers.
+
+## Corrections from the second verification pass, 25 Aug 2026
+
+- **SIPRI "+9.2% arms transfers" is a five-year comparison**, not an annual rise: the volume of
+  transfers in 2021–25 was 9.2% higher than in 2016–20. Presenting it as a 2025 year-on-year
+  increase is wrong. (SIPRI Fact Sheet, 9 Mar 2026.)
+- **UCDP's 13 wars in 2025 equals the 2013 peak** — "no year since 1992 has had more." Not a
+  clean "highest since 1992."
+- **UCDP "second deadliest year since 1994"** could not be quoted verbatim from JPR 63(4). The
+  244,600 figure is solid; the ranking is not. State the figure, not the rank.
+- **NATO's $145bn** is an aggregated statement of allied *requirements* from the REPEAD process —
+  not spending, budget or commitment — and covers deep precision strike and air surveillance as
+  well as munitions and air defence.
+- **EDIP has no single ammunition/counter-drone category.** €700m+ sits in production capacity
+  support and €240m in joint procurement, under different rules.
+- **Haiti's election is 13 December 2026** (runoff 21 Feb 2027), not January 2027.
+- **The Kenscoff attack of 24 Aug 2026 killed at least 47** and abducted 50+, not 30.
+- **Guatemala's denial of a joint-operations agreement followed** the mid-August Hegseth
+  announcement; it did not precede it in May.
+- **"Colombian combat operations rose from 447 to 563"** — untraceable. Removed.
+- **Haiti "~500,000 illegal firearms in circulation"** — repeated by UNIDIR and InSight Crime but
+  not traceable to any Haiti-specific survey. Do not use as a planning figure.
+- **Colombia coca hectarage for 2024/2025** — no published UNODC survey exists. The last verified
+  figure is 253,000 ha for 2023.
+- **"Gangs control X% of Port-au-Prince"** — circulating figures run 70–90% from four UN-adjacent
+  sources that disagree. Give the range, never a single percentage.

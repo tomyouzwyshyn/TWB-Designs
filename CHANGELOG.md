@@ -1,8 +1,31 @@
 # TWB — investor deck workstream changelog
 
 Running record of every change, decision and open item. Newest first.
-Nothing in the deck, model or memo has been modified yet — this session so far is
-diagnosis only. Entries marked PROPOSED are recommendations awaiting Tom's decision.
+Entries marked PROPOSED are recommendations awaiting Tom's decision.
+
+---
+
+## 2026-08-25 — Decisions from Tom (supersede findings below where they conflict)
+
+- **D1. LOI signed back by the seller. Treat TWB Designs Inc. + CADS as owned.**
+  Resolves F3. The deck may now speak in the first person ("TWB is..."). The $700K
+  entry price becomes a *disclosed acquisition basis* rather than a pending negotiation
+  — still the strongest fact in the package, now with no race risk attached.
+- **D2. Audience: any outside investor, most likely private equity.**
+  Resolves F1 in favour of the raise narrative. The archive CIM (sell-to-strategic) is
+  retired as the active thesis. Deck to be written for a lower-mid-market PE reader.
+- **D3. Raise amount stays open — no stated ask, no stated valuation in the deck.**
+  PROPOSED consequence: the deck still needs a "capital required to execute" view
+  (uses, phasing, ranges) because a PE reader will price the plan regardless. The
+  *ask* is left to the conversation; the *cost of the plan* is not optional.
+- **D4. Do not use the "Vault" name.**
+  Reverses the CLAUDE.md rename for this workstream. Retaining eMACS/MACS in the
+  investor deck is defensible on its own terms: 25 years of contract history, the IACP
+  award and every customer reference attach to that name, and past performance is the
+  asset being sold to an investor.
+  OPEN: does this reverse the Vault decision everywhere (website, capability brief,
+  equipment marks), or only in investor-facing material? CLAUDE.md still records the
+  rename as locked and needs updating either way.
 
 ---
 
@@ -78,3 +101,106 @@ institutional research (energetics dissolution, sensing and robotics, propellant
 motor, regulatory and funding programmes), claim verification (market, valuation,
 technical), and adversarial diligence (growth PE, defence-tech VC, defence operator,
 CEO/strategy, compliance counsel).
+
+---
+
+## 2026-08-25 — Research complete, diligence pack delivered
+
+**Deliverable:** TWB Deck Teardown (artifact)
+https://claude.ai/code/artifact/6b015595-8f7f-4e67-83ba-b9ff1306e401
+
+**Research run:** 20 agents, 910 tool calls, 7 competitive segments + 4 institutional
+topics + 3 verification passes + 4 diligence lenses. 18 completed; the compliance-counsel
+lens and the automated synthesis step hit a session limit — an export-control / FCPA /
+CFPOA pass is still OUTSTANDING and should be run.
+
+### New findings that change the plan
+
+**Competition — three direct collisions, two of them new**
+- EnviroSafe Demil: primary NAICS 332992 (Small Arms Ammunition) — TWB's exact category.
+  Markets mobile on-site deployment to .50 cal. SDB + CAGE + Rock Island IDIQ seat.
+  Backed by Banyan Growth Partners. Their mobile deployment lead time is UNKNOWN and is
+  the single most important open question in the competitive set — it decides whether
+  "same day, on site" survives.
+- Arcwood Environmental (EQT Infrastructure): names "Law Enforcement: Small arms
+  ammunition" as an explicit service line. Fixed-site, so the custody wedge holds.
+- LSC Destruction (Las Vegas): NEW. On-site mobile narcotics + firearms + ammunition to
+  .50 cal, chain-of-custody and certificate-of-destruction language nearly identical to
+  the Aug 2026 repositioning. The narcotics expansion walks into an occupied position.
+- Dynasafe markets DEMIL 100 for narcotics too — narcotics is not a European differentiator.
+- Dynasafe BACTEC is no longer Dynasafe (became SafeLane Global, now Igne). Chemring has
+  no demil business — remove from any competitor set.
+- The three-week claim is now SOURCEABLE: Dynasafe's own SDC 1000 datasheet. Cite it.
+
+**Roadmap — the technology picks are wrong**
+- Dissolution is the wrong process. Washout and meltout are the industry standard
+  (NASEM 2019; IATG 10.10). Solvent washout is a downstream HMX purification step, not a
+  front end. Replace with high-pressure abrasive waterjet cut-and-washout.
+- Gradient Technology's core patent (US6777586B1) EXPIRED May 2023 — no licence needed.
+  They are the real Year-1 counterparty and a plausible acquisition.
+- MIT is the WRONG institution for metals-discrimination sensing — no lab, no PI, no
+  programme. The field is NRL / Berkeley Lab / Dartmouth (Shubitidze) / Duke (Collins),
+  and it has been DAGCAP-accredited and procurable since 2017. Black Tusk Geophysics
+  (Vancouver) is Canadian and already accredited — one call replaces the Year-2 milestone.
+- Robotics belongs in Year 1, not Year 3. Sandia has fielded it for 14+ years.
+- Chemical weapons: market closed 7 July 2023. Drop entirely.
+- Adding an energetics front end DESTROYS the custody wedge (FDHS precedent: 10-day setup,
+  15 crew/shift, multi-container). The wedge and the roadmap are in direct conflict.
+
+**Numbers**
+- Army demil is $155.1M (FY26) / $161.2M (FY27) — Exhibit P-1. The deck's "$3bn" is ~10x over.
+- Live solicitation W519TC-26-R-0007 is NAICS 332993 "except Small Arms," set-aside NONE.
+  No CLIN is inside a .50 cal ceiling.
+- Stockpile is SHRINKING (~48,000 tons/yr), not growing. Kill the backlog demand driver.
+- Honest SAM for mobile on-site small-arms destruction: $75-200M/yr globally.
+- Metals: the $1,000/1,000 lb figure is LOW (~$1,268 at Aug-2026 scrap) but gross, and it
+  is a margin line not a revenue line — one unit yields ~$317K/yr.
+- 10 USC 2576(a): US law prefers SELLING excess small arms ammo over destroying it.
+  10 USC 7690: in government work assume the recovered metal is the CUSTOMER'S.
+- Capital required: $150M+ committed by Year 4. Cadre's realised cost is ~$2.50 of capital
+  per $1.00 of acquired revenue. Model prices deals at 1.2x revenue; real market is
+  5.5-7.5x EBITDA.
+
+**Sharpest technical finding — not previously known**
+The 850F primary chamber sits at the top edge of the PCDD/PCDF de novo synthesis window
+(200-450C) and the feedstock is copper, the most effective dioxin catalyst known, present
+in bulk by design. The chamber cannot be run hotter without destroying the brass recovery
+that funds the cost-recovery claim. EMISSIONS RISK AND REVENUE MODEL ARE IN PHYSICAL
+CONFLICT. Commission EPA Method 23 testing before any further thermal claim.
+
+**Corrections to our own house rules (CLAUDE.md)**
+- "Canadian entity CANNOT hold a US CAGE" — contested. DLA covers US and Canadian entities
+  (CAGE / NCAGE); a Canadian firm can register in SAM and prime US federal work. The real
+  barriers are SBA set-aside status and facility clearance. Fix the sentence.
+- Berry Amendment (10 USC 4862) covers food, clothing, textiles, tools and flatware. It has
+  nothing to do with demil services. Delete from the risk list.
+- ITAR: USML Cat V is NOT on Canada's exclusion list; the s126.5 Canadian exemption applies.
+  Better than assumed. But SBIR/STTR is CLOSED (13 CFR 121.702) and must not be listed as a route.
+- "$1,800/ton" is wrong as a conventional-demil program anchor but RIGHT as an ESI contained-
+  thermal bid price. Add the footnote rather than the flat kill.
+- Prepare the NASEM reconciliation: 400,000 tons is the 2019 NASEM baseline, not folklore.
+
+**Two contradictions in our own materials**
+- The CADS site sells "at your site or at ours" with per-km travel pricing — the opposite
+  of the custody wedge.
+- CADS page states 100 lb/hr and 482C/982C; the deck states 60 lb/hr and 850F/1750F.
+
+**Underused, checkable advantages currently absent from the deck**
+- Canada-EU SAFE (signed 14 Feb 2026): Canada is the first non-European participant in the
+  EUR150bn instrument, 80% Canadian content allowed vs 35% for other third countries.
+  Europe should move forward from 2028 to now.
+- NSPA vendor registration: free, online, open to Canada today.
+- Canadian Commercial Corporation: the DFARS 225.870-1(c) prime channel into US DoD.
+- SERDP/ESTCP explicitly fund Canadian organisations — the only clean US federal R&D door.
+- All four recovered metals are on the Final 2025 US Critical Minerals List (90 FR 50494).
+- Germany's EUR100M North Sea/Baltic UXO programme has stated its next phase is a floating
+  disposal facility so recovered ordnance never comes ashore — our custody wedge, in the
+  buyer's own words, with appropriated money behind it, reachable via the Nordic-Baltic
+  relationship.
+
+### Still to do
+1. Export-control / FCPA / CFPOA diligence pass (agent failed on session limit).
+2. Rebuild the deck once Tom answers the 12 open items in section 09 of the artifact.
+3. Rebuild the model: margin 8-12%, discount rate 30-35%, acquisitions on EBITDA multiples,
+   capital requirement stated.
+4. Decide the Vault-vs-eMACS naming question repo-wide and update CLAUDE.md either way.
