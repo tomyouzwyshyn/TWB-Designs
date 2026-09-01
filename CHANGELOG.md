@@ -5,6 +5,47 @@ Entries marked PROPOSED are recommendations awaiting Tom's decision.
 
 ---
 
+## 2026-09-01 — Category and naming reversed, repo-wide
+
+**Decision from Tom.** While eMACS is the current operating business, the category TWB is
+building toward — via a roll-up/acquisition strategy — is demilitarization and global
+secure destruction. This reverses two of the CLAUDE.md-locked decisions from August 2026:
+
+- **Category:** was "small arms ammunition destruction, NOT demilitarization." Now:
+  demilitarization and global secure destruction, reached by acquiring operating businesses
+  (large-calibre & artillery demil, metals recovery & reclamation, plant & equipment
+  engineering, secure destruction for military/conflict customers) rather than by declaring
+  the larger category out of scope. eMACS stays the small-arms, mobile, on-site foothold —
+  the proof of concept the roll-up is built from, not the ceiling on what it sells.
+- **Naming:** was "Vault" (renamed from eMACS/MACS, August 2026). Now: **eMACS**, restored
+  as the permanent name everywhere — website, capability brief, templates, design system,
+  both decks. This also resolves the open question in the 25 August teardown (§ask-10) and
+  the investment-narrative track's "deck-only override," which is no longer an override —
+  eMACS was never actually replaced in the investor deck, and now nothing else needs to be
+  either.
+- **Custody:** demoted from "the category" to "the sharpest proof point eMACS carries into
+  a deal." The four claims are unchanged in substance and priority order; they are now
+  proof points for the foothold product, not a definition of the whole business.
+
+**Files updated:** `CLAUDE.md`, project memory (`twb-brand-strategy`,
+`twb-investment-narrative`), the six-page website, `strategy/TWB_Brand_Strategy_Platform.html`
+(superseded-notice + targeted section rewrites, historical recommendation for "VAULT" left
+visible and marked reversed rather than deleted), `strategy/TWB_Deck_Teardown.html` (banner +
+question 10 marked resolved — the rest of its findings on the *original* 21-slide deck are
+left as written, since they document that deck's actual August content), the capability deck
+(renamed `TWB_eMACS_Capability_Brief.pptx`, old file moved to `_to_delete/`), all seven
+print templates, the design-system React source (`chrome.tsx`) and its `ds-bundle/README.md`,
+and the conflict brief's "what this means for TWB" section. `TWB_Master_Reference.html`
+(the 1 September folder-review summary) also rewritten and republished.
+
+**Not touched, deliberately:** `archive/` (superseded, do not build from — includes the old
+CIM which still needs a full rebuild, not a rename); `ds-bundle/` generated build cache
+(gitignored, regenerates from the fixed React source on next build); the historical body of
+`TWB_Deck_Teardown.html`'s 162 questions, which quote and analyse the deck as it existed on
+25 August and would misrepresent that analysis if silently renamed.
+
+---
+
 ## 2026-08-25 — Decisions from Tom (supersede findings below where they conflict)
 
 - **D1. LOI signed back by the seller. Treat TWB Designs Inc. + CADS as owned.**

@@ -4,7 +4,7 @@ Static site. No build step, no dependencies. Open `index.html` directly or serve
 the folder; deploy by uploading the folder as-is to any static host.
 
 ```
-index.html         Overview          system.html      Vault
+index.html         Overview          system.html      eMACS
 custody.html       Custody protocol  operators.html   Who it serves
 contracting.html   Contracting       contact.html     Enquiry form
 css/tokens.css     design tokens — kept in sync with design-system/tokens.css

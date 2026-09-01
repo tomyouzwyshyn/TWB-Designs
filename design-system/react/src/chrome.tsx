@@ -198,7 +198,7 @@ export function Checkbox({ children, defaultChecked }: CheckboxProps): React.JSX
 export interface CustodyStripProps {
   /** Label for the conventional (negative-register) row. */
   negLabel?: React.ReactNode;
-  /** Label for the Vault row. */
+  /** Label for the eMACS row. */
   posLabel?: React.ReactNode;
   /** Number of diversion windows shown on the conventional row. */
   windows?: number;
@@ -208,11 +208,11 @@ export interface CustodyStripProps {
 
 /**
  * The custody comparison strip — conventional disposal's transfer windows
- * in dashed dark neutral against Vault's unbroken sage line. The negative
+ * in dashed dark neutral against eMACS's unbroken sage line. The negative
  * register is carried by dashed strokes and weight, never by colour.
  */
 export function CustodyStrip({
-  negLabel = 'Conventional', posLabel = 'With Vault', windows = 3,
+  negLabel = 'Conventional', posLabel = 'With eMACS', windows = 3,
   zeroText = 'Zero windows — inside your perimeter',
 }: CustodyStripProps): React.JSX.Element {
   return (
