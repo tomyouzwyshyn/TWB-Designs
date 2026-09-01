@@ -1,0 +1,298 @@
+<title>TWB Master Reference</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --ground:#FFFFFF; --surface:#FAFAF8; --surface-2:#F2F1EC;
+    --ink:#000000; --ink-2:#33332F; --ink-3:#6E6C66;
+    --rule:#E2E1DA; --rule-2:#CFCDC4; --hair:rgba(0,0,0,.14);
+    --sage:#66705F; --sage-mark:#788274; --sage-wash:#F1F3F0; --sage-hair:#D3D9D0;
+    --neg:#3D3D38; --neg-2:#8C8A83;
+    --sans:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  }
+  /* The TWB system is light-only by design: it inverts on physical equipment, never on screen. */
+  html,body{background:var(--ground)}
+  body{margin:0;font-family:var(--sans);font-weight:400;font-size:15px;line-height:1.62;
+       color:var(--ink-2);letter-spacing:-.008em;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:920px;margin:0 auto;padding:0 28px 96px}
+  a{color:var(--sage);text-decoration:none;border-bottom:1px solid var(--sage-hair)}
+  a:hover{border-bottom-color:var(--sage)}
+  h1,h2,h3{color:var(--ink);text-wrap:balance;margin:0}
+  h1{font-weight:400;font-size:44px;line-height:1.08;letter-spacing:-.028em}
+  h2{font-weight:500;font-size:25px;line-height:1.2;letter-spacing:-.018em}
+  h3{font-weight:600;font-size:16.5px;letter-spacing:-.009em}
+  p{margin:0 0 14px}
+  .mono,.eyebrow,.chip,th{font-family:var(--mono);text-transform:uppercase;letter-spacing:.09em}
+  .eyebrow{font-size:10.5px;font-weight:500;color:var(--sage);margin:0 0 12px}
+  section{border-top:1px solid var(--rule);padding:44px 0 26px;margin-top:26px}
+  .lede{font-size:17.5px;line-height:1.55;color:var(--ink-2);max-width:70ch}
+
+  /* masthead */
+  header{padding:56px 0 34px}
+  .wordmark{display:flex;align-items:baseline;gap:.32em;font-size:26px;font-weight:600;
+            letter-spacing:-.018em;color:var(--ink)}
+  .wordmark svg{height:.72em;vertical-align:baseline;display:inline-block}
+  .metaline{font-family:var(--mono);text-transform:uppercase;letter-spacing:.09em;
+            font-size:10.5px;color:var(--ink-3);margin-top:10px}
+  .metaline b{color:var(--sage);font-weight:500}
+
+  /* corner-bracket panel */
+  .panel{position:relative;background:var(--sage-wash);border:1px solid var(--sage-hair);
+         padding:22px 26px;margin:20px 0}
+  .panel .bk{position:absolute;width:6px;height:6px;pointer-events:none}
+  .panel .bk.tl{top:-3px;left:-3px;border-top:1px solid var(--sage-mark);border-left:1px solid var(--sage-mark)}
+  .panel .bk.br{bottom:-3px;right:-3px;border-bottom:1px solid var(--sage-mark);border-right:1px solid var(--sage-mark)}
+  .panel.neu{background:var(--surface);border-color:var(--rule)}
+  .panel.neg{background:var(--ground);border:1px dashed var(--neg-2)}
+  .panel.neg .bk{display:none}
+
+  /* chips */
+  .chip{display:inline-block;font-size:9px;font-weight:500;padding:3px 7px 2px;
+        border:1px solid var(--sage-hair);color:var(--sage);background:var(--sage-wash);white-space:nowrap}
+  .chip.warn{color:var(--neg);background:var(--ground);border:1px dashed var(--neg-2)}
+  .chip.dim{color:var(--ink-3);background:var(--surface);border:1px solid var(--rule)}
+
+  /* tables */
+  .tscroll{overflow-x:auto;margin:18px 0}
+  table{border-collapse:collapse;width:100%;font-size:13.5px}
+  th{font-size:9.5px;font-weight:500;color:var(--ink-3);text-align:left;
+     padding:8px 14px 8px 0;border-bottom:1px solid var(--rule-2)}
+  td{padding:9px 14px 9px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+  td:last-child,th:last-child{padding-right:0}
+  td.file{font-family:var(--mono);font-size:11.5px;letter-spacing:0;white-space:nowrap;color:var(--ink)}
+  tr.dirhead td{font-family:var(--mono);text-transform:uppercase;letter-spacing:.09em;
+                font-size:10px;font-weight:500;color:var(--sage);background:var(--surface);
+                padding:8px 0 6px 8px;border-bottom:1px solid var(--rule-2)}
+  .num{font-variant-numeric:tabular-nums}
+  td.kill{color:var(--neg);text-decoration:line-through;text-decoration-color:var(--neg-2);text-decoration-thickness:1px}
+
+  /* claims list */
+  ol.claims{list-style:none;counter-reset:c;margin:18px 0;padding:0;display:grid;gap:0}
+  ol.claims li{counter-increment:c;display:grid;grid-template-columns:44px 1fr;gap:0 14px;
+               padding:13px 0;border-bottom:1px solid var(--rule);align-items:baseline}
+  ol.claims li::before{content:"0" counter(c);font-family:var(--mono);font-size:12px;
+                       letter-spacing:.09em;color:var(--sage-mark)}
+  ol.claims b{color:var(--ink);font-weight:600;letter-spacing:-.009em}
+  ol.claims .why{display:block;font-size:13px;color:var(--ink-3);margin-top:2px}
+
+  /* two-track grid */
+  .tracks{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:20px 0}
+  @media(max-width:680px){.tracks{grid-template-columns:1fr}}
+  .track{border:1px solid var(--rule);background:var(--surface);padding:20px 22px}
+  .track h3{margin-bottom:4px}
+  .track .tag{font-family:var(--mono);text-transform:uppercase;letter-spacing:.09em;
+              font-size:9.5px;color:var(--sage);margin-bottom:10px}
+  .track ul{margin:10px 0 0;padding-left:16px;font-size:13.5px}
+  .track li{margin-bottom:6px}
+
+  /* open items */
+  ul.open{list-style:none;margin:16px 0;padding:0}
+  ul.open li{display:grid;grid-template-columns:110px 1fr;gap:14px;padding:10px 0;
+             border-bottom:1px solid var(--rule);font-size:13.5px;align-items:baseline}
+  ul.open .src{font-family:var(--mono);text-transform:uppercase;letter-spacing:.07em;
+               font-size:9px;color:var(--ink-3);padding-top:2px}
+  @media(max-width:560px){ul.open li{grid-template-columns:1fr;gap:2px}}
+
+  footer{border-top:1px solid var(--rule);margin-top:40px;padding-top:22px;
+         font-family:var(--mono);text-transform:uppercase;letter-spacing:.09em;
+         font-size:9.5px;color:var(--ink-3);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  ul{margin:10px 0 14px;padding-left:18px}
+  li{margin-bottom:7px}
+  .small{font-size:13px;color:var(--ink-3)}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="wordmark"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3888 600" role="img" aria-label="TWB"><g fill="currentColor" transform="translate(0,600) scale(0.1,-0.1)"><path d="M1472 5778 c-868 -971 -1471 -1652 -1467 -1657 33 -32 162 -34 2353 -40 l2173 -6 -1636 -1970 c-1680 -2022 -1675 -2016 -1675 -2051 0 -56 -72 -54 1609 -54 l1538 0 874 1042 c481 573 1247 1490 1702 2038 829 995 829 995 915 1002 140 12 2963 24 3082 14 139 -13 1018 -13 1047 0 12 5 390 432 840 949 l819 940 -2856 6 c-1570 3 -4264 7 -5987 8 l-3132 1 -199 -222z"/><path d="M14509 5963 c-91 -96 -1362 -1585 -3132 -3667 l-1937 -2281 742 -6 c409 -3 1785 -7 3059 -8 l2317 -1 1742 1366 c958 751 1743 1364 1745 1362 1 -2 -175 -610 -391 -1353 -217 -742 -394 -1356 -394 -1362 0 -10 448 -13 2209 -13 l2208 0 1104 1207 c1182 1293 1414 1546 1970 2138 366 391 2419 2631 2419 2640 0 3 -659 5 -1464 5 l-1464 0 -1424 -1532 c-783 -843 -1668 -1801 -1967 -2128 -728 -797 -649 -717 -724 -725 -60 -6 -194 9 -209 23 -4 4 143 713 327 1576 358 1676 585 2756 585 2781 0 13 -110 15 -950 15 l-951 0 -352 -267 c-194 -147 -1020 -799 -1837 -1448 -1531 -1218 -3249 -2578 -3285 -2600 -17 -11 -574 -5 -657 7 -19 3 1020 1250 2644 3173 520 616 945 1121 944 1121 0 1 -640 4 -1421 8 -1420 7 -1420 7 -1456 -31z"/><path d="M28998 5963 c-100 -106 -1539 -1796 -1533 -1801 4 -4 1833 -8 4066 -10 2232 -1 4059 -5 4059 -8 0 -11 -219 -275 -284 -342 -118 -121 -232 -183 -411 -225 -90 -22 -90 -22 -4042 -27 l-3951 -5 -429 -490 c-236 -269 -466 -529 -510 -577 -124 -134 -253 -297 -253 -320 0 -5 1803 -8 4006 -8 l4005 0 -33 -61 c-128 -235 -370 -421 -647 -497 -96 -27 -96 -27 -3988 -32 -2140 -3 -3893 -7 -3895 -10 -56 -68 -363 -421 -737 -848 -496 -567 -515 -590 -526 -660 -7 -43 -7 -43 4612 -37 5255 6 5876 9 6060 30 758 89 1504 484 2169 1149 630 631 753 1177 352 1563 l-75 72 76 31 c651 271 1455 1057 1706 1671 242 590 -52 1247 -643 1433 -149 47 -44 46 -4687 46 -4431 0 -4431 0 -4467 -37z"/></g></svg><span>Designs</span></div>
+  <h1 style="margin-top:26px">Master reference</h1>
+  <div class="metaline">Internal · Complete project review · Compiled <b>1 Sept 2026</b> · Supersedes nothing — indexes everything</div>
+  <p class="lede" style="margin-top:20px">Everything in the TWB Designs folder and project memory, reviewed file by file: what the business is, what is locked, what every asset contains, which numbers are allowed to exist, and what is still open. CLAUDE.md remains the working rulebook; this document is the map.</p>
+</header>
+
+<section>
+  <div class="eyebrow">01 · The business</div>
+  <h2>One machine, one wedge, two stories</h2>
+  <p style="margin-top:14px">TWB Designs Inc. (Hamilton, Ontario) builds <b>Vault</b> — a trailer-deployed, closed-chamber system that destroys small arms ammunition to .50 calibre, plus seized narcotics and other seized property, inside the owner's perimeter, same day, operated by the owner's own people. Held and operated under CLN (kept quiet in market — footer and diligence only) until it reaches scale to sell. The category is <b>small arms ammunition destruction</b>, deliberately not "demilitarization": demil is scored on tons/year, where TWB loses by 3× to 200×. The wedge is <b>custody</b> — every competitor moves the material. Hero line: <i>"The property never leaves your custody."</i></p>
+
+  <div class="tracks">
+    <div class="track">
+      <div class="tag">Track A · Operating brand</div>
+      <h3>Vault — the custody doctrine</h3>
+      <ul>
+        <li>Machine named <b>Vault</b>; eMACS/MACS retired in all market-facing material.</li>
+        <li>Buyers: law enforcement, defence, allied/NATO-forward. Narcotics appears as capability in LE copy only — never as a referenced past-performance claim.</li>
+        <li>Pitch <b>net cost of destruction</b> (price minus verified recovered value), never gross "cheaper" — OB/OD at ~$750/ton wins any raw per-ton fight.</li>
+        <li>Carried by: website, capability brief, templates, design system.</li>
+      </ul>
+    </div>
+    <div class="track">
+      <div class="tag">Track B · Venture raise (from 26 Aug 2026)</div>
+      <h3>eMACS — the platform story</h3>
+      <ul>
+        <li>Platform-first: acquire / partner / develop into the full-service provider for munitions end-of-life. The machine is the foothold, not the hero.</li>
+        <li>Technology named <b>eMACS</b> in the investor deck per Tom (25 yrs of contract history and the IACP award attach to that name).</li>
+        <li>Audience: any outside investor, most likely lower-mid-market PE. No stated ask yet.</li>
+        <li>Carried by: investment narrative, investment deck V5, changelog.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="panel neg"><b style="color:var(--neg)">Unresolved naming question (changelog D4, 25 Aug).</b> Does the eMACS decision reverse Vault everywhere, or only in investor-facing material? CLAUDE.md still records the Vault rename as locked and does not yet record the deck-specific override. Needs Tom's call, then a CLAUDE.md edit.</div>
+</section>
+
+<section>
+  <div class="eyebrow">02 · The four claims</div>
+  <h2>Always in this order</h2>
+  <ol class="claims">
+    <li><div><b>Same day. On site. Your own people.</b><span class="why">Uncontested — the nearest comparable closed chamber states a three-week deployment on its own datasheet (Dynasafe SDC 1000, now citable).</span></div></li>
+    <li><div><b>Zero transfers. Zero diversion windows.</b><span class="why">The custody wedge itself. Every handoff is a manifest, a truck, and an interval where the count can change.</span></div></li>
+    <li><div><b>Recovered, not released.</b><span class="why">Domestic metal supply, not green virtue. Carries the cost-recovery component: Pb–Sb, brass, copper sold into existing secondary markets, netted against the destruction fee.</span></div></li>
+    <li><div><b>Nobody stands over it.</b><span class="why">LASD, 18 July 2025 — three detectives killed processing seized ordnance by hand.</span></div></li>
+  </ol>
+  <p class="small">Register: pragmatic, protective, threat-framed. Hard-edged, never martial. Footage rule: machinery, material and procedure — never combat.</p>
+</section>
+
+<section>
+  <div class="eyebrow">03 · Repo state</div>
+  <h2>Where the folder stands today</h2>
+  <div class="panel"><span class="bk tl"></span><span class="bk br"></span>
+    <b style="color:var(--ink)">Branch <span class="mono" style="font-size:12px">main</span> is 6 commits ahead of GitHub</b> — through "Deck V5: ten-point demilitarization backlog series on slide 3." The session VM has no GitHub credentials; the push happens from your Mac. Four paths are untracked: <span class="mono" style="font-size:11px;letter-spacing:0">strategy/TWB_Deck_Teardown.html · intel/TWB_Competitor_Brief.pdf · deck/DEMIL_BACKLOG_SERIES.md · _to_delete/</span> — the first three should be committed; <span class="mono" style="font-size:11px;letter-spacing:0">_to_delete/</span> holds eight stale git lock files and should simply be deleted. Vercel import is still pending (the MCP connector 403s); the repo is import-ready — root directory <span class="mono" style="font-size:11px;letter-spacing:0">website</span>, framework Other, no build command.
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">04 · Complete file inventory</div>
+  <h2>Every file, what it is, and its status</h2>
+  <div class="tscroll"><table>
+    <tr><th style="width:34%">File</th><th>What it is</th><th style="width:120px">Status</th></tr>
+
+    <tr class="dirhead"><td colspan="3">Root</td></tr>
+    <tr><td class="file">CLAUDE.md</td><td>The working rulebook — locked decisions, claims, design values, killed numbers, risks. Read first, always.</td><td><span class="chip warn">Needs edits</span></td></tr>
+    <tr><td class="file">CHANGELOG.md</td><td>Investor-deck workstream log, newest first: Tom's decisions D1–D4, teardown findings F1–F8, and the 20-agent research results.</td><td><span class="chip">Current</span></td></tr>
+    <tr><td class="file">TWB_Investor_Deck_editable (2).pptx</td><td>The original 21-slide investor deck (global-demil roll-up, $235.9M implied value, 2027 go-public). The document the teardown audited.</td><td><span class="chip dim">Input · superseded</span></td></tr>
+    <tr><td class="file">TWB_Supporting_Memo (1).docx</td><td>Valuation memo — the only place in the package disclosing the real 2025 baseline: $862,856 CAD combined revenue, ~$235K EBITDA, declining.</td><td><span class="chip dim">Input</span></td></tr>
+    <tr><td class="file">TWB_10-15yr_Forecast (1).xlsx</td><td>9-tab model behind the old deck: TAM-SAM-SOM, revenue build, metals recovery, scenarios, 2027 go-public valuation. Teardown found the multiples and discount rate understated risk.</td><td><span class="chip dim">Input · superseded</span></td></tr>
+    <tr><td class="file">vercel.json · .gitignore · .claude/</td><td>Deploy config (serves <span class="mono" style="font-size:10.5px;letter-spacing:0">website/</span>, clean URLs), ignore rules (all design-sync machinery is local-only), local serve config (port 4630).</td><td><span class="chip">Current</span></td></tr>
+
+    <tr class="dirhead"><td colspan="3">strategy/</td></tr>
+    <tr><td class="file">TWB_Brand_Strategy_Platform.html</td><td>"The Custody Doctrine" — positioning, claims audit, naming, voice, launch order. Source of the Track-A brand.</td><td><span class="chip">Current</span></td></tr>
+    <tr><td class="file">TWB_Deck_Teardown.html</td><td>256 KB diligence document on the original deck: five raise-killers, every number corrected, competitive landscape, roadmap rebuilt, acquisition thesis re-priced, 162 questions across four lenses, slide-by-slide disposition.</td><td><span class="chip warn">Untracked</span></td></tr>
+    <tr><td class="file">TWB_Investment_Narrative.html</td><td>The Track-B story doc: rearmament → liability → critical-minerals flip → the unassembled industry → platform plan, plus slide skeleton and numbers-discipline appendix.</td><td><span class="chip">Current</span></td></tr>
+
+    <tr class="dirhead"><td colspan="3">brand/</td></tr>
+    <tr><td class="file">twb-logo.svg · -black/-white .svg · .png</td><td>The italic geometric TWB mark, vectorised from the client sample. Master uses currentColor; fixed-fill variants and 2400px rasters for PowerPoint. Never retype TWB as text.</td><td><span class="chip">Current</span></td></tr>
+
+    <tr class="dirhead"><td colspan="3">design-system/</td></tr>
+    <tr><td class="file">TWB_Design_System.html · tokens.css</td><td>Source of truth for palette, type, components, motion — and the same values as importable CSS. A copy lives at <span class="mono" style="font-size:10.5px;letter-spacing:0">website/css/tokens.css</span>; keep in sync.</td><td><span class="chip">Current</span></td></tr>
+    <tr><td class="file">react/ (@twb/design-system)</td><td>React wrapper over the CSS system, built for Claude Design: 29 components (Section, Wrap, Card, Button, Claims, CustodyStrip, CtaBand…). Generated <span class="mono" style="font-size:10.5px;letter-spacing:0">twb.css</span> and <span class="mono" style="font-size:10.5px;letter-spacing:0">logo.ts</span> are gitignored and rebuilt by the build script.</td><td><span class="chip">Current</span></td></tr>
+    <tr><td class="file">.design-sync/ · .ds-sync/ · ds-bundle/</td><td>Local sync-and-preview machinery (component captures, grade files, bundle, notes on gotchas — e.g. the @import semicolon trap that once shipped an unstyled bundle). All gitignored; not deliverables.</td><td><span class="chip dim">Local tooling</span></td></tr>
+
+    <tr class="dirhead"><td colspan="3">website/</td></tr>
+    <tr><td class="file">index · system · custody · operators · contracting · contact .html</td><td>The six-page static site — no build step. Shared chrome generated; hero carries the property-custody line; narcotics scoped into LE copy.</td><td><span class="chip">Current</span></td></tr>
+    <tr><td class="file">all-pages.html</td><td>The whole site in one double-clickable file with a view switcher. Generated from the six pages — regenerate after edits, never edit directly.</td><td><span class="chip">Generated</span></td></tr>
+    <tr><td class="file">README.md · css/ · js/site.js · serve.command</td><td>Launch checklist (contacts, form endpoint, status chips, counsel review, og:image), all styles, behaviour, local server. <span class="mono" style="font-size:10.5px;letter-spacing:0">FORM_ENDPOINT</span> still unset; contact placeholders still unfilled.</td><td><span class="chip warn">Pre-launch</span></td></tr>
+    <tr><td class="file">assets/video/</td><td>3 of 5 named slots filled (hero, cycle, recovery). <span class="mono" style="font-size:10.5px;letter-spacing:0">control.mp4</span> and <span class="mono" style="font-size:10.5px;letter-spacing:0">onsite.mp4</span> missing; hero.mp4 is interim stock with the shot-list annotation still overlaid — deleting the .ph-note is the deliberate act of accepting footage as real.</td><td><span class="chip warn">3 / 5</span></td></tr>
+
+    <tr class="dirhead"><td colspan="3">deck/</td></tr>
+    <tr><td class="file">TWB_Vault_Capability_Brief.pptx</td><td>Track-A deck, 12 slides with speaker notes: problem → custody idea → system → recovery → positioning → track record (RCMP, IACP) → regulatory position → audiences → gated capability → what we hold and don't.</td><td><span class="chip">Current</span></td></tr>
+    <tr><td class="file">TWB_Investment_Deck.pptx</td><td>Track-B deck at V5, 17 slides: six-act platform narrative under a dominant hero-number design, demil-backlog series chart on slide 3, two closing citation slides mapping every superscript to a source.</td><td><span class="chip">Current · V5</span></td></tr>
+    <tr><td class="file">DEMIL_BACKLOG_SERIES.md</td><td>Primary-source data extraction behind the slide-3 chart: US demil stockpile FY2018–FY2027 P-1 books (471,767 → 296,534 short tons, −37.1%; missile components +61.6%), funded-plan tonnage and dollars, caveats to state if challenged.</td><td><span class="chip warn">Untracked</span></td></tr>
+
+    <tr class="dirhead"><td colspan="3">templates/</td></tr>
+    <tr><td class="file">7 × .dc.html + canvas.json</td><td>Claude Design canvas: capability statement, certificate of destruction, letterhead (US Letter 816×1056) on one page; title + content slides (1280×720), equipment mark in light and dark finish, business card (3.5×2 in) on the other. Certificate has 4 material rows — high-volume take-back needs a continuation sheet.</td><td><span class="chip">Current</span></td></tr>
+
+    <tr class="dirhead"><td colspan="3">intel/</td></tr>
+    <tr><td class="file">TWB_Competitor_Brief.pdf</td><td>The competitor artifact of record: 46 profiles in 6 tiers, 8 fields each, every source hyperlinked. Source build files existed only in the session workspace — the PDF is the record.</td><td><span class="chip warn">Untracked</span></td></tr>
+    <tr><td class="file">TWB_Global_Conflict_Brief .html / .pdf</td><td>Edition 001 (25 Aug 2026): global picture, four regional sections, and "what this means for TWB" — verified-figures-only standard.</td><td><span class="chip">Current</span></td></tr>
+    <tr><td class="file">email-template.html · typeset.js</td><td>The daily digest email shell and the Playwright typesetting script that paginates the brief into its PDF.</td><td><span class="chip">Current</span></td></tr>
+    <tr><td class="file">skill/</td><td>The conflict-brief research skill: independent-reporter standard, three source tiers, fan-out research pattern, plus two living references — <span class="mono" style="font-size:10.5px;letter-spacing:0">killed-figures.md</span> (a cumulative list of widely-repeated figures that fail on contact with a primary source) and <span class="mono" style="font-size:10.5px;letter-spacing:0">lessons.md</span> (what worked, reliable primary routes).</td><td><span class="chip">Current</span></td></tr>
+
+    <tr class="dirhead"><td colspan="3">archive/</td></tr>
+    <tr><td class="file">Brief .docx · CIM .pdf · prototype .html</td><td>Original brief (wrong market numbers), the old sell-side CIM (carries killed numbers; the CIM as a thesis was retired by decision D2), and the single-file site prototype (replaced 22 Aug). Reference only — never build from these.</td><td><span class="chip dim">Superseded</span></td></tr>
+  </table></div>
+</section>
+
+<section>
+  <div class="eyebrow">05 · Numbers discipline</div>
+  <h2>What may never appear, and what replaces it</h2>
+  <div class="tscroll"><table>
+    <tr><th>Killed — falsifiable in minutes</th><th>Use instead</th></tr>
+    <tr><td class="kill">400,000 tons stockpile</td><td class="num">296,534 short tons (P-1, 4 Dec 2025) — and note it is <b>shrinking</b>, −37.1% since FY2016. If challenged: 400,000 was the 2019 NASEM baseline, so reconcile rather than deny.</td></tr>
+    <tr><td class="kill">7,600 unique items</td><td>&gt;7,000 DODICs (July 2025)</td></tr>
+    <tr><td class="kill">70,000–100,000 tons/yr growth</td><td>The stockpile is declining; the old figure added <i>rockets</i> to <i>tons</i>. Kill the backlog-growth demand driver entirely.</td></tr>
+    <tr><td class="kill">$1,800/ton</td><td>~$2,000/ton (GAO FY15) or $2,890/ton (NAS). Nuance: $1,800 is defensible as an ESI contained-thermal <i>bid price</i> with a footnote — never as the program anchor.</td></tr>
+    <tr><td class="kill">"$3bn across 2026–27 demil awards"</td><td class="num">Army demil line 4099EP1700: $155.1M FY26 / $161.2M FY27. PM Demil plans ~$30M/yr competitive IDIQ 2026–30.</td></tr>
+    <tr><td class="kill">"$808.8M demil IDIQ" as revenue</td><td class="num">Could not be verified anywhere. The real vehicle is $110.1M, three seats — and it ended 20 May 2026.</td></tr>
+    <tr><td class="kill">"$2.3B Hawthorne demil contract"</td><td>20-year base-ops contract (Day &amp; Zimmermann, to Dec 2046); demil is 1 of ~15 work statements.</td></tr>
+    <tr><td class="kill">$34.6B Ukraine demining</td><td class="num">$30B (RDNA4, Feb 2025)</td></tr>
+    <tr><td class="kill">30–50% dud rate</td><td>1–2% to 30–40% (GICHD)</td></tr>
+    <tr><td class="kill">$15bn/yr TAM</td><td>Honest SAM for mobile on-site small-arms destruction: $75–200M/yr globally. Track-B TAM is labelled "our construction": $4–6B/yr forming + $30B+ episodic.</td></tr>
+  </table></div>
+  <div class="panel neg"><b style="color:var(--neg)">Ours, not fact — present as operating figures until third-party testing publishes:</b> 97% metal recovery · "exceeds CA EPA / NATO / EU standards." No dollar recovery tables until verification lands. And in government work, assume the recovered metal is the <b>customer's</b> (10 USC 7690); title passes only under 7687 purchases. Underwrite recovery on commercial/allied work, 7687 buys and QRP lots — never on a metals margin from DoD demil services.</div>
+</section>
+
+<section>
+  <div class="eyebrow">06 · Design system</div>
+  <h2>The values every asset uses</h2>
+  <p><b>Sage is the only hue</b> — #66705F text-grade for all small type, #788274 (the client sample) for marks, borders, fills and large type, #F1F3F0 wash for proof surfaces. It must own whole surfaces, not just labels. The negative register (conventional disposal, superseded claims) is dark neutral #3D3D38 with <span style="border-bottom:1px dashed var(--neg-2)">dashed strokes</span> — weight and form, never a traffic light. Single face: Helvetica Neue, weight climbing as size falls (400 display / 500 section / 600 sub-head); UI layer is IBM Plex Mono, uppercase, +.09em. Zero border radius; 6×6px corner brackets offset −3px are the motif; 120ms transitions; all motion inside prefers-reduced-motion. Light ground only — the system inverts on painted steel, never on screen. Statutory hazard marking is regulatory red/yellow and is never restyled. The React package mirrors all of this for Claude Design; <span class="mono" style="font-size:11px;letter-spacing:0">tokens.css</span> is imported, never re-typed.</p>
+</section>
+
+<section>
+  <div class="eyebrow">07 · Risks &amp; exposure</div>
+  <h2>What could break this</h2>
+  <ul>
+    <li><b>Regulatory classification.</b> "Two-stage combustion" wording may class Vault as an <i>incinerator</i> under 40 CFR 260.10 rather than a Subpart X unit — materially heavier permitting, decided partly by our own copy. Environmental counsel before any copy locks. The offsetting gift: the same section defines open burning as combustion <i>without</i> air control, containment or emissions control — a closed chamber is categorically not open burning, and that is citable.</li>
+    <li><b>The dioxin/recovery conflict (teardown's sharpest finding).</b> The 850°F primary chamber sits at the top of the PCDD/PCDF de-novo synthesis window with copper — the most effective dioxin catalyst known — present in bulk by design. Running hotter destroys the brass recovery that funds claim 3. Emissions risk and the revenue model are in physical conflict until EPA Method 23 testing says otherwise. No further thermal claims before it.</li>
+    <li><b>US standing.</b> The Canadian entity cannot hold SBA small-business status, an ATF FEL, or DDTC registration — claiming any is False Claims Act exposure. The CAGE sentence in CLAUDE.md is <i>contested</i>: DLA covers Canadian entities (NCAGE) and a Canadian firm can register in SAM and prime US federal work — the real barriers are set-asides and facility clearance. Fix the sentence. Canada IS a DFARS 225.872 qualifying country — checkable and underused. ITAR is better than assumed (s126.5 Canadian exemption applies to Cat V); SBIR/STTR is closed and must never be listed as a route.</li>
+    <li><b>CADS contradictions.</b> The sister company's site sells "at your site or at ours" with per-km travel pricing — the opposite of the custody wedge — and states 100 lb/hr at 482/982°C where the deck states 60 lb/hr at 850/1750°F. Two brands, two spec sheets, one machine: still the single biggest brand liability.</li>
+    <li><b>The disclosure gap.</b> The retired investor deck implied $235.9M of value over a real combined baseline of $862,856 CAD revenue / ~$235K EBITDA that only the memo disclosed. The rebuilt Track-B materials must never depend on a companion document to be accurate — and the $700K LOI acquisition basis (signed back, per D1) is the strongest fact in the package and should lead.</li>
+    <li><b>The wedge/roadmap conflict.</b> Adding an energetics front end destroys the custody wedge (FDHS precedent: 10-day setup, 15 crew per shift, multi-container). Any roadmap step gets tested against claim 1 before it gets a slide.</li>
+  </ul>
+</section>
+
+<section>
+  <div class="eyebrow">08 · Competitive picture</div>
+  <h2>Three collisions, six removals</h2>
+  <ul>
+    <li><b>EnviroSafe Demil</b> (Hooks TX) — NAICS 332992, TWB's exact category; mobile-to-site to .50 cal; SDB + CAGE + a seat on the $110.1M Army MAC. <b>Their mobile deployment lead time is the single most important open question in the set</b> — it decides whether "same day, on site" survives. Ownership is factually unresolved (Banyan portfolio vs founder-held); resolve from Nevada/Texas filings before any contact, and never straddle the successor-IDIQ award window.</li>
+    <li><b>LSC Destruction</b> (Las Vegas) — mobile narcotics + firearms + ammunition to .50 cal with certificate-of-destruction language nearly identical to ours; no federal record, no recovery economics.</li>
+    <li><b>Disarmament Solutions AB</b> (Sweden) — four-container mobile facility, operational in 1–2 days on a rental model; the nearest challenge to claim 1.</li>
+    <li>The Dynasafe three-week deployment is now sourceable from their own SDC 1000 datasheet — cite it. Dynasafe's DEMIL 100 markets narcotics too, so narcotics is not a European differentiator. Arcwood (EQT) names LE small-arms ammunition as a service line but is fixed-site — the custody wedge holds.</li>
+    <li>Removed from the set: Chemring, Ordnance Holdings, PIKA, Tradebe, Veolia (Perma-Fix stays as a valuation comparable only). Dynasafe BACTEC is no longer Dynasafe — it is Igne, under Solix.</li>
+  </ul>
+</section>
+
+<section>
+  <div class="eyebrow">09 · Acquisition strategy</div>
+  <h2>Tom's filter, and the shortlist it produced</h2>
+  <p>Buy less direct competition, more artillery and recovery: <b>large-calibre and artillery demil, metals recovery and reclamation, plant and equipment engineering, secure destruction for military and conflict customers</b>. North America and Europe. Ranked: <b>1 · JAKUSZ</b> (Poland — containerised disposal factories to 203mm+, succession signal) · <b>2 · Josef Meissner</b> (Cologne — waterjet washout, TNT/HMX/RDX recovery, carve-out) · <b>3 · Alford Technologies / El Dorado Engineering</b> (cleanest cap table / transportable furnace + RCRA permitting practice) · <b>4 · Interco Trading</b> (the only firm publicly buying demilled ordnance; 10,000+ t non-ferrous/month) · <b>5 · Lacero Solutions / Gradient Technology</b> (best Canadian fit, 45 min from Hamilton / the real Year-1 counterparty — its core patent expired May 2023, no licence needed). Pricing honesty: real deals cleared 1.5×–3.1× revenue and 9×–15× EBITDA; for sub-$20M founder businesses the honest frame is <b>4×–7× EBITDA</b>. Three of the four recovered metals — copper, lead, antimony — are on the Final 2025 US Critical Minerals List; copper gilding metal has no published scrap index and is real, unpriced margin if segregated.</p>
+</section>
+
+<section>
+  <div class="eyebrow">10 · Open items</div>
+  <h2>Everything still waiting on a decision or an action</h2>
+  <ul class="open">
+    <li><span class="src">Repo</span><span>Push the 6 pending commits from the Mac; commit the teardown, competitor brief and backlog series; delete <span class="mono" style="font-size:10.5px;letter-spacing:0">_to_delete/</span>; import the repo in the Vercel dashboard.</span></li>
+    <li><span class="src">Naming</span><span>Decide the scope of the eMACS override (investor-only vs everywhere), then update CLAUDE.md — which also needs the CAGE-sentence fix and the new files added to its inventory.</span></li>
+    <li><span class="src">Counsel</span><span>Environmental counsel on the incinerator-classification wording before copy locks; export counsel on technology claims; government-contracts counsel on the contracting page; the export-control / FCPA / CFPOA diligence pass has never been run.</span></li>
+    <li><span class="src">Testing</span><span>Third-party verification of the 97% recovery figure; EPA Method 23 stack testing before any further thermal or emissions claim.</span></li>
+    <li><span class="src">Intel</span><span>EnviroSafe's mobile lead time (the decisive unknown); resolve EnviroSafe ownership from state filings; Rheinmetall Expal deployment time; register on UNGM for the live UNMAS demand.</span></li>
+    <li><span class="src">Website</span><span>Shoot or source <span class="mono" style="font-size:10.5px;letter-spacing:0">control.mp4</span> and <span class="mono" style="font-size:10.5px;letter-spacing:0">onsite.mp4</span>; accept or replace interim hero footage; set the form endpoint and real contact details; re-verify status chips at launch; add og:image.</span></li>
+    <li><span class="src">Raise</span><span>Raise amount, instrument and use of proceeds (derive from the phase ladder at real multiples); reserved slides — team, use of proceeds, milestones, references, financial model.</span></li>
+    <li><span class="src">Standing</span><span>US entity formation; controlled-detonation acquisition — live or not (changes the roadmap from intent to capability); trademark screening (USPTO/CIPO classes 9, 13, 40); CIM rebuild if a sell-side document is ever needed again; certificate-of-destruction continuation sheet.</span></li>
+  </ul>
+</section>
+
+<section>
+  <div class="eyebrow">11 · Published artifacts</div>
+  <h2>Hosted copies</h2>
+  <p class="small">Strategy · Website · System · Canvas artifacts are linked in CLAUDE.md. The strategy and website artifact URLs were last blocked publishing from outside their authoring sessions — the files in this folder are current; those two hosted pages may be behind. The deck teardown also exists as an artifact (linked in CHANGELOG.md).</p>
+</section>
+
+<footer>
+  <span>TWB Designs Inc. · Hamilton, Ontario</span>
+  <span>Internal · CLN quiet in market</span>
+  <span>Compiled from the full folder + project memory · 2026-09-01</span>
+</footer>
+</div>
