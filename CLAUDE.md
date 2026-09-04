@@ -31,9 +31,10 @@ until it reaches scale to sell. **Optimise for the operating business, not the e
   moves the material; that fact keeps its force even though the category framing above it
   has changed.
 - **Company name:** TWB Designs (market-facing), TWB Designs Inc. (legal). Machine is
-  **eMACS** — this reverses the 2026-08 rename to "Vault." **eMACS is the name everywhere:
-  website, capability brief, templates, design system, decks. Do not introduce "Vault" as
-  a product name anywhere in this folder.** (The investor deck's eMACS naming, previously
+  **eMACS** — this reverses the 2026-08 rename to an alternate product name (since retired,
+  and removed from every document repo-wide, 2026-09-03). **eMACS is the name everywhere:
+  website, capability brief, templates, design system, decks. Do not introduce any other
+  product name anywhere in this folder.** (The investor deck's eMACS naming, previously
   logged as a deck-only override in project memory, is no longer an override — it is now
   the one name used across every track.)
 - **CLN:** parent, kept quiet in market. Footer and diligence only.
@@ -238,3 +239,12 @@ treat the hosted copies as stale until republished.
   pipeline behind it.
 - EnviroSafe Demil's mobile deployment lead time is still unknown — the decisive fact for
   whether "same day, on site" survives contact with the nearest direct competitor.
+
+
+## Investor deck (2026-09-03)
+
+`deck/html/TWB_Investor_Deck.html` — 25-slide investor deck rebuilt in the TWB visual
+system from a provided PDF (TWB_Investor_Deck_Sep2026_V4_1.pdf). Self-contained HTML,
+arrow-key navigation, prints to PDF at 1280x720/slide. Uses "demilitarization" and a
+platform/M&A register that diverges from this file's locked category-word rule for the
+market-facing site — deliberately not reconciled; see deck/html/README.md.
