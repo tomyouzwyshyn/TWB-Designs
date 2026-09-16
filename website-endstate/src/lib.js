@@ -4,22 +4,18 @@
 // assets/media/PLACEHOLDERS.md straight from the pages, never by hand.
 const PH_LOG = [];
 
-const SYSTEMS = [
-  { key: 'keep', tag: 'KEEP', file: 'keep.html',
-    line: 'The central system of record',
-    short: 'Every unit, every round, every fraction, unified into one operating picture.' },
-  { key: 'warden', tag: 'WARDEN', file: 'warden.html',
-    line: 'Chain of custody, sealed at every step',
-    short: 'Intake to certified destruction, timestamped, witnessed, and audit-ready.' },
-  { key: 'boresight', tag: 'BORESIGHT', file: 'boresight.html',
-    line: 'AI verification on the line',
-    short: 'Confirms nomenclature, count, and condition before material moves.' },
-  { key: 'picket', tag: 'PICKET', file: 'picket.html',
-    line: 'Autonomous ground, surface, and underwater',
-    short: 'Unmanned platforms that search, mark, and stage for safe recovery.' },
-  { key: 'crucible', tag: 'CRUCIBLE', file: 'crucible.html',
-    line: 'Materials recovery, weighed and traced',
-    short: 'Every fraction tracked from separation to a reportable, certified yield.' },
+// The three operating areas. Each is one page; the named systems that
+// power it appear inside that page rather than as pages of their own.
+const AREAS = [
+  { key: 'detection', tag: 'DETECTION', file: 'detection.html', system: 'PICKET',
+    line: 'AI and robotics that find what is hidden',
+    short: 'Autonomous platforms and machine intelligence search land and water, so the first thing near a threat is a machine.' },
+  { key: 'identification', tag: 'IDENTIFICATION', file: 'identification.html', system: 'BORESIGHT',
+    line: 'AI image recognition that knows what it is looking at',
+    short: 'Computer vision confirms type, condition and hazard before anyone lifts, moves or signs for an item.' },
+  { key: 'remediation', tag: 'REMEDIATION', file: 'remediation.html', system: 'eMACS',
+    line: 'Custody, destruction and recovery back to supply',
+    short: 'Munitions are destroyed inside the perimeter, the record is kept, and the metal goes back into domestic supply.' },
 ];
 
 function brk(){
@@ -60,52 +56,56 @@ function ph({ id, kind = 'video', ratio = '16/9', file, shot, prompt, alt = '' }
 
 function navHtml(current, onDark){
   return `
-  <nav class="nav transparent${onDark ? ' on-dark-page' : ''}">
-    <div class="wrap nav-row">
-      <a href="index.html" aria-label="END STATE home">
-        <img class="nav-logo" src="assets/brand/endstate-logo-white.png" alt="END STATE" data-logo>
-      </a>
-      <div class="nav-right">
-        <a class="btn btn-solid" href="index.html#briefing">Request a Briefing</a>
-        <button class="menu-btn" aria-label="Open menu"><span></span><span></span><span></span></button>
-      </div>
+  <div class="topbar" data-topbar>
+    <div class="announce" data-announce>
+      <span>END STATE is now accepting deployment briefing requests.</span>
+      <a href="index.html#briefing">Request a briefing</a>
+      <button class="announce-close" data-announce-close aria-label="Dismiss">&times;</button>
     </div>
-  </nav>
+    <nav class="nav transparent${onDark ? ' on-dark-page' : ''}">
+      <div class="nav-row">
+        <a href="index.html" aria-label="END STATE home">
+          <img class="nav-logo" src="assets/brand/endstate-logo-white.png" alt="END STATE" data-logo>
+        </a>
+        <div class="nav-right">
+          <a class="btn btn-solid" href="index.html#briefing">Request a Briefing</a>
+          <button class="menu-btn" aria-label="Open menu"><span></span><span></span><span></span></button>
+        </div>
+      </div>
+    </nav>
+  </div>
   <div class="mmenu">
     <button class="mmenu-close">Close</button>
     <div class="mmenu-links">
       <a href="index.html">Home</a>
-      ${SYSTEMS.map(s => `<a href="${s.file}">${s.tag}</a>`).join('')}
-      <a href="index.html#emacs">eMACS</a>
-      <a href="team.html">Company</a>
+      ${AREAS.map(s => `<a href="${s.file}">${s.tag.charAt(0) + s.tag.slice(1).toLowerCase()}</a>`).join('')}
       <a href="index.html#briefing">Request a Briefing</a>
     </div>
   </div>`;
 }
 
 function footerHtml(){
-  const sysLinks = SYSTEMS.map(s => `<a href="${s.file}">${s.tag}</a>`).join('');
+  const areaLinks = AREAS.map(s => `<a href="${s.file}">${s.tag.charAt(0) + s.tag.slice(1).toLowerCase()}</a>`).join('');
   return `
   <footer class="footer">
     <div class="wrap footer-top">
       <div class="footer-brand">
-        <img src="assets/brand/endstate-logo-white.png" alt="END STATE" style="height:18px">
-        <p>The full lifecycle system for munitions custody, materials recovery, and site remediation. Built for the agencies, forces, and contractors who close the loop.</p>
+        <img src="assets/brand/endstate-logo-black-legacy.png" alt="END STATE" style="height:34px">
+        <p>Detection, identification and remediation for the governments and forces responsible for what every conflict leaves behind.</p>
       </div>
       <div class="footer-col">
-        <h4>Systems</h4>
-        ${sysLinks}
-        <a href="index.html#emacs">eMACS</a>
+        <h4>Areas</h4>
+        ${areaLinks}
       </div>
       <div class="footer-col">
         <h4>Built for</h4>
-        <a href="index.html#operators">Law enforcement</a>
-        <a href="index.html#operators">Military &amp; allied forces</a>
-        <a href="index.html#operators">Industrial &amp; environmental</a>
+        <a href="index.html#operators">Defence ministries</a>
+        <a href="index.html#operators">Armed forces</a>
+        <a href="index.html#operators">Allied and coalition partners</a>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
-        <a href="team.html">Team</a>
+        <a href="remediation.html#elements">What we recover</a>
         <a href="index.html#briefing">Request a briefing</a>
       </div>
       <div class="footer-col">
@@ -211,4 +211,4 @@ function swCard({ idx, tag, line, media, file }){
   </a>`;
 }
 
-module.exports = { PH_LOG, SYSTEMS, brk, ph, navHtml, footerHtml, ctaHtml, page, jumpbarHtml, capRow, swCard };
+module.exports = { PH_LOG, AREAS, brk, ph, navHtml, footerHtml, ctaHtml, page, jumpbarHtml, capRow, swCard };

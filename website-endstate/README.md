@@ -1,65 +1,56 @@
-# END STATE website, v2 (Palantir register)
+# END STATE website, v3 (four areas)
 
-A ground-up redesign: same brand, same logo and typography, a different reference point.
-Built off a teardown of palantir.com (home + the Gotham platform page) rather than Anduril's
-Thunder page. Clean, blank white/near-white background throughout, no grid texture. Dark is
-used only for the hero band on every page, the closing statement band, and the footer.
+Palantir-register design (floating header, centred dark heroes, story rail, numbered capability
+rows, sticky jump bar), Helvetica only, sage as the only hue, clean white background.
 
-## Pages (7)
-`index.html` (Home), `keep.html`, `warden.html`, `boresight.html`, `picket.html`,
-`crucible.html` (the five named systems), `team.html` (Company).
+## Pages (4)
+- `index.html`: Home. Mission, the three areas, how the loop closes, what it protects, eMACS,
+  who we serve, sovereign safety.
+- `detection.html`: AI and autonomous robotics for land, littoral and underwater search.
+- `identification.html`: AI image recognition for munitions and materiel.
+- `remediation.html`: custody, closed-chamber destruction, recovery at up to 95%, the animated
+  periodic table of recoverable elements, and return to domestic supply.
 
-## The five systems
-Named the way Palantir names Gotham / Foundry / AIP / Ontology / Apollo: short, industrious,
-defence-flavoured, and specific to what each one actually does. eMACS remains the physical
-hardware line (covered on the home page, `index.html#emacs`) rather than a named software system.
+The individual system pages (KEEP, WARDEN, BORESIGHT, PICKET, CRUCIBLE) and the Team page were
+removed in v3. The system names survive inside the area pages: PICKET powers Detection,
+BORESIGHT powers Identification, eMACS / WARDEN / CRUCIBLE power Remediation, and KEEP is the
+record across all three. Team is recoverable from git history.
 
-- **KEEP** — the central system of record. Ties every other system together.
-- **WARDEN** — chain-of-custody and compliance software.
-- **BORESIGHT** — AI verification and inspection engine.
-- **PICKET** — autonomous ground/surface/underwater robotics and remediation control.
-- **CRUCIBLE** — materials recovery, yield, and reporting platform.
+## Content rules
+- Written as if the roadmap is complete: present tense, no "in development" language.
+- No industry statistics, regulatory citations, incident references or competitor comparisons.
+  Two deliberate exceptions, both requested: the "up to 95% effective recovery" claim, and the
+  10-year price change on the periodic table.
+- No specific government, alliance or country is named as a customer. Audience is written as
+  defence ministries, armed forces, allied and coalition partners.
+- No fabricated testimonials.
 
-## Content rules followed
-- No industry statistics, no regulatory citations, no incident references, no competitor
-  comparisons — this was the standing rule from the first build and it still applies.
-- No investor figures, projections, valuation, or comps.
-- Copy is written as if the roadmap is complete and every system described is in place and
-  operating today (per this round's brief) — present tense throughout, no "in development"
-  language, no roadmap ladder.
-- No fabricated testimonials or client quotes. Palantir's homepage leans heavily on named-client
-  quotes; END STATE has none to publish, and inventing quotes attributed to real or implied
-  clients would misrepresent them as genuine, so that section was replaced with a "who we build
-  for" capability grid (law enforcement / military & allied / industrial & environmental) instead.
+## Periodic table (`src/ptable.js`)
+22 highlighted elements, chosen from research into munition components (small arms, artillery,
+bombs, missiles, guidance electronics, magnets). Present but deliberately NOT highlighted:
+mercury, depleted uranium, cadmium, beryllium, thorium, and pyrotechnic salts (strontium,
+barium, zirconium). Chromium and titanium were dropped because USGS changed their price series
+and there is no clean 10-year comparison.
+
+Price change = USGS Mineral Commodity Summaries, 2015 annual average vs 2025 estimate (MCS 2026).
+2015 values from MCS 2020, or the same series in MCS 2019 / MCS 2017 / the 2016 Minerals Yearbook
+where the 2020 chapter was not retrievable. The percentage is computed in code from the two
+published values. Elements with a series caveat (Al, Sb, W, Mo, Pr, Sm) show a note in the tooltip.
+Refresh these when MCS 2027 revises the 2025 estimates (early 2027).
 
 ## Build
-`node src/build.js` — requires all seven page modules, wraps each in the shared chrome from
-`src/lib.js`, and fails the build on an em dash or a spaced hyphen used as a dash.
-
-`node src/brief.js` — walks the same page modules and regenerates `assets/media/PLACEHOLDERS.md`
-from the live `ph()` calls, so the brief can never drift from what the pages actually show.
+`node src/build.js` builds the 4 pages and fails on an em dash or a spaced hyphen.
+`node src/brief.js` regenerates `assets/media/PLACEHOLDERS.md` from the live `ph()` calls.
 
 ## Media placeholders
-40 slots, all in `assets/media/PLACEHOLDERS.md`. Every placeholder frame on the live pages shows,
-in place: the kind (image/video), the aspect ratio, the exact filename it is waiting for, a shot
-brief in plain English, and a ready-to-paste prompt for image or video generation software. Drop
-a file at that exact path under `assets/media/` and `js/site.js` swaps it in automatically — no
-HTML changes needed.
-
-Six of the forty are the Team page headshots (`team-*.jpg`).
+26 slots in `assets/media/PLACEHOLDERS.md`, each with a shot brief and a generation prompt.
+Drop a file at the exact filename under `assets/media/` and `js/site.js` swaps it in.
 
 ## Open items for Tom
-1. Contact email — footer of every page and `FALLBACK_EMAIL` in `js/site.js`. Currently the
-   placeholder `operations@endstate.example`.
-2. `FORM_ENDPOINT` in `js/site.js` — currently empty, so the briefing form tells the visitor to
-   email directly until it's set.
-3. Media per `assets/media/PLACEHOLDERS.md` — 40 slots, prompts included.
-4. Arjun Kochhar bio on the Team page — currently reads "Bio pending."
-5. Sign off on the five system names (KEEP, WARDEN, BORESIGHT, PICKET, CRUCIBLE) as final before
-   they go anywhere public — renaming later means new logos/marks wherever they get used.
-6. `git push` from Terminal if this build was committed locally rather than pushed directly.
+1. Contact email (footer and `FALLBACK_EMAIL` in `js/site.js`), currently a placeholder.
+2. `FORM_ENDPOINT` in `js/site.js`, currently empty.
+3. Media per `assets/media/PLACEHOLDERS.md`.
+4. Confirm the "up to 95%" recovery claim is one you can substantiate for buyers.
 
 ## Deploy
-Vercel-ready as-is: `vercel.json` sets clean URLs and no trailing slash, no build command needed
-(static HTML). Root directory `website-endstate`, same as the existing `website/` folder in this
-repo.
+Vercel-ready static folder, root directory `website-endstate`, no build command.

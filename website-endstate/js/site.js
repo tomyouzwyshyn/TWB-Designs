@@ -188,7 +188,112 @@
     document.querySelectorAll('[data-year]').forEach(function(el){ el.textContent = new Date().getFullYear(); });
   }
 
+
+  // Remediation periodic table: assembles tile by tile when scrolled into
+  // view, then lights the recoverable elements category by category. Hover,
+  // keyboard focus or tap on a lit element shows its 10-year price change.
+  function ptable(){
+    var grid = document.querySelector('[data-ptable]');
+    var dataEl = document.getElementById('pt-data');
+    if(!grid || !dataEl) return;
+    var data = JSON.parse(dataEl.textContent);
+    var tip = grid.querySelector('.pt-tip');
+    var recs = Array.prototype.slice.call(grid.querySelectorAll('.pt-rec'));
+    var order = ['pt-base','pt-alloy','pt-tech','pt-magnet'];
+    function catOf(el){ for(var i=0;i<order.length;i++){ if(el.classList.contains(order[i])) return order[i]; } return ''; }
+
+    recs.sort(function(a,b){ return order.indexOf(catOf(a)) - order.indexOf(catOf(b)); });
+    recs.forEach(function(el, i){
+      el.style.setProperty('--d2', (950 + i*75) + 'ms');
+      el.style.setProperty('--d3', (2600 + i*160) + 'ms');
+    });
+    var total = 950 + recs.length*75 + 700;
+
+    function start(){
+      grid.classList.add('pt-in');
+      recs.forEach(function(el){ el.classList.add('pt-lit'); });
+      setTimeout(function(){ grid.classList.add('pt-ready'); }, total);
+    }
+    if('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){ if(e.isIntersecting){ start(); io.disconnect(); } });
+      }, { threshold:.12 });
+      io.observe(grid);
+    } else { start(); }
+
+    var active = null;
+    function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+
+    function show(el){
+      var d = data[el.getAttribute('data-sym')];
+      if(!d) return;
+      if(active && active !== el) active.classList.remove('pt-active');
+      active = el; el.classList.add('pt-active');
+      var max = Math.max(d.r15, d.r25) || 1;
+      var dir = d.pct > 0 ? 'up' : (d.pct < 0 ? 'down' : '');
+      tip.className = 'pt-tip ' + catOf(el);
+      tip.innerHTML =
+        '<div class="tip-head"><div class="tip-badge"><small>' + d.z + '</small><b>' + esc(el.getAttribute('data-sym')) + '</b></div>' +
+        '<div><div class="tip-name">' + esc(d.name) + '</div><div class="tip-cat">' + esc(d.cat) + '</div></div></div>' +
+        '<div class="tip-chg ' + dir + '">' + esc(d.change) + '</div>' +
+        '<div class="tip-lbl">Price change, 2015 to 2025</div>' +
+        '<div class="tip-bars">' +
+          '<div class="tip-bar"><span>2015</span><span class="track"><span class="fill" data-w="' + (d.r15/max*100) + '"></span></span><span>' + esc(d.p15) + '</span></div>' +
+          '<div class="tip-bar now"><span>2025e</span><span class="track"><span class="fill" data-w="' + (d.r25/max*100) + '"></span></span><span>' + esc(d.p25) + '</span></div>' +
+        '</div>' +
+        '<div class="tip-meta"><b>' + esc(d.series) + '</b>, ' + esc(d.unit) + '<br>Recovered from: ' + esc(d.from) + '</div>' +
+        (d.note ? '<div class="tip-note">' + esc(d.note) + '</div>' : '');
+      tip.hidden = false;
+
+      var tw = tip.offsetWidth, th = tip.offsetHeight, gw = grid.clientWidth, gh = grid.clientHeight;
+      var left = el.offsetLeft + el.offsetWidth/2 - tw/2;
+      left = Math.max(0, Math.min(left, gw - tw));
+      var top = el.offsetTop - th - 12;
+      if(top < 0) top = el.offsetTop + el.offsetHeight + 12;
+      if(top + th > gh) top = Math.max(0, gh - th);
+      tip.style.left = left + 'px';
+      tip.style.top = top + 'px';
+      requestAnimationFrame(function(){
+        tip.classList.add('show');
+        tip.querySelectorAll('.fill').forEach(function(f){ f.style.width = f.getAttribute('data-w') + '%'; });
+      });
+    }
+    function hide(){
+      if(active) active.classList.remove('pt-active');
+      active = null;
+      tip.classList.remove('show');
+    }
+
+    recs.forEach(function(el){
+      el.addEventListener('pointerenter', function(e){ if(e.pointerType === 'mouse') show(el); });
+      el.addEventListener('pointerleave', function(e){ if(e.pointerType === 'mouse') hide(); });
+      el.addEventListener('focus', function(){ show(el); });
+      el.addEventListener('blur', hide);
+      el.addEventListener('click', function(e){
+        e.stopPropagation();
+        if(active === el && tip.classList.contains('show')) hide(); else show(el);
+      });
+    });
+    document.addEventListener('click', function(e){ if(!grid.contains(e.target)) hide(); });
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape') hide(); });
+
+    // legend: hover previews a category, click pins it
+    var pinned = null;
+    var legs = document.querySelectorAll('.pt-leg');
+    function filter(cat){
+      grid.classList.toggle('pt-filtering', !!cat);
+      recs.forEach(function(el){ el.classList.toggle('pt-match', !!cat && el.classList.contains('pt-' + cat)); });
+      legs.forEach(function(l){ l.classList.toggle('on', !!cat && l.getAttribute('data-cat') === cat); });
+    }
+    legs.forEach(function(l){
+      var cat = l.getAttribute('data-cat');
+      l.addEventListener('mouseenter', function(){ if(!pinned) filter(cat); });
+      l.addEventListener('mouseleave', function(){ filter(pinned); });
+      l.addEventListener('click', function(){ pinned = (pinned === cat) ? null : cat; filter(pinned); });
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', function(){
-    header(); nav(); menu(); reveal(); tabs(); xfade(); media(); jumpbar(); form(); year();
+    header(); nav(); menu(); reveal(); tabs(); xfade(); media(); jumpbar(); ptable(); form(); year();
   });
 })();

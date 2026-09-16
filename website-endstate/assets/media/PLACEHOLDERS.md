@@ -1,4 +1,4 @@
-# END STATE — Media Placeholders (v2, Palantir-register site)
+# END STATE — Media Placeholders (v3, four-area site)
 
 Generated from the live ph() calls in src/*.js — this file cannot drift from the site.
 Drop a file at assets/media/<exact filename> and js/site.js swaps it in automatically. No HTML edits needed.
@@ -9,378 +9,245 @@ Every placeholder includes: what to shoot or generate, and a ready-to-paste prom
 
 ### H-01 — `home-hero.mp4` (video, 16/9)
 
-**What it should be:** eMACS trailer, rear doors open, parked on a hardstand at last light. Slow push-in, camera low, unit lit from inside so the bay glows against the dark. No people, no faces, no visible hazard placards.
+**What it should be:** Slow aerial drift over a quiet former conflict landscape at first light: fields, a treeline, a river, low mist. Near the edge of frame a small autonomous ground robot moves along a survey line. Calm, vast, restored.
 
 **Generation prompt:**
 ```
-Cinematic slow push-in on a matte dark-olive mobile industrial trailer unit, rear doors open revealing an illuminated interior bay, parked on a concrete hardstand at dusk, volumetric haze, low camera angle, shallow depth of field, moody teal-and-amber grade, no people, no logos, no text overlays, 16:9, photoreal, 4K
+Cinematic slow aerial drift over a quiet rural landscape at first light, patchwork fields, a treeline and a winding river under low mist, a tiny matte charcoal autonomous ground robot moving along a faint survey line near the edge of frame, muted cold colour grade with a hint of sage, no people, no text, 16:9, photoreal, 4K
 ```
 
-### T-01 — `home-tab-keep.jpg` (image, 16/8)
+### T-01 — `home-area-detection.jpg` (image, 16/8)
 
-**What it should be:** Full-bleed still representing KEEP. An operations screen showing a unified map of multiple deployed units. No faces in focus, no hazard placards, no readable classified markings.
+**What it should be:** An unmanned ground vehicle and a small uncrewed surface vessel working a coastline at dawn, seen from a distance. The sense of machines going first.
 
 **Generation prompt:**
 ```
-Photoreal industrial documentary still, a wide operations command screen showing a dark-themed map dashboard with multiple unit markers and status tiles, sage-green and charcoal color grade, no text overlays, no visible faces, 16:9, cinematic lighting
+Wide cinematic photoreal still of a compact tracked unmanned ground robot on a pebbled shoreline and a small uncrewed surface vessel just offshore at dawn, soft mist over the water, long lens, muted charcoal and sage colour grade, no people, no insignia, no text, 16:8
 ```
 
-### T-02 — `home-tab-warden.jpg` (image, 16/8)
+### T-02 — `home-area-identification.jpg` (image, 16/8)
 
-**What it should be:** Full-bleed still representing WARDEN. A tablet on a workbench mid chain-of-custody signature, seal and timestamp visible on screen. No faces in focus, no hazard placards, no readable classified markings.
+**What it should be:** A corroded munition on a dark inspection surface, a precise recognition outline traced around it and a classification card beside it. Clinical and certain.
 
 **Generation prompt:**
 ```
-Photoreal industrial documentary still, a rugged tablet held at chest height displaying a digital chain-of-custody signature screen with a timestamp and seal icon, blurred workbench background, sage-green and charcoal color grade, no text overlays, no visible faces, 16:9, cinematic lighting
+Photoreal close still of a corroded cylindrical munition casing on a matte dark inspection surface under cool raking light, a thin sage-green computer-vision outline traced precisely around it and a minimal abstract classification card beside it, no readable text, shallow depth of field, 16:8
 ```
 
-### T-03 — `home-tab-boresight.jpg` (image, 16/8)
+### T-03 — `home-area-remediation.jpg` (image, 16/8)
 
-**What it should be:** Full-bleed still representing BORESIGHT. A close, top-down view of ordnance items moving on a line under an inspection camera rig, bounding boxes overlaid on a monitor beside it. No faces in focus, no hazard placards, no readable classified markings.
+**What it should be:** The eMACS unit inside a secured compound with sorted bins of recovered metal fractions in the foreground. Destruction and recovery in one frame.
 
 **Generation prompt:**
 ```
-Photoreal industrial documentary still, an overhead industrial camera rig above a conveyor line of ordnance casings, a nearby monitor showing AI bounding-box classification overlays, sage-green and charcoal color grade, no text overlays, no visible faces, 16:9, cinematic lighting
+Photoreal wide still of a matte dark-olive mobile industrial trailer unit inside a secured fenced compound, foreground row of industrial bins holding sorted recovered metal fractions (copper, brass, steel), overcast daylight, restrained charcoal and sage colour grade, no people, no logos, no text, 16:8
 ```
 
-### T-04 — `home-tab-picket.jpg` (image, 16/8)
+### S-01 — `home-protect-forces.mp4` (video, 3/4)
 
-**What it should be:** Full-bleed still representing PICKET. An unmanned ground vehicle at the edge of a treeline, low afternoon light, one operator at a distance with a control tablet. No faces in focus, no hazard placards, no readable classified markings.
+**What it should be:** A soldier silhouette at a safe distance watching a robot work in the mid-ground. Protective, calm.
 
 **Generation prompt:**
 ```
-Photoreal industrial documentary still, a compact tracked unmanned ground robot at a treeline edge in late afternoon light, a distant operator holding a control tablet, shallow depth of field, sage-green and charcoal color grade, no text overlays, no visible faces, 16:9, cinematic lighting
+Short looping cinematic shot, a distant silhouetted figure in field uniform standing at a safe distance watching a small tracked robot work in the mid-ground of an open field, overcast light, face not visible, no insignia, muted charcoal and sage grade, 3:4 vertical, 8 second loop
 ```
 
-### T-05 — `home-tab-crucible.jpg` (image, 16/8)
+### S-02 — `home-protect-territory.mp4` (video, 3/4)
 
-**What it should be:** Full-bleed still representing CRUCIBLE. Sorted metal fractions in labelled bins on a warehouse floor, overhead light, a tablet showing a weight readout nearby. No faces in focus, no hazard placards, no readable classified markings.
+**What it should be:** A slow drone rise over a cleared field returning to farmland, a faint survey grid fading away.
 
 **Generation prompt:**
 ```
-Photoreal industrial documentary still, neatly sorted metal fraction bins on a concrete warehouse floor under cool overhead light, a tablet displaying a weight and yield readout, sage-green and charcoal color grade, no text overlays, no visible faces, 16:9, cinematic lighting
+Short looping aerial rise over green farmland with a faint sage-green survey grid overlay slowly fading away, soft morning light, no people, no text, 3:4 vertical, 8 second seamless loop
 ```
 
-### S-01 — `sw-keep.mp4` (video, 4/3)
+### S-03 — `home-protect-custody.mp4` (video, 3/4)
 
-**What it should be:** Short looping interface capture for KEEP: a UI screen recording, dark theme, sage-green accent, slow cursor movement, no real data, no readable classified text.
+**What it should be:** A tagged item scanned on a bench, a record line completing on a screen.
 
 **Generation prompt:**
 ```
-Screen-recording style loop of a dark-themed software dashboard UI in charcoal and sage-green, abstract data tiles and a map or list view relevant to keep, slow cursor movement, subtle animated transitions, no readable real-world data, clean sans-serif labels, 4:3, 8 second seamless loop
+Short looping macro shot of a gloved hand scanning a barcode tag on a sealed item, a nearby screen showing an abstract record timeline completing in sage green, cool light, no faces, no readable text, 3:4 vertical, 8 second loop
 ```
 
-### S-02 — `sw-warden.mp4` (video, 4/3)
+### S-04 — `home-protect-supply.mp4` (video, 3/4)
 
-**What it should be:** Short looping interface capture for WARDEN: a UI screen recording, dark theme, sage-green accent, slow cursor movement, no real data, no readable classified text.
+**What it should be:** Recovered metal ingots being stacked, warm reflections on their surfaces.
 
 **Generation prompt:**
 ```
-Screen-recording style loop of a dark-themed software dashboard UI in charcoal and sage-green, abstract data tiles and a map or list view relevant to warden, slow cursor movement, subtle animated transitions, no readable real-world data, clean sans-serif labels, 4:3, 8 second seamless loop
-```
-
-### S-03 — `sw-boresight.mp4` (video, 4/3)
-
-**What it should be:** Short looping interface capture for BORESIGHT: a UI screen recording, dark theme, sage-green accent, slow cursor movement, no real data, no readable classified text.
-
-**Generation prompt:**
-```
-Screen-recording style loop of a dark-themed software dashboard UI in charcoal and sage-green, abstract data tiles and a map or list view relevant to boresight, slow cursor movement, subtle animated transitions, no readable real-world data, clean sans-serif labels, 4:3, 8 second seamless loop
-```
-
-### S-04 — `sw-picket.mp4` (video, 4/3)
-
-**What it should be:** Short looping interface capture for PICKET: a UI screen recording, dark theme, sage-green accent, slow cursor movement, no real data, no readable classified text.
-
-**Generation prompt:**
-```
-Screen-recording style loop of a dark-themed software dashboard UI in charcoal and sage-green, abstract data tiles and a map or list view relevant to picket, slow cursor movement, subtle animated transitions, no readable real-world data, clean sans-serif labels, 4:3, 8 second seamless loop
-```
-
-### S-05 — `sw-crucible.mp4` (video, 4/3)
-
-**What it should be:** Short looping interface capture for CRUCIBLE: a UI screen recording, dark theme, sage-green accent, slow cursor movement, no real data, no readable classified text.
-
-**Generation prompt:**
-```
-Screen-recording style loop of a dark-themed software dashboard UI in charcoal and sage-green, abstract data tiles and a map or list view relevant to crucible, slow cursor movement, subtle animated transitions, no readable real-world data, clean sans-serif labels, 4:3, 8 second seamless loop
+Short looping photoreal shot of recovered metal ingots being set onto a neat stack on an industrial floor, soft reflections on the metal surfaces, cool daylight, hands in heavy gloves only, no faces, no text, 3:4 vertical, 8 second loop
 ```
 
 ### H-02 — `home-emacs-band.jpg` (image, 16/9)
 
-**What it should be:** Three-quarter view of the eMACS trailer on site, crew silhouettes at a working distance, overcast daylight, wide industrial lot.
+**What it should be:** Three-quarter view of the eMACS trailer set up inside a depot fence, crew silhouettes at a working distance, overcast daylight.
 
 **Generation prompt:**
 ```
-Wide photoreal shot of a mobile industrial trailer unit deployed on a concrete lot under overcast daylight, two silhouetted crew figures at a working distance, wide angle, documentary lighting, no visible faces or hazard placards, 16:9
+Wide photoreal shot of a matte dark-olive mobile industrial trailer unit set up inside a fenced depot compound under overcast daylight, two silhouetted crew figures at a working distance, documentary lighting, no visible faces, no hazard placards, no logos, no text, 16:9
 ```
 
-### H-03 — `home-team-band.jpg` (image, 21/9)
+### H-03 — `home-sovereign-band.jpg` (image, 4/3)
 
-**What it should be:** Overhead or three-quarter shot of a small team at a briefing table with a tablet and printed maps, warm interior light, no visible faces or classified detail.
+**What it should be:** A secured, orderly munitions depot at dusk: rows of earth-covered storage bunkers under floodlights, perimeter fence in the foreground. Quiet and controlled.
 
 **Generation prompt:**
 ```
-Photoreal overhead shot of a small operations team gathered around a briefing table with a tablet and printed site maps, warm practical lighting, shallow depth of field, hands and gestures in frame rather than faces, 21:9 cinematic
+Photoreal wide dusk shot of an orderly military storage depot with rows of earth-covered bunkers under soft floodlights, perimeter fence in the foreground, deep blue sky, calm and controlled mood, no people, no insignia, no text, 4:3
 ```
 
-## KEEP
+## Detection
 
-### K-01 — `keep-hero.mp4` (video, 16/9)
+### D-02 — `detection-platforms.mp4` (video, 16/10)
 
-**What it should be:** A dark-themed operations dashboard on a large monitor, a map view with several unit markers pulsing gently, a side panel of status tiles. Slow camera drift, no readable real data, no faces.
+**What it should be:** Split sequence: a ground robot on a range, a small uncrewed surface vessel in a calm harbour, and a torpedo-shaped underwater vehicle gliding over a sandy seabed. Same colour grade across all three.
 
 **Generation prompt:**
 ```
-Cinematic slow dolly across a large dark-themed command dashboard monitor showing a map with pulsing unit markers and a right-hand panel of status tiles, charcoal and sage-green color scheme, shallow depth of field, soft ambient room light reflected on the glass, no readable text, no people, 16:9
+Three-part cinematic sequence, matching muted charcoal and sage colour grade: a tracked unmanned ground robot on a gravel range, a small uncrewed surface vessel moving through a calm grey harbour, a sleek autonomous underwater vehicle gliding low over a sandy seabed in blue-green light, no people, no insignia, no text, 16:10 loop
 ```
 
-### K-02 — `keep-cap-01.mp4` (video, 16/10)
+### D-03 — `detection-fusion.mp4` (video, 16/10)
 
-**What it should be:** Close screen capture of the map view zooming from a single site to a regional view showing multiple sites.
+**What it should be:** An interface animation: several translucent sensor layers stack over a terrain map and resolve into a handful of highlighted contacts with confidence rings.
 
 **Generation prompt:**
 ```
-Screen-recording style zoom-out animation on a dark UI map, starting on a single pulsing site marker and pulling back to reveal several more across a region, sage-green accent lines connecting them, clean minimal labels, no readable real text, 16:10 loop
+Dark-theme geospatial interface animation, several translucent data layers (magnetic field contours, radar slices, sonar returns) stacking over a topographic terrain map and resolving into a few sage-green highlighted contact points with confidence rings, clean sans-serif labels with no readable real data, charcoal background, 16:10 seamless loop
 ```
 
-### K-03 — `keep-cap-02.mp4` (video, 16/10)
+### D-04 — `detection-library.jpg` (image, 16/10)
 
-**What it should be:** A hand on a tablet dragging a task card from an unassigned column into an assigned column on a kanban-style board.
+**What it should be:** A clean diagram-like still: verified items on the left feeding a glowing central model, which points out to a survey map on the right. Minimal, precise, no numbers.
 
 **Generation prompt:**
 ```
-Overhead shot of a hand dragging a dark-themed digital task card across a kanban board on a rugged tablet, sage-green highlight on drop, workbench blurred in background, no readable text, 16:10
+Minimal dark-UI conceptual illustration, a row of abstract munition silhouettes on the left connected by thin sage-green lines into a softly glowing central neural network node, which radiates out to a topographic survey map with marked contacts on the right, charcoal background, precise thin lines, no readable text, no numbers, 16:10
 ```
 
-### K-04 — `keep-cap-03.jpg` (image, 16/10)
+### D-05 — `detection-handoff.jpg` (image, 16/10)
 
-**What it should be:** A UI screen showing a record being exported into several formats at once, represented as branching icons.
+**What it should be:** A rugged tablet in a gloved hand at the edge of a survey area, screen showing a map with marked contacts and one contact card open. Background soft, no faces.
 
 **Generation prompt:**
 ```
-Clean dark-UI screenshot-style illustration of a single record icon branching into three export format icons (document, spreadsheet, certificate), sage-green connecting lines on charcoal background, minimal flat icon style, 16:10
+Photoreal close shot of a gloved hand holding a rugged field tablet at the edge of an open survey area, screen showing a dark map interface with several marked contacts and one open detail card, soft overcast light, shallow depth of field, no faces, no readable text, 16:10
 ```
 
-## WARDEN
+### D-01 — `detection-hero.mp4` (video, 16/9)
 
-### W-01 — `warden-hero.mp4` (video, 16/9)
-
-**What it should be:** A gloved hand signing a digital custody transfer on a rugged tablet at an intake bench, a seal icon animating closed on screen. Warm work light, shallow depth of field, no visible faces.
+**What it should be:** A tracked unmanned ground vehicle moving slowly across open scrubland at first light, sensor mast raised, a faint scan line sweeping the ground ahead of it. No people in frame. Wide, low, patient.
 
 **Generation prompt:**
 ```
-Cinematic close-up of a gloved hand signing a digital signature field on a rugged tablet at an industrial intake bench, a seal icon animating to a locked state on screen, warm practical work light, shallow depth of field, no visible faces, 16:9
+Cinematic slow tracking shot of a compact matte charcoal tracked unmanned ground robot with a raised sensor mast crossing open scrubland at dawn, faint sage-green scan line sweeping the ground ahead, low mist, long lens, shallow depth of field, no people, no insignia, no text, 16:9, photoreal, 4K
 ```
 
-### W-02 — `warden-cap-01.mp4` (video, 16/10)
+## Identification
 
-**What it should be:** A timeline UI filling in step by step as items move through intake, storage, and destruction stages, each step locking with a seal icon.
+### I-02 — `identification-recognition.mp4` (video, 16/10)
+
+**What it should be:** Over-the-shoulder view of a handheld device pointed at a partially buried item; on screen a bounding box locks on and a classification card appears.
 
 **Generation prompt:**
 ```
-Screen-recording style animation of a dark-UI horizontal timeline filling left to right through stages labelled with generic icons (intake, storage, destruction), each stage locking with a small padlock seal icon on completion, sage-green progress fill, 16:10 loop
+Over-the-shoulder shot of a gloved hand holding a rugged handheld device aimed at a partially buried corroded cylindrical object in dry earth, device screen showing a sage-green bounding box locking on and an abstract classification card appearing, soft daylight, shallow depth of field, no faces, no readable text, 16:10 loop
 ```
 
-### W-03 — `warden-cap-02.jpg` (image, 16/10)
+### I-03 — `identification-condition.jpg` (image, 16/10)
 
-**What it should be:** Two hands, from different people, signing the same digital form on one tablet screen, side by side.
+**What it should be:** A still of an interface: a munition image with small annotated regions highlighting corrosion and deformation, and a handling class badge at the side.
 
 **Generation prompt:**
 ```
-Overhead photoreal shot of two hands from different people signing adjacent digital signature fields on one rugged tablet screen at an industrial bench, warm light, no visible faces, shallow depth of field, 16:10
+Dark-theme inspection interface still, a photographic image of a weathered munition casing with several small sage-green and amber annotated regions highlighting corrosion and surface deformation, a minimal handling-class badge and a confirm button to the side, clean sans-serif UI, no readable real data, 16:10
 ```
 
-### W-04 — `warden-cap-03.jpg` (image, 16/10)
+### I-04 — `identification-line.mp4` (video, 16/10)
 
-**What it should be:** A printed or on-screen custody record with a visible seal or stamp mark, resting on a desk beside a laptop.
+**What it should be:** Top-down view of items moving slowly under a scanning bar, each receiving a confirmation mark; one item is highlighted and the line pauses.
 
 **Generation prompt:**
 ```
-Clean flat-lay photo of a formal custody record document with a seal stamp graphic in the corner, resting beside a closed laptop on a plain desk, soft daylight, minimal styling, 16:10
+Top-down industrial camera view of cylindrical casings moving slowly along a conveyor under a thin scanning light bar, each item receiving a small sage-green confirmation mark as it passes, one item highlighted with an amber outline as the line pauses, cool industrial lighting, no people, no readable markings, 16:10 loop
 ```
 
-## BORESIGHT
+### I-05 — `identification-record.jpg` (image, 16/10)
 
-### B-01 — `boresight-hero.mp4` (video, 16/9)
-
-**What it should be:** A top-down industrial camera view of ordnance items moving slowly on a line, bounding boxes and classification labels drawing in real time over the feed. No faces, no readable classified markings.
+**What it should be:** An item record screen: a vertical timeline of events from first contact to destruction, each with a thumbnail image.
 
 **Generation prompt:**
 ```
-Overhead industrial camera feed of cylindrical ordnance casings moving slowly on a conveyor line, live AI bounding-box overlays and small classification tags drawing over each item in sage-green, cool industrial lighting, shallow motion blur, no people, no readable markings, 16:9
+Minimal dark-UI record screen showing a vertical timeline of events for a single item, each step with a small photographic thumbnail and an abstract label, sage-green timeline line, charcoal background, clean sans-serif type, no readable real data, 16:10
 ```
 
-### B-02 — `boresight-cap-01.mp4` (video, 16/10)
+### I-01 — `identification-hero.mp4` (video, 16/9)
 
-**What it should be:** Close view of items passing under a scan bar, each one getting a green confirmation tick as it passes.
+**What it should be:** Macro camera move across a weathered munition casing under cool light while a thin recognition outline traces its profile and a classification tag resolves beside it. No readable real markings.
 
 **Generation prompt:**
 ```
-Close-up screen-recording style animation of items passing left to right under a scanning line, each item receiving a small green checkmark confirmation icon as it crosses, dark UI, sage-green accents, 16:10 loop
+Cinematic macro dolly shot along a weathered, corroded cylindrical munition casing resting on a matte dark surface under cool raking light, a thin sage-green computer-vision outline tracing its profile and a small abstract classification tag resolving beside it, no readable markings or text, shallow depth of field, 16:9, photoreal, 4K
 ```
 
-### B-03 — `boresight-cap-02.mp4` (video, 16/10)
+## Remediation
 
-**What it should be:** An item on the line getting a highlighted amber outline and pausing the line, a small alert card appearing beside it.
+### R-06 — `remediation-supply.jpg` (image, 4/5)
+
+**What it should be:** Stacked ingots and neatly bundled recovered metal on a clean industrial floor, a forklift soft in the background, cool daylight from high windows. Orderly, domestic, industrial.
 
 **Generation prompt:**
 ```
-Screen-recording style animation of one item on a conveyor line getting highlighted with an amber outline as the line pauses, a small alert notification card sliding in beside it, dark UI, minimal iconography, 16:10 loop
+Photoreal industrial still of neatly stacked recovered metal ingots and bundled metal stock on a clean concrete warehouse floor, a forklift softly out of focus in the background, cool daylight from high clerestory windows, restrained charcoal and sage colour grade, no people, no logos, no text, 4:5
 ```
 
-### B-04 — `boresight-cap-03.jpg` (image, 16/10)
+### R-02 — `remediation-custody.jpg` (image, 16/10)
 
-**What it should be:** A simple upward confidence or accuracy curve on a dark dashboard panel.
+**What it should be:** Gloved hands scanning a tagged item on a bench scale inside a secure facility, a tablet showing the item record beside it. Cool light, macro, no faces.
 
 **Generation prompt:**
 ```
-Minimal dark-UI dashboard panel showing a smooth upward trend line labelled generically, sage-green line on charcoal background, clean sans-serif, no readable specific numbers, 16:10
+Photoreal macro shot of gloved hands scanning a barcode tag on a sealed item resting on an industrial bench scale inside a secure facility, a rugged tablet beside it showing an abstract item record, cool clinical lighting, shallow depth of field, no faces, no readable text, 16:10
 ```
 
-## PICKET
+### R-03 — `remediation-chamber.mp4` (video, 16/10)
 
-### P-01 — `picket-hero.mp4` (video, 16/9)
-
-**What it should be:** An unmanned ground vehicle moving slowly across open scrubland at dusk, sensor mast visible, a marker flag deploying behind it. No people in frame.
+**What it should be:** Close on the closed chamber door with its indicator panel lit, then a slow pull back to an operator watching a readout from a safe distance.
 
 **Generation prompt:**
 ```
-Cinematic tracking shot of a compact tracked unmanned ground vehicle with a sensor mast moving slowly across open scrubland at dusk, a small marker flag deploying behind it, warm low-angle light, shallow depth of field, no people, 16:9
+Cinematic close shot of a sealed industrial chamber door with a softly lit indicator panel, slow pull-back revealing an operator in coveralls watching a control readout from a safe distance, quiet procedural mood, cool industrial lighting, face not visible, no text, 16:10 loop
 ```
 
-### P-02 — `picket-cap-01.mp4` (video, 16/10)
+### R-04 — `remediation-fractions.jpg` (image, 16/10)
 
-**What it should be:** A top-down map view of a site with a search grid slowly filling in green as an unmanned unit sweeps it.
+**What it should be:** Top-down view of several bins of sorted metal fractions in a row, each visibly different in colour and texture, hard even light, small blank tags on each bin.
 
 **Generation prompt:**
 ```
-Screen-recording style top-down animation of a site map with a grid pattern filling in with sage-green as a small unit icon sweeps across it in a lawnmower search pattern, dark UI, clean minimal styling, 16:10 loop
+Top-down photoreal view of a neat row of industrial bins holding sorted metal fractions (grey steel fragments, reddish copper, yellow brass, dull grey lead, dark tungsten pieces), hard even overhead light, small blank tags on each bin, clean concrete floor, no text, 16:10
 ```
 
-### P-03 — `picket-cap-02.jpg` (image, 16/10)
+### R-05 — `remediation-record.mp4` (video, 16/10)
 
-**What it should be:** An operator at a rugged laptop with a control interface showing three platform status panels side by side.
+**What it should be:** Interface capture: a program dashboard showing a lifecycle timeline from detection through recovery, with a recovered-fractions panel filling in.
 
 **Generation prompt:**
 ```
-Photoreal shot from behind an operator at a rugged laptop outdoors, screen showing three simple platform status panels side by side on a dark UI, field environment blurred in background, no visible face, 16:10
+Dark-theme program dashboard screen recording, a horizontal lifecycle timeline with stages from detection to recovery lighting up in sequence, a side panel of recovered metal fractions filling in as bars, sage-green accents on charcoal, clean sans-serif labels, no readable real data, slow cursor movement, 16:10 seamless loop
 ```
 
-### P-04 — `picket-cap-03.mp4` (video, 16/10)
+### R-01 — `remediation-hero.mp4` (video, 16/9)
 
-**What it should be:** A marker pin dropping onto a map at the exact moment a physical marker flag is shown planted in the ground nearby, split composition.
+**What it should be:** The eMACS unit at dusk inside a secured compound, doors open and the chamber lit from within, a slow push-in. Perimeter fence softly visible behind. No people, no placards.
 
 **Generation prompt:**
 ```
-Split-frame animation: left side a map pin dropping onto a dark UI map with a soft sage-green pulse, right side a photoreal small marker flag planted in open ground, synchronized timing, 16:10 loop
-```
-
-## CRUCIBLE
-
-### C-01 — `crucible-hero.mp4` (video, 16/9)
-
-**What it should be:** Slow overhead shot of sorted metal fractions in labelled bins on a warehouse floor, a scale readout visible nearby. No faces.
-
-**Generation prompt:**
-```
-Slow overhead tracking shot across neatly sorted metal fraction bins on a concrete warehouse floor under cool industrial light, a digital scale readout glowing nearby, shallow depth of field, no people, 16:9
-```
-
-### C-02 — `crucible-cap-01.mp4` (video, 16/10)
-
-**What it should be:** A dashboard bar chart of material fractions filling in one by one as items are weighed.
-
-**Generation prompt:**
-```
-Screen-recording style animation of a dark-UI dashboard with several vertical bars labelled with generic material-fraction icons, each bar filling upward in sage-green as a weight value increases, clean minimal type, 16:10 loop
-```
-
-### C-03 — `crucible-cap-02.jpg` (image, 16/10)
-
-**What it should be:** A formal certificate document with a seal, sitting beside sorted metal samples on a clean surface.
-
-**Generation prompt:**
-```
-Clean flat-lay photo of a formal certificate document with a seal graphic, arranged beside a few small sorted metal fraction samples on a plain light surface, soft daylight, minimal styling, 16:10
-```
-
-### C-04 — `crucible-cap-03.jpg` (image, 16/10)
-
-**What it should be:** A single report icon branching into three formatted outputs, represented simply on a dark UI panel.
-
-**Generation prompt:**
-```
-Minimal flat dark-UI illustration of a single document icon branching into three differently formatted output icons, sage-green connecting lines, charcoal background, clean iconography, 16:10
-```
-
-## Team
-
-### TM-01 — `team-hero.jpg` (image, 21/9)
-
-**What it should be:** Wide shot of a small team gathered at a briefing table with a tablet and maps, warm interior light, hands and gestures in frame, no visible faces in sharp focus.
-
-**Generation prompt:**
-```
-Wide photoreal shot of a small team gathered around a briefing table with a tablet and printed maps, warm practical lighting, hands and gestures in focus, faces softly out of focus or turned away, 21:9 cinematic
-```
-
-### TM-02 — `team-johnston.jpg` (image, 4/5)
-
-**What it should be:** Professional headshot of Tim Johnston, Chief Executive Officer. Plain neutral background, even studio light, three-quarter or straight-on framing, no props.
-
-**Generation prompt:**
-```
-Professional studio headshot portrait, plain neutral grey background, soft even key light, three-quarter angle, shallow depth of field, business-appropriate attire, photoreal, 4:5
-```
-
-### TM-03 — `team-kochhar.jpg` (image, 4/5)
-
-**What it should be:** Professional headshot of Arjun Kochhar, Chief Financial Officer. Plain neutral background, even studio light, three-quarter or straight-on framing, no props.
-
-**Generation prompt:**
-```
-Professional studio headshot portrait, plain neutral grey background, soft even key light, three-quarter angle, shallow depth of field, business-appropriate attire, photoreal, 4:5
-```
-
-### TM-04 — `team-braithwaite.jpg` (image, 4/5)
-
-**What it should be:** Professional headshot of Tom Braithwaite, Founder &amp; President. Plain neutral background, even studio light, three-quarter or straight-on framing, no props.
-
-**Generation prompt:**
-```
-Professional studio headshot portrait, plain neutral grey background, soft even key light, three-quarter angle, shallow depth of field, business-appropriate attire, photoreal, 4:5
-```
-
-### TM-05 — `team-kasper.jpg` (image, 4/5)
-
-**What it should be:** Professional headshot of Joe Kasper, Advisor. Plain neutral background, even studio light, three-quarter or straight-on framing, no props.
-
-**Generation prompt:**
-```
-Professional studio headshot portrait, plain neutral grey background, soft even key light, three-quarter angle, shallow depth of field, business-appropriate attire, photoreal, 4:5
-```
-
-### TM-06 — `team-morris.jpg` (image, 4/5)
-
-**What it should be:** Professional headshot of Brad Morris, Advisor. Plain neutral background, even studio light, three-quarter or straight-on framing, no props.
-
-**Generation prompt:**
-```
-Professional studio headshot portrait, plain neutral grey background, soft even key light, three-quarter angle, shallow depth of field, business-appropriate attire, photoreal, 4:5
-```
-
-### TM-07 — `team-dumont.jpg` (image, 4/5)
-
-**What it should be:** Professional headshot of Stephen duMont, Advisor. Plain neutral background, even studio light, three-quarter or straight-on framing, no props.
-
-**Generation prompt:**
-```
-Professional studio headshot portrait, plain neutral grey background, soft even key light, three-quarter angle, shallow depth of field, business-appropriate attire, photoreal, 4:5
+Cinematic slow push-in on a matte dark-olive mobile industrial trailer unit parked inside a secured fenced compound at dusk, side doors open revealing a softly glowing interior chamber, perimeter fence and floodlights soft in the background, light haze, low camera angle, no people, no logos, no hazard placards, no text, 16:9, photoreal, 4K
 ```
 
 ## Not images, still placeholders
 
 - Contact email — footer of every page and `FALLBACK_EMAIL` in `js/site.js`. Currently `operations@endstate.example`.
 - Form endpoint — `FORM_ENDPOINT` in `js/site.js`. Currently empty; the briefing form tells the visitor to email directly until it is set.
-- Arjun Kochhar bio on the Team page — currently reads "Bio pending."

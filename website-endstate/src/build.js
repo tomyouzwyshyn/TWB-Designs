@@ -5,12 +5,9 @@ const { page } = require('./lib');
 
 const pages = [
   require('./index'),
-  require('./keep'),
-  require('./warden'),
-  require('./boresight'),
-  require('./picket'),
-  require('./crucible'),
-  require('./team'),
+  require('./detection'),
+  require('./identification'),
+  require('./remediation'),
 ];
 
 // Content hygiene: no em dashes, no spaced hyphens used as dashes.
