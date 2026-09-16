@@ -293,7 +293,56 @@
     });
   }
 
+
+  // Home hero word row: Detection lights, a pulse of energy travels to
+  // Identification, which lights, then on to Remediation, then the cycle
+  // repeats. Positions are measured so the pulse runs gap to gap at any width.
+  function heroPulse(){
+    var row = document.querySelector('[data-hero-words]');
+    if(!row) return;
+    var words = row.querySelectorAll('span');
+    var pulse = row.querySelector('.hero-pulse');
+    if(words.length < 3 || !pulse) return;
+    if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      words.forEach(function(w){ w.classList.add('lit'); });
+      return;
+    }
+    var HOLD = 950, TRAVEL = 620, END_HOLD = 1300, REST = 450;
+    var timers = [], anim = null;
+    function later(fn, ms){ timers.push(setTimeout(fn, ms)); }
+    function light(i){ words.forEach(function(w, j){ w.classList.toggle('lit', j === i); }); }
+    function shoot(from, to, done){
+      var a = words[from], b = words[to];
+      var x1 = a.offsetLeft + a.offsetWidth + 2;
+      var x2 = b.offsetLeft - 2;
+      var w = pulse.offsetWidth;
+      if(anim) anim.cancel();
+      anim = pulse.animate([
+        { transform:'translateX(' + (x1 - w) + 'px)', opacity:0 },
+        { opacity:1, offset:.18 },
+        { opacity:1, offset:.82 },
+        { transform:'translateX(' + (x2 - w) + 'px)', opacity:0 }
+      ], { duration:TRAVEL, easing:'cubic-bezier(.55,0,.35,1)', fill:'forwards' });
+      anim.onfinish = done;
+    }
+    function cycle(){
+      light(0);
+      later(function(){
+        shoot(0, 1, function(){
+          light(1);
+          later(function(){
+            shoot(1, 2, function(){
+              light(2);
+              later(function(){ light(-1); later(cycle, REST); }, END_HOLD);
+            });
+          }, HOLD);
+        });
+      }, HOLD);
+    }
+    later(cycle, 600);
+  }
+
   document.addEventListener('DOMContentLoaded', function(){
-    header(); nav(); menu(); reveal(); tabs(); xfade(); media(); jumpbar(); ptable(); form(); year();
+    header(); nav(); menu(); reveal(); tabs(); xfade(); heroPulse(); media(); jumpbar(); ptable(); form(); year();
   });
 })();
