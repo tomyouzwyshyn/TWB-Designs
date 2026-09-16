@@ -98,7 +98,7 @@ p{ font-size:1rem; line-height:1.65; color:var(--ink-2); max-width:var(--measure
   background:linear-gradient(180deg, rgba(14,15,12,.35) 0%, rgba(14,15,12,.15) 30%, rgba(14,15,12,.78) 78%, rgba(14,15,12,.96) 100%) }
 /* Palantir centers hero copy dead-center in the frame, full-bleed image
    behind it edge to edge — no side padding box, no left alignment. */
-.hero-body{ position:relative; z-index:2; margin:auto 0; padding:calc(var(--header-h, var(--nav-h)) + var(--s5)) 0 var(--s5);
+.hero-body{ position:relative; z-index:2; margin:auto; padding:calc(var(--header-h, var(--nav-h)) + var(--s5)) 0 var(--s5);
   display:flex; flex-direction:column; align-items:center; text-align:center }
 .hero-tagrow{ display:flex; align-items:center; justify-content:center; gap:var(--s3); margin-bottom:var(--s3) }
 .hero-title{ font-family:var(--display); font-weight:var(--w-display); letter-spacing:var(--track-display);
