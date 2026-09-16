@@ -7,13 +7,13 @@ const PH_LOG = [];
 // The three operating areas. Each is one page; the named systems that
 // power it appear inside that page rather than as pages of their own.
 const AREAS = [
-  { key: 'detection', tag: 'DETECTION', file: 'detection.html', system: 'PICKET',
+  { key: 'detection', tag: 'DETECTION', file: 'detection.html',
     line: 'AI and robotics that find what is hidden',
     short: 'Autonomous platforms and machine intelligence search land and water, so the first thing near a threat is a machine.' },
-  { key: 'identification', tag: 'IDENTIFICATION', file: 'identification.html', system: 'BORESIGHT',
+  { key: 'identification', tag: 'IDENTIFICATION', file: 'identification.html',
     line: 'AI image recognition that knows what it is looking at',
     short: 'Computer vision confirms type, condition and hazard before anyone lifts, moves or signs for an item.' },
-  { key: 'remediation', tag: 'REMEDIATION', file: 'remediation.html', system: 'eMACS',
+  { key: 'remediation', tag: 'REMEDIATION', file: 'remediation.html',
     line: 'Custody, destruction and recovery back to supply',
     short: 'Munitions are destroyed inside the perimeter, the record is kept, and the metal goes back into domestic supply.' },
 ];

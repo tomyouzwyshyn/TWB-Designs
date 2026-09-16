@@ -34,7 +34,6 @@ function buildAreaPage(cfg){
   <div class="hero-body wrap">
     <div class="hero-tagrow">
       <div class="tag on-dark">${brk()}${cfg.category}</div>
-      <div class="tag on-dark">{ ${cfg.system} }</div>
     </div>
     <h1 class="hero-title xfade">${heroLines}</h1>
     <div class="hero-sub">${cfg.hero.sub}</div>

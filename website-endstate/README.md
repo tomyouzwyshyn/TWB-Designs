@@ -11,10 +11,7 @@ rows, sticky jump bar), Helvetica only, sage as the only hue, clean white backgr
 - `remediation.html`: custody, closed-chamber destruction, recovery at up to 95%, the animated
   periodic table of recoverable elements, and return to domestic supply.
 
-The individual system pages (KEEP, WARDEN, BORESIGHT, PICKET, CRUCIBLE) and the Team page were
-removed in v3. The system names survive inside the area pages: PICKET powers Detection,
-BORESIGHT powers Identification, eMACS / WARDEN / CRUCIBLE power Remediation, and KEEP is the
-record across all three. Team is recoverable from git history.
+The individual system pages and the Team page were removed in v3, and the invented platform names (KEEP, WARDEN, BORESIGHT, PICKET, CRUCIBLE) were removed from all copy at Tom's request. eMACS, the mobile destruction unit, is still named. Earlier versions are recoverable from git history.
 
 ## Content rules
 - Written as if the roadmap is complete: present tense, no "in development" language.

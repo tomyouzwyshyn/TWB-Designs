@@ -30,7 +30,7 @@ const tabCards = AREAS.map((a, i) => {
       <a href="${a.file}">
         ${media}
         <div class="tp-tag">
-          <div class="tp-eyebrow">0${i+1} &nbsp; ${a.tag} &nbsp; { ${a.system} }</div>
+          <div class="tp-eyebrow">0${i+1} &nbsp; ${a.tag}</div>
           <div class="tp-title">${a.line}</div>
           <p class="tp-desc">${a.short}</p>
         </div>
@@ -131,7 +131,7 @@ const body = `
       <a class="loop-step" href="remediation.html"><div class="loop-n">03</div><h3 class="h3">Remediate</h3><p>Munitions are destroyed on site in a closed chamber, under an unbroken chain of custody.</p></a>
       <a class="loop-step" href="remediation.html#supply"><div class="loop-n">04</div><h3 class="h3">Return</h3><p>Recovered metal goes back to domestic industry, and every item destroyed teaches detection what to look for next.</p></a>
     </div>
-    <p class="loop-note rv">Every step writes to KEEP, the single system of record the owner holds from first contact to final yield.</p>
+    <p class="loop-note rv">Every step writes to a single system of record the owner holds from first contact to final yield.</p>
   </div>
 </section>
 

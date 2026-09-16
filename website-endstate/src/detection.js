@@ -6,7 +6,6 @@ module.exports = buildAreaPage({
   title: 'Detection: AI and Robotics',
   description: 'END STATE Detection puts autonomous robotics and machine intelligence at the front of the search for buried, abandoned and submerged munitions, so people no longer have to be.',
   category: 'Detection',
-  system: 'PICKET',
 
   hero: {
     lines: ['The first thing near a threat should be a machine.', 'Robotics that go first.', 'Intelligence that reads the ground.'],

@@ -48,7 +48,6 @@ module.exports = buildAreaPage({
   title: 'Remediation: Custody, Destruction and Recovery',
   description: 'END STATE Remediation destroys munitions inside the owner’s perimeter under an unbroken chain of custody, recovers up to 95% of the metal, and returns it to domestic supply.',
   category: 'Remediation',
-  system: 'eMACS',
 
   hero: {
     lines: ['Destroyed on site.', 'Recovered to supply.', 'Accounted for at every step.'],
@@ -82,7 +81,7 @@ module.exports = buildAreaPage({
   capabilities: [
     {
       title: 'Custody that never leaves the perimeter',
-      body: 'Every item is scanned, photographed and weighed at intake, where it already sits, and carries that identity through every step that follows. There are no convoys, no transfers to a third site and no gaps between signatures. The owner’s people witness the work, and a certificate of destruction closes each item’s record. This is WARDEN, the chain of custody.',
+      body: 'Every item is scanned, photographed and weighed at intake, where it already sits, and carries that identity through every step that follows. There are no convoys, no transfers to a third site and no gaps between signatures. The owner’s people witness the work, and a certificate of destruction closes each item’s record.',
       media: {
         id: 'R-02', kind: 'image', ratio: '16/10', file: 'remediation-custody.jpg', alt: 'Item scanned and weighed at intake',
         shot: 'Gloved hands scanning a tagged item on a bench scale inside a secure facility, a tablet showing the item record beside it. Cool light, macro, no faces.',
@@ -100,7 +99,7 @@ module.exports = buildAreaPage({
     },
     {
       title: 'Recovery at up to 95% effectiveness',
-      body: 'What remains after destruction is separated into graded metal fractions: steel, copper and brass, lead and antimony, tungsten and alloy metals, the precious metals in electronics and the rare earths in guidance magnets. Up to 95% of the recoverable metal comes back. This is CRUCIBLE, materials recovery.',
+      body: 'What remains after destruction is separated into graded metal fractions: steel, copper and brass, lead and antimony, tungsten and alloy metals, the precious metals in electronics and the rare earths in guidance magnets. Up to 95% of the recoverable metal comes back.',
       media: {
         id: 'R-04', kind: 'image', ratio: '16/10', file: 'remediation-fractions.jpg', alt: 'Graded metal fractions after recovery',
         shot: 'Top-down view of several bins of sorted metal fractions in a row, each visibly different in colour and texture, hard even light, small blank tags on each bin.',
@@ -109,7 +108,7 @@ module.exports = buildAreaPage({
     },
     {
       title: 'One record, from first contact to final yield',
-      body: 'Detection, identification, custody, destruction and recovery all write to the same record. For every program the owner sees what was found, what it was, where it went, when it was destroyed, and what came back, by weight and by fraction. This is KEEP, the system of record.',
+      body: 'Detection, identification, custody, destruction and recovery all write to the same record. For every program the owner sees what was found, what it was, where it went, when it was destroyed, and what came back, by weight and by fraction.',
       media: {
         id: 'R-05', kind: 'video', ratio: '16/10', file: 'remediation-record.mp4',
         shot: 'Interface capture: a program dashboard showing a lifecycle timeline from detection through recovery, with a recovered-fractions panel filling in.',

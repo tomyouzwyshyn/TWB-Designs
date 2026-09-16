@@ -6,7 +6,6 @@ module.exports = buildAreaPage({
   title: 'Identification: AI Image Recognition',
   description: 'END STATE Identification uses AI image recognition to confirm the type, condition and hazard of every munition before anyone lifts it, moves it or signs for it.',
   category: 'Identification',
-  system: 'BORESIGHT',
 
   hero: {
     lines: ['Know exactly what it is.', 'Before anyone lifts it.', 'Before it moves an inch.'],
