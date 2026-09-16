@@ -389,7 +389,7 @@ p{ font-size:1rem; line-height:1.65; color:var(--ink-2); max-width:var(--measure
 .pt-ready .pt-el, .pt-ready .pt-rec .pt-name, .pt-ready .pt-rec .pt-chg{ transition-delay:0ms !important }
 
 /* ---------- home hero: word row with a left-to-right glow loop ---------- */
-.hero-words{ display:flex; flex-wrap:wrap; justify-content:center; gap:.4em 1.6em; margin-top:var(--s4);
+.hero-words{ display:flex; flex-wrap:wrap; justify-content:center; gap:.4em 1.6em; margin-top:var(--s4); font-style:italic;
   font-size:clamp(1.05rem,1.6vw,1.35rem); letter-spacing:.08em }
 .hero-words span{ color:rgba(245,244,239,.45); text-shadow:none;
   animation:hero-glow 4.5s var(--ease) infinite }
