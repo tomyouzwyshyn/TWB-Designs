@@ -78,8 +78,8 @@ const body = `
   <div class="hero-scrim"></div>
   <div class="hero-body wrap">
     <h1 class="hero-title">One operating system for the full lifecycle.</h1>
-    <div class="hero-sub hero-words" aria-label="Custody. Recovery. Remediation.">
-      <span>Custody.</span><span>Recovery.</span><span>Remediation.</span>
+    <div class="hero-sub hero-words" aria-label="Detection. Identification. Remediation.">
+      <span>Detection.</span><span>Identification.</span><span>Remediation.</span>
     </div>
   </div>
   <div class="hero-foot wrap">
