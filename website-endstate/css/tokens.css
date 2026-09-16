@@ -37,9 +37,9 @@
   --body:    "Helvetica Neue", Helvetica, Arial, sans-serif;
   --ui:      "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-  --w-display: 600;
-  --w-section: 600;
-  --w-sub:     600;
+  --w-display: 400;
+  --w-section: 400;
+  --w-sub:     400;
   --w-body:    400;
 
   --track-display: -.026em;
@@ -62,6 +62,8 @@
   --measure: 62ch;
   --radius: 0;
   --nav-h: 76px;
+  --nav-inset: 14px;
+  --nav-radius: 14px;
 }
 
 .brk{ position:relative }

@@ -18,6 +18,28 @@
     window.addEventListener('scroll', set, { passive:true });
   }
 
+  // Measures the combined announcement-bar + nav height so the hero and
+  // sticky jump bar can offset around whatever the header currently is,
+  // including after the announcement bar gets dismissed, and wires the
+  // announcement bar's own close control.
+  function header(){
+    var topbar = document.querySelector('[data-topbar]');
+    var announceBar = document.querySelector('[data-announce]');
+    var close = document.querySelector('[data-announce-close]');
+    if(!topbar) return;
+    function recalc(){
+      document.documentElement.style.setProperty('--header-h', topbar.offsetHeight + 'px');
+    }
+    recalc();
+    window.addEventListener('resize', recalc);
+    if(announceBar && close){
+      close.addEventListener('click', function(){
+        announceBar.classList.add('hidden');
+        recalc();
+      });
+    }
+  }
+
   function menu(){
     var btn = document.querySelector('.menu-btn');
     var m = document.querySelector('.mmenu');
@@ -167,6 +189,6 @@
   }
 
   document.addEventListener('DOMContentLoaded', function(){
-    nav(); menu(); reveal(); tabs(); xfade(); media(); jumpbar(); form(); year();
+    header(); nav(); menu(); reveal(); tabs(); xfade(); media(); jumpbar(); form(); year();
   });
 })();
