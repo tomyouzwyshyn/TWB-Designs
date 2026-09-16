@@ -237,6 +237,7 @@
         '<div><div class="tip-name">' + esc(d.name) + '</div><div class="tip-cat">' + esc(d.cat) + '</div></div></div>' +
         '<div class="tip-chg ' + dir + '">' + esc(d.change) + '</div>' +
         '<div class="tip-lbl">Price change, 2015 to 2025</div>' +
+        (d.critical ? '<div class="tip-crit">&#9670; U.S. critical mineral, 2025 list</div>' : '') +
         '<div class="tip-bars">' +
           '<div class="tip-bar"><span>2015</span><span class="track"><span class="fill" data-w="' + (d.r15/max*100) + '"></span></span><span>' + esc(d.p15) + '</span></div>' +
           '<div class="tip-bar now"><span>2025e</span><span class="track"><span class="fill" data-w="' + (d.r25/max*100) + '"></span></span><span>' + esc(d.p25) + '</span></div>' +

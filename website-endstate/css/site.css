@@ -387,3 +387,14 @@ p{ font-size:1rem; line-height:1.65; color:var(--ink-2); max-width:var(--measure
 /* once the assemble-and-light sequence has played, drop every stagger so
    hover and filter respond instantly in both directions */
 .pt-ready .pt-el, .pt-ready .pt-rec .pt-name, .pt-ready .pt-rec .pt-chg{ transition-delay:0ms !important }
+
+/* U.S. critical mineral marker (2025 list), on recoverable + priced elements only */
+.pt-rec.pt-crit::before{ content:"\25C6"; position:absolute; top:4px; right:5px; font-size:.55rem; line-height:1;
+  color:var(--pt-sub); opacity:0; transition:opacity .4s var(--ease) var(--d2, 0ms) }
+.pt-in .pt-rec.pt-lit.pt-crit::before{ opacity:1 }
+.pt-magnet.pt-crit::before, .pt-alloy.pt-crit::before, .pt-base.pt-crit::before{ color:#D7E2CC }
+.pt-tech.pt-crit::before{ color:#2F3829 }
+.pt-leg-crit b{ font-weight:400; font-size:.7rem; color:var(--sage) }
+.pt-leg-crit.on b, .pt-leg-crit:hover b{ color:var(--ink) }
+.tip-crit{ display:inline-block; margin-top:10px; padding:.35em .6em; border:1px solid rgba(201,214,190,.4); border-radius:999px;
+  font-family:var(--ui); font-size:.6rem; letter-spacing:var(--track-ui); text-transform:uppercase; color:#C9D6BE }
