@@ -3,6 +3,7 @@
 // Collected by every ph() call so src/brief.js can regenerate
 // assets/media/PLACEHOLDERS.md straight from the pages, never by hand.
 const PH_LOG = [];
+const PROMPTS = require('./prompts');
 
 // The three operating areas. Each is one page; the named systems that
 // power it appear inside that page rather than as pages of their own.
@@ -34,7 +35,9 @@ function brk(){
  * swaps it in automatically — no markup changes needed.
  */
 function ph({ id, kind = 'video', ratio = '16/9', file, shot, prompt, alt = '' }){
-  PH_LOG.push({ id, kind, ratio, file, shot, prompt });
+  const detail = PROMPTS[id] || {};
+  const fullPrompt = detail.prompt || prompt;
+  PH_LOG.push({ id, kind, ratio, file, shot, prompt: fullPrompt, motion: detail.motion || '', negative: detail.negative || '' });
   const dataAttr = kind === 'video' ? `data-video="${file}"` : `data-image="${file}" data-alt="${alt.replace(/"/g,'&quot;')}"`;
   return `
   <div class="media" style="aspect-ratio:${ratio}" ${dataAttr}>
@@ -47,8 +50,16 @@ function ph({ id, kind = 'video', ratio = '16/9', file, shot, prompt, alt = '' }
         <div class="ph-shot">${shot}</div>
         <div class="ph-prompt">
           <div class="ph-prompt-label">Generation prompt</div>
-          <div class="ph-prompt-text">${prompt}</div>
-        </div>
+          <div class="ph-prompt-text">${fullPrompt}</div>
+        </div>${detail.motion ? `
+        <div class="ph-prompt">
+          <div class="ph-prompt-label">Motion (image to video)</div>
+          <div class="ph-prompt-text">${detail.motion}</div>
+        </div>` : ''}${detail.negative ? `
+        <div class="ph-prompt">
+          <div class="ph-prompt-label">Avoid</div>
+          <div class="ph-prompt-text">${detail.negative}</div>
+        </div>` : ''}
       </div>
     </details>
   </div>`;

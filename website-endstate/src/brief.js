@@ -5,7 +5,7 @@ const lib = require('./lib');
 
 // Re-require every page module fresh so PH_LOG is populated by exactly
 // this run's ph() calls, grouped in build order.
-for(const key of ['index','detection','identification','remediation','area-page','ptable']){
+for(const key of ['index','detection','identification','remediation','area-page','ptable','prompts']){
   delete require.cache[require.resolve('./' + key)];
 }
 lib.PH_LOG.length = 0;
@@ -39,6 +39,8 @@ for(const [label, rows] of rowsByPage){
     out += `### ${r.id} — \`${r.file}\` (${r.kind}, ${r.ratio})\n\n`;
     out += `**What it should be:** ${r.shot}\n\n`;
     out += `**Generation prompt:**\n\`\`\`\n${r.prompt}\n\`\`\`\n\n`;
+    if(r.motion) out += `**Motion (image to video):**\n\`\`\`\n${r.motion}\n\`\`\`\n\n`;
+    if(r.negative) out += `**Avoid / negative prompt:**\n\`\`\`\n${r.negative}\n\`\`\`\n\n`;
   }
 }
 

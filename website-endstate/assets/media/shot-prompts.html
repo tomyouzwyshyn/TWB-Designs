@@ -1,0 +1,658 @@
+<title>End State Shot Prompts</title>
+<meta name="description" content="Image and video generation prompts for every media slot on the End State Solutions website.">
+<style>
+:root{
+  --ground:#F4F5F2; --panel:#FFFFFF; --ink:#141612; --ink-2:#3C4038; --ink-3:#6E736A; --rule:#DDE1D8;
+  --sage:#5C6852; --sage-wash:#E9EDE5; --neg:#8A5A44; --neg-wash:#F5ECE7; --code:#EEF0EB; --focus:#5C6852;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0F110E; --panel:#171A15; --ink:#EEF0EA; --ink-2:#C6CBC0; --ink-3:#8C9387; --rule:#2A2F27;
+    --sage:#A7B59B; --sage-wash:#20261D; --neg:#D2A48E; --neg-wash:#2A201B; --code:#1D211B; --focus:#A7B59B;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0F110E; --panel:#171A15; --ink:#EEF0EA; --ink-2:#C6CBC0; --ink-3:#8C9387; --rule:#2A2F27;
+  --sage:#A7B59B; --sage-wash:#20261D; --neg:#D2A48E; --neg-wash:#2A201B; --code:#1D211B; --focus:#A7B59B;
+}
+*{ box-sizing:border-box }
+body{ margin:0; background:var(--ground); color:var(--ink); font-family:"Helvetica Neue", Helvetica, Arial, sans-serif; font-size:15px; line-height:1.5; padding-inline:clamp(16px,4vw,48px); padding-block:40px 80px }
+.wrap{ max-width:1180px; margin:0 auto }
+.top{ display:grid; grid-template-columns:1.2fr 1fr; gap:32px; align-items:end; padding-bottom:28px; border-bottom:1px solid var(--rule) }
+@media (max-width:820px){ .top{ grid-template-columns:1fr; gap:16px } }
+.eyebrow{ font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:var(--sage) }
+h1{ margin:.35em 0 0; font-weight:400; font-size:clamp(1.9rem,4vw,2.8rem); letter-spacing:-.02em; line-height:1.05; text-wrap:balance }
+.lede{ margin:.7em 0 0; color:var(--ink-2); max-width:58ch }
+.how{ margin:0; padding:0; list-style:none; display:grid; gap:10px; font-size:.88rem; color:var(--ink-2) }
+.how li{ display:grid; grid-template-columns:92px 1fr; gap:12px }
+.how b{ font-weight:600; color:var(--ink); font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; padding-top:.2em }
+.bar{ position:sticky; top:env(safe-area-inset-top,0px); z-index:5; background:var(--ground); display:flex; flex-wrap:wrap; gap:8px 16px; align-items:center; padding-block:14px; border-bottom:1px solid var(--rule) }
+.seg{ display:flex; flex-wrap:wrap; gap:6px }
+.seg button{ font:inherit; font-size:.8rem; padding:.45em .9em; border-radius:999px; border:1px solid var(--rule); background:var(--panel); color:var(--ink-2); cursor:pointer }
+.seg button[aria-pressed="true"]{ background:var(--ink); color:var(--ground); border-color:var(--ink) }
+.count{ margin-left:auto; font-size:.8rem; color:var(--ink-3); font-variant-numeric:tabular-nums }
+.page-group{ margin-top:36px }
+.page-group h2{ margin:0 0 14px; font-weight:400; font-size:1.35rem; letter-spacing:-.01em }
+.page-group h2 span{ font-size:.78rem; color:var(--ink-3); margin-left:.6em; letter-spacing:0 }
+.grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(min(100%,520px),1fr)); gap:16px }
+.card{ background:var(--panel); border:1px solid var(--rule); border-radius:10px; padding:18px; display:flex; flex-direction:column; gap:12px; min-width:0 }
+.card-head{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px; align-items:center }
+.ids{ display:flex; gap:6px; align-items:center }
+.id{ font-weight:600; font-size:.95rem; margin-right:4px; font-variant-numeric:tabular-nums }
+.chip{ font-size:.7rem; letter-spacing:.05em; text-transform:uppercase; padding:.2em .6em; border-radius:4px; background:var(--code); color:var(--ink-2) }
+.chip.video{ background:var(--sage-wash); color:var(--sage) }
+.file{ font-family:ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size:.78rem; color:var(--ink-3); overflow-wrap:anywhere }
+.brief{ margin:0; font-size:.88rem; color:var(--ink-3); font-style:italic }
+.blk{ border-top:1px solid var(--rule); padding-top:10px }
+.blk-head{ display:flex; justify-content:space-between; align-items:center; gap:8px; margin-bottom:6px }
+.blk-head span{ font-size:.7rem; letter-spacing:.07em; text-transform:uppercase; color:var(--sage); font-weight:600 }
+.neg .blk-head span{ color:var(--neg) }
+.blk-text{ margin:0; font-size:.9rem; color:var(--ink); background:var(--code); border-radius:6px; padding:10px 12px; overflow-wrap:anywhere }
+.neg .blk-text{ background:var(--neg-wash); color:var(--ink-2); font-size:.84rem }
+.copy{ font:inherit; font-size:.75rem; padding:.3em .8em; border-radius:999px; border:1px solid var(--rule); background:transparent; color:var(--ink-2); cursor:pointer; min-width:64px }
+.copy:hover{ border-color:var(--sage); color:var(--sage) }
+.copy.done{ background:var(--sage); border-color:var(--sage); color:var(--panel) }
+button:focus-visible{ outline:2px solid var(--focus); outline-offset:2px }
+.foot{ margin-top:40px; font-size:.8rem; color:var(--ink-3) }
+</style>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <div class="eyebrow">End State Solutions · Website media</div>
+      <h1>Shot prompts for every photo and video on the site</h1>
+      <p class="lede">26 slots across four pages, 14 of them video. Each slot lists the file name the site is waiting for, what the shot needs to show, and prompts ready to paste.</p>
+    </div>
+    <ul class="how">
+      <li><b>Images</b><span>Paste the prompt into Midjourney, Flux, Imagen or Firefly and set the aspect ratio shown on the card.</span></li>
+      <li><b>Video</b><span>Generate the keyframe from the prompt, then give it to Runway, Veo, Kling or Sora with the motion line.</span></li>
+      <li><b>Avoid</b><span>Paste into the negative prompt field, or add it after the prompt as "Avoid: …".</span></li>
+      <li><b>Save as</b><span>Use the exact file name and drop it in assets/media/. The site swaps it in automatically.</span></li>
+    </ul>
+  </header>
+  <nav class="bar" aria-label="Filter slots">
+    <div class="seg" data-filter="page">
+      <button type="button" aria-pressed="true" data-v="all">All pages</button>
+      <button type="button" aria-pressed="false" data-v="Home">Home</button><button type="button" aria-pressed="false" data-v="Detection">Detection</button><button type="button" aria-pressed="false" data-v="Identification">Identification</button><button type="button" aria-pressed="false" data-v="Remediation">Remediation</button>
+    </div>
+    <div class="seg" data-filter="kind">
+      <button type="button" aria-pressed="true" data-v="all">Images and video</button>
+      <button type="button" aria-pressed="false" data-v="image">Images</button>
+      <button type="button" aria-pressed="false" data-v="video">Video</button>
+    </div>
+    <span class="count" id="count">26 slots</span>
+  </nav>
+  
+  <section class="page-group" data-group="Home">
+    <h2>Home <span>10 slots · index.html</span></h2>
+    <div class="grid">
+    <article class="card" data-page="Home" data-kind="video" id="H-01">
+      <header class="card-head">
+        <div class="ids"><span class="id">H-01</span><span class="chip video">Video</span><span class="chip">16:9</span></div>
+        <code class="file">home-hero.mp4</code>
+      </header>
+      <p class="brief">Slow aerial drift over a quiet former conflict landscape at first light: fields, a treeline, a river, low mist. Near the edge of frame a small autonomous ground robot moves along a survey line. Calm, vast, restored.</p>
+      
+      <div class="blk">
+        <div class="blk-head"><span>Prompt (keyframe)</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">Wide aerial establishing shot at first light over a quiet, recovering former conflict landscape: a patchwork of green and ochre fields, a dark treeline, and a slow river bending through the frame under a thin layer of low mist. Near the lower right third, very small in the frame, a matte charcoal tracked autonomous ground robot moves along a faint straight survey line cut through dewy grass, a soft sage-green scan light sweeping the ground a metre ahead of it. The feeling is calm, vast and restored, land being made safe again. Drone altitude around 120 metres, 24mm lens, horizon in the top third, cool dawn light with a faint warm rim on the mist. Shot as high-end cinematic documentary photography for a defence technology company: restrained charcoal and muted sage-green colour grade, deep but detailed shadows, soft atmospheric haze, subtle natural film grain, photorealistic, ultra-detailed, 8K. 16:9.</p>
+      </div>
+      
+      <div class="blk">
+        <div class="blk-head"><span>Motion, for image to video</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">Very slow forward aerial drift with a gentle 5 degree clockwise yaw, 10 second seamless loop. Mist drifts slowly left to right; the robot advances a few metres along its line. No cuts.</p>
+      </div>
+      
+      <div class="blk neg">
+        <div class="blk-head"><span>Avoid / negative prompt</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">text, captions, watermarks, logos, brand names, flags, national insignia, unit patches, readable serial numbers or markings, visible faces, gore, explosions, fire, smoke plumes, weapons being fired, combat, cartoon, illustration, CGI look, oversaturated colour, lens flare overload, distorted hands, extra fingers, craters, burning buildings, ruins in the foreground, people, vehicles other than the robot</p>
+      </div>
+    </article>
+    <article class="card" data-page="Home" data-kind="image" id="T-01">
+      <header class="card-head">
+        <div class="ids"><span class="id">T-01</span><span class="chip image">Image</span><span class="chip">2:1</span></div>
+        <code class="file">home-area-detection.jpg</code>
+      </header>
+      <p class="brief">An unmanned ground vehicle and a small uncrewed surface vessel working a coastline at dawn, seen from a distance. The sense of machines going first.</p>
+      
+      <div class="blk">
+        <div class="blk-head"><span>Prompt</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">Long-lens dawn scene on a pebbled coastline: in the foreground right, a compact matte charcoal tracked unmanned ground vehicle with a short sensor mast stands at the water's edge, its sensor head glowing faintly sage-green. Fifty metres offshore on flat grey water, a small low-profile uncrewed surface vessel with a stubby antenna mast moves parallel to the shore, leaving a thin wake. Soft mist sits on the water, a pale overcast sky with a thin line of sunrise on the horizon. The mood is quiet and methodical: machines going first. 200mm telephoto compression, eye-level camera, generous negative space in the upper left for text. Shot as high-end cinematic documentary photography for a defence technology company: restrained charcoal and muted sage-green colour grade, deep but detailed shadows, soft atmospheric haze, subtle natural film grain, photorealistic, ultra-detailed, 8K. Ultra-wide 2:1 aspect ratio.</p>
+      </div>
+      
+      
+      <div class="blk neg">
+        <div class="blk-head"><span>Avoid / negative prompt</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">text, captions, watermarks, logos, brand names, flags, national insignia, unit patches, readable serial numbers or markings, visible faces, gore, explosions, fire, smoke plumes, weapons being fired, combat, cartoon, illustration, CGI look, oversaturated colour, lens flare overload, distorted hands, extra fingers, people, beach tourists, boats with crews, warships, rough seas</p>
+      </div>
+    </article>
+    <article class="card" data-page="Home" data-kind="image" id="T-02">
+      <header class="card-head">
+        <div class="ids"><span class="id">T-02</span><span class="chip image">Image</span><span class="chip">2:1</span></div>
+        <code class="file">home-area-identification.jpg</code>
+      </header>
+      <p class="brief">A corroded munition on a dark inspection surface, a precise recognition outline traced around it and a classification card beside it. Clinical and certain.</p>
+      
+      <div class="blk">
+        <div class="blk-head"><span>Prompt</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">Studio-style close-up of a single weathered, corroded cylindrical artillery-style munition casing lying on its side on a matte black rubberised inspection mat. Hard cool raking light from the left picks out rust bloom, pitting and flaking paint. A precise thin sage-green computer-vision outline traces the exact silhouette of the object, with small corner brackets, and a minimal dark translucent classification card floats beside it containing abstract bars and icons but no readable words. Clinical, certain, forensic. 100mm macro lens, camera at 30 degrees above the surface, very shallow depth of field falling off to black. Shot as high-end cinematic documentary photography for a defence technology company: restrained charcoal and muted sage-green colour grade, deep but detailed shadows, soft atmospheric haze, subtle natural film grain, photorealistic, ultra-detailed, 8K. Ultra-wide 2:1 aspect ratio, subject on the right third.</p>
+      </div>
+      
+      
+      <div class="blk neg">
+        <div class="blk-head"><span>Avoid / negative prompt</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">text, captions, watermarks, logos, brand names, flags, national insignia, unit patches, readable serial numbers or markings, visible faces, gore, explosions, fire, smoke plumes, weapons being fired, combat, cartoon, illustration, CGI look, oversaturated colour, lens flare overload, distorted hands, extra fingers, readable text on the card, stencilled lettering, hands, explosions, bright colours</p>
+      </div>
+    </article>
+    <article class="card" data-page="Home" data-kind="image" id="T-03">
+      <header class="card-head">
+        <div class="ids"><span class="id">T-03</span><span class="chip image">Image</span><span class="chip">2:1</span></div>
+        <code class="file">home-area-remediation.jpg</code>
+      </header>
+      <p class="brief">The eMACS unit inside a secured compound with sorted bins of recovered metal fractions in the foreground. Destruction and recovery in one frame.</p>
+      
+      <div class="blk">
+        <div class="blk-head"><span>Prompt</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">Wide overcast daylight view inside a secured fenced compound: a matte dark-olive mobile industrial trailer unit, clean and utilitarian with a closed-chamber module and side access doors, parked on grey concrete behind a tall chain-link perimeter fence. In the sharp foreground, a neat row of four industrial steel bins holding sorted recovered metal fractions: coiled reddish copper, bright yellow brass casings, grey steel fragments and dull grey lead. Destruction and recovery in one frame. 35mm lens, camera at hip height just behind the bins, deep focus, flat soft light. Shot as high-end cinematic documentary photography for a defence technology company: restrained charcoal and muted sage-green colour grade, deep but detailed shadows, soft atmospheric haze, subtle natural film grain, photorealistic, ultra-detailed, 8K. Ultra-wide 2:1 aspect ratio.</p>
+      </div>
+      
+      
+      <div class="blk neg">
+        <div class="blk-head"><span>Avoid / negative prompt</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">text, captions, watermarks, logos, brand names, flags, national insignia, unit patches, readable serial numbers or markings, visible faces, gore, explosions, fire, smoke plumes, weapons being fired, combat, cartoon, illustration, CGI look, oversaturated colour, lens flare overload, distorted hands, extra fingers, company names on the trailer, hazard placards, people, clutter, rain</p>
+      </div>
+    </article>
+    <article class="card" data-page="Home" data-kind="video" id="S-01">
+      <header class="card-head">
+        <div class="ids"><span class="id">S-01</span><span class="chip video">Video</span><span class="chip">3:4</span></div>
+        <code class="file">home-protect-forces.mp4</code>
+      </header>
+      <p class="brief">A soldier silhouette at a safe distance watching a robot work in the mid-ground. Protective, calm.</p>
+      
+      <div class="blk">
+        <div class="blk-head"><span>Prompt (keyframe)</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">Vertical cinematic frame: an open grass field under heavy overcast sky. In the far background, a lone figure in plain field uniform and helmet stands still at a safe distance, seen from behind as a dark silhouette, arms relaxed. In the mid-ground, a small matte charcoal tracked robot works slowly across the grass with a sensor arm lowered close to the ground, a faint sage-green light on its sensor head. Protective, calm, deliberate: the machine takes the forward position. 85mm lens, camera low behind the robot looking toward the figure, shallow depth of field. Shot as high-end cinematic documentary photography for a defence technology company: restrained charcoal and muted sage-green colour grade, deep but detailed shadows, soft atmospheric haze, subtle natural film grain, photorealistic, ultra-detailed, 8K. 3:4 vertical.</p>
+      </div>
+      
+      <div class="blk">
+        <div class="blk-head"><span>Motion, for image to video</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">Static locked-off camera with a very slow 3 percent push-in, 8 second seamless loop. The robot creeps forward and the grass moves slightly in the wind; the figure does not move.</p>
+      </div>
+      
+      <div class="blk neg">
+        <div class="blk-head"><span>Avoid / negative prompt</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">text, captions, watermarks, logos, brand names, flags, national insignia, unit patches, readable serial numbers or markings, visible faces, gore, explosions, fire, smoke plumes, weapons being fired, combat, cartoon, illustration, CGI look, oversaturated colour, lens flare overload, distorted hands, extra fingers, face visible, weapons raised, multiple soldiers, military vehicles</p>
+      </div>
+    </article>
+    <article class="card" data-page="Home" data-kind="video" id="S-02">
+      <header class="card-head">
+        <div class="ids"><span class="id">S-02</span><span class="chip video">Video</span><span class="chip">3:4</span></div>
+        <code class="file">home-protect-territory.mp4</code>
+      </header>
+      <p class="brief">A slow drone rise over a cleared field returning to farmland, a faint survey grid fading away.</p>
+      
+      <div class="blk">
+        <div class="blk-head"><span>Prompt (keyframe)</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">Vertical aerial view looking straight down over a large field that has just been cleared and is returning to farmland: fresh green crop rows on one half, lightly tilled brown earth on the other. A faint, glowing sage-green survey grid of thin lines is overlaid precisely on the ground, visibly fading out toward the green half as if the land has been verified and released. Soft morning light, long shadows from a single tree at the field edge. Hopeful, orderly, restored. Top-down drone shot at 80 metres. Shot as high-end cinematic documentary photography for a defence technology company: restrained charcoal and muted sage-green colour grade, deep but detailed shadows, soft atmospheric haze, subtle natural film grain, photorealistic, ultra-detailed, 8K. 3:4 vertical.</p>
+      </div>
+      
+      <div class="blk">
+        <div class="blk-head"><span>Motion, for image to video</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">Slow vertical drone rise, 8 second seamless loop, while the survey grid lines dissolve from top to bottom and disappear.</p>
+      </div>
+      
+      <div class="blk neg">
+        <div class="blk-head"><span>Avoid / negative prompt</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">text, captions, watermarks, logos, brand names, flags, national insignia, unit patches, readable serial numbers or markings, visible faces, gore, explosions, fire, smoke plumes, weapons being fired, combat, cartoon, illustration, CGI look, oversaturated colour, lens flare overload, distorted hands, extra fingers, people, tractors, craters, burned ground, numbers on the grid</p>
+      </div>
+    </article>
+    <article class="card" data-page="Home" data-kind="video" id="S-03">
+      <header class="card-head">
+        <div class="ids"><span class="id">S-03</span><span class="chip video">Video</span><span class="chip">3:4</span></div>
+        <code class="file">home-protect-custody.mp4</code>
+      </header>
+      <p class="brief">A tagged item scanned on a bench, a record line completing on a screen.</p>
+      
+      <div class="blk">
+        <div class="blk-head"><span>Prompt (keyframe)</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">Vertical macro shot inside a clean, secure evidence and custody facility: a gloved hand in a black nitrile glove holds a compact handheld barcode scanner over a sealed tamper-evident bag with a blank barcode label, resting on a stainless steel bench scale. Just behind, softly out of focus, a rugged tablet shows a dark interface with a vertical timeline and a single sage-green step completing. Cool clinical top light, a thin red scanner line on the label. Precise, accountable, trustworthy. 100mm macro lens, shallow depth of field. Shot as high-end cinematic documentary photography for a defence technology company: restrained charcoal and muted sage-green colour grade, deep but detailed shadows, soft atmospheric haze, subtle natural film grain, photorealistic, ultra-detailed, 8K. 3:4 vertical.</p>
+      </div>
+      
+      <div class="blk">
+        <div class="blk-head"><span>Motion, for image to video</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">Static shot, 8 second seamless loop: the scanner line flickers across the label, the tablet timeline step fills with sage green, a tiny scale readout settles.</p>
+      </div>
+      
+      <div class="blk neg">
+        <div class="blk-head"><span>Avoid / negative prompt</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">text, captions, watermarks, logos, brand names, flags, national insignia, unit patches, readable serial numbers or markings, visible faces, gore, explosions, fire, smoke plumes, weapons being fired, combat, cartoon, illustration, CGI look, oversaturated colour, lens flare overload, distorted hands, extra fingers, readable text on screen or label, drugs, cash, faces, messy desk</p>
+      </div>
+    </article>
+    <article class="card" data-page="Home" data-kind="video" id="S-04">
+      <header class="card-head">
+        <div class="ids"><span class="id">S-04</span><span class="chip video">Video</span><span class="chip">3:4</span></div>
+        <code class="file">home-protect-supply.mp4</code>
+      </header>
+      <p class="brief">Recovered metal ingots being stacked, warm reflections on their surfaces.</p>
+      
+      <div class="blk">
+        <div class="blk-head"><span>Prompt (keyframe)</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">Vertical close-up in a clean industrial warehouse: two hands in heavy leather work gloves set a freshly cast recovered metal ingot onto a neat, perfectly aligned stack of matching ingots on a steel pallet. The ingots have a satin brushed finish with soft cool reflections from high clerestory windows. The background is a softly blurred orderly racking aisle. Solid, domestic, valuable: materials returning to supply. 50mm lens at waist height, shallow depth of field, cool daylight with a faint warm bounce from the metal. Shot as high-end cinematic documentary photography for a defence technology company: restrained charcoal and muted sage-green colour grade, deep but detailed shadows, soft atmospheric haze, subtle natural film grain, photorealistic, ultra-detailed, 8K. 3:4 vertical.</p>
+      </div>
+      
+      <div class="blk">
+        <div class="blk-head"><span>Motion, for image to video</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">Slow 8 second loop: the ingot is lowered and settles onto the stack, a slight light glint travels across the top surfaces, subtle rack focus from hands to stack.</p>
+      </div>
+      
+      <div class="blk neg">
+        <div class="blk-head"><span>Avoid / negative prompt</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">text, captions, watermarks, logos, brand names, flags, national insignia, unit patches, readable serial numbers or markings, visible faces, gore, explosions, fire, smoke plumes, weapons being fired, combat, cartoon, illustration, CGI look, oversaturated colour, lens flare overload, distorted hands, extra fingers, gold bars, bank vault, stamped logos or text on ingots, sparks, molten metal</p>
+      </div>
+    </article>
+    <article class="card" data-page="Home" data-kind="image" id="H-02">
+      <header class="card-head">
+        <div class="ids"><span class="id">H-02</span><span class="chip image">Image</span><span class="chip">16:9</span></div>
+        <code class="file">home-emacs-band.jpg</code>
+      </header>
+      <p class="brief">Three-quarter view of the eMACS trailer set up inside a depot fence, crew silhouettes at a working distance, overcast daylight.</p>
+      
+      <div class="blk">
+        <div class="blk-head"><span>Prompt</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">Three-quarter documentary view of a matte dark-olive mobile industrial trailer unit, an ammunition demilitarization and materials recovery system, set up and operating on a grey concrete pad inside a fenced military depot compound. Side doors are open showing an orderly interior with a control panel glowing softly, stabiliser legs deployed, cables neatly run to a small generator unit. Two crew members in plain grey coveralls and hard hats stand at a working distance, seen from behind or in profile silhouette. Overcast daylight, wet concrete with soft reflections, chain-link fence and low storage buildings in the background. 35mm lens at eye level. Shot as high-end cinematic documentary photography for a defence technology company: restrained charcoal and muted sage-green colour grade, deep but detailed shadows, soft atmospheric haze, subtle natural film grain, photorealistic, ultra-detailed, 8K. 16:9.</p>
+      </div>
+      
+      
+      <div class="blk neg">
+        <div class="blk-head"><span>Avoid / negative prompt</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">text, captions, watermarks, logos, brand names, flags, national insignia, unit patches, readable serial numbers or markings, visible faces, gore, explosions, fire, smoke plumes, weapons being fired, combat, cartoon, illustration, CGI look, oversaturated colour, lens flare overload, distorted hands, extra fingers, hazard placards, company branding, faces, smoke from the unit, tanks, weapons</p>
+      </div>
+    </article>
+    <article class="card" data-page="Home" data-kind="image" id="H-03">
+      <header class="card-head">
+        <div class="ids"><span class="id">H-03</span><span class="chip image">Image</span><span class="chip">4:3</span></div>
+        <code class="file">home-sovereign-band.jpg</code>
+      </header>
+      <p class="brief">A secured, orderly munitions depot at dusk: rows of earth-covered storage bunkers under floodlights, perimeter fence in the foreground. Quiet and controlled.</p>
+      
+      <div class="blk">
+        <div class="blk-head"><span>Prompt</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">Wide dusk photograph of an orderly military munitions storage depot: long parallel rows of grass-covered earth-mounded bunkers with concrete entrance faces and closed steel doors, each lit by a single soft sodium floodlight. A tall perimeter fence with angled top runs across the foreground, slightly out of focus. Deep blue hour sky with a thin fading band of warm light on the horizon. Quiet, controlled, sovereign: nothing leaves without authorisation. 35mm lens, camera just behind the fence at head height, balanced symmetrical composition. Shot as high-end cinematic documentary photography for a defence technology company: restrained charcoal and muted sage-green colour grade, deep but detailed shadows, soft atmospheric haze, subtle natural film grain, photorealistic, ultra-detailed, 8K. 4:3.</p>
+      </div>
+      
+      
+      <div class="blk neg">
+        <div class="blk-head"><span>Avoid / negative prompt</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">text, captions, watermarks, logos, brand names, flags, national insignia, unit patches, readable serial numbers or markings, visible faces, gore, explosions, fire, smoke plumes, weapons being fired, combat, cartoon, illustration, CGI look, oversaturated colour, lens flare overload, distorted hands, extra fingers, guards, dogs, vehicles, barbed wire close-ups, stars, moon, snow</p>
+      </div>
+    </article></div>
+  </section>
+  <section class="page-group" data-group="Detection">
+    <h2>Detection <span>5 slots · detection.html</span></h2>
+    <div class="grid">
+    <article class="card" data-page="Detection" data-kind="video" id="D-02">
+      <header class="card-head">
+        <div class="ids"><span class="id">D-02</span><span class="chip video">Video</span><span class="chip">16:10</span></div>
+        <code class="file">detection-platforms.mp4</code>
+      </header>
+      <p class="brief">Split sequence: a ground robot on a range, a small uncrewed surface vessel in a calm harbour, and a torpedo-shaped underwater vehicle gliding over a sandy seabed. Same colour grade across all three.</p>
+      
+      <div class="blk">
+        <div class="blk-head"><span>Prompt (keyframe)</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">A three-panel cinematic triptych in one wide frame, separated by thin black gutters and graded identically in muted charcoal and sage: left panel, a tracked unmanned ground robot on a gravel training range under overcast sky; centre panel, a small low-profile uncrewed surface vessel moving through a calm grey harbour past concrete quay walls; right panel, a sleek torpedo-shaped autonomous underwater vehicle gliding low over a rippled sandy seabed in blue-green filtered light with drifting particles. Each vehicle is matte dark grey with a single sage-green status light. Land, surface, underwater: one fleet. Shot as high-end cinematic documentary photography for a defence technology company: restrained charcoal and muted sage-green colour grade, deep but detailed shadows, soft atmospheric haze, subtle natural film grain, photorealistic, ultra-detailed, 8K. 16:10.</p>
+      </div>
+      
+      <div class="blk">
+        <div class="blk-head"><span>Motion, for image to video</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">Each panel moves independently for 8 seconds: the ground robot drives forward, the surface vessel crosses right, the underwater vehicle glides left with particles drifting. Seamless loop.</p>
+      </div>
+      
+      <div class="blk neg">
+        <div class="blk-head"><span>Avoid / negative prompt</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">text, captions, watermarks, logos, brand names, flags, national insignia, unit patches, readable serial numbers or markings, visible faces, gore, explosions, fire, smoke plumes, weapons being fired, combat, cartoon, illustration, CGI look, oversaturated colour, lens flare overload, distorted hands, extra fingers, divers, crews on the boat, warships, torpedoes being launched, cartoon submarine</p>
+      </div>
+    </article>
+    <article class="card" data-page="Detection" data-kind="video" id="D-03">
+      <header class="card-head">
+        <div class="ids"><span class="id">D-03</span><span class="chip video">Video</span><span class="chip">16:10</span></div>
+        <code class="file">detection-fusion.mp4</code>
+      </header>
+      <p class="brief">An interface animation: several translucent sensor layers stack over a terrain map and resolve into a handful of highlighted contacts with confidence rings.</p>
+      
+      <div class="blk">
+        <div class="blk-head"><span>Prompt (keyframe)</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">Premium dark-mode geospatial software interface filling the frame: a detailed 3D topographic terrain map viewed at a 45 degree angle, with several translucent data layers hovering above it in exploded view: magnetic field contour lines in pale sage, a ground-penetrating radar slice in soft grey gradients, and scattered sonar return points. Below, on the terrain, five small contacts glow sage-green, each surrounded by a thin concentric confidence ring. Clean sans-serif UI chrome at the edges with abstract labels and no readable real data. Minimal, precise, high-end defence software aesthetic, like a Palantir product screenshot. Charcoal background, soft glow, crisp vector lines. 16:10.</p>
+      </div>
+      
+      <div class="blk">
+        <div class="blk-head"><span>Motion, for image to video</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">Smooth 10 second loop: data layers descend one at a time and merge into the terrain, then contacts light up with rings expanding once. Slow orbiting camera.</p>
+      </div>
+      
+      <div class="blk neg">
+        <div class="blk-head"><span>Avoid / negative prompt</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">readable text, real place names, coordinates, numbers, logos, bright colours, busy neon cyberpunk style, clutter</p>
+      </div>
+    </article>
+    <article class="card" data-page="Detection" data-kind="image" id="D-04">
+      <header class="card-head">
+        <div class="ids"><span class="id">D-04</span><span class="chip image">Image</span><span class="chip">16:10</span></div>
+        <code class="file">detection-library.jpg</code>
+      </header>
+      <p class="brief">A clean diagram-like still: verified items on the left feeding a glowing central model, which points out to a survey map on the right. Minimal, precise, no numbers.</p>
+      
+      <div class="blk">
+        <div class="blk-head"><span>Prompt</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">Minimal conceptual illustration rendered as a luminous dark-UI diagram: on the left, a vertical column of eight small, precise line-drawn munition silhouettes (shells, rounds, a fuze), each with a tiny sage-green check mark; thin glowing lines flow from them into a central softly glowing neural network node made of fine interconnected points; from that node, lines radiate out to the right into a topographic survey map with contour lines and a handful of highlighted contact points. The idea: every item destroyed teaches detection what to find next. Charcoal background, sage-green and off-white lines only, generous negative space, precise thin strokes, no numbers or text. 16:10.</p>
+      </div>
+      
+      
+      <div class="blk neg">
+        <div class="blk-head"><span>Avoid / negative prompt</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">text, numbers, labels, logos, 3D clip art, bright colours, cluttered infographic, stock icons, human figures</p>
+      </div>
+    </article>
+    <article class="card" data-page="Detection" data-kind="image" id="D-05">
+      <header class="card-head">
+        <div class="ids"><span class="id">D-05</span><span class="chip image">Image</span><span class="chip">16:10</span></div>
+        <code class="file">detection-handoff.jpg</code>
+      </header>
+      <p class="brief">A rugged tablet in a gloved hand at the edge of a survey area, screen showing a map with marked contacts and one contact card open. Background soft, no faces.</p>
+      
+      <div class="blk">
+        <div class="blk-head"><span>Prompt</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">Close photoreal shot at the edge of an open survey area: a gloved hand holds a rugged military-grade field tablet with a thick rubber bumper. The screen shows a dark map interface with contour lines, a dotted survey boundary, several small sage-green marked contacts, and one contact card open with a thumbnail image and abstract bars, no readable words. Behind the tablet, softly out of focus, flagged survey stakes and grass stretch to a treeline under flat overcast light. Accountable, connected, calm. 50mm lens over the shoulder, shallow depth of field, screen perfectly legible in design but with no readable text. Shot as high-end cinematic documentary photography for a defence technology company: restrained charcoal and muted sage-green colour grade, deep but detailed shadows, soft atmospheric haze, subtle natural film grain, photorealistic, ultra-detailed, 8K. 16:10.</p>
+      </div>
+      
+      
+      <div class="blk neg">
+        <div class="blk-head"><span>Avoid / negative prompt</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">text, captions, watermarks, logos, brand names, flags, national insignia, unit patches, readable serial numbers or markings, visible faces, gore, explosions, fire, smoke plumes, weapons being fired, combat, cartoon, illustration, CGI look, oversaturated colour, lens flare overload, distorted hands, extra fingers, readable text on screen, smartphone, consumer tablet, cracked screen, faces</p>
+      </div>
+    </article>
+    <article class="card" data-page="Detection" data-kind="video" id="D-01">
+      <header class="card-head">
+        <div class="ids"><span class="id">D-01</span><span class="chip video">Video</span><span class="chip">16:9</span></div>
+        <code class="file">detection-hero.mp4</code>
+      </header>
+      <p class="brief">A tracked unmanned ground vehicle moving slowly across open scrubland at first light, sensor mast raised, a faint scan line sweeping the ground ahead of it. No people in frame. Wide, low, patient.</p>
+      
+      <div class="blk">
+        <div class="blk-head"><span>Prompt (keyframe)</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">Low, wide cinematic shot at dawn across open scrubland and dry grass on a former military training range. A compact matte charcoal tracked unmanned ground vehicle crosses left to right with its telescoping sensor mast raised; a ground-penetrating sensor array hangs just above the soil at the front, projecting a faint sage-green scan line that sweeps the ground ahead. Thin low mist, a distant line of bare trees, first sunlight catching the top of the mast. No people. Wide, low, patient: the machine goes first. 24mm lens at 40cm off the ground, robot in the right third, lots of sky. Shot as high-end cinematic documentary photography for a defence technology company: restrained charcoal and muted sage-green colour grade, deep but detailed shadows, soft atmospheric haze, subtle natural film grain, photorealistic, ultra-detailed, 8K. 16:9.</p>
+      </div>
+      
+      <div class="blk">
+        <div class="blk-head"><span>Motion, for image to video</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">Slow lateral tracking shot matching the robot left to right with a gentle push-in, 10 seconds. The scan line pulses softly across the ground; mist drifts.</p>
+      </div>
+      
+      <div class="blk neg">
+        <div class="blk-head"><span>Avoid / negative prompt</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">text, captions, watermarks, logos, brand names, flags, national insignia, unit patches, readable serial numbers or markings, visible faces, gore, explosions, fire, smoke plumes, weapons being fired, combat, cartoon, illustration, CGI look, oversaturated colour, lens flare overload, distorted hands, extra fingers, people, weapons mounted on the robot, explosions, military tanks</p>
+      </div>
+    </article></div>
+  </section>
+  <section class="page-group" data-group="Identification">
+    <h2>Identification <span>5 slots · identification.html</span></h2>
+    <div class="grid">
+    <article class="card" data-page="Identification" data-kind="video" id="I-02">
+      <header class="card-head">
+        <div class="ids"><span class="id">I-02</span><span class="chip video">Video</span><span class="chip">16:10</span></div>
+        <code class="file">identification-recognition.mp4</code>
+      </header>
+      <p class="brief">Over-the-shoulder view of a handheld device pointed at a partially buried item; on screen a bounding box locks on and a classification card appears.</p>
+      
+      <div class="blk">
+        <div class="blk-head"><span>Prompt (keyframe)</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">Over-the-shoulder photoreal shot in dry, stony earth: a gloved hand holds a rugged handheld inspection device aimed down at a partially buried, rust-covered cylindrical object half exposed in the soil. On the device screen, the live camera view shows the same object with a sage-green bounding box locked on and a small classification card with an abstract icon and confidence bar, no readable words. Soft overcast daylight, dust on the glove, the ground in front softly out of focus. Careful, confident, first contact. 35mm lens just behind the shoulder, focus on the screen. Shot as high-end cinematic documentary photography for a defence technology company: restrained charcoal and muted sage-green colour grade, deep but detailed shadows, soft atmospheric haze, subtle natural film grain, photorealistic, ultra-detailed, 8K. 16:10.</p>
+      </div>
+      
+      <div class="blk">
+        <div class="blk-head"><span>Motion, for image to video</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">Handheld-steady 8 second loop: the device moves slightly, the bounding box snaps from loose to tight lock, the card slides in.</p>
+      </div>
+      
+      <div class="blk neg">
+        <div class="blk-head"><span>Avoid / negative prompt</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">text, captions, watermarks, logos, brand names, flags, national insignia, unit patches, readable serial numbers or markings, visible faces, gore, explosions, fire, smoke plumes, weapons being fired, combat, cartoon, illustration, CGI look, oversaturated colour, lens flare overload, distorted hands, extra fingers, readable text on screen, face, digging tools in hand, explosion, smartphone</p>
+      </div>
+    </article>
+    <article class="card" data-page="Identification" data-kind="image" id="I-03">
+      <header class="card-head">
+        <div class="ids"><span class="id">I-03</span><span class="chip image">Image</span><span class="chip">16:10</span></div>
+        <code class="file">identification-condition.jpg</code>
+      </header>
+      <p class="brief">A still of an interface: a munition image with small annotated regions highlighting corrosion and deformation, and a handling class badge at the side.</p>
+      
+      <div class="blk">
+        <div class="blk-head"><span>Prompt</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">High-end dark-mode inspection software screen, straight-on: the main panel shows a sharp photograph of a weathered munition casing on a black background, overlaid with four small annotated regions drawn as thin rounded rectangles, two in sage green and two in soft amber, highlighting corrosion and surface deformation. A right-hand sidebar shows a minimal handling-class badge, a condition bar, and a single confirm button, all with abstract placeholder shapes instead of readable text. Clean sans-serif UI, generous spacing, charcoal background, subtle glass panels. Human-in-the-loop, precise, trustworthy. 16:10.</p>
+      </div>
+      
+      
+      <div class="blk neg">
+        <div class="blk-head"><span>Avoid / negative prompt</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">readable text, numbers, real data, logos, red alarm colours, cluttered dashboard, neon cyberpunk, low-resolution UI</p>
+      </div>
+    </article>
+    <article class="card" data-page="Identification" data-kind="video" id="I-04">
+      <header class="card-head">
+        <div class="ids"><span class="id">I-04</span><span class="chip video">Video</span><span class="chip">16:10</span></div>
+        <code class="file">identification-line.mp4</code>
+      </header>
+      <p class="brief">Top-down view of items moving slowly under a scanning bar, each receiving a confirmation mark; one item is highlighted and the line pauses.</p>
+      
+      <div class="blk">
+        <div class="blk-head"><span>Prompt (keyframe)</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">Top-down industrial camera view of a clean conveyor line inside a demilitarization facility: a row of identical cylindrical small-calibre and medium-calibre casings in neat rows moving left to right beneath a thin horizontal scanning light bar glowing pale white. Each item that has passed the bar carries a small sage-green check mark projected beside it; one item near the centre is outlined in soft amber, indicating it has been held. Matte steel rollers, cool even industrial lighting, crisp detail. Methodical, verified, nothing slips through. Perfectly overhead view, symmetrical. Shot as high-end cinematic documentary photography for a defence technology company: restrained charcoal and muted sage-green colour grade, deep but detailed shadows, soft atmospheric haze, subtle natural film grain, photorealistic, ultra-detailed, 8K. 16:10.</p>
+      </div>
+      
+      <div class="blk">
+        <div class="blk-head"><span>Motion, for image to video</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">8 second seamless loop: items advance under the scan bar, each gets a check mark, then the line pauses as the amber item lights up.</p>
+      </div>
+      
+      <div class="blk neg">
+        <div class="blk-head"><span>Avoid / negative prompt</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">text, captions, watermarks, logos, brand names, flags, national insignia, unit patches, readable serial numbers or markings, visible faces, gore, explosions, fire, smoke plumes, weapons being fired, combat, cartoon, illustration, CGI look, oversaturated colour, lens flare overload, distorted hands, extra fingers, readable stamps on casings, workers, sparks, messy scrap, bright colours</p>
+      </div>
+    </article>
+    <article class="card" data-page="Identification" data-kind="image" id="I-05">
+      <header class="card-head">
+        <div class="ids"><span class="id">I-05</span><span class="chip image">Image</span><span class="chip">16:10</span></div>
+        <code class="file">identification-record.jpg</code>
+      </header>
+      <p class="brief">An item record screen: a vertical timeline of events from first contact to destruction, each with a thumbnail image.</p>
+      
+      <div class="blk">
+        <div class="blk-head"><span>Prompt</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">Minimal dark-mode record screen for a single item, straight-on: a vertical sage-green timeline runs down the left third with six evenly spaced nodes, each node paired with a small photographic thumbnail (a buried object, a scan view, a sealed bag, a scale, a closed chamber door, a bin of metal) and a short abstract label bar. The right side shows a large detail image of the selected step and a certificate-style panel with a seal icon. Clean sans-serif UI chrome, charcoal background, soft glass surfaces, no readable text or numbers. Complete, traceable, audit-ready. 16:10.</p>
+      </div>
+      
+      
+      <div class="blk neg">
+        <div class="blk-head"><span>Avoid / negative prompt</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">readable text, numbers, names, logos, busy spreadsheet look, bright colours, stock icons</p>
+      </div>
+    </article>
+    <article class="card" data-page="Identification" data-kind="video" id="I-01">
+      <header class="card-head">
+        <div class="ids"><span class="id">I-01</span><span class="chip video">Video</span><span class="chip">16:9</span></div>
+        <code class="file">identification-hero.mp4</code>
+      </header>
+      <p class="brief">Macro camera move across a weathered munition casing under cool light while a thin recognition outline traces its profile and a classification tag resolves beside it. No readable real markings.</p>
+      
+      <div class="blk">
+        <div class="blk-head"><span>Prompt (keyframe)</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">Extreme macro cinematic image along the body of a weathered, corroded cylindrical munition casing resting on a matte black surface: rust bloom, flaking olive paint, pitted metal and a dirt-caked driving band in razor-sharp detail. Cool hard raking light from one side against a black void. A thin sage-green computer-vision outline traces the casing's profile with small tick marks, and a tiny abstract classification tag hovers just above it. Forensic, certain, quiet. 100mm macro lens, very shallow depth of field, subject on a diagonal from lower left to upper right. Shot as high-end cinematic documentary photography for a defence technology company: restrained charcoal and muted sage-green colour grade, deep but detailed shadows, soft atmospheric haze, subtle natural film grain, photorealistic, ultra-detailed, 8K. 16:9.</p>
+      </div>
+      
+      <div class="blk">
+        <div class="blk-head"><span>Motion, for image to video</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">Slow macro dolly along the casing from base to nose, 10 seconds, while the outline draws itself along the profile and the tag fades in at the end.</p>
+      </div>
+      
+      <div class="blk neg">
+        <div class="blk-head"><span>Avoid / negative prompt</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">text, captions, watermarks, logos, brand names, flags, national insignia, unit patches, readable serial numbers or markings, visible faces, gore, explosions, fire, smoke plumes, weapons being fired, combat, cartoon, illustration, CGI look, oversaturated colour, lens flare overload, distorted hands, extra fingers, readable stencil markings, live explosions, hands, bright background</p>
+      </div>
+    </article></div>
+  </section>
+  <section class="page-group" data-group="Remediation">
+    <h2>Remediation <span>6 slots · remediation.html</span></h2>
+    <div class="grid">
+    <article class="card" data-page="Remediation" data-kind="image" id="R-06">
+      <header class="card-head">
+        <div class="ids"><span class="id">R-06</span><span class="chip image">Image</span><span class="chip">4:5</span></div>
+        <code class="file">remediation-supply.jpg</code>
+      </header>
+      <p class="brief">Stacked ingots and neatly bundled recovered metal on a clean industrial floor, a forklift soft in the background, cool daylight from high windows. Orderly, domestic, industrial.</p>
+      
+      <div class="blk">
+        <div class="blk-head"><span>Prompt</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">Vertical photoreal industrial still inside a clean, modern metals warehouse: neat stacks of recovered metal ingots and tightly bundled bars of copper and brass on steel pallets in the foreground, perfectly aligned. Cool daylight pours from high clerestory windows in soft beams through light haze; a yellow forklift sits softly out of focus deep in the aisle. Polished concrete floor with gentle reflections. Orderly, domestic, industrial strength: yesterday's munitions returning to supply. 35mm lens at waist height, strong leading lines into the aisle. Shot as high-end cinematic documentary photography for a defence technology company: restrained charcoal and muted sage-green colour grade, deep but detailed shadows, soft atmospheric haze, subtle natural film grain, photorealistic, ultra-detailed, 8K. 4:5 vertical.</p>
+      </div>
+      
+      
+      <div class="blk neg">
+        <div class="blk-head"><span>Avoid / negative prompt</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">text, captions, watermarks, logos, brand names, flags, national insignia, unit patches, readable serial numbers or markings, visible faces, gore, explosions, fire, smoke plumes, weapons being fired, combat, cartoon, illustration, CGI look, oversaturated colour, lens flare overload, distorted hands, extra fingers, gold bars, logos or stamps on ingots, workers' faces, mess, molten metal</p>
+      </div>
+    </article>
+    <article class="card" data-page="Remediation" data-kind="image" id="R-02">
+      <header class="card-head">
+        <div class="ids"><span class="id">R-02</span><span class="chip image">Image</span><span class="chip">16:10</span></div>
+        <code class="file">remediation-custody.jpg</code>
+      </header>
+      <p class="brief">Gloved hands scanning a tagged item on a bench scale inside a secure facility, a tablet showing the item record beside it. Cool light, macro, no faces.</p>
+      
+      <div class="blk">
+        <div class="blk-head"><span>Prompt</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">Photoreal macro shot inside a secure custody facility: gloved hands in black nitrile gloves scan a blank barcode tag attached to a sealed tamper-evident evidence bag containing boxed ammunition, resting on a stainless steel bench scale with a small dark digital readout. Beside it, a rugged tablet displays an abstract item record with a photo thumbnail and a sage-green status bar, no readable text. Cool clinical overhead light, stainless and matte black surfaces, spotless. Chain of custody made visible. 100mm macro lens, shallow depth of field. Shot as high-end cinematic documentary photography for a defence technology company: restrained charcoal and muted sage-green colour grade, deep but detailed shadows, soft atmospheric haze, subtle natural film grain, photorealistic, ultra-detailed, 8K. 16:10.</p>
+      </div>
+      
+      
+      <div class="blk neg">
+        <div class="blk-head"><span>Avoid / negative prompt</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">text, captions, watermarks, logos, brand names, flags, national insignia, unit patches, readable serial numbers or markings, visible faces, gore, explosions, fire, smoke plumes, weapons being fired, combat, cartoon, illustration, CGI look, oversaturated colour, lens flare overload, distorted hands, extra fingers, readable text, cash, drugs, faces, loose bullets scattered, messy bench</p>
+      </div>
+    </article>
+    <article class="card" data-page="Remediation" data-kind="video" id="R-03">
+      <header class="card-head">
+        <div class="ids"><span class="id">R-03</span><span class="chip video">Video</span><span class="chip">16:10</span></div>
+        <code class="file">remediation-chamber.mp4</code>
+      </header>
+      <p class="brief">Close on the closed chamber door with its indicator panel lit, then a slow pull back to an operator watching a readout from a safe distance.</p>
+      
+      <div class="blk">
+        <div class="blk-head"><span>Prompt (keyframe)</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">Cinematic close shot of a heavy sealed industrial chamber door on a destruction unit: brushed steel, thick hinges, a locked handle and a small indicator panel with three softly lit status lights, one glowing sage green. In the background, softly out of focus at a safe distance, an operator in plain grey coveralls watches a control readout, face turned away. Cool industrial lighting with a faint warm glow leaking from the door seal. Quiet, procedural, controlled. 50mm lens, focus on the door. Shot as high-end cinematic documentary photography for a defence technology company: restrained charcoal and muted sage-green colour grade, deep but detailed shadows, soft atmospheric haze, subtle natural film grain, photorealistic, ultra-detailed, 8K. 16:10.</p>
+      </div>
+      
+      <div class="blk">
+        <div class="blk-head"><span>Motion, for image to video</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">Starts close on the indicator panel, then a slow 10 second pull-back revealing the operator at the control station; one indicator changes to green.</p>
+      </div>
+      
+      <div class="blk neg">
+        <div class="blk-head"><span>Avoid / negative prompt</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">text, captions, watermarks, logos, brand names, flags, national insignia, unit patches, readable serial numbers or markings, visible faces, gore, explosions, fire, smoke plumes, weapons being fired, combat, cartoon, illustration, CGI look, oversaturated colour, lens flare overload, distorted hands, extra fingers, flames, smoke, open door with fire, face visible, warning signs with text</p>
+      </div>
+    </article>
+    <article class="card" data-page="Remediation" data-kind="image" id="R-04">
+      <header class="card-head">
+        <div class="ids"><span class="id">R-04</span><span class="chip image">Image</span><span class="chip">16:10</span></div>
+        <code class="file">remediation-fractions.jpg</code>
+      </header>
+      <p class="brief">Top-down view of several bins of sorted metal fractions in a row, each visibly different in colour and texture, hard even light, small blank tags on each bin.</p>
+      
+      <div class="blk">
+        <div class="blk-head"><span>Prompt</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">Perfectly top-down photograph of six square industrial steel bins in a precise row on a clean concrete floor, each holding a different sorted metal fraction recovered from munitions: bright yellow brass casings, reddish copper jacket fragments, grey steel fragments, dull dark lead pieces, dense dark tungsten penetrator cores, and a small bin of fine electronic scrap with gold-coloured contacts. Each bin has a small blank white tag. Hard, even overhead light, crisp texture, rich metallic contrast. Orderly, graded, valuable. Shot as high-end cinematic documentary photography for a defence technology company: restrained charcoal and muted sage-green colour grade, deep but detailed shadows, soft atmospheric haze, subtle natural film grain, photorealistic, ultra-detailed, 8K. 16:10.</p>
+      </div>
+      
+      
+      <div class="blk neg">
+        <div class="blk-head"><span>Avoid / negative prompt</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">text, captions, watermarks, logos, brand names, flags, national insignia, unit patches, readable serial numbers or markings, visible faces, gore, explosions, fire, smoke plumes, weapons being fired, combat, cartoon, illustration, CGI look, oversaturated colour, lens flare overload, distorted hands, extra fingers, readable tags, live ammunition, whole bullets with primers, rust puddles, clutter</p>
+      </div>
+    </article>
+    <article class="card" data-page="Remediation" data-kind="video" id="R-05">
+      <header class="card-head">
+        <div class="ids"><span class="id">R-05</span><span class="chip video">Video</span><span class="chip">16:10</span></div>
+        <code class="file">remediation-record.mp4</code>
+      </header>
+      <p class="brief">Interface capture: a program dashboard showing a lifecycle timeline from detection through recovery, with a recovered-fractions panel filling in.</p>
+      
+      <div class="blk">
+        <div class="blk-head"><span>Prompt (keyframe)</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">Premium dark-mode program dashboard screen, straight-on: across the top, a horizontal lifecycle timeline with five connected stages drawn as small icons (detection, identification, custody, destruction, recovery), the first four lit in sage green. Below, a large panel shows recovered metal fractions as a clean horizontal bar chart with muted metallic tones, and a side panel shows a map thumbnail and a certificate badge. Clean sans-serif UI with abstract placeholder labels, no readable text or numbers, charcoal background, subtle glass cards, generous spacing. One record, whole program. 16:10.</p>
+      </div>
+      
+      <div class="blk">
+        <div class="blk-head"><span>Motion, for image to video</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">10 second loop: timeline stages light up left to right, then the fraction bars grow in sequence; slow cursor moves to the certificate badge.</p>
+      </div>
+      
+      <div class="blk neg">
+        <div class="blk-head"><span>Avoid / negative prompt</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">readable text, numbers, logos, bright rainbow charts, cluttered BI dashboard, neon cyberpunk</p>
+      </div>
+    </article>
+    <article class="card" data-page="Remediation" data-kind="video" id="R-01">
+      <header class="card-head">
+        <div class="ids"><span class="id">R-01</span><span class="chip video">Video</span><span class="chip">16:9</span></div>
+        <code class="file">remediation-hero.mp4</code>
+      </header>
+      <p class="brief">The eMACS unit at dusk inside a secured compound, doors open and the chamber lit from within, a slow push-in. Perimeter fence softly visible behind. No people, no placards.</p>
+      
+      <div class="blk">
+        <div class="blk-head"><span>Prompt (keyframe)</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">Cinematic dusk image of a matte dark-olive mobile industrial trailer unit, a closed-chamber munitions destruction and recovery system, parked inside a secured compound. Its side doors are open and the interior chamber glows with a warm, contained amber light that spills onto wet concrete. Behind it, a tall perimeter fence and two soft floodlights with light haze in the beams; a deep blue sky with a last line of dusk. No people. Controlled, powerful, contained. 35mm anamorphic lens at low angle, trailer on the right third. Shot as high-end cinematic documentary photography for a defence technology company: restrained charcoal and muted sage-green colour grade, deep but detailed shadows, soft atmospheric haze, subtle natural film grain, photorealistic, ultra-detailed, 8K. 16:9.</p>
+      </div>
+      
+      <div class="blk">
+        <div class="blk-head"><span>Motion, for image to video</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">Slow push-in toward the open doors, 10 seconds; the interior glow breathes gently, haze drifts through the floodlight beams.</p>
+      </div>
+      
+      <div class="blk neg">
+        <div class="blk-head"><span>Avoid / negative prompt</span><button type="button" class="copy" data-copy>Copy</button></div>
+        <p class="blk-text">text, captions, watermarks, logos, brand names, flags, national insignia, unit patches, readable serial numbers or markings, visible faces, gore, explosions, fire, smoke plumes, weapons being fired, combat, cartoon, illustration, CGI look, oversaturated colour, lens flare overload, distorted hands, extra fingers, flames outside the unit, visible explosions, company branding, hazard placards, people</p>
+      </div>
+    </article></div>
+  </section>
+  <p class="foot">Generated from the website source, so every prompt matches the placeholder panel on the live pages. Keep people's faces, insignia and readable markings out of frame.</p>
+</div>
+<script>
+(function(){
+  var state = { page:'all', kind:'all' };
+  function apply(){
+    var n = 0;
+    document.querySelectorAll('.card').forEach(function(c){
+      var show = (state.page === 'all' || c.dataset.page === state.page) && (state.kind === 'all' || c.dataset.kind === state.kind);
+      c.hidden = !show; if(show) n++;
+    });
+    document.querySelectorAll('.page-group').forEach(function(g){ g.hidden = !g.querySelector('.card:not([hidden])'); });
+    document.getElementById('count').textContent = n + (n === 1 ? ' slot' : ' slots');
+  }
+  document.querySelectorAll('[data-filter]').forEach(function(seg){
+    seg.addEventListener('click', function(e){
+      var b = e.target.closest('button'); if(!b) return;
+      seg.querySelectorAll('button').forEach(function(x){ x.setAttribute('aria-pressed', String(x === b)); });
+      state[seg.dataset.filter] = b.dataset.v; apply();
+    });
+  });
+  function fallbackCopy(text){
+    var ta = document.createElement('textarea'); ta.value = text; ta.setAttribute('readonly',''); ta.style.position='fixed'; ta.style.opacity='0';
+    document.body.appendChild(ta); ta.select(); var ok = false; try { ok = document.execCommand('copy'); } catch(e){} document.body.removeChild(ta); return ok;
+  }
+  document.addEventListener('click', function(e){
+    var b = e.target.closest('[data-copy]'); if(!b) return;
+    var text = b.closest('.blk').querySelector('.blk-text').textContent;
+    function done(ok){ b.textContent = ok ? 'Copied' : 'Select text'; b.classList.toggle('done', ok); setTimeout(function(){ b.textContent = 'Copy'; b.classList.remove('done'); }, 1600); }
+    if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(text).then(function(){ done(true); }, function(){ done(fallbackCopy(text)); }); }
+    else done(fallbackCopy(text));
+  });
+})();
+</script>
