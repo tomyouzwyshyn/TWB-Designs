@@ -77,14 +77,14 @@ const body = `
   <div class="hero-media" style="position:absolute;inset:0">${heroMedia}</div>
   <div class="hero-scrim"></div>
   <div class="hero-body wrap">
-    <h1 class="hero-title">Sovereign safety, from first detection to final recovery.</h1>
+    <h1 class="hero-title">One operating system for the full lifecycle.</h1>
     <div class="hero-sub xfade">
-      <span class="on">Detect.</span><span>Identify.</span><span>Remediate.</span>
+      <span class="on">Custody.</span><span>Recovery.</span><span>Remediation.</span>
     </div>
   </div>
   <div class="hero-foot wrap">
     <div class="scroll-cue"><span class="arrow">&#8595;</span> Scroll to explore</div>
-    <div class="hero-jump"><a href="#areas">The areas</a><a href="#operators">Who we serve</a><a href="#briefing">Request a briefing</a></div>
+    <div class="hero-jump"><a href="#areas">Systems</a><a href="#operators">Who we build for</a><a href="#briefing">Request a briefing</a></div>
   </div>
 </section>
 
