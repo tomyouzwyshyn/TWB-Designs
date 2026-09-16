@@ -402,3 +402,8 @@ p{ font-size:1rem; line-height:1.65; color:var(--ink-2); max-width:var(--measure
 }
 @media (max-width:560px){ .hero-words{ gap:.4em .75em; letter-spacing:.02em; font-size:clamp(.78rem,3.6vw,1rem) } }
 @media (prefers-reduced-motion: reduce){ .hero-words span{ color:var(--dark-ink) } }
+
+/* ---------- home: company identity line ---------- */
+.since{ display:flex; flex-wrap:wrap; gap:.5em 1.2em; margin-top:var(--s3); padding-top:var(--s2); border-top:1px solid var(--rule);
+  font-family:var(--ui); font-size:.72rem; letter-spacing:var(--track-ui); text-transform:uppercase; color:var(--ink-3) }
+.since span:first-child{ color:var(--sage) }

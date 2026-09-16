@@ -84,7 +84,7 @@ module.exports = buildAreaPage({
 
   why: {
     eyebrow: 'Why it matters',
-    title: 'What a contracting government gains.',
+    title: 'What military and police organizations gain.',
     items: [
       { label: 'Protecting people', title: 'Technicians who know what they face', body: 'A confirmed identity and condition before contact means every handling decision is made on evidence, not assumption.' },
       { label: 'Accountability', title: 'An inventory that can be trusted', body: 'Every item is verified against its manifest and backed by imagery, giving command and oversight bodies an account they can stand behind.' },

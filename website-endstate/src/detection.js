@@ -84,7 +84,7 @@ module.exports = buildAreaPage({
 
   why: {
     eyebrow: 'Why it matters',
-    title: 'What a contracting government gains.',
+    title: 'What military and police organizations gain.',
     items: [
       { label: 'Protecting people', title: 'Fewer people in harm’s way', body: 'Robotic platforms take the forward position in the search, keeping soldiers, technicians and civilians away from undiscovered hazards.' },
       { label: 'Territory', title: 'Land and water released sooner', body: 'Wide-area, continuous survey returns ranges, coastlines and former conflict zones to safe use without years of manual clearance.' },

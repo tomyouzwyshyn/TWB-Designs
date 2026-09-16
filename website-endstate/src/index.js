@@ -91,12 +91,13 @@ const body = `
 <section class="section" id="mission">
   <div class="wrap intro-split">
     <div class="rv">
-      <div class="eyebrow">${brk()}The mission</div>
-      <h2 class="h2" style="margin-top:.4em">What conflict leaves behind is a national responsibility.</h2>
+      <div class="eyebrow">${brk()}The company</div>
+      <h2 class="h2" style="margin-top:.4em">One solution for military and police organizations, after the mission.</h2>
+      <div class="since"><span>End State Solutions</span><span>Operating since 2004</span></div>
     </div>
     <div class="rv">
-      <p class="lede" style="margin-bottom:.8em">Every nation that has armed itself carries what comes after: stockpiles that age past their service life, munitions left in the ground and under the water, and materiel that has to be retired safely, verifiably and on its own terms.</p>
-      <p class="lede">END STATE exists to carry that responsibility for the governments that hold it. We find what is hidden, identify what is found, destroy it inside the owner’s custody, and return the metal it was made from to domestic supply. One partner, one record, from the first signal in the ground to the last certified kilogram.</p>
+      <p class="lede" style="margin-bottom:.8em">End State Solutions is a full-service munitions processing and reclamation company, operating since 2004. When the mission is over, what remains still has to be dealt with: surplus and expired ammunition, seized and surrendered munitions, ordnance left in the ground and under the water, and materiel that has to be retired safely, verifiably and on the owner’s terms.</p>
+      <p class="lede">Military and police organizations should not need a different contractor for every step of that work. End State is the single solution. We find what is hidden, identify what is found, destroy it inside the owner’s custody, and return the metal it was made from to domestic supply. One partner, one record, from the first signal in the ground to the last certified kilogram.</p>
     </div>
   </div>
 </section>
@@ -162,23 +163,24 @@ const body = `
   <div class="wrap">
     <div class="rv" style="max-width:640px">
       <div class="eyebrow">${brk()}Who we serve</div>
-      <h2 class="h2" style="margin-top:.4em">Built for the governments that carry the responsibility.</h2>
+      <h2 class="h2" style="margin-top:.4em">Built for military and police organizations.</h2>
+      <p class="lede" style="margin-top:.6em">The organizations that carry the risk during the mission carry the responsibility after it. End State takes that work off their hands as one accountable partner.</p>
     </div>
     <div class="aud-grid rv">
       <div class="aud-card">
-        <div class="ui">National defence</div>
-        <h3 class="h3">Defence ministries</h3>
-        <p style="margin-top:.6em">Stockpile retirement and surplus disposal programs delivered at home, with custody and recovery the ministry can account for in full.</p>
+        <div class="ui">Military</div>
+        <h3 class="h3">Armed forces and defence ministries</h3>
+        <p style="margin-top:.6em">Stockpile retirement, surplus disposal and range clearance delivered at the base, the depot or the former conflict zone, with custody and recovery accounted for in full.</p>
       </div>
       <div class="aud-card">
-        <div class="ui">Armed forces</div>
-        <h3 class="h3">Forces and allied coalitions</h3>
-        <p style="margin-top:.6em">A deployable capability that goes to the base, the range or the partner nation, operated to military standards alongside the unit that holds the material.</p>
+        <div class="ui">Police</div>
+        <h3 class="h3">Police and law enforcement agencies</h3>
+        <p style="margin-top:.6em">Seized, surrendered and expired ammunition destroyed inside the agency’s own custody, with an item-level record and a certificate of destruction for every piece of property.</p>
       </div>
       <div class="aud-card">
-        <div class="ui">Legacy sites</div>
-        <h3 class="h3">Government land and water</h3>
-        <p style="margin-top:.6em">Former ranges, conflict zones, ports and coastal waters surveyed, cleared and returned to public use under a single accountable program.</p>
+        <div class="ui">Allied partners</div>
+        <h3 class="h3">Allied and coalition partners</h3>
+        <p style="margin-top:.6em">A deployable capability that travels to the partner nation and works alongside the unit or agency that holds the material, to the same standard everywhere.</p>
       </div>
     </div>
   </div>
@@ -199,4 +201,4 @@ const body = `
 ${ctaHtml()}
 `;
 
-module.exports = { file: 'index.html', title: 'Detection, Identification and Remediation', description: 'END STATE finds, identifies and destroys munitions for governments and armed forces, keeps every item in custody, and returns recovered metal to domestic supply.', body, dark: true };
+module.exports = { file: 'index.html', title: 'Detection, Identification and Remediation', description: 'End State Solutions is a full-service munitions processing and reclamation company operating since 2004, and the single solution for military and police organizations after the mission.', body, dark: true };
