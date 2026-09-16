@@ -37,7 +37,7 @@
   --body:    "Helvetica Neue", Helvetica, Arial, sans-serif;
   --ui:      "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-  --w-display: 700;
+  --w-display: 600;
   --w-section: 600;
   --w-sub:     600;
   --w-body:    400;
@@ -46,7 +46,9 @@
   --track-section: -.017em;
   --track-sub:     -.008em;
   --track-body:    -.006em;
-  --track-ui:       .1em;
+  --track-ui:       .04em;
+
+  --radius-media: 10px;
 
   /* ---- motion ---- */
   --ease:            cubic-bezier(.4, 0, .2, 1);

@@ -84,14 +84,14 @@ p{ font-size:1rem; line-height:1.65; color:var(--ink-2); max-width:var(--measure
 .hero-tagrow{ display:flex; align-items:center; justify-content:center; gap:var(--s3); margin-bottom:var(--s3) }
 .hero-title{ font-family:var(--display); font-weight:var(--w-display); letter-spacing:var(--track-display);
   font-size:clamp(2.4rem,5.6vw,5rem); line-height:1.0; max-width:20ch }
-.hero-sub{ margin-top:var(--s3); font-family:var(--ui); font-size:.85rem; letter-spacing:.05em; text-transform:uppercase; color:var(--dark-ink-2) }
+.hero-sub{ margin-top:var(--s3); font-family:var(--ui); font-size:.85rem; letter-spacing:.03em; text-transform:uppercase; color:var(--dark-ink-2) }
 .hero-foot{ position:absolute; z-index:2; left:0; right:0; bottom:var(--s4);
   display:flex; flex-direction:column; align-items:center; gap:var(--s2) }
-.scroll-cue{ display:flex; align-items:center; gap:.6em; font-family:var(--ui); font-size:.7rem; letter-spacing:.08em; text-transform:uppercase; color:var(--dark-ink-2) }
+.scroll-cue{ display:flex; align-items:center; gap:.6em; font-family:var(--ui); font-size:.7rem; letter-spacing:.04em; text-transform:uppercase; color:var(--dark-ink-2) }
 .scroll-cue .arrow{ display:inline-block; animation:bob 1.8s var(--ease) infinite }
 @keyframes bob{ 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(5px) } }
 .hero-jump{ display:flex; gap:var(--s3) }
-.hero-jump a{ font-family:var(--ui); font-size:.7rem; letter-spacing:.08em; color:var(--dark-ink-2) }
+.hero-jump a{ font-family:var(--ui); font-size:.7rem; letter-spacing:.04em; color:var(--dark-ink-2) }
 .hero-jump a:hover{ color:var(--dark-ink) }
 
 /* small system-page hero variant (shorter) */
@@ -128,7 +128,7 @@ p{ font-size:1rem; line-height:1.65; color:var(--ink-2); max-width:var(--measure
 .tab-panel a{ position:relative; display:block; width:100%; height:100% }
 .tab-panel .tp-tag{ position:absolute; bottom:0; left:0; z-index:2; background:rgba(14,15,12,.78); color:var(--dark-ink);
   padding:.9em 1.2em; max-width:min(90%,480px) }
-.tp-eyebrow{ font-family:var(--ui); font-size:.68rem; letter-spacing:.08em; text-transform:uppercase; color:var(--sage-dark) }
+.tp-eyebrow{ font-family:var(--ui); font-size:.68rem; letter-spacing:.04em; text-transform:uppercase; color:var(--sage-dark) }
 .tp-title{ font-family:var(--display); font-weight:var(--w-sub); font-size:clamp(1.1rem,2vw,1.6rem); margin-top:.3em }
 .tab-nav{ position:absolute; top:50%; transform:translateY(-50%); z-index:3; width:40px; height:40px;
   background:rgba(255,255,255,.92); display:flex; align-items:center; justify-content:center; font-family:var(--ui) }
@@ -181,12 +181,13 @@ p{ font-size:1rem; line-height:1.65; color:var(--ink-2); max-width:var(--measure
    will. Only a small corner badge sits on top; the shot brief and
    generation prompt live behind it (native <details>, no JS) so the
    placeholder is never shrunk or cropped to make room for a text panel. */
-.media{ position:relative; width:100%; height:100%; overflow:hidden;
+.media{ position:relative; width:100%; height:100%; overflow:hidden; border-radius:var(--radius-media);
   background:repeating-linear-gradient(135deg, var(--surface-2) 0 14px, var(--surface) 14px 28px) }
+.hero-media .media{ border-radius:0 }
 .ph{ position:absolute; inset:0 }
 .ph-badge{ position:absolute; left:0; bottom:0; z-index:2; list-style:none; cursor:pointer;
   display:flex; align-items:center; gap:.6em; background:rgba(255,255,255,.94); color:var(--ink);
-  font-family:var(--ui); font-size:.62rem; letter-spacing:.08em; text-transform:uppercase;
+  font-family:var(--ui); font-size:.62rem; letter-spacing:.04em; text-transform:uppercase;
   padding:.55em .8em }
 .ph-badge::-webkit-details-marker{ display:none }
 .ph-badge .ph-kind{ font-weight:var(--w-sub) }
@@ -198,7 +199,7 @@ p{ font-size:1rem; line-height:1.65; color:var(--ink-2); max-width:var(--measure
 .ph-file{ font-size:.68rem; color:var(--ink-2); word-break:break-all }
 .ph-shot{ font-size:.75rem; line-height:1.55; color:var(--ink-2); margin-top:.7em }
 .ph-prompt{ margin-top:.7em; padding:.7em .8em; background:var(--surface); border:1px solid var(--rule-2) }
-.ph-prompt-label{ font-size:.58rem; letter-spacing:.1em; text-transform:uppercase; color:var(--sage) }
+.ph-prompt-label{ font-size:.58rem; letter-spacing:.05em; text-transform:uppercase; color:var(--sage) }
 .ph-prompt-text{ font-size:.68rem; line-height:1.55; color:var(--ink-2); margin-top:.3em }
 
 /* ---------- capability jump nav (system pages) ---------- */
@@ -216,7 +217,7 @@ p{ font-size:1rem; line-height:1.65; color:var(--ink-2); max-width:var(--measure
 .person-media{ aspect-ratio:4/5; background:var(--surface-2) }
 .person-body{ padding:var(--s3) }
 .person-name{ font-family:var(--display); font-weight:var(--w-sub); font-size:1.1rem }
-.person-role{ font-family:var(--ui); font-size:.68rem; letter-spacing:.06em; text-transform:uppercase; color:var(--sage); margin-top:.3em }
+.person-role{ font-family:var(--ui); font-size:.68rem; letter-spacing:.03em; text-transform:uppercase; color:var(--sage); margin-top:.3em }
 .person-bio{ font-size:.85rem; color:var(--ink-3); margin-top:.7em; max-width:none }
 
 /* ---------- form ---------- */
@@ -224,7 +225,7 @@ p{ font-size:1rem; line-height:1.65; color:var(--ink-2); max-width:var(--measure
 @media (max-width:720px){ .form{ grid-template-columns:1fr } }
 .field{ display:flex; flex-direction:column; gap:.5em }
 .field.full{ grid-column:1/-1 }
-.field label{ font-family:var(--ui); font-size:.66rem; letter-spacing:.08em; text-transform:uppercase; color:var(--dark-ink-2) }
+.field label{ font-family:var(--ui); font-size:.66rem; letter-spacing:.04em; text-transform:uppercase; color:var(--dark-ink-2) }
 .field input, .field select, .field textarea{ background:transparent; border:0; border-bottom:1px solid var(--dark-rule);
   color:var(--dark-ink); font-family:var(--body); font-size:1rem; padding:.6em 0 }
 .field input:focus, .field select:focus, .field textarea:focus{ outline:0; border-color:var(--sage-dark) }
@@ -239,13 +240,13 @@ p{ font-size:1rem; line-height:1.65; color:var(--ink-2); max-width:var(--measure
 @media (max-width:860px){ .footer-top{ grid-template-columns:repeat(2,minmax(0,1fr)) } }
 .footer-brand img{ height:18px }
 .footer-brand p{ margin-top:var(--s3); color:var(--dark-ink-2); font-size:.85rem; max-width:32ch }
-.footer-col h4{ font-family:var(--ui); font-size:.68rem; letter-spacing:.08em; text-transform:uppercase; color:var(--dark-ink); margin-bottom:.9em }
+.footer-col h4{ font-family:var(--ui); font-size:.68rem; letter-spacing:.04em; text-transform:uppercase; color:var(--dark-ink); margin-bottom:.9em }
 .footer-col a{ display:block; font-size:.86rem; padding:.35em 0; color:var(--dark-ink-2) }
 .footer-col a:hover{ color:var(--dark-ink) }
 .footer-bottom{ display:flex; justify-content:space-between; align-items:center; padding:var(--s3) 0; gap:var(--s3); flex-wrap:wrap }
 .footer-bottom .ui{ color:var(--dark-ink-2) }
 .footer-rail{ display:flex; gap:var(--s3) }
-.footer-rail span{ font-family:var(--ui); font-size:.66rem; letter-spacing:.1em; color:var(--dark-ink-2) }
+.footer-rail span{ font-family:var(--ui); font-size:.66rem; letter-spacing:.05em; color:var(--dark-ink-2) }
 
 /* ---------- reveal ---------- */
 .rv{ opacity:0; transform:translateY(18px); transition:opacity var(--dur-reveal) var(--ease), transform var(--dur-reveal) var(--ease) }
