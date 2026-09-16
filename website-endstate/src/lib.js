@@ -29,8 +29,11 @@ function brk(){
 /**
  * Self-documenting media placeholder.
  * kind: 'video' | 'image'
- * Renders a labelled frame (id, ratio, exact filename, shot brief, and a
- * ready-to-use generation prompt) so nothing is ever a blank grey box.
+ * The placeholder itself fills the full size of its slot edge to edge,
+ * exactly like the real image/video will, with only a small corner badge
+ * on top. The shot brief and generation prompt live behind that badge
+ * (native <details>, no JS required) so they never shrink or crop the
+ * placeholder to make room for a text panel.
  * When a real file matching `file` is dropped in assets/media/, js/site.js
  * swaps it in automatically — no markup changes needed.
  */
@@ -38,13 +41,12 @@ function ph({ id, kind = 'video', ratio = '16/9', file, shot, prompt, alt = '' }
   PH_LOG.push({ id, kind, ratio, file, shot, prompt });
   const dataAttr = kind === 'video' ? `data-video="${file}"` : `data-image="${file}" data-alt="${alt.replace(/"/g,'&quot;')}"`;
   return `
-  <div class="media" style="aspect-ratio:${ratio.replace('/', '/')}" ${dataAttr}>
-    <div class="ph">
-      <div class="ph-head">
-        <span class="ph-kind">${kind} &middot; ${id}</span>
-        <span class="ph-ratio">${ratio}</span>
-      </div>
-      <div>
+  <div class="media" style="aspect-ratio:${ratio}" ${dataAttr}>
+    <details class="ph">
+      <summary class="ph-badge">
+        <span class="ph-kind">${kind}</span><span class="ph-id">${id}</span><span class="ph-ratio">${ratio}</span>
+      </summary>
+      <div class="ph-panel">
         <div class="ph-file">${file}</div>
         <div class="ph-shot">${shot}</div>
         <div class="ph-prompt">
@@ -52,28 +54,17 @@ function ph({ id, kind = 'video', ratio = '16/9', file, shot, prompt, alt = '' }
           <div class="ph-prompt-text">${prompt}</div>
         </div>
       </div>
-    </div>
+    </details>
   </div>`;
 }
 
 function navHtml(current, onDark){
-  const dropItems = SYSTEMS.map(s => `
-    <a href="${s.file}"><span class="drop-code">${s.tag}</span>${s.line}</a>`).join('');
   return `
   <nav class="nav transparent${onDark ? ' on-dark-page' : ''}">
     <div class="wrap nav-row">
       <a href="index.html" aria-label="END STATE home">
         <img class="nav-logo" src="assets/brand/endstate-logo-white.png" alt="END STATE" data-logo>
       </a>
-      <div class="nav-mid">
-        <div class="nav-item" style="position:relative">
-          <span class="nav-link">Systems<span class="care">&#9662;</span></span>
-          <div class="nav-drop">${dropItems}
-            <a href="index.html#emacs"><span class="drop-code">HARDWARE</span>eMACS platform</a>
-          </div>
-        </div>
-        <a class="nav-link" href="team.html">Company</a>
-      </div>
       <div class="nav-right">
         <a class="btn btn-solid" href="index.html#briefing">Request a Briefing</a>
         <button class="menu-btn" aria-label="Open menu"><span></span><span></span><span></span></button>
@@ -173,8 +164,6 @@ function page({ file, title, description, body, dark = false }){
 <title>${title} | END STATE</title>
 <meta name="description" content="${description}">
 <link rel="icon" href="data:,">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/site.css">
 </head>
 <body class="${dark ? 'on-dark-entry' : ''}">
@@ -212,10 +201,13 @@ function capRow({ idx, total, title, body, media, reverse = false }){
 function swCard({ idx, tag, line, media, file }){
   return `
   <a class="swcard rv" href="${file}">
-    <div class="swcard-idx">/0.${idx}</div>
     <div class="swcard-media">${media}</div>
-    <div class="swcard-title">${tag}</div>
-    <div class="swcard-desc">${line}</div>
+    <div class="swcard-scrim"></div>
+    <div class="swcard-text">
+      <div class="swcard-idx">/0.${idx}</div>
+      <div class="swcard-title">${tag}</div>
+      <div class="swcard-desc">${line}</div>
+    </div>
   </a>`;
 }
 

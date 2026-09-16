@@ -44,17 +44,6 @@ p{ font-size:1rem; line-height:1.65; color:var(--ink-2); max-width:var(--measure
 .nav.solid{ background:rgba(255,255,255,.92); backdrop-filter:blur(10px); border-bottom:1px solid var(--rule); color:var(--ink) }
 .nav-row{ width:100%; display:flex; align-items:center; justify-content:space-between; gap:var(--s4); color:inherit }
 .nav-logo{ height:20px; display:block; transition:filter var(--dur-interaction) var(--ease) }
-.nav-mid{ display:flex; align-items:center; gap:var(--s4) }
-.nav-link{ position:relative; font-family:var(--ui); font-size:.76rem; letter-spacing:var(--track-ui);
-  text-transform:uppercase; padding:.4em 0; cursor:pointer }
-.nav-link .care{ margin-left:.35em; font-size:.65em; opacity:.6 }
-.nav-drop{ position:absolute; top:calc(100% + 14px); left:50%; transform:translateX(-50%);
-  min-width:230px; background:#FFFFFF; border:1px solid var(--rule); box-shadow:0 20px 40px rgba(0,0,0,.12);
-  padding:var(--s2); display:none; flex-direction:column; gap:2px }
-.nav-item:hover .nav-drop, .nav-item:focus-within .nav-drop{ display:flex }
-.nav-drop a{ display:block; padding:.6em .7em; font-size:.85rem; color:var(--ink-2) }
-.nav-drop a:hover{ background:var(--sage-wash); color:var(--ink) }
-.nav-drop .drop-code{ font-family:var(--ui); font-size:.62rem; color:var(--sage); display:block; letter-spacing:.08em }
 .nav-right{ display:flex; align-items:center; gap:var(--s3) }
 .btn{ font-family:var(--ui); font-size:.74rem; letter-spacing:var(--track-ui); text-transform:uppercase;
   padding:.85em 1.4em; border:1px solid currentColor; transition:background var(--dur-interaction) var(--ease), color var(--dur-interaction) var(--ease) }
@@ -64,12 +53,11 @@ p{ font-size:1rem; line-height:1.65; color:var(--ink-2); max-width:var(--measure
 .btn-line:hover{ background:var(--ink); color:#fff }
 .btn-line.on-dark{ color:var(--dark-ink) }
 .btn-line.on-dark:hover{ background:var(--dark-ink); color:var(--dark) }
-.menu-btn{ display:none; flex-direction:column; gap:5px; width:26px }
+/* Palantir's top bar is just logo + CTA + hamburger, at every width — all
+   wayfinding lives in the full-screen menu the hamburger opens, not as
+   inline links in the bar. */
+.menu-btn{ display:flex; flex-direction:column; gap:5px; width:26px }
 .menu-btn span{ height:1px; background:currentColor; width:100% }
-@media (max-width:960px){
-  .nav-mid{ display:none }
-  .menu-btn{ display:flex }
-}
 
 /* full-screen mobile menu */
 .mmenu{ position:fixed; inset:0; background:var(--dark); color:var(--dark-ink); z-index:300;
@@ -83,72 +71,86 @@ p{ font-size:1rem; line-height:1.65; color:var(--ink-2); max-width:var(--measure
 .mmenu-sub a{ font-size:1rem; font-weight:var(--w-body); color:var(--dark-ink-2) }
 
 /* ---------- hero (dark, media-led) ---------- */
-.hero{ position:relative; min-height:100svh; display:flex; flex-direction:column; justify-content:flex-end;
+.hero{ position:relative; min-height:100svh; display:flex; flex-direction:column; justify-content:center;
   background:var(--dark); color:var(--dark-ink); overflow:hidden }
 .hero-media{ position:absolute; inset:0; z-index:0 }
 .hero-media img, .hero-media video{ width:100%; height:100%; object-fit:cover; opacity:.72 }
-.hero-scrim{ position:absolute; inset:0; z-index:1;
+.hero-scrim{ position:absolute; inset:0; z-index:1; pointer-events:none;
   background:linear-gradient(180deg, rgba(14,15,12,.35) 0%, rgba(14,15,12,.15) 30%, rgba(14,15,12,.78) 78%, rgba(14,15,12,.96) 100%) }
-.hero-body{ position:relative; z-index:2; padding:calc(var(--nav-h) + var(--s5)) 0 var(--s5) }
-.hero-tagrow{ display:flex; align-items:center; gap:var(--s3); margin-bottom:var(--s3) }
+/* Palantir centers hero copy dead-center in the frame, full-bleed image
+   behind it edge to edge — no side padding box, no left alignment. */
+.hero-body{ position:relative; z-index:2; margin:auto 0; padding:calc(var(--nav-h) + var(--s5)) 0 var(--s5);
+  display:flex; flex-direction:column; align-items:center; text-align:center }
+.hero-tagrow{ display:flex; align-items:center; justify-content:center; gap:var(--s3); margin-bottom:var(--s3) }
 .hero-title{ font-family:var(--display); font-weight:var(--w-display); letter-spacing:var(--track-display);
-  font-size:clamp(2.4rem,5.6vw,5rem); line-height:1.0; max-width:16ch }
+  font-size:clamp(2.4rem,5.6vw,5rem); line-height:1.0; max-width:20ch }
 .hero-sub{ margin-top:var(--s3); font-family:var(--ui); font-size:.85rem; letter-spacing:.05em; text-transform:uppercase; color:var(--dark-ink-2) }
-.hero-foot{ position:relative; z-index:2; display:flex; align-items:center; justify-content:space-between;
-  padding:var(--s3) 0 var(--s4); border-top:1px solid var(--dark-rule); margin-top:var(--s5) }
+.hero-foot{ position:absolute; z-index:2; left:0; right:0; bottom:var(--s4);
+  display:flex; flex-direction:column; align-items:center; gap:var(--s2) }
 .scroll-cue{ display:flex; align-items:center; gap:.6em; font-family:var(--ui); font-size:.7rem; letter-spacing:.08em; text-transform:uppercase; color:var(--dark-ink-2) }
 .scroll-cue .arrow{ display:inline-block; animation:bob 1.8s var(--ease) infinite }
 @keyframes bob{ 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(5px) } }
 .hero-jump{ display:flex; gap:var(--s3) }
-.hero-jump a{ font-family:var(--ui); font-size:.7rem; letter-spacing:.08em }
-.hero-jump a{ color:var(--dark-ink-2) }
+.hero-jump a{ font-family:var(--ui); font-size:.7rem; letter-spacing:.08em; color:var(--dark-ink-2) }
 .hero-jump a:hover{ color:var(--dark-ink) }
-@media (max-width:720px){ .hero-foot{ flex-direction:column; align-items:flex-start; gap:var(--s2) } }
 
 /* small system-page hero variant (shorter) */
 .hero.sub{ min-height:82svh }
 
-/* placeholder media sitting inside a dark hero: render it in the dark
-   register and keep its label block pinned near the top so it never
-   collides with the headline/foot sitting on top of it. */
-.hero-media .media{ background:var(--dark-2); border-color:var(--dark-rule) }
-.hero-media .ph{ justify-content:flex-start; gap:var(--s2); padding-top:calc(var(--nav-h) + var(--s3)); height:100%; max-height:62svh; overflow:hidden }
-.hero-media .ph-kind{ background:var(--dark-ink); color:var(--dark) }
-.hero-media .ph-ratio,.hero-media .ph-file,.hero-media .ph-shot{ color:var(--dark-ink-2) }
-.hero-media .ph-prompt{ background:var(--dark); border-color:var(--dark-rule) }
-.hero-media .ph-prompt-text{ color:var(--dark-ink-2) }
+/* placeholder media sitting inside a dark hero: full-bleed dark fill,
+   badge pinned bottom-left the way a real video's caption would sit. */
+.hero-media .media{ background:var(--dark-2); border:0 }
+.hero-media .ph-badge{ background:rgba(245,244,239,.92); color:var(--dark) }
+.hero-media .ph-panel{ background:var(--dark); border-color:var(--dark-rule); color:var(--dark-ink-2) }
+.hero-media .ph-prompt{ background:var(--dark-2); border-color:var(--dark-rule) }
 
 /* headline crossfade */
 .xfade{ position:relative; min-height:1.05em }
 .xfade span{ position:absolute; inset:0; opacity:0; transition:opacity var(--dur-cross) var(--ease) }
 .xfade span.on{ position:relative; opacity:1 }
 
-/* ---------- carousel / tabs ---------- */
+/* ---------- carousel / tabs ----------
+   Palantir's featured-story rail: tab buttons pick the active card, and
+   the strip scrolls so the active card fills most of the row with the
+   next card cropped and peeking at the edge — not a single full-bleed
+   panel swapped out underneath. */
 .tabs-head{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:var(--s2); margin-bottom:var(--s3) }
 .tabs-list{ display:flex; gap:.5em; flex-wrap:wrap }
 .tab-btn{ font-family:var(--ui); font-size:.72rem; letter-spacing:var(--track-ui); text-transform:uppercase;
   padding:.6em 1em; border:1px solid var(--rule-2); color:var(--ink-3) }
 .tab-btn.active{ color:#fff; background:var(--ink); border-color:var(--ink) }
-.tab-panels{ position:relative; aspect-ratio:16/8; overflow:hidden }
-@media (max-width:720px){ .tab-panels{ aspect-ratio:4/5 } }
-.tab-panel{ position:absolute; inset:0; display:none }
-.tab-panel.active{ display:block }
+.tab-rail-wrap{ position:relative }
+.tab-panels{ display:flex; gap:var(--s2); overflow-x:auto; scroll-snap-type:x mandatory; scroll-behavior:smooth;
+  -ms-overflow-style:none; scrollbar-width:none; padding-bottom:2px }
+.tab-panels::-webkit-scrollbar{ display:none }
+.tab-panel{ position:relative; flex:0 0 82%; aspect-ratio:16/9; scroll-snap-align:start; overflow:hidden }
+@media (max-width:720px){ .tab-panel{ flex-basis:92%; aspect-ratio:4/5 } }
 .tab-panel a{ position:relative; display:block; width:100%; height:100% }
-.tab-panel .tp-tag{ position:absolute; top:var(--s3); left:var(--s3); z-index:2; background:rgba(14,15,12,.72); color:var(--dark-ink);
+.tab-panel .tp-tag{ position:absolute; bottom:0; left:0; z-index:2; background:rgba(14,15,12,.78); color:var(--dark-ink);
   padding:.9em 1.2em; max-width:min(90%,480px) }
 .tp-eyebrow{ font-family:var(--ui); font-size:.68rem; letter-spacing:.08em; text-transform:uppercase; color:var(--sage-dark) }
 .tp-title{ font-family:var(--display); font-weight:var(--w-sub); font-size:clamp(1.1rem,2vw,1.6rem); margin-top:.3em }
+.tab-nav{ position:absolute; top:50%; transform:translateY(-50%); z-index:3; width:40px; height:40px;
+  background:rgba(255,255,255,.92); display:flex; align-items:center; justify-content:center; font-family:var(--ui) }
+.tab-nav.prev{ left:var(--s2) } .tab-nav.next{ right:calc(18% + var(--s2)) }
+@media (max-width:720px){ .tab-nav.next{ right:calc(8% + var(--s2)) } }
 
-/* ---------- software grid ---------- */
+/* ---------- software grid ----------
+   Palantir's "Our Software" cards: full-bleed media edge to edge, the
+   index and title overlaid directly on it with a bottom scrim, not
+   stacked as separate blocks below a smaller media tile. */
 .swgrid{ display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); border-top:1px solid var(--rule); border-left:1px solid var(--rule) }
 @media (max-width:960px){ .swgrid{ grid-template-columns:repeat(2,minmax(0,1fr)) } }
 @media (max-width:560px){ .swgrid{ grid-template-columns:1fr } }
-.swcard{ border-right:1px solid var(--rule); border-bottom:1px solid var(--rule); padding:var(--s3);
-  display:flex; flex-direction:column; min-height:300px; position:relative; overflow:hidden }
-.swcard-media{ aspect-ratio:4/3; background:var(--surface-2); margin:var(--s2) 0; position:relative; overflow:hidden }
-.swcard-title{ font-family:var(--display); font-weight:var(--w-sub); font-size:1.2rem; margin-top:auto }
-.swcard-desc{ font-size:.9rem; color:var(--ink-3); margin-top:.5em }
-.swcard-idx{ font-family:var(--ui); font-size:.7rem; color:var(--sage) }
+.swcard{ position:relative; border-right:1px solid var(--rule); border-bottom:1px solid var(--rule);
+  aspect-ratio:3/4; overflow:hidden; display:block }
+.swcard-media{ position:absolute; inset:0 }
+.swcard-scrim{ position:absolute; inset:0; z-index:1; pointer-events:none;
+  background:linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,.75) 100%) }
+.swcard-text{ position:absolute; left:0; right:0; bottom:0; z-index:2; padding:var(--s3); color:#fff }
+.swcard-idx{ font-family:var(--ui); font-size:.7rem; color:var(--sage-dark) }
+.swcard-title{ font-family:var(--display); font-weight:var(--w-sub); font-size:1.15rem; margin-top:.3em }
+.swcard-desc{ font-size:.8rem; color:var(--dark-ink-2); margin-top:.4em }
 
 /* ---------- numbered capability rows (system pages) ---------- */
 .caprow{ display:grid; grid-template-columns:.9fr 1.1fr; gap:var(--s5); align-items:center; padding:var(--s5) 0;
@@ -174,20 +176,30 @@ p{ font-size:1rem; line-height:1.65; color:var(--ink-2); max-width:var(--measure
 .aud-card .ui{ color:var(--sage) }
 .aud-card h3{ margin:.6em 0 .4em }
 
-/* ---------- media placeholder ---------- */
-.media{ position:relative; width:100%; height:100%; background:var(--surface-2);
-  border:1px dashed var(--rule-2); display:flex }
-.ph{ width:100%; display:flex; flex-direction:column; justify-content:space-between; padding:var(--s2);
-  font-family:var(--ui) }
-.ph-head{ display:flex; justify-content:space-between; align-items:flex-start; gap:.5em }
-.ph-kind{ font-size:.62rem; letter-spacing:.1em; text-transform:uppercase; color:#fff; background:var(--ink);
-  padding:.25em .5em }
-.ph-ratio{ font-size:.62rem; color:var(--ink-3) }
-.ph-file{ font-size:.68rem; color:var(--ink-2); word-break:break-all; margin-top:.6em }
-.ph-shot{ font-size:.72rem; line-height:1.5; color:var(--ink-2); margin-top:.6em }
-.ph-prompt{ margin-top:.6em; padding:.6em .7em; background:#fff; border:1px solid var(--rule-2) }
+/* ---------- media placeholder ----------
+   Fills the complete slot, edge to edge, exactly as the real image/video
+   will. Only a small corner badge sits on top; the shot brief and
+   generation prompt live behind it (native <details>, no JS) so the
+   placeholder is never shrunk or cropped to make room for a text panel. */
+.media{ position:relative; width:100%; height:100%; overflow:hidden;
+  background:repeating-linear-gradient(135deg, var(--surface-2) 0 14px, var(--surface) 14px 28px) }
+.ph{ position:absolute; inset:0 }
+.ph-badge{ position:absolute; left:0; bottom:0; z-index:2; list-style:none; cursor:pointer;
+  display:flex; align-items:center; gap:.6em; background:rgba(255,255,255,.94); color:var(--ink);
+  font-family:var(--ui); font-size:.62rem; letter-spacing:.08em; text-transform:uppercase;
+  padding:.55em .8em }
+.ph-badge::-webkit-details-marker{ display:none }
+.ph-badge .ph-kind{ font-weight:var(--w-sub) }
+.ph-badge .ph-ratio, .ph-badge .ph-id{ color:var(--ink-3) }
+.ph[open] .ph-badge{ background:var(--ink); color:#fff }
+.ph[open] .ph-badge .ph-ratio, .ph[open] .ph-badge .ph-id{ color:var(--dark-ink-2) }
+.ph-panel{ position:absolute; inset:0; z-index:1; overflow:auto; padding:var(--s3);
+  background:rgba(255,255,255,.98); font-family:var(--ui) }
+.ph-file{ font-size:.68rem; color:var(--ink-2); word-break:break-all }
+.ph-shot{ font-size:.75rem; line-height:1.55; color:var(--ink-2); margin-top:.7em }
+.ph-prompt{ margin-top:.7em; padding:.7em .8em; background:var(--surface); border:1px solid var(--rule-2) }
 .ph-prompt-label{ font-size:.58rem; letter-spacing:.1em; text-transform:uppercase; color:var(--sage) }
-.ph-prompt-text{ font-size:.66rem; line-height:1.5; color:var(--ink-2); margin-top:.3em }
+.ph-prompt-text{ font-size:.68rem; line-height:1.55; color:var(--ink-2); margin-top:.3em }
 
 /* ---------- capability jump nav (system pages) ---------- */
 .jumpbar{ position:sticky; top:var(--nav-h); z-index:100; background:rgba(255,255,255,.95); backdrop-filter:blur(8px);

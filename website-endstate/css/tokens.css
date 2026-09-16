@@ -30,10 +30,12 @@
   --sage-hair:   #D3D9D0;
   --sage-dark:   #9DAA92;   /* sage as used on the dark register */
 
-  /* ---- type ---- */
+  /* ---- type : Helvetica only, everywhere. The "mono" UI layer is the
+     same Helvetica family, set apart by uppercase + wide tracking rather
+     than by switching typeface. ---- */
   --display: "Helvetica Neue", Helvetica, Arial, sans-serif;
   --body:    "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --ui:      "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --ui:      "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   --w-display: 700;
   --w-section: 600;

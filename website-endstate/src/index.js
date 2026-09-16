@@ -53,7 +53,6 @@ const body = `
   <div class="hero-media" style="position:absolute;inset:0">${heroMedia}</div>
   <div class="hero-scrim"></div>
   <div class="hero-body wrap">
-    <div class="hero-tagrow"><div class="tag on-dark">${brk()}END STATE</div></div>
     <h1 class="hero-title">One operating system for the full lifecycle.</h1>
     <div class="hero-sub xfade">
       <span class="on">Custody.</span><span>Recovery.</span><span>Remediation.</span>
@@ -74,7 +73,11 @@ const body = `
       </div>
       <div class="tabs-list">${tabBtns}</div>
     </div>
-    <div class="tab-panels rv" data-tabs>${tabCards}</div>
+    <div class="tab-rail-wrap rv">
+      <div class="tab-panels" data-tabs>${tabCards}</div>
+      <button class="tab-nav prev" data-tab-prev aria-label="Previous">&#8592;</button>
+      <button class="tab-nav next" data-tab-next aria-label="Next">&#8594;</button>
+    </div>
   </div>
 </section>
 

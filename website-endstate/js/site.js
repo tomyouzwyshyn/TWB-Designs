@@ -44,22 +44,45 @@
     items.forEach(function(el){ io.observe(el); });
   }
 
+  // Palantir-style story rail: tab buttons and prev/next arrows scroll the
+  // active card into view (scroll-snap handles the rest), rather than
+  // swapping a single full-bleed panel underneath.
   function tabs(){
-    document.querySelectorAll('[data-tabs]').forEach(function(root){
-      var btns = root.querySelectorAll('.tab-btn');
-      var panels = root.querySelectorAll('.tab-panel');
+    document.querySelectorAll('.tabs-head').forEach(function(head){
+      var wrap = head.parentElement.querySelector('.tab-rail-wrap');
+      if(!wrap) return;
+      var rail = wrap.querySelector('[data-tabs]');
+      var btns = head.querySelectorAll('.tab-btn');
+      var panels = wrap.querySelectorAll('.tab-panel');
+      var prev = wrap.querySelector('[data-tab-prev]');
+      var next = wrap.querySelector('[data-tab-next]');
       var i = 0, timer;
-      function show(n){
-        i = n;
-        btns.forEach(function(b,bi){ b.classList.toggle('active', bi===n); });
-        panels.forEach(function(p,pi){ p.classList.toggle('active', pi===n); });
+      function setActive(n){
+        i = ((n % panels.length) + panels.length) % panels.length;
+        btns.forEach(function(b,bi){ b.classList.toggle('active', bi===i); });
       }
-      btns.forEach(function(b, bi){ b.addEventListener('click', function(){ show(bi); restart(); }); });
+      function goTo(n){
+        setActive(n);
+        var p = panels[i];
+        if(p) rail.scrollTo({ left: p.offsetLeft - rail.offsetLeft, behavior:'smooth' });
+      }
+      btns.forEach(function(b, bi){ b.addEventListener('click', function(){ goTo(bi); restart(); }); });
+      if(prev) prev.addEventListener('click', function(){ goTo(i-1); restart(); });
+      if(next) next.addEventListener('click', function(){ goTo(i+1); restart(); });
       function restart(){
         clearInterval(timer);
-        timer = setInterval(function(){ show((i+1)%btns.length); }, 6000);
+        timer = setInterval(function(){ goTo(i+1); }, 6000);
       }
-      if(btns.length){ show(0); restart(); }
+      var io = 'IntersectionObserver' in window ? new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting){
+            var idx = Array.prototype.indexOf.call(panels, e.target);
+            if(idx > -1) setActive(idx);
+          }
+        });
+      }, { root: rail, threshold:.6 }) : null;
+      if(io) panels.forEach(function(p){ io.observe(p); });
+      if(btns.length){ setActive(0); restart(); }
     });
   }
 
