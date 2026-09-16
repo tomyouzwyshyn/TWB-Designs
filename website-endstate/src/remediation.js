@@ -9,7 +9,7 @@ const supplyMedia = ph({
   prompt: 'Photoreal industrial still of neatly stacked recovered metal ingots and bundled metal stock on a clean concrete warehouse floor, a forklift softly out of focus in the background, cool daylight from high clerestory windows, restrained charcoal and sage colour grade, no people, no logos, no text, 4:5'
 });
 
-const extra = `
+const elements = `
 <section class="section" id="elements">
   <div class="wrap">
     <div class="intro-split" style="margin-bottom:var(--s4)">
@@ -24,8 +24,9 @@ const extra = `
     ${tableHtml()}
     <p class="pt-source rv">${SOURCE_NOTE}</p>
   </div>
-</section>
+</section>`;
 
+const extra = `
 <section class="section" id="supply" style="padding-top:0">
   <div class="wrap supply-split">
     <div class="rv">${supplyMedia}</div>
@@ -61,8 +62,8 @@ module.exports = buildAreaPage({
 
   jump: [
     { id: 'why', label: 'Why it exists' },
-    { id: 'how', label: 'What it does' },
     { id: 'elements', label: 'What we recover' },
+    { id: 'how', label: 'What it does' },
     { id: 'supply', label: 'Supply' },
     { id: 'matters', label: 'Why it matters' },
   ],
@@ -117,6 +118,7 @@ module.exports = buildAreaPage({
     }
   ],
 
+  beforeCaps: elements,
   extra,
 
   standing: {

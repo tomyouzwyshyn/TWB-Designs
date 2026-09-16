@@ -58,6 +58,8 @@ ${jumpbarHtml(cfg.jump)}
   </div>
 </section>
 
+${cfg.beforeCaps || ''}
+
 <section class="section" style="padding-top:0" id="how">
   <div class="wrap">
     <div class="rv" style="max-width:680px;margin-bottom:var(--s2)">
