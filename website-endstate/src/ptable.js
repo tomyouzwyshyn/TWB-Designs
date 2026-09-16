@@ -85,13 +85,6 @@ const RECOVERABLE = {
   Sm: { cat:'magnet', from:'Samarium-cobalt magnets in precision guidance', series:'Samarium oxide, 99.5%', unit:'$/kg', p15:3, p25:2.82, ed15:'USGS Minerals Yearbook 2016', flat:true, note:'The 2015 figure is published rounded to the nearest dollar, so the change reads as approximately flat.' },
 };
 
-// U.S. Final 2025 List of Critical Minerals (Federal Register, 7 Nov 2025,
-// doc 2025-19813; 60 minerals). Only elements that are ALSO recoverable and
-// priced above get the critical-mineral marker. Iron, molybdenum and gold
-// are recoverable and priced but are not on the list.
-const CRITICAL_2025 = new Set(('Al Sb As Ba Be Bi B Ce Cs Cr Co Cu Dy Er Eu Gd Ga Ge Hf Ho In Ir La Pb Li Lu Mg Mn ' +
-  'Nd Ni Nb Pd Pt Pr Re Rh Rb Ru Sm Sc Si Ag Ta Te Tb Tm Sn Ti W U V Yb Y Zn Zr').split(' '));
-
 function pctChange(r){ return Math.round((r.p25 / r.p15 - 1) * 100); }
 
 function fmt(v){
@@ -112,8 +105,7 @@ function tableHtml(){
     if(!r){
       return `<div class="pt-el" style="grid-row:${row};grid-column:${col};--d:${delay}ms" title="${el.name}"><span class="pt-z">${el.z}</span><span class="pt-sym">${el.sym}</span></div>`;
     }
-    const crit = CRITICAL_2025.has(el.sym);
-    return `<button type="button" class="pt-el pt-rec pt-${r.cat}${crit ? ' pt-crit' : ''}" data-sym="${el.sym}" style="grid-row:${row};grid-column:${col};--d:${delay}ms" aria-label="${el.name}, recoverable${crit ? ', U.S. critical mineral' : ''}, 10-year price change ${changeLabel(r)}"><span class="pt-z">${el.z}</span><span class="pt-sym">${el.sym}</span><span class="pt-name">${el.name}</span><span class="pt-chg">${changeLabel(r)}</span></button>`;
+    return `<button type="button" class="pt-el pt-rec pt-${r.cat}" data-sym="${el.sym}" style="grid-row:${row};grid-column:${col};--d:${delay}ms" aria-label="${el.name}, recoverable, 10-year price change ${changeLabel(r)}"><span class="pt-z">${el.z}</span><span class="pt-sym">${el.sym}</span><span class="pt-name">${el.name}</span><span class="pt-chg">${changeLabel(r)}</span></button>`;
   }).join('');
 
   const markers = `
@@ -123,8 +115,7 @@ function tableHtml(){
     <div class="pt-flabel" style="grid-row:10;grid-column:1 / span 2">Actinides</div>`;
 
   const legend = Object.entries(CATS).map(([k, c]) =>
-    `<button type="button" class="pt-leg pt-${k}" data-cat="${k}"><i></i>${c.label}</button>`).join('') +
-    `<button type="button" class="pt-leg pt-leg-crit" data-cat="crit"><b>&#9670;</b>U.S. critical mineral</button>`;
+    `<button type="button" class="pt-leg pt-${k}" data-cat="${k}"><i></i>${c.label}</button>`).join('');
 
   const data = {};
   for(const el of NAMES){
@@ -133,7 +124,7 @@ function tableHtml(){
     data[el.sym] = {
       z: el.z, name: el.name, cat: CATS[r.cat].label, from: r.from, series: r.series, unit: r.unit,
       p15: fmt(r.p15), p25: fmt(r.p25), r15: r.p15, r25: r.p25, change: changeLabel(r), pct: r.flat ? 0 : pctChange(r),
-      ed15: r.ed15, note: r.note || '', critical: CRITICAL_2025.has(el.sym)
+      ed15: r.ed15, note: r.note || ''
     };
   }
 
@@ -152,6 +143,6 @@ function tableHtml(){
   <script type="application/json" id="pt-data">${JSON.stringify(data)}</script>`;
 }
 
-const SOURCE_NOTE = `Price change compares the 2015 annual average with the 2025 estimated annual average published by the U.S. Geological Survey in its Mineral Commodity Summaries (2026 edition for 2025; 2020, 2019 and 2017 editions and the 2016 Minerals Yearbook for 2015). Each element shows the exact price series and unit used. Figures are indicative of market direction, not a forecast or a valuation of recovered material. &#9670; marks elements on the U.S. Final 2025 List of Critical Minerals (Federal Register, 7 November 2025) that are also recovered and priced here.`;
+const SOURCE_NOTE = `Price change compares the 2015 annual average with the 2025 estimated annual average published by the U.S. Geological Survey in its Mineral Commodity Summaries (2026 edition for 2025; 2020, 2019 and 2017 editions and the 2016 Minerals Yearbook for 2015). Each element shows the exact price series and unit used. Figures are indicative of market direction, not a forecast or a valuation of recovered material.`;
 
-module.exports = { CRITICAL_2025, tableHtml, SOURCE_NOTE, RECOVERABLE, NAMES, position, pctChange, changeLabel, SRC };
+module.exports = { tableHtml, SOURCE_NOTE, RECOVERABLE, NAMES, position, pctChange, changeLabel, SRC };
