@@ -338,7 +338,8 @@
       ], { duration:TRAVEL, easing:'cubic-bezier(.55,0,.35,1)', fill:'forwards' });
       anim.onfinish = done;
     }
-    function cycle(){
+    function litAll(){ words.forEach(function(w){ w.classList.add('lit'); }); }
+    function run(){
       light(0);
       later(function(){
         shoot(0, 1, function(){
@@ -346,13 +347,15 @@
           later(function(){
             shoot(1, 2, function(){
               light(2);
-              later(function(){ light(-1); later(cycle, REST); }, END_HOLD);
+              // Once the pulse has reached the last word, leave all three lit
+              // instead of resetting and looping.
+              later(litAll, END_HOLD);
             });
           }, HOLD);
         });
       }, HOLD);
     }
-    later(cycle, 600);
+    later(run, 600);
   }
 
 
