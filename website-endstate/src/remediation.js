@@ -50,7 +50,7 @@ module.exports = buildAreaPage({
   category: 'Remediation',
 
   hero: {
-    lines: ['Destroyed on site.', 'Recovered to supply.', 'Accounted for at every step.'],
+    lines: ['Destroyed on site.', 'Recovered to supply.', 'Accounted for&#10;at every step.'],
     sub: 'Custody, closed-chamber destruction and materials recovery',
     media: {
       id: 'R-01', kind: 'video', ratio: '16/9', file: 'remediation-hero.mp4',

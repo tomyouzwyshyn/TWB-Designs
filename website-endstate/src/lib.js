@@ -72,18 +72,13 @@ function ph({ id, kind = 'video', ratio = '16/9', file, shot, prompt, alt = '' }
 function navHtml(current, onDark){
   return `
   <div class="topbar" data-topbar>
-    <div class="announce" data-announce>
-      <span>END STATE is now accepting deployment briefing requests.</span>
-      <a href="index.html#briefing">Request a briefing</a>
-      <button class="announce-close" data-announce-close aria-label="Dismiss">&times;</button>
-    </div>
     <nav class="nav transparent${onDark ? ' on-dark-page' : ''}">
       <div class="nav-row">
         <a href="index.html" aria-label="END STATE home">
           <img class="nav-logo" src="assets/brand/endstate-logo-white.png" alt="END STATE" data-logo>
         </a>
         <div class="nav-right">
-          <a class="btn btn-solid" href="index.html#briefing">Request a Briefing</a>
+          <a class="btn btn-solid" href="index.html#briefing"><span class="btn-full">Request a Briefing</span><span class="btn-short">Contact Us</span></a>
           <button class="menu-btn" aria-label="Open menu"><span></span><span></span><span></span></button>
         </div>
       </div>
@@ -96,6 +91,7 @@ function navHtml(current, onDark){
       ${AREAS.map(s => `<a href="${s.file}">${s.tag.charAt(0) + s.tag.slice(1).toLowerCase()}</a>`).join('')}
       <a href="index.html#briefing">Request a Briefing</a>
     </div>
+    <div class="mmenu-foot"><img src="assets/brand/endstate-logo-white.png" alt="END STATE Solutions"></div>
   </div>`;
 }
 
@@ -105,7 +101,7 @@ function footerHtml(){
   <footer class="footer">
     <div class="wrap footer-top">
       <div class="footer-brand">
-        <img src="assets/brand/endstate-logo-black-legacy.png" alt="END STATE" style="height:34px">
+        <img src="assets/brand/endstate-logo-black-legacy.png" alt="END STATE" style="width:304px">
         <p>End State Solutions. Full-service munitions processing and reclamation for military and law enforcement organizations, operating since 2004.</p>
       </div>
       <div class="footer-col">

@@ -86,7 +86,7 @@ const body = `
   </div>
   <div class="hero-foot wrap">
     <div class="scroll-cue"><span class="arrow">&#8595;</span> Scroll to explore</div>
-    <div class="hero-jump"><a href="#areas">Systems</a><a href="#operators">Who we build for</a><a href="#briefing">Request a briefing</a></div>
+    <div class="hero-jump"><a href="#briefing">Request a briefing</a></div>
   </div>
 </section>
 

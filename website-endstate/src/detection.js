@@ -8,7 +8,7 @@ module.exports = buildAreaPage({
   category: 'Detection',
 
   hero: {
-    lines: ['The first thing near a threat should be a machine.', 'Robotics that go first.', 'Intelligence that reads the ground.'],
+    lines: ['The first thing near&#10;a threat should be&#10;a machine.', 'Robotics that go first.', 'Intelligence that reads the ground.'],
     sub: 'AI and autonomous robotics for land, littoral and underwater search',
     media: {
       id: 'D-01', kind: 'video', ratio: '16/9', file: 'detection-hero.mp4',
