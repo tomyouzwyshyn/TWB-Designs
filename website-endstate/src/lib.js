@@ -179,6 +179,9 @@ function page({ file, title, description, body, dark = false }){
 <title>${title} | END STATE</title>
 <meta name="description" content="${description}">
 <link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;1,400&amp;display=swap">
 <link rel="stylesheet" href="css/site.css">
 </head>
 <body class="${dark ? 'on-dark-entry' : ''}">

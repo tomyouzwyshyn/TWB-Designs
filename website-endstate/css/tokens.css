@@ -32,10 +32,13 @@
 
   /* ---- type : Helvetica only, everywhere. The "mono" UI layer is the
      same Helvetica family, set apart by uppercase + wide tracking rather
-     than by switching typeface. ---- */
+     than by switching typeface. One exception, at Tom's request: the home
+     hero word row (Detection / Identification / Remediation) is set in
+     IBM Plex Mono, loaded from Google Fonts. ---- */
   --display: "Helvetica Neue", Helvetica, Arial, sans-serif;
   --body:    "Helvetica Neue", Helvetica, Arial, sans-serif;
   --ui:      "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --mono:    "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace; /* hero word row only */
 
   --w-display: 400;
   --w-section: 400;
