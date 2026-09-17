@@ -60,10 +60,27 @@ p{ font-size:1rem; line-height:1.5; color:var(--ink-2); max-width:var(--measure)
 .nav.transparent .nav-row{ background:linear-gradient(180deg, rgba(14,15,12,.5) 0%, rgba(14,15,12,.08) 100%);
   border-bottom:1px solid var(--dark-rule); color:var(--dark-ink) }
 .nav.solid .nav-row{ background:rgba(255,255,255,.94); backdrop-filter:blur(10px); border-bottom:1px solid var(--rule); color:var(--ink) }
-.nav-logo{ height:26px; display:block; transition:filter var(--dur-interaction) var(--ease) }
+/* Every .nav-row child is a flex item; without flex-shrink:0 a tight mobile
+   width (long CTA text + hamburger box) squeezes the logo below its
+   aspect-correct width while its height stays fixed, visibly distorting the
+   mark, and squeezes the hamburger box off its 44px square the same way.
+   Protect both, and stop the CTA's two-word label from breaking onto a
+   second line, so the row's own gap/padding are what flex under pressure
+   (trimmed further for phones below) instead of any control inside it. */
+.nav-row > a:first-child, .menu-btn{ flex-shrink:0 }
+.nav-logo{ height:26px; width:auto; display:block; transition:filter var(--dur-interaction) var(--ease) }
 .nav-right{ display:flex; align-items:center; gap:var(--s2) }
 .btn{ font-family:var(--ui); font-size:.74rem; letter-spacing:var(--track-ui); text-transform:uppercase;
-  padding:.85em 1.4em; border:1px solid currentColor; transition:background var(--dur-interaction) var(--ease), color var(--dur-interaction) var(--ease) }
+  padding:.85em 1.4em; border:1px solid currentColor; white-space:nowrap;
+  transition:background var(--dur-interaction) var(--ease), color var(--dur-interaction) var(--ease) }
+.nav-right .btn{ flex-shrink:0 }
+.btn-short{ display:none }
+@media (max-width:560px){
+  .btn-full{ display:none }
+  .btn-short{ display:inline }
+  .nav-row{ gap:var(--s2); padding:0 var(--s2) }
+  .nav .btn-solid{ padding:.85em .9em }
+}
 .btn-solid{ background:#fff; color:var(--ink); border-color:var(--rule-2) }
 .btn-solid:hover{ background:var(--sage); color:#fff; border-color:var(--sage) }
 .btn-line{ color:var(--ink) }
@@ -265,7 +282,7 @@ p{ font-size:1rem; line-height:1.5; color:var(--ink-2); max-width:var(--measure)
 .footer-top{ display:grid; grid-template-columns:1.3fr repeat(4,1fr); gap:var(--s4); padding:var(--s5) 0 var(--s4);
   border-bottom:1px solid var(--rule) }
 @media (max-width:860px){ .footer-top{ grid-template-columns:repeat(2,minmax(0,1fr)) } }
-.footer-brand img{ height:34px }
+.footer-brand img{ height:auto }
 .footer-brand p{ margin-top:var(--s3); color:var(--ink-3); font-size:.85rem; max-width:32ch }
 .footer-col h4{ font-family:var(--ui); font-size:.68rem; letter-spacing:.04em; text-transform:uppercase; color:var(--ink); margin-bottom:.9em }
 .footer-col a{ display:block; font-size:.86rem; padding:.35em 0; color:var(--ink-3) }
