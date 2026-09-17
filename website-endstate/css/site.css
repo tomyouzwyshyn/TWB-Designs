@@ -154,7 +154,7 @@ p{ font-size:1rem; line-height:1.5; color:var(--ink-2); max-width:var(--measure)
 .hero-media .ph-prompt{ background:var(--dark-2); border-color:var(--dark-rule) }
 
 /* headline crossfade */
-.xfade{ position:relative }
+.xfade{ position:relative; white-space:pre-line }
 .xfade b{ font-weight:inherit; color:var(--sage-dark); opacity:.85 }
 
 /* ---------- carousel / tabs ----------
