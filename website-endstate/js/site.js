@@ -47,11 +47,19 @@
     if(!btn || !m) return;
     // Mark the current page's link so it can be highlighted; skip links that
     // point at an anchor (Request a Briefing) rather than a page of its own.
-    var current = location.pathname.split('/').pop() || 'index.html';
+    // Vercel's cleanUrls strips ".html" from the live pathname but the local
+    // preview server and every href here still carry it, so compare both
+    // sides with the extension (and any slashes) stripped off.
+    function pageName(p){
+      p = (p || '').split('/').pop() || '';
+      p = p.replace(/\.html$/, '');
+      return p || 'index';
+    }
+    var current = pageName(location.pathname);
     m.querySelectorAll('.mmenu-links a').forEach(function(a){
       var href = a.getAttribute('href');
       if(href.indexOf('#') > -1) return;
-      if((href || 'index.html') === current) a.classList.add('active');
+      if(pageName(href) === current) a.classList.add('active');
     });
     btn.addEventListener('click', function(){ m.classList.add('open'); document.body.style.overflow='hidden'; });
     if(close) close.addEventListener('click', function(){ m.classList.remove('open'); document.body.style.overflow=''; });
