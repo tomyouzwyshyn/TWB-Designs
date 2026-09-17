@@ -205,6 +205,12 @@ p{ font-size:1rem; line-height:1.65; color:var(--ink-2); max-width:var(--measure
 .media{ position:relative; width:100%; height:100%; overflow:hidden; border-radius:var(--radius-media);
   background:repeating-linear-gradient(135deg, var(--surface-2) 0 14px, var(--surface) 14px 28px) }
 .hero-media .media{ border-radius:0 }
+/* Real photos/videos always fill their slot edge to edge, whatever their
+   native aspect ratio is, instead of only filling it when the source
+   happens to match the slot's ratio. object-position is set per file below
+   to keep each photo's important content centred in the crop. */
+.media img, .media video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center }
+
 .ph{ position:absolute; inset:0 }
 .ph-badge{ position:absolute; left:0; bottom:0; z-index:2; list-style:none; cursor:pointer;
   display:flex; align-items:center; gap:.6em; background:rgba(255,255,255,.94); color:var(--ink);

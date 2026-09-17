@@ -56,7 +56,10 @@ const OUTCOMES = [
 ];
 
 const swgrid = OUTCOMES.map((o, i) => {
-  const media = ph({ id: `S-0${i+1}`, kind: 'video', ratio: '3/4', file: `home-protect-${o.tag.toLowerCase()}.mp4`, shot: o.shot, prompt: o.prompt });
+  const key = o.tag.toLowerCase();
+  const media = (key === 'forces' || key === 'territory')
+    ? ph({ id: `S-0${i+1}`, kind: 'image', ratio: '3/4', file: `home-protect-${key}.jpg`, alt: key, shot: o.shot, prompt: o.prompt })
+    : ph({ id: `S-0${i+1}`, kind: 'video', ratio: '3/4', file: `home-protect-${key}.mp4`, shot: o.shot, prompt: o.prompt });
   return swCard({ idx: i+1, tag: o.tag, line: o.line, media, file: o.file });
 }).join('');
 
