@@ -45,6 +45,14 @@
     var m = document.querySelector('.mmenu');
     var close = document.querySelector('.mmenu-close');
     if(!btn || !m) return;
+    // Mark the current page's link so it can be highlighted; skip links that
+    // point at an anchor (Request a Briefing) rather than a page of its own.
+    var current = location.pathname.split('/').pop() || 'index.html';
+    m.querySelectorAll('.mmenu-links a').forEach(function(a){
+      var href = a.getAttribute('href');
+      if(href.indexOf('#') > -1) return;
+      if((href || 'index.html') === current) a.classList.add('active');
+    });
     btn.addEventListener('click', function(){ m.classList.add('open'); document.body.style.overflow='hidden'; });
     if(close) close.addEventListener('click', function(){ m.classList.remove('open'); document.body.style.overflow=''; });
     m.querySelectorAll('a').forEach(function(a){
@@ -120,16 +128,72 @@
     });
   }
 
-  function xfade(){
+  // System-page hero copy cycle: same decode aesthetic as the home hero
+  // scramble, but run as a transition between two known strings instead of
+  // a reveal from blank. Old and new text resolve at the same time, swept
+  // left to right one character per step, so the old line is overwritten by
+  // the new one rather than fading out then in. Each fully-resolved message
+  // holds for HOLD ms before the next swap starts.
+  function scrambleCycle(){
+    var LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    var KEEP = /[\s.,\/:;'’\-]/;
+    var HOLD = 4000, PER_CHAR = 18, RESOLVE = 260, TICK = 24;
+    function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
     document.querySelectorAll('.xfade').forEach(function(el){
-      var spans = el.querySelectorAll('span');
-      if(spans.length < 2) return;
-      var i = 0;
-      setInterval(function(){
-        spans[i].classList.remove('on');
-        i = (i+1) % spans.length;
-        spans[i].classList.add('on');
-      }, 3600);
+      var msgs = Array.prototype.map.call(el.querySelectorAll('span'), function(s){ return s.textContent; });
+      if(msgs.length < 2) return;
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      el.innerHTML = '';
+      var out = document.createElement('span');
+      el.appendChild(out);
+      out.textContent = msgs[0];
+      if(reduce) return;
+
+      // Reserve room for whichever variant is tallest so the swap never
+      // shifts the hero-sub/scroll-cue below it.
+      var probe = el.cloneNode(false);
+      probe.style.cssText = 'position:absolute; left:0; right:0; visibility:hidden; height:auto; min-height:0; pointer-events:none;';
+      document.body.appendChild(probe);
+      function reserve(){
+        probe.style.width = el.getBoundingClientRect().width + 'px';
+        var maxH = 0;
+        msgs.forEach(function(m){ probe.textContent = m; maxH = Math.max(maxH, probe.offsetHeight); });
+        el.style.minHeight = maxH + 'px';
+      }
+      reserve();
+      window.addEventListener('resize', reserve);
+
+      var idx = 0, timer;
+      function morph(){
+        var from = msgs[idx];
+        idx = (idx + 1) % msgs.length;
+        var to = msgs[idx];
+        var len = Math.max(from.length, to.length);
+        var total = len * PER_CHAR + RESOLVE;
+        var t0 = null, last = 0;
+        function frame(now){
+          if(t0 === null) t0 = now;
+          var el0 = now - t0;
+          if(now - last >= TICK || el0 >= total){
+            last = now;
+            var html = '';
+            for(var i = 0; i < len; i++){
+              var t = (el0 - i * PER_CHAR) / RESOLVE;
+              var fc = i < from.length ? from.charAt(i) : '';
+              var tc = i < to.length ? to.charAt(i) : '';
+              if(t <= 0) html += esc(fc);
+              else if(t >= 1) html += esc(tc);
+              else if(KEEP.test(fc || tc)) html += esc(tc || fc);
+              else html += '<b>' + esc(LETTERS.charAt(Math.floor(Math.random() * LETTERS.length))) + '</b>';
+            }
+            out.innerHTML = html;
+          }
+          if(el0 < total) requestAnimationFrame(frame);
+          else { out.textContent = to; timer = setTimeout(morph, HOLD); }
+        }
+        requestAnimationFrame(frame);
+      }
+      timer = setTimeout(morph, HOLD);
     });
   }
 
@@ -447,7 +511,7 @@
   }
 
   document.addEventListener('DOMContentLoaded', function(){
-    header(); nav(); menu(); reveal(); tabs(); xfade();
+    header(); nav(); menu(); reveal(); tabs(); scrambleCycle();
     var words = document.querySelector('[data-hero-words]');
     if(words && document.querySelector('[data-scramble]')){
       words.classList.add('is-waiting');
