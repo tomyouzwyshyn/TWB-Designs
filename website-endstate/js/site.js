@@ -132,6 +132,11 @@
         });
       }, { root: rail, threshold:.6 }) : null;
       if(io) panels.forEach(function(p){ io.observe(p); });
+      // Force the rail back to the first panel on load: browsers sometimes
+      // restore a scrollable element's previous scroll position on reload,
+      // which would otherwise leave the carousel showing wherever it was
+      // last left (mismatched with the Detection tab looking active).
+      rail.scrollLeft = 0;
       if(btns.length){ setActive(0); restart(); }
     });
   }
