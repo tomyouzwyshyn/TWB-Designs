@@ -108,8 +108,8 @@ p{ font-size:1rem; line-height:1.5; color:var(--ink-2); max-width:var(--measure)
 /* Current-page link: same white glow recipe as the home hero's lit word row */
 .mmenu-links a.active{ color:#FFFFFF;
   text-shadow:0 0 8px rgba(225,235,215,.95), 0 0 22px rgba(201,214,190,.8), 0 0 44px rgba(157,170,146,.55), 0 0 70px rgba(157,170,146,.3) }
-.mmenu-foot{ margin-top:auto; padding-top:var(--s4); font-family:var(--ui); font-size:.72rem;
-  letter-spacing:var(--track-ui); text-transform:uppercase; color:var(--dark-ink-2) }
+.mmenu-foot{ margin-top:auto; padding-top:var(--s4) }
+.mmenu-foot img{ height:24px; width:auto; display:block }
 
 /* ---------- hero (dark, media-led) ---------- */
 .hero{ position:relative; min-height:100svh; display:flex; flex-direction:column; justify-content:center;
