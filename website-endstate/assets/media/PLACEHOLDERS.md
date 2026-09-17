@@ -11,12 +11,14 @@ Every placeholder includes: what to shoot or generate, and a ready-to-paste prom
 
 **What it should be:** Slow aerial drift over a quiet former conflict landscape at first light: fields, a treeline, a river, low mist. Near the edge of frame a small autonomous ground robot moves along a survey line. Calm, vast, restored.
 
-**Generation prompt:**
+**Stand-in photo file:** `home-hero.jpg` (shows until the video exists, then becomes its poster)
+
+**Photo prompt (stand-in and video source):**
 ```
-Wide aerial establishing shot at first light over a quiet, recovering former conflict landscape: a patchwork of green and ochre fields, a dark treeline, and a slow river bending through the frame under a thin layer of low mist. Near the lower right third, very small in the frame, a matte charcoal tracked autonomous ground robot moves along a faint straight survey line cut through dewy grass, a soft sage-green scan light sweeping the ground a metre ahead of it. The feeling is calm, vast and restored, land being made safe again. Drone altitude around 120 metres, 24mm lens, horizon in the top third, cool dawn light with a faint warm rim on the mist. Shot as high-end cinematic documentary photography for a defence technology company: restrained charcoal and muted sage-green colour grade, deep but detailed shadows, soft atmospheric haze, subtle natural film grain, photorealistic, ultra-detailed, 8K. 16:9.
+Single still photograph, wide aerial view at first light over a quiet, recovering former conflict landscape: a patchwork of green and ochre fields, a dark treeline and a slow river bending through the frame under a thin layer of low mist. Small in the lower right third, a matte charcoal tracked autonomous ground robot stands on a faint straight survey line cut through dewy grass, a soft sage-green scan light falling on the ground a metre ahead of it. Calm, vast and restored: land being made safe again. Drone altitude around 120 metres, 24mm lens, horizon in the top third, cool dawn light with a faint warm rim on the mist, room above the horizon for a headline. Shot as high-end cinematic documentary photography for a defence technology company: restrained charcoal and muted sage-green colour grade, deep but detailed shadows, soft atmospheric haze, subtle natural film grain, photorealistic, ultra-detailed, 8K. 16:9.
 ```
 
-**Motion (image to video):**
+**Motion (video from the photo):**
 ```
 Very slow forward aerial drift with a gentle 5 degree clockwise yaw, 10 second seamless loop. Mist drifts slowly left to right; the robot advances a few metres along its line. No cuts.
 ```
@@ -72,12 +74,14 @@ text, captions, watermarks, logos, brand names, flags, national insignia, unit p
 
 **What it should be:** A soldier silhouette at a safe distance watching a robot work in the mid-ground. Protective, calm.
 
-**Generation prompt:**
+**Stand-in photo file:** `home-protect-forces.jpg` (shows until the video exists, then becomes its poster)
+
+**Photo prompt (stand-in and video source):**
 ```
-Vertical cinematic frame: an open grass field under heavy overcast sky. In the far background, a lone figure in plain field uniform and helmet stands still at a safe distance, seen from behind as a dark silhouette, arms relaxed. In the mid-ground, a small matte charcoal tracked robot works slowly across the grass with a sensor arm lowered close to the ground, a faint sage-green light on its sensor head. Protective, calm, deliberate: the machine takes the forward position. 85mm lens, camera low behind the robot looking toward the figure, shallow depth of field. Shot as high-end cinematic documentary photography for a defence technology company: restrained charcoal and muted sage-green colour grade, deep but detailed shadows, soft atmospheric haze, subtle natural film grain, photorealistic, ultra-detailed, 8K. 3:4 vertical.
+Single still photograph, vertical: an open grass field under heavy overcast sky. In the far background a lone figure in plain field uniform and helmet stands still at a safe distance, seen from behind as a dark silhouette, arms relaxed. In the mid-ground a small matte charcoal tracked robot is frozen mid-task with its sensor arm lowered close to the grass, a faint sage-green light on its sensor head. Protective, calm, deliberate: the machine takes the forward position. 85mm lens, camera low behind the robot looking toward the figure, shallow depth of field, darker lower third so a caption reads cleanly. Shot as high-end cinematic documentary photography for a defence technology company: restrained charcoal and muted sage-green colour grade, deep but detailed shadows, soft atmospheric haze, subtle natural film grain, photorealistic, ultra-detailed, 8K. 3:4 vertical.
 ```
 
-**Motion (image to video):**
+**Motion (video from the photo):**
 ```
 Static locked-off camera with a very slow 3 percent push-in, 8 second seamless loop. The robot creeps forward and the grass moves slightly in the wind; the figure does not move.
 ```
@@ -91,14 +95,16 @@ text, captions, watermarks, logos, brand names, flags, national insignia, unit p
 
 **What it should be:** A slow drone rise over a cleared field returning to farmland, a faint survey grid fading away.
 
-**Generation prompt:**
+**Stand-in photo file:** `home-protect-territory.jpg` (shows until the video exists, then becomes its poster)
+
+**Photo prompt (stand-in and video source):**
 ```
-Vertical aerial view looking straight down over a large field that has just been cleared and is returning to farmland: fresh green crop rows on one half, lightly tilled brown earth on the other. A faint, glowing sage-green survey grid of thin lines is overlaid precisely on the ground, visibly fading out toward the green half as if the land has been verified and released. Soft morning light, long shadows from a single tree at the field edge. Hopeful, orderly, restored. Top-down drone shot at 80 metres. Shot as high-end cinematic documentary photography for a defence technology company: restrained charcoal and muted sage-green colour grade, deep but detailed shadows, soft atmospheric haze, subtle natural film grain, photorealistic, ultra-detailed, 8K. 3:4 vertical.
+Single still photograph, vertical aerial view looking straight down over a large field returning to farmland: fresh green crop rows fill the upper half, lightly tilled brown earth the lower half. Thin, glowing sage-green survey grid lines are laid precisely over the brown earth only and stop cleanly at the edge of the green rows, as if the land has been verified and released. Soft morning light, long shadows from a single tree at the field edge. Hopeful, orderly, restored. Top-down drone shot at 80 metres. Shot as high-end cinematic documentary photography for a defence technology company: restrained charcoal and muted sage-green colour grade, deep but detailed shadows, soft atmospheric haze, subtle natural film grain, photorealistic, ultra-detailed, 8K. 3:4 vertical.
 ```
 
-**Motion (image to video):**
+**Motion (video from the photo):**
 ```
-Slow vertical drone rise, 8 second seamless loop, while the survey grid lines dissolve from top to bottom and disappear.
+From the still, 8 second slow vertical drone rise while the survey grid lines gently fade and the green rows sway. Seamless loop.
 ```
 
 **Avoid / negative prompt:**
@@ -110,12 +116,14 @@ text, captions, watermarks, logos, brand names, flags, national insignia, unit p
 
 **What it should be:** A tagged item scanned on a bench, a record line completing on a screen.
 
-**Generation prompt:**
+**Stand-in photo file:** `home-protect-custody.jpg` (shows until the video exists, then becomes its poster)
+
+**Photo prompt (stand-in and video source):**
 ```
-Vertical macro shot inside a clean, secure evidence and custody facility: a gloved hand in a black nitrile glove holds a compact handheld barcode scanner over a sealed tamper-evident bag with a blank barcode label, resting on a stainless steel bench scale. Just behind, softly out of focus, a rugged tablet shows a dark interface with a vertical timeline and a single sage-green step completing. Cool clinical top light, a thin red scanner line on the label. Precise, accountable, trustworthy. 100mm macro lens, shallow depth of field. Shot as high-end cinematic documentary photography for a defence technology company: restrained charcoal and muted sage-green colour grade, deep but detailed shadows, soft atmospheric haze, subtle natural film grain, photorealistic, ultra-detailed, 8K. 3:4 vertical.
+Single still photograph, vertical macro inside a clean, secure custody facility: a hand in a black nitrile glove holds a compact handheld barcode scanner over a sealed tamper-evident bag with a blank barcode label, resting on a stainless steel bench scale; a thin red scanner line lies across the label. Just behind, softly out of focus, a rugged tablet shows a dark interface with a vertical timeline and one step glowing sage green. Cool clinical top light. Precise, accountable, trustworthy. 100mm macro lens, shallow depth of field. Shot as high-end cinematic documentary photography for a defence technology company: restrained charcoal and muted sage-green colour grade, deep but detailed shadows, soft atmospheric haze, subtle natural film grain, photorealistic, ultra-detailed, 8K. 3:4 vertical.
 ```
 
-**Motion (image to video):**
+**Motion (video from the photo):**
 ```
 Static shot, 8 second seamless loop: the scanner line flickers across the label, the tablet timeline step fills with sage green, a tiny scale readout settles.
 ```
@@ -129,12 +137,14 @@ text, captions, watermarks, logos, brand names, flags, national insignia, unit p
 
 **What it should be:** Recovered metal ingots being stacked, warm reflections on their surfaces.
 
-**Generation prompt:**
+**Stand-in photo file:** `home-protect-supply.jpg` (shows until the video exists, then becomes its poster)
+
+**Photo prompt (stand-in and video source):**
 ```
-Vertical close-up in a clean industrial warehouse: two hands in heavy leather work gloves set a freshly cast recovered metal ingot onto a neat, perfectly aligned stack of matching ingots on a steel pallet. The ingots have a satin brushed finish with soft cool reflections from high clerestory windows. The background is a softly blurred orderly racking aisle. Solid, domestic, valuable: materials returning to supply. 50mm lens at waist height, shallow depth of field, cool daylight with a faint warm bounce from the metal. Shot as high-end cinematic documentary photography for a defence technology company: restrained charcoal and muted sage-green colour grade, deep but detailed shadows, soft atmospheric haze, subtle natural film grain, photorealistic, ultra-detailed, 8K. 3:4 vertical.
+Single still photograph, vertical close-up in a clean industrial warehouse: two hands in heavy leather work gloves rest a recovered metal ingot squarely on top of a perfectly aligned stack of matching ingots on a steel pallet. Satin brushed finish, soft cool reflections from high clerestory windows, a clean glint along the top edges. Background is a softly blurred orderly racking aisle. Solid, domestic, valuable: materials returning to supply. 50mm lens at waist height, shallow depth of field, cool daylight with a faint warm bounce from the metal. Shot as high-end cinematic documentary photography for a defence technology company: restrained charcoal and muted sage-green colour grade, deep but detailed shadows, soft atmospheric haze, subtle natural film grain, photorealistic, ultra-detailed, 8K. 3:4 vertical.
 ```
 
-**Motion (image to video):**
+**Motion (video from the photo):**
 ```
 Slow 8 second loop: the ingot is lowered and settles onto the stack, a slight light glint travels across the top surfaces, subtle rack focus from hands to stack.
 ```
@@ -178,14 +188,16 @@ text, captions, watermarks, logos, brand names, flags, national insignia, unit p
 
 **What it should be:** Split sequence: a ground robot on a range, a small uncrewed surface vessel in a calm harbour, and a torpedo-shaped underwater vehicle gliding over a sandy seabed. Same colour grade across all three.
 
-**Generation prompt:**
+**Stand-in photo file:** `detection-platforms.jpg` (shows until the video exists, then becomes its poster)
+
+**Photo prompt (stand-in and video source):**
 ```
-A three-panel cinematic triptych in one wide frame, separated by thin black gutters and graded identically in muted charcoal and sage: left panel, a tracked unmanned ground robot on a gravel training range under overcast sky; centre panel, a small low-profile uncrewed surface vessel moving through a calm grey harbour past concrete quay walls; right panel, a sleek torpedo-shaped autonomous underwater vehicle gliding low over a rippled sandy seabed in blue-green filtered light with drifting particles. Each vehicle is matte dark grey with a single sage-green status light. Land, surface, underwater: one fleet. Shot as high-end cinematic documentary photography for a defence technology company: restrained charcoal and muted sage-green colour grade, deep but detailed shadows, soft atmospheric haze, subtle natural film grain, photorealistic, ultra-detailed, 8K. 16:10.
+Single still photograph, one frame and no panels: a calm grey harbour mouth at dawn where a low concrete slipway meets the water. On the wet slipway in the foreground left, a matte charcoal tracked unmanned ground robot faces the sea. In the mid-ground on flat water, a small low-profile uncrewed surface vessel with a stubby antenna mast holds position, and a sleek torpedo-shaped autonomous underwater vehicle floats beside it, half submerged, its upper hull breaking the surface. All three are matte dark grey with a single sage-green status light each. Land, surface and underwater: one fleet. Thin mist, overcast sky, 50mm lens at slipway height. Shot as high-end cinematic documentary photography for a defence technology company: restrained charcoal and muted sage-green colour grade, deep but detailed shadows, soft atmospheric haze, subtle natural film grain, photorealistic, ultra-detailed, 8K. 16:10.
 ```
 
-**Motion (image to video):**
+**Motion (video from the photo):**
 ```
-Each panel moves independently for 8 seconds: the ground robot drives forward, the surface vessel crosses right, the underwater vehicle glides left with particles drifting. Seamless loop.
+From the still, 8 seconds: the ground robot rolls slowly toward the waterline, the surface vessel drifts right, the underwater vehicle sinks gently out of sight; mist moves. Seamless loop.
 ```
 
 **Avoid / negative prompt:**
@@ -197,14 +209,16 @@ text, captions, watermarks, logos, brand names, flags, national insignia, unit p
 
 **What it should be:** An interface animation: several translucent sensor layers stack over a terrain map and resolve into a handful of highlighted contacts with confidence rings.
 
-**Generation prompt:**
+**Stand-in photo file:** `detection-fusion.jpg` (shows until the video exists, then becomes its poster)
+
+**Photo prompt (stand-in and video source):**
 ```
-Premium dark-mode geospatial software interface filling the frame: a detailed 3D topographic terrain map viewed at a 45 degree angle, with several translucent data layers hovering above it in exploded view: magnetic field contour lines in pale sage, a ground-penetrating radar slice in soft grey gradients, and scattered sonar return points. Below, on the terrain, five small contacts glow sage-green, each surrounded by a thin concentric confidence ring. Clean sans-serif UI chrome at the edges with abstract labels and no readable real data. Minimal, precise, high-end defence software aesthetic, like a Palantir product screenshot. Charcoal background, soft glow, crisp vector lines. 16:10.
+Single still photograph of a large high-resolution monitor in a dim operations room, shot straight-on so the screen fills about 90 percent of the frame with a thin dark bezel and a soft reflection at one edge. On screen, a premium dark-mode geospatial interface: a detailed 3D topographic terrain map at a 45 degree angle with thin magnetic contour lines in pale sage and scattered sonar return points laid directly on the surface, and five small contacts glowing sage green, each inside a thin confidence ring. Clean sans-serif UI chrome at the edges with abstract labels and no readable real data. Minimal, precise, high-end defence software aesthetic. Charcoal tones, soft screen glow, crisp vector lines, photoreal. 16:10.
 ```
 
-**Motion (image to video):**
+**Motion (video from the photo):**
 ```
-Smooth 10 second loop: data layers descend one at a time and merge into the terrain, then contacts light up with rings expanding once. Slow orbiting camera.
+From the still, 10 seconds: very slow push-in on the screen, the confidence rings pulse outward once in sequence, a faint scan sweep crosses the terrain. Seamless loop.
 ```
 
 **Avoid / negative prompt:**
@@ -244,12 +258,14 @@ text, captions, watermarks, logos, brand names, flags, national insignia, unit p
 
 **What it should be:** A tracked unmanned ground vehicle moving slowly across open scrubland at first light, sensor mast raised, a faint scan line sweeping the ground ahead of it. No people in frame. Wide, low, patient.
 
-**Generation prompt:**
+**Stand-in photo file:** `detection-hero.jpg` (shows until the video exists, then becomes its poster)
+
+**Photo prompt (stand-in and video source):**
 ```
-Low, wide cinematic shot at dawn across open scrubland and dry grass on a former military training range. A compact matte charcoal tracked unmanned ground vehicle crosses left to right with its telescoping sensor mast raised; a ground-penetrating sensor array hangs just above the soil at the front, projecting a faint sage-green scan line that sweeps the ground ahead. Thin low mist, a distant line of bare trees, first sunlight catching the top of the mast. No people. Wide, low, patient: the machine goes first. 24mm lens at 40cm off the ground, robot in the right third, lots of sky. Shot as high-end cinematic documentary photography for a defence technology company: restrained charcoal and muted sage-green colour grade, deep but detailed shadows, soft atmospheric haze, subtle natural film grain, photorealistic, ultra-detailed, 8K. 16:9.
+Single still photograph, low and wide at dawn across open scrubland and dry grass on a former military training range. A compact matte charcoal tracked unmanned ground vehicle sits in the right third facing left, telescoping sensor mast raised; a ground-penetrating sensor array hangs just above the soil at its front and throws a faint sage-green scan line onto the ground ahead. Thin low mist, a distant line of bare trees, first sunlight catching the top of the mast. No people. Wide, low, patient: the machine goes first. 24mm lens at 40cm off the ground, lots of sky. Shot as high-end cinematic documentary photography for a defence technology company: restrained charcoal and muted sage-green colour grade, deep but detailed shadows, soft atmospheric haze, subtle natural film grain, photorealistic, ultra-detailed, 8K. 16:9.
 ```
 
-**Motion (image to video):**
+**Motion (video from the photo):**
 ```
 Slow lateral tracking shot matching the robot left to right with a gentle push-in, 10 seconds. The scan line pulses softly across the ground; mist drifts.
 ```
@@ -265,12 +281,14 @@ text, captions, watermarks, logos, brand names, flags, national insignia, unit p
 
 **What it should be:** Over-the-shoulder view of a handheld device pointed at a partially buried item; on screen a bounding box locks on and a classification card appears.
 
-**Generation prompt:**
+**Stand-in photo file:** `identification-recognition.jpg` (shows until the video exists, then becomes its poster)
+
+**Photo prompt (stand-in and video source):**
 ```
-Over-the-shoulder photoreal shot in dry, stony earth: a gloved hand holds a rugged handheld inspection device aimed down at a partially buried, rust-covered cylindrical object half exposed in the soil. On the device screen, the live camera view shows the same object with a sage-green bounding box locked on and a small classification card with an abstract icon and confidence bar, no readable words. Soft overcast daylight, dust on the glove, the ground in front softly out of focus. Careful, confident, first contact. 35mm lens just behind the shoulder, focus on the screen. Shot as high-end cinematic documentary photography for a defence technology company: restrained charcoal and muted sage-green colour grade, deep but detailed shadows, soft atmospheric haze, subtle natural film grain, photorealistic, ultra-detailed, 8K. 16:10.
+Single still photograph, over the shoulder in dry, stony earth: a gloved hand holds a rugged handheld inspection device aimed down at a partially buried, rust-covered cylindrical object half exposed in the soil. On the device screen, the live camera view shows the same object with a tight sage-green bounding box locked on and a small classification card with an abstract icon and confidence bar, no readable words. Soft overcast daylight, dust on the glove, the ground in front softly out of focus. Careful, confident, first contact. 35mm lens just behind the shoulder, focus on the screen. Shot as high-end cinematic documentary photography for a defence technology company: restrained charcoal and muted sage-green colour grade, deep but detailed shadows, soft atmospheric haze, subtle natural film grain, photorealistic, ultra-detailed, 8K. 16:10.
 ```
 
-**Motion (image to video):**
+**Motion (video from the photo):**
 ```
 Handheld-steady 8 second loop: the device moves slightly, the bounding box snaps from loose to tight lock, the card slides in.
 ```
@@ -298,12 +316,14 @@ readable text, numbers, real data, logos, red alarm colours, cluttered dashboard
 
 **What it should be:** Top-down view of items moving slowly under a scanning bar, each receiving a confirmation mark; one item is highlighted and the line pauses.
 
-**Generation prompt:**
+**Stand-in photo file:** `identification-line.jpg` (shows until the video exists, then becomes its poster)
+
+**Photo prompt (stand-in and video source):**
 ```
-Top-down industrial camera view of a clean conveyor line inside a demilitarization facility: a row of identical cylindrical small-calibre and medium-calibre casings in neat rows moving left to right beneath a thin horizontal scanning light bar glowing pale white. Each item that has passed the bar carries a small sage-green check mark projected beside it; one item near the centre is outlined in soft amber, indicating it has been held. Matte steel rollers, cool even industrial lighting, crisp detail. Methodical, verified, nothing slips through. Perfectly overhead view, symmetrical. Shot as high-end cinematic documentary photography for a defence technology company: restrained charcoal and muted sage-green colour grade, deep but detailed shadows, soft atmospheric haze, subtle natural film grain, photorealistic, ultra-detailed, 8K. 16:10.
+Single still photograph, perfectly top-down view of a clean conveyor line inside a demilitarization facility: rows of identical small and medium calibre cylindrical casings sit beneath a thin horizontal scanning light bar glowing pale white across the centre. Items past the bar each carry a small projected sage-green check mark; one item just past the bar is outlined in soft amber, held for review. Matte steel rollers, cool even industrial lighting, crisp detail, symmetrical. Methodical, verified, nothing slips through. Shot as high-end cinematic documentary photography for a defence technology company: restrained charcoal and muted sage-green colour grade, deep but detailed shadows, soft atmospheric haze, subtle natural film grain, photorealistic, ultra-detailed, 8K. 16:10.
 ```
 
-**Motion (image to video):**
+**Motion (video from the photo):**
 ```
 8 second seamless loop: items advance under the scan bar, each gets a check mark, then the line pauses as the amber item lights up.
 ```
@@ -331,12 +351,14 @@ readable text, numbers, names, logos, busy spreadsheet look, bright colours, sto
 
 **What it should be:** Macro camera move across a weathered munition casing under cool light while a thin recognition outline traces its profile and a classification tag resolves beside it. No readable real markings.
 
-**Generation prompt:**
+**Stand-in photo file:** `identification-hero.jpg` (shows until the video exists, then becomes its poster)
+
+**Photo prompt (stand-in and video source):**
 ```
-Extreme macro cinematic image along the body of a weathered, corroded cylindrical munition casing resting on a matte black surface: rust bloom, flaking olive paint, pitted metal and a dirt-caked driving band in razor-sharp detail. Cool hard raking light from one side against a black void. A thin sage-green computer-vision outline traces the casing's profile with small tick marks, and a tiny abstract classification tag hovers just above it. Forensic, certain, quiet. 100mm macro lens, very shallow depth of field, subject on a diagonal from lower left to upper right. Shot as high-end cinematic documentary photography for a defence technology company: restrained charcoal and muted sage-green colour grade, deep but detailed shadows, soft atmospheric haze, subtle natural film grain, photorealistic, ultra-detailed, 8K. 16:9.
+Single still photograph, extreme macro along the body of a weathered, corroded cylindrical munition casing resting on a matte black surface: rust bloom, flaking olive paint, pitted metal and a dirt-caked driving band in razor-sharp detail. Cool hard raking light from one side against a black void. A thin sage-green computer-vision outline traces the full profile with small tick marks, and a tiny abstract classification tag sits just above the nose. Forensic, certain, quiet. 100mm macro lens, very shallow depth of field, subject on a diagonal from lower left to upper right. Shot as high-end cinematic documentary photography for a defence technology company: restrained charcoal and muted sage-green colour grade, deep but detailed shadows, soft atmospheric haze, subtle natural film grain, photorealistic, ultra-detailed, 8K. 16:9.
 ```
 
-**Motion (image to video):**
+**Motion (video from the photo):**
 ```
 Slow macro dolly along the casing from base to nose, 10 seconds, while the outline draws itself along the profile and the tag fades in at the end.
 ```
@@ -380,12 +402,14 @@ text, captions, watermarks, logos, brand names, flags, national insignia, unit p
 
 **What it should be:** Close on the closed chamber door with its indicator panel lit, then a slow pull back to an operator watching a readout from a safe distance.
 
-**Generation prompt:**
+**Stand-in photo file:** `remediation-chamber.jpg` (shows until the video exists, then becomes its poster)
+
+**Photo prompt (stand-in and video source):**
 ```
-Cinematic close shot of a heavy sealed industrial chamber door on a destruction unit: brushed steel, thick hinges, a locked handle and a small indicator panel with three softly lit status lights, one glowing sage green. In the background, softly out of focus at a safe distance, an operator in plain grey coveralls watches a control readout, face turned away. Cool industrial lighting with a faint warm glow leaking from the door seal. Quiet, procedural, controlled. 50mm lens, focus on the door. Shot as high-end cinematic documentary photography for a defence technology company: restrained charcoal and muted sage-green colour grade, deep but detailed shadows, soft atmospheric haze, subtle natural film grain, photorealistic, ultra-detailed, 8K. 16:10.
+Single still photograph, medium shot of a heavy sealed industrial chamber door on a destruction unit: brushed steel, thick hinges, a locked handle and a small indicator panel with three softly lit status lights, the lowest glowing sage green, in sharp focus in the left half. In the right half, softly out of focus at a safe distance, an operator in plain grey coveralls stands at a control readout, face turned away. Cool industrial lighting with a faint warm glow leaking from the door seal. Quiet, procedural, controlled. 50mm lens. Shot as high-end cinematic documentary photography for a defence technology company: restrained charcoal and muted sage-green colour grade, deep but detailed shadows, soft atmospheric haze, subtle natural film grain, photorealistic, ultra-detailed, 8K. 16:10.
 ```
 
-**Motion (image to video):**
+**Motion (video from the photo):**
 ```
 Starts close on the indicator panel, then a slow 10 second pull-back revealing the operator at the control station; one indicator changes to green.
 ```
@@ -413,14 +437,16 @@ text, captions, watermarks, logos, brand names, flags, national insignia, unit p
 
 **What it should be:** Interface capture: a program dashboard showing a lifecycle timeline from detection through recovery, with a recovered-fractions panel filling in.
 
-**Generation prompt:**
+**Stand-in photo file:** `remediation-record.jpg` (shows until the video exists, then becomes its poster)
+
+**Photo prompt (stand-in and video source):**
 ```
-Premium dark-mode program dashboard screen, straight-on: across the top, a horizontal lifecycle timeline with five connected stages drawn as small icons (detection, identification, custody, destruction, recovery), the first four lit in sage green. Below, a large panel shows recovered metal fractions as a clean horizontal bar chart with muted metallic tones, and a side panel shows a map thumbnail and a certificate badge. Clean sans-serif UI with abstract placeholder labels, no readable text or numbers, charcoal background, subtle glass cards, generous spacing. One record, whole program. 16:10.
+Single still photograph of a large high-resolution monitor in a dim, orderly program office, shot straight-on so the screen fills about 90 percent of the frame with a thin dark bezel. On screen, a premium dark-mode program dashboard: across the top, a horizontal lifecycle timeline with five connected stage icons (detection, identification, custody, destruction, recovery), all five lit in sage green; below, a clean horizontal bar chart of recovered metal fractions in muted metallic tones; at the side, a map thumbnail and a certificate badge. Abstract placeholder labels, no readable text or numbers, subtle glass cards, generous spacing. One record, whole program. Soft screen glow, photoreal. 16:10.
 ```
 
-**Motion (image to video):**
+**Motion (video from the photo):**
 ```
-10 second loop: timeline stages light up left to right, then the fraction bars grow in sequence; slow cursor moves to the certificate badge.
+From the still, 10 seconds: slow push-in on the screen, the timeline stages pulse left to right, the fraction bars ease from shorter to full length, the certificate badge glows once. Seamless loop.
 ```
 
 **Avoid / negative prompt:**
@@ -432,12 +458,14 @@ readable text, numbers, logos, bright rainbow charts, cluttered BI dashboard, ne
 
 **What it should be:** The eMACS unit at dusk inside a secured compound, doors open and the chamber lit from within, a slow push-in. Perimeter fence softly visible behind. No people, no placards.
 
-**Generation prompt:**
+**Stand-in photo file:** `remediation-hero.jpg` (shows until the video exists, then becomes its poster)
+
+**Photo prompt (stand-in and video source):**
 ```
-Cinematic dusk image of a matte dark-olive mobile industrial trailer unit, a closed-chamber munitions destruction and recovery system, parked inside a secured compound. Its side doors are open and the interior chamber glows with a warm, contained amber light that spills onto wet concrete. Behind it, a tall perimeter fence and two soft floodlights with light haze in the beams; a deep blue sky with a last line of dusk. No people. Controlled, powerful, contained. 35mm anamorphic lens at low angle, trailer on the right third. Shot as high-end cinematic documentary photography for a defence technology company: restrained charcoal and muted sage-green colour grade, deep but detailed shadows, soft atmospheric haze, subtle natural film grain, photorealistic, ultra-detailed, 8K. 16:9.
+Single still photograph at dusk of a matte dark-olive mobile industrial trailer unit, a closed-chamber munitions destruction and recovery system, parked inside a secured compound. Its side doors are open and the interior chamber glows with a warm, contained amber light that spills across wet concrete. Behind it, a tall perimeter fence and two soft floodlights with haze visible in the beams; a deep blue sky with a last line of dusk. No people. Controlled, powerful, contained. 35mm anamorphic lens at low angle, trailer on the right third, open sky at left for a headline. Shot as high-end cinematic documentary photography for a defence technology company: restrained charcoal and muted sage-green colour grade, deep but detailed shadows, soft atmospheric haze, subtle natural film grain, photorealistic, ultra-detailed, 8K. 16:9.
 ```
 
-**Motion (image to video):**
+**Motion (video from the photo):**
 ```
 Slow push-in toward the open doors, 10 seconds; the interior glow breathes gently, haze drifts through the floodlight beams.
 ```

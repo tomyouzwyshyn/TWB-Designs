@@ -22,11 +22,11 @@ const sections = groups.map(([label, file, rows]) => {
     <article class="card" data-page="${label}" data-kind="${r.kind}" id="${r.id}">
       <header class="card-head">
         <div class="ids"><span class="id">${r.id}</span><span class="chip ${r.kind}">${r.kind === 'video' ? 'Video' : 'Image'}</span><span class="chip">${ratioLabel(r.ratio)}</span></div>
-        <code class="file">${esc(r.file)}</code>
+        <code class="file">${esc(r.file)}${r.still ? ' + ' + esc(r.still) : ''}</code>
       </header>
       <p class="brief">${esc(r.shot)}</p>
-      ${block(r.kind === 'video' ? 'Prompt (keyframe)' : 'Prompt', r.prompt, 'p')}
-      ${r.motion ? block('Motion, for image to video', r.motion, 'm') : ''}
+      ${block(r.kind === 'video' ? 'Photo prompt, stand-in and video source' : 'Prompt', r.prompt, 'p')}
+      ${r.motion ? block('Motion, for your video from the photo', r.motion, 'm') : ''}
       ${r.negative ? block('Avoid / negative prompt', r.negative, 'neg') : ''}
     </article>`; }).join('');
   return `
@@ -102,7 +102,7 @@ button:focus-visible{ outline:2px solid var(--focus); outline-offset:2px }
     </div>
     <ul class="how">
       <li><b>Images</b><span>Paste the prompt into Midjourney, Flux, Imagen or Firefly and set the aspect ratio shown on the card.</span></li>
-      <li><b>Video</b><span>Generate the keyframe from the prompt, then give it to Runway, Veo, Kling or Sora with the motion line.</span></li>
+      <li><b>Video</b><span>Generate the photo from the prompt and save it with the .jpg name shown. It fills the slot on the site right away. Then give the same photo to Runway, Veo, Kling or Sora with the motion line and save the result as the .mp4, which replaces the photo automatically.</span></li>
       <li><b>Avoid</b><span>Paste into the negative prompt field, or add it after the prompt as "Avoid: …".</span></li>
       <li><b>Save as</b><span>Use the exact file name and drop it in assets/media/. The site swaps it in automatically.</span></li>
     </ul>

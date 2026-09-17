@@ -127,10 +127,23 @@
   function media(){
     document.querySelectorAll('[data-video]').forEach(function(el){
       var file = 'assets/media/' + el.getAttribute('data-video');
+      var stillName = el.getAttribute('data-still');
+      var hasVideo = false;
+      // The still photo stands in until the video exists, then becomes its poster.
+      if(stillName){
+        var img = new Image();
+        img.onload = function(){
+          if(hasVideo){ var vv = el.querySelector('video'); if(vv) vv.poster = img.src; return; }
+          el.innerHTML = ''; img.alt = el.getAttribute('data-alt')||''; el.appendChild(img);
+        };
+        img.src = 'assets/media/' + stillName;
+      }
       var v = document.createElement('video');
       v.muted = true; v.loop = true; v.playsInline = true; v.preload = 'none';
       v.addEventListener('error', function(){ v.remove(); });
       v.addEventListener('loadeddata', function(){
+        hasVideo = true;
+        if(stillName && img && img.complete && img.naturalWidth) v.poster = img.src;
         el.innerHTML = ''; el.appendChild(v); v.play().catch(function(){});
       });
       v.src = file;

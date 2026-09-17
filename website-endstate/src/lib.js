@@ -37,8 +37,12 @@ function brk(){
 function ph({ id, kind = 'video', ratio = '16/9', file, shot, prompt, alt = '' }){
   const detail = PROMPTS[id] || {};
   const fullPrompt = detail.prompt || prompt;
-  PH_LOG.push({ id, kind, ratio, file, shot, prompt: fullPrompt, motion: detail.motion || '', negative: detail.negative || '' });
-  const dataAttr = kind === 'video' ? `data-video="${file}"` : `data-image="${file}" data-alt="${alt.replace(/"/g,'&quot;')}"`;
+  // Video slots also take a still photo with the same name as a .jpg. It shows
+  // until the .mp4 exists, then becomes the video's poster frame.
+  const still = kind === 'video' ? file.replace(/\.[a-z0-9]+$/i, '.jpg') : '';
+  PH_LOG.push({ id, kind, ratio, file, still, shot, prompt: fullPrompt, motion: detail.motion || '', negative: detail.negative || '' });
+  const altAttr = `data-alt="${alt.replace(/"/g,'&quot;')}"`;
+  const dataAttr = kind === 'video' ? `data-video="${file}" data-still="${still}" ${altAttr}` : `data-image="${file}" ${altAttr}`;
   return `
   <div class="media" style="aspect-ratio:${ratio}" ${dataAttr}>
     <details class="ph">
@@ -46,10 +50,10 @@ function ph({ id, kind = 'video', ratio = '16/9', file, shot, prompt, alt = '' }
         <span class="ph-kind">${kind}</span><span class="ph-id">${id}</span><span class="ph-ratio">${ratio}</span>
       </summary>
       <div class="ph-panel">
-        <div class="ph-file">${file}</div>
+        <div class="ph-file">${file}${still ? ` &middot; photo: ${still}` : ''}</div>
         <div class="ph-shot">${shot}</div>
         <div class="ph-prompt">
-          <div class="ph-prompt-label">Generation prompt</div>
+          <div class="ph-prompt-label">${kind === 'video' ? 'Photo prompt (stand-in and video source)' : 'Generation prompt'}</div>
           <div class="ph-prompt-text">${fullPrompt}</div>
         </div>${detail.motion ? `
         <div class="ph-prompt">

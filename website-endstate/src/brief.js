@@ -38,8 +38,9 @@ for(const [label, rows] of rowsByPage){
     total++;
     out += `### ${r.id} — \`${r.file}\` (${r.kind}, ${r.ratio})\n\n`;
     out += `**What it should be:** ${r.shot}\n\n`;
-    out += `**Generation prompt:**\n\`\`\`\n${r.prompt}\n\`\`\`\n\n`;
-    if(r.motion) out += `**Motion (image to video):**\n\`\`\`\n${r.motion}\n\`\`\`\n\n`;
+    if(r.still) out += `**Stand-in photo file:** \`${r.still}\` (shows until the video exists, then becomes its poster)\n\n`;
+    out += `**${r.still ? 'Photo prompt (stand-in and video source)' : 'Generation prompt'}:**\n\`\`\`\n${r.prompt}\n\`\`\`\n\n`;
+    if(r.motion) out += `**Motion (video from the photo):**\n\`\`\`\n${r.motion}\n\`\`\`\n\n`;
     if(r.negative) out += `**Avoid / negative prompt:**\n\`\`\`\n${r.negative}\n\`\`\`\n\n`;
   }
 }
