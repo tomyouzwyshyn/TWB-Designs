@@ -95,6 +95,18 @@
         clearInterval(timer);
         timer = setInterval(function(){ goTo(i+1); }, 6000);
       }
+      // A manual swipe or scroll of the rail only updates which button looks
+      // active (via the IntersectionObserver below); it never touched this
+      // timer, so the auto-advance could fire moments later and yank the
+      // rail away from wherever the user had just scrolled to. Debounce a
+      // restart on scroll so the countdown always resets from the position
+      // the user actually left it at.
+      var scrollSettle;
+      rail.addEventListener('scroll', function(){
+        clearInterval(timer);
+        clearTimeout(scrollSettle);
+        scrollSettle = setTimeout(restart, 300);
+      }, { passive:true });
       var io = 'IntersectionObserver' in window ? new IntersectionObserver(function(entries){
         entries.forEach(function(e){
           if(e.isIntersecting){

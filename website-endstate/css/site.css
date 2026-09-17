@@ -165,7 +165,7 @@ p{ font-size:1rem; line-height:1.5; color:var(--ink-2); max-width:var(--measure)
 @media (max-width:560px){ .swgrid{ grid-template-columns:1fr } }
 .swcard{ position:relative; border-right:1px solid var(--rule); border-bottom:1px solid var(--rule);
   aspect-ratio:3/4; overflow:hidden; display:block }
-.swcard-media{ position:absolute; inset:0 }
+.swcard-media{ position:absolute; inset:0; padding:16px }
 .swcard-scrim{ position:absolute; inset:0; z-index:1; pointer-events:none;
   background:linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,.75) 100%) }
 .swcard-text{ position:absolute; left:0; right:0; bottom:0; z-index:2; padding:var(--s3); color:#fff }
@@ -413,7 +413,7 @@ p{ font-size:1rem; line-height:1.5; color:var(--ink-2); max-width:var(--measure)
   box-shadow:0 0 6px rgba(225,235,215,.95), 0 0 16px rgba(201,214,190,.8), 0 0 30px rgba(157,170,146,.55) }
 .hero-pulse::after{ content:""; position:absolute; right:-3px; top:50%; width:7px; height:7px; margin-top:-3.5px; border-radius:50%;
   background:#FFFFFF; box-shadow:0 0 8px #FFFFFF, 0 0 18px rgba(201,214,190,.95), 0 0 34px rgba(157,170,146,.7) }
-@media (max-width:560px){ .hero-words{ gap:0 1.7em; font-size:clamp(.78rem,3.7vw,1.05rem); transform:scaleX(.88) } .hero-pulse{ width:30px } }
+@media (max-width:560px){ .hero-words{ gap:0 1.1em; font-size:clamp(.6rem,2.9vw,.85rem); transform:scaleX(.9) } .hero-pulse{ width:20px } }
 @media (prefers-reduced-motion: reduce){ .hero-words span{ color:var(--dark-ink) } .hero-pulse{ display:none } }
 
 /* ---------- home: company identity line ---------- */
