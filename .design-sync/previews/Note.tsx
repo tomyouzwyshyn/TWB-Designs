@@ -3,7 +3,7 @@ import { Note, Chip } from '@twb/design-system';
 
 export const Default = () => (
   <Note>
-    <p><strong>On throughput.</strong> Vault is rated at 60 lb/hr up to .50 calibre. We publish the hourly rate, not a daily figure — daily figures in this category assume shift lengths nobody runs.</p>
+    <p><strong>On throughput.</strong> eMACS is rated at 60 lb/hr up to .50 calibre. We publish the hourly rate, not a daily figure — daily figures in this category assume shift lengths nobody runs.</p>
   </Note>
 );
 

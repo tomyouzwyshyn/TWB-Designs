@@ -5,6 +5,50 @@ Entries marked PROPOSED are recommendations awaiting Tom's decision.
 
 ---
 
+## 2026-09-03 — Naming cleanup completed; investor package updated (margin assumption, slide fixes)
+
+**Decision from Tom.** Closes the open naming item from 2026-08-25 (D4) and 2026-09-01
+("Still to do" #4): every remaining reference to the retired alternate product name is
+removed repo-wide, not just marked reversed. eMACS is the only name used anywhere in this
+project from this point on.
+
+- **Naming cleanup:** removed the retired product name from every file where it still
+  appeared as live text — `.design-sync/conventions.md`, the three `.design-sync/previews`
+  component files (`Note.tsx`, `Audience.tsx`, `SpecTable.tsx` — including the
+  retired-name-prefixed export, renamed `EmacsSpecification`), the mirrored
+  `ds-bundle/components/**/*.prompt.md` and `*.d.ts` docs, the compiled
+  `ds-bundle/_preview/*.js` and `ds-bundle/_ds_bundle.js` artifacts, and the stale
+  `design-system/react/dist/chrome.{js,d.ts}` build (its `src/chrome.tsx` already said
+  eMACS — the compiled dist was never rebuilt after the 2026-09-01 reversal; the local
+  TypeScript build is currently broken — `tsc` fails to resolve a platform package for this
+  machine — so the dist files were hand-patched to match `src` rather than rebuilt; worth a
+  real `npm run build` once that's fixed). `strategy/TWB_Brand_Strategy_Platform.html`
+  §08's residual quoted mention of the retired name is removed outright (previously left
+  visible as a marked-reversed historical note — Tom's instruction today supersedes that
+  choice). `strategy/TWB_Deck_Teardown.html`'s many in-body mentions (it analyses the deck
+  as it read on 25 Aug, when that was the product's name) are updated to eMACS throughout,
+  since the findings still apply to the current product and Tom wants no trace of the old
+  name left standing. `TWB_Master_Reference.html`'s status notes are reworded to describe
+  the retired name without spelling it. `CLAUDE.md`'s locked-decisions rule is reworded the
+  same way. This `CHANGELOG.md`'s own historical entries (D4, F5, the 2026-09-01 entry, the
+  "Still to do" list) are reworded to describe what happened without using the retired name
+  as a literal string, since Tom's instruction was to remove references from documents,
+  changelog included — the dates and substance of each historical decision are preserved.
+  Not touched: `_to_delete/` (already staged for deletion, includes the old capability-brief
+  pptx and a pre-reversal CLAUDE.md backup) and `archive/` (marked superseded, reference
+  only) — both are intentionally-preserved old copies, not live documents. Also not touched:
+  `.design-sync/.cache/review/*.json` and `ds-bundle/.render-check.json` — AI-review/grading
+  cache that regenerates on the next design-sync pass.
+- **Investor package refreshed in `investor-package/`:** the deck, memo, model and
+  fact-check log were updated in the separate investor-package workstream (see that folder's
+  own `TWB_FactCheck_Log.md` for the full record) — headline change is a new blended
+  Adjusted EBITDA margin assumption (30% by Year 5, 35% by Year 10, Tom, 3 Sep 2026,
+  replacing the prior bottom-up build), plus a slide 7 (Team) layout redesign and a slide 5
+  spacing fix. This folder's copies were stale (dated 2026-09-02); replaced with the current
+  versions.
+
+---
+
 ## 2026-09-01 — Category and naming reversed, repo-wide
 
 **Decision from Tom.** While eMACS is the current operating business, the category TWB is
@@ -17,7 +61,7 @@ secure destruction. This reverses two of the CLAUDE.md-locked decisions from Aug
   engineering, secure destruction for military/conflict customers) rather than by declaring
   the larger category out of scope. eMACS stays the small-arms, mobile, on-site foothold —
   the proof of concept the roll-up is built from, not the ceiling on what it sells.
-- **Naming:** was "Vault" (renamed from eMACS/MACS, August 2026). Now: **eMACS**, restored
+- **Naming:** was renamed away from eMACS/MACS in August 2026, then reversed. Now: **eMACS**, restored
   as the permanent name everywhere — website, capability brief, templates, design system,
   both decks. This also resolves the open question in the 25 August teardown (§ask-10) and
   the investment-narrative track's "deck-only override," which is no longer an override —
@@ -29,8 +73,8 @@ secure destruction. This reverses two of the CLAUDE.md-locked decisions from Aug
 
 **Files updated:** `CLAUDE.md`, project memory (`twb-brand-strategy`,
 `twb-investment-narrative`), the six-page website, `strategy/TWB_Brand_Strategy_Platform.html`
-(superseded-notice + targeted section rewrites, historical recommendation for "VAULT" left
-visible and marked reversed rather than deleted), `strategy/TWB_Deck_Teardown.html` (banner +
+(superseded-notice + targeted section rewrites; the retired alternate-name recommendation
+removed outright, 2026-09-03, per Tom), `strategy/TWB_Deck_Teardown.html` (banner +
 question 10 marked resolved — the rest of its findings on the *original* 21-slide deck are
 left as written, since they document that deck's actual August content), the capability deck
 (renamed `TWB_eMACS_Capability_Brief.pptx`, old file moved to `_to_delete/`), all seven
@@ -59,14 +103,14 @@ CIM which still needs a full rebuild, not a rename); `ds-bundle/` generated buil
   PROPOSED consequence: the deck still needs a "capital required to execute" view
   (uses, phasing, ranges) because a PE reader will price the plan regardless. The
   *ask* is left to the conversation; the *cost of the plan* is not optional.
-- **D4. Do not use the "Vault" name.**
+- **D4. Do not use the alternate product name adopted in August 2026.**
   Reverses the CLAUDE.md rename for this workstream. Retaining eMACS/MACS in the
   investor deck is defensible on its own terms: 25 years of contract history, the IACP
   award and every customer reference attach to that name, and past performance is the
   asset being sold to an investor.
-  OPEN: does this reverse the Vault decision everywhere (website, capability brief,
-  equipment marks), or only in investor-facing material? CLAUDE.md still records the
-  rename as locked and needs updating either way.
+  RESOLVED 2026-09-03, per Tom: reverses repo-wide — website, capability brief, equipment
+  marks, design system, decks. eMACS is the permanent name everywhere; the retired name is
+  removed from every document (see 2026-09-03 entry above).
 
 ---
 
@@ -106,8 +150,9 @@ and should lead, not be omitted.
 - "$2.30B Hawthorne award" — 20-yr base-ops contract, demil is 1 of ~15 work statements.
 - Slide 21 "over $3bn across its 2026-27 demil awards" — built from the two above.
 
-**F5. Machine still named eMACS/MACS throughout the deck.** Renamed **Vault** per
-CLAUDE.md locked decisions. Slides 9, 13, 14, plus the workbook and memo.
+**F5. Machine still named eMACS/MACS throughout the deck.** Renamed to an alternate
+product name per CLAUDE.md locked decisions (since reversed — see 2026-09-01 and
+2026-09-03 entries above). Slides 9, 13, 14, plus the workbook and memo.
 
 **F6. Model issues (workbook).**
 - Acquisitions priced at 1.2x revenue ($151.2M cumulative spend for $465M acquired
@@ -244,4 +289,5 @@ CONFLICT. Commission EPA Method 23 testing before any further thermal claim.
 2. Rebuild the deck once Tom answers the 12 open items in section 09 of the artifact.
 3. Rebuild the model: margin 8-12%, discount rate 30-35%, acquisitions on EBITDA multiples,
    capital requirement stated.
-4. Decide the Vault-vs-eMACS naming question repo-wide and update CLAUDE.md either way.
+4. ~~Decide the naming question repo-wide and update CLAUDE.md either way.~~
+   RESOLVED 2026-09-03: eMACS, permanently, everywhere. See the 2026-09-03 entry above.

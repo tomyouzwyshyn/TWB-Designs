@@ -1,6 +1,6 @@
 # TWB Designs — building with this system
 
-TWB Designs Inc. builds **Vault**, a trailer-deployed closed chamber that destroys
+TWB Designs Inc. builds **eMACS**, a trailer-deployed closed chamber that destroys
 seized property — ammunition, narcotics, surplus stock — inside the owner's perimeter.
 The design language is deliberately austere: it has to read as a defence supplier's
 disclosure document, not a marketing site.

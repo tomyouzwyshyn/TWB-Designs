@@ -4,7 +4,7 @@ import { Audience, Grid } from '@twb/design-system';
 export const Single = () => (
   <Audience tag="Law enforcement" title="Evidence custodians · armourers · range officers · EOD">
     <p>Seized ammunition. Surrendered rounds from buy-backs and take-back days. Duty ammunition past service life. Seized narcotics and other property ordered destroyed.</p>
-    <p>Vault clears the locker inside your own compound, on a schedule you set, with no contractor entering the chain.</p>
+    <p>eMACS clears the locker inside your own compound, on a schedule you set, with no contractor entering the chain.</p>
   </Audience>
 );
 

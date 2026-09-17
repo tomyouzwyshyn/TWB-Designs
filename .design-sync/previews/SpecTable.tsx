@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { SpecTable } from '@twb/design-system';
 
-export const VaultSpecification = () => (
+export const EmacsSpecification = () => (
   <SpecTable rows={[
     { k: 'Maximum calibre', v: '.50 cal' },
     { k: 'Rated throughput', v: '60 lb/hr' },
