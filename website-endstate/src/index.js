@@ -3,8 +3,8 @@ const { AREAS, brk, ph, ctaHtml, swCard } = require('./lib');
 
 const heroMedia = ph({
   id: 'H-01', kind: 'video', ratio: '16/9', file: 'home-hero.mp4',
-  shot: 'Slow aerial drift over a quiet former conflict landscape at first light: fields, a treeline, a river, low mist. Near the edge of frame a small autonomous ground robot moves along a survey line. Calm, vast, restored.',
-  prompt: 'Cinematic slow aerial drift over a quiet rural landscape at first light, patchwork fields, a treeline and a winding river under low mist, a tiny matte charcoal autonomous ground robot moving along a faint survey line near the edge of frame, muted cold colour grade with a hint of sage, no people, no text, 16:9, photoreal, 4K'
+  shot: 'Slow aerial drift over a quiet former conflict landscape at first light: fields, a treeline, a river, low mist. A survey drone flies across the scene, seen from above and behind, its sensor pointed at the ground. Calm, vast, restored.',
+  prompt: 'Cinematic slow aerial drift over a quiet rural landscape at first light, patchwork fields, a treeline and a winding river under low mist, a small matte charcoal survey drone flying across the right third with its sensor pod aimed at the ground, muted cold colour grade with a hint of sage, no people, no text, 16:9, photoreal, 4K'
 });
 
 const AREA_MEDIA = {
