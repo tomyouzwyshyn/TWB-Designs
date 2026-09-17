@@ -106,7 +106,7 @@ function footerHtml(){
     <div class="wrap footer-top">
       <div class="footer-brand">
         <img src="assets/brand/endstate-logo-black-legacy.png" alt="END STATE" style="height:34px">
-        <p>End State Solutions. Full-service munitions processing and reclamation for military and police organizations, operating since 2004.</p>
+        <p>End State Solutions. Full-service munitions processing and reclamation for military and law enforcement organizations, operating since 2004.</p>
       </div>
       <div class="footer-col">
         <h4>Areas</h4>
@@ -115,7 +115,7 @@ function footerHtml(){
       <div class="footer-col">
         <h4>Built for</h4>
         <a href="index.html#operators">Military organizations</a>
-        <a href="index.html#operators">Police organizations</a>
+        <a href="index.html#operators">Law enforcement organizations</a>
         <a href="index.html#operators">Allied and coalition partners</a>
       </div>
       <div class="footer-col">

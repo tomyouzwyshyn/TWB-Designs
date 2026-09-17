@@ -71,7 +71,7 @@ module.exports = buildAreaPage({
     eyebrow: 'Why it exists',
     title: 'Every war ends. Every stockpile ages. Every round must one day be unmade.',
     body: [
-      'Surplus, obsolete and recovered munitions are a liability for as long as they exist: to the people who guard them, to the communities near them, and to the military and police organizations accountable for them. Moving them to be destroyed somewhere else adds risk at every mile and every handoff.',
+      'Surplus, obsolete and recovered munitions are a liability for as long as they exist: to the people who guard them, to the communities near them, and to the military and law enforcement organizations accountable for them. Moving them to be destroyed somewhere else adds risk at every mile and every handoff.',
       'Remediation brings the destruction to the munitions. It keeps every item inside the owner’s custody, destroys it in a closed chamber on site, and recovers the metal it was made from, so that a standing hazard becomes a certified record and a return to domestic supply.'
     ]
   },
@@ -129,10 +129,10 @@ module.exports = buildAreaPage({
 
   why: {
     eyebrow: 'Why it matters',
-    title: 'What military and police organizations gain.',
+    title: 'What military and law enforcement organizations gain.',
     items: [
       { label: 'Sovereign supply', title: 'Less reliance on foreign sources', body: 'Critical and strategic metals recovered from national stockpiles return to domestic industry instead of being lost or exported.' },
-      { label: 'Custody', title: 'No transfers, no diversion windows', body: 'Munitions are destroyed where they are held, whether a military depot or a police property room, under the owner’s supervision, with an item-level record from intake to certificate.' },
+      { label: 'Custody', title: 'No transfers, no diversion windows', body: 'Munitions are destroyed where they are held, whether a military depot or a law enforcement property room, under the owner’s supervision, with an item-level record from intake to certificate.' },
       { label: 'Safety', title: 'Destruction without open burning', body: 'A sealed chamber replaces open pits and open detonation, protecting the people on site, the surrounding community and the ground beneath.' }
     ]
   }
