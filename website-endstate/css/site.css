@@ -102,7 +102,9 @@ p{ font-size:1rem; line-height:1.65; color:var(--ink-2); max-width:var(--measure
   display:flex; flex-direction:column; align-items:center; text-align:center }
 .hero-tagrow{ display:flex; align-items:center; justify-content:center; gap:var(--s3); margin-bottom:var(--s3) }
 .hero-title{ font-family:var(--display); font-weight:var(--w-display); letter-spacing:var(--track-display);
-  font-size:clamp(2.4rem,5.6vw,5rem); line-height:1.0; max-width:20ch }
+  font-size:clamp(1.5rem,4.1vw,3.6rem); line-height:1.04; max-width:36ch; text-transform:uppercase; text-wrap:balance }
+.hero-line{ display:block }
+.hero-line + .hero-line{ margin-top:.28em }
 .hero-sub{ margin-top:var(--s3); font-family:var(--ui); font-size:.85rem; letter-spacing:.03em; text-transform:uppercase; color:var(--dark-ink-2) }
 .hero-foot{ position:absolute; z-index:2; left:0; right:0; bottom:var(--s4);
   display:flex; flex-direction:column; align-items:center; gap:var(--s2) }
@@ -415,3 +417,13 @@ p{ font-size:1rem; line-height:1.65; color:var(--ink-2); max-width:var(--measure
 
 /* Home hero photo: keep the drone (left of centre) in frame on portrait screens */
 @media (max-aspect-ratio: 1/1){ .hero-media img[src$="home-hero.jpg"]{ object-position:18% center } }
+
+/* Hero heading decode (Anduril-style text scramble). JS wraps each word in
+   .scr-w: an invisible copy of the real word holds the layout, and .scr-o sits
+   on top showing resolved letters plus a flickering tail of random letters. */
+.scr-w{ position:relative; display:inline-block; white-space:nowrap }
+.scr-g{ visibility:hidden }
+.scr-o{ position:absolute; left:0; top:0; white-space:pre }
+.scr-o b{ font-weight:inherit; color:var(--sage-dark); opacity:.85 }
+.hero-words.is-waiting{ opacity:0 }
+.hero-words{ transition:opacity .6s var(--ease) }

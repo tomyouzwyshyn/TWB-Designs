@@ -355,7 +355,89 @@
     later(cycle, 600);
   }
 
+
+  // Hero heading decode, modelled on anduril.com's text animation: text is
+  // revealed left to right while the unresolved tail cycles random capitals
+  // every ~20ms, then locks letter by letter into the real copy. Spaces and
+  // punctuation never scramble. Layout never shifts: each word keeps an
+  // invisible copy of itself underneath the animated overlay.
+  function heroScramble(onDone){
+    var h = document.querySelector('[data-scramble]');
+    if(!h){ onDone && onDone(); return; }
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduce){ onDone && onDone(); return; }
+    h.setAttribute('aria-label', h.textContent.replace(/\s+/g,' ').trim());
+    var LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    var KEEP = /[\s.,\/:;'’\-]/;
+    var lines = h.querySelectorAll('.hero-line');
+    if(!lines.length) lines = [h];
+    var plans = [];
+    var LINE_GAP = .6, CHAR_REVEAL = 16, CHAR_RESOLVE = 34, TICK = 24;
+    Array.prototype.forEach.call(lines, function(line, li){
+      var words = line.textContent.trim().split(/\s+/);
+      line.textContent = '';
+      line.setAttribute('aria-hidden', 'true');
+      var cursor = 0, items = [];
+      words.forEach(function(w, wi){
+        var wrap = document.createElement('span'); wrap.className = 'scr-w';
+        var ghost = document.createElement('span'); ghost.className = 'scr-g'; ghost.textContent = w;
+        var over = document.createElement('span'); over.className = 'scr-o';
+        wrap.appendChild(ghost); wrap.appendChild(over);
+        line.appendChild(wrap);
+        if(wi < words.length - 1) line.appendChild(document.createTextNode(' '));
+        items.push({ text:w, start:cursor, over:over });
+        cursor += w.length + 1;
+      });
+      var len = cursor - 1;
+      var prev = plans[plans.length - 1];
+      plans.push({ items:items, len:len, delay: prev ? prev.delay + prev.resolve * LINE_GAP : 0, reveal:len * CHAR_REVEAL, resolve:len * CHAR_RESOLVE });
+    });
+    function easeOutCubic(t){ return 1 - Math.pow(1 - t, 3); }
+    function easeInOutSine(t){ return -(Math.cos(Math.PI * t) - 1) / 2; }
+    function clamp(v){ return v < 0 ? 0 : v > 1 ? 1 : v; }
+    var t0 = null, last = 0, total = 0;
+    plans.forEach(function(p){ total = Math.max(total, p.delay + Math.max(p.reveal, p.resolve)); });
+    function frame(now){
+      if(t0 === null) t0 = now;
+      var el = now - t0;
+      if(now - last >= TICK || el >= total){
+        last = now;
+        plans.forEach(function(p){
+          var local = el - p.delay;
+          var shown = Math.round(easeOutCubic(clamp(local / p.reveal)) * p.len);
+          var fixed = Math.round(easeInOutSine(clamp(local / p.resolve)) * p.len);
+          p.items.forEach(function(it){
+            var done = '', noise = '';
+            for(var i = 0; i < it.text.length; i++){
+              var g = it.start + i, c = it.text.charAt(i);
+              if(g >= shown) break;
+              if(g < fixed || KEEP.test(c)){ if(noise){ noise += c; } else { done += c; } }
+              else noise += LETTERS.charAt(Math.floor(Math.random() * LETTERS.length));
+            }
+            it.over.innerHTML = '';
+            if(done) it.over.appendChild(document.createTextNode(done));
+            if(noise){ var b = document.createElement('b'); b.textContent = noise; it.over.appendChild(b); }
+          });
+        });
+      }
+      if(el < total) requestAnimationFrame(frame);
+      else {
+        Array.prototype.forEach.call(lines, function(line){
+          line.querySelectorAll('.scr-o').forEach(function(o){ o.textContent = o.previousSibling.textContent; });
+        });
+        onDone && onDone();
+      }
+    }
+    requestAnimationFrame(frame);
+  }
+
   document.addEventListener('DOMContentLoaded', function(){
-    header(); nav(); menu(); reveal(); tabs(); xfade(); heroPulse(); media(); jumpbar(); ptable(); form(); year();
+    header(); nav(); menu(); reveal(); tabs(); xfade();
+    var words = document.querySelector('[data-hero-words]');
+    if(words && document.querySelector('[data-scramble]')){
+      words.classList.add('is-waiting');
+      heroScramble(function(){ words.classList.remove('is-waiting'); setTimeout(heroPulse, 250); });
+    } else { heroPulse(); }
+    media(); jumpbar(); ptable(); form(); year();
   });
 })();

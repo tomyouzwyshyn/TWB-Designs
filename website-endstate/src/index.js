@@ -77,7 +77,7 @@ const body = `
   <div class="hero-media" style="position:absolute;inset:0">${heroMedia}</div>
   <div class="hero-scrim"></div>
   <div class="hero-body wrap">
-    <h1 class="hero-title">One operating system for the full lifecycle.</h1>
+    <h1 class="hero-title" data-scramble><span class="hero-line">One platform for demilitarization and secure destruction.</span> <span class="hero-line">Any munition, any location.</span></h1>
     <div class="hero-sub hero-words" data-hero-words aria-label="Detection, Identification, Remediation">
       <span>Detection</span><span>Identification</span><span>Remediation</span>
       <i class="hero-pulse" aria-hidden="true"></i>
