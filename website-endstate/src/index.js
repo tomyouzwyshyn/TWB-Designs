@@ -191,7 +191,7 @@ const body = `
 <section class="band">
   <div class="wrap" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:var(--s5);align-items:center">
     <div class="rv">
-      <div class="tag on-dark">${brk()}Sovereign safety</div>
+      <div class="tag on-dark">${brk()}SOVEREIGN SAFETY</div>
       <h2 class="h2" style="margin-top:.5em">A nation’s munitions are its own business, from first to last.</h2>
       <p class="lede on-dark" style="margin-top:.6em">The work happens inside national borders, under national custody, with the data and the recovered materials remaining under the control of the government that owns them.</p>
       <a class="btn btn-line on-dark" href="remediation.html#elements" style="margin-top:var(--s3);display:inline-block">See what we recover</a>
