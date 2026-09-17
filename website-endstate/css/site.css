@@ -27,9 +27,9 @@ ul{ list-style:none }
   font-size:clamp(1.6rem,2.6vw,2.3rem); line-height:1.06 }
 .h3{ font-family:var(--display); font-weight:var(--w-sub); letter-spacing:var(--track-sub);
   font-size:clamp(1.15rem,1.6vw,1.4rem); line-height:1.15 }
-.lede{ font-size:clamp(1.05rem,1.4vw,1.3rem); line-height:1.5; color:var(--ink-2); max-width:var(--measure) }
+.lede{ font-size:clamp(1.05rem,1.4vw,1.3rem); line-height:1.4; color:var(--ink-2); max-width:var(--measure) }
 .lede.on-dark{ color:var(--dark-ink-2) }
-p{ font-size:1rem; line-height:1.65; color:var(--ink-2); max-width:var(--measure) }
+p{ font-size:1rem; line-height:1.5; color:var(--ink-2); max-width:var(--measure) }
 .ui{ font-family:var(--ui); font-size:.78rem; letter-spacing:var(--track-ui); text-transform:uppercase }
 .tag{ display:inline-flex; align-items:center; gap:.4em; font-family:var(--ui); font-size:.78rem;
   letter-spacing:var(--track-ui); color:var(--sage) }
