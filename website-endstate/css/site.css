@@ -144,7 +144,7 @@ p{ font-size:1rem; line-height:1.5; color:var(--ink-2); max-width:var(--measure)
 .hero-jump a:hover{ color:var(--dark-ink) }
 
 /* small system-page hero variant (shorter) */
-.hero.sub{ min-height:82svh }
+.hero.sub{ min-height:90.2svh } /* 82svh + 10% */
 
 /* placeholder media sitting inside a dark hero: full-bleed dark fill,
    badge pinned bottom-left the way a real video's caption would sit. */
