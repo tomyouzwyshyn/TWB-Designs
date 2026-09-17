@@ -412,3 +412,6 @@ p{ font-size:1rem; line-height:1.65; color:var(--ink-2); max-width:var(--measure
 .since{ display:flex; flex-wrap:wrap; gap:.5em 1.2em; margin-top:var(--s3); padding-top:var(--s2); border-top:1px solid var(--rule);
   font-family:var(--ui); font-size:.72rem; letter-spacing:var(--track-ui); text-transform:uppercase; color:var(--ink-3) }
 .since span:first-child{ color:var(--sage) }
+
+/* Home hero photo: keep the drone (left of centre) in frame on portrait screens */
+@media (max-aspect-ratio: 1/1){ .hero-media img[src$="home-hero.jpg"]{ object-position:18% center } }
